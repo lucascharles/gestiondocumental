@@ -1,0 +1,123 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+	font-family: Verdana;
+	color: #444;
+	text-align:center;
+	/*
+	background: -webkit-linear-gradient(top, black, white); 
+	background: -moz-linear-gradient(top, black, white); 
+	background: -o-linear-gradient(top, black, white); 
+	background: -ms-linear-gradient(top, black, white); 
+	background: filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff000000', endColorstr='#ffffffff', gradientType='1'); 
+	linear-gradient(top, black, white);
+	*/
+	
+	background: -webkit-radial-gradient(left bottom, circle farthest-side, #706F6F 2%, #706F6F 10%, #3D3D3D 100%)  no-repeat fixed; 			
+	background: -moz-radial-gradient(left bottom, circle farthest-side, #706F6F 2%, #706F6F 10%, #3D3D3D 100%) no-repeat fixed;
+	background: -ms-radial-gradient(left bottom, circle farthest-side, #706F6F 2%, #706F6F 10%, #3D3D3D 100%)  no-repeat fixed;
+	background: radial-gradient(left bottom, circle farthest-side, #706F6F 2%, #706F6F 10%, #3D3D3D 100%)  no-repeat fixed;
+	
+}
+
+#login{
+	background-color: #FFF;
+	/*background:url(../images/bcg_trans.png) repeat;*/
+	width: 500px;
+	height:350px;
+	text-align: left;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-250px;
+	margin-top:-175px;
+	border:1px solid #999; 
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+	box-shadow: 0px 0px 20px #000000;;
+	-o-box-shadow: 2px 2px 19px #000000;
+	-webkit-box-shadow: 2px 2px 19px #000000;
+	-moz-box-shadow: 0px 0px 20px #000000;
+
+}
+
+#alerta{
+	margin: 50px auto;
+	border: 7px solid #900;
+	padding: 20px;
+	width: 400px;
+	background: #C00;
+	color: #FFF;
+}
+
+#alerta a{
+	display: block;
+	padding: 5px;
+	color: #FFF;
+}
+
+h1{
+	padding: 0;
+	font-size: 2em;
+}
+h2
+{
+	color: #063;
+	font-family:Arial, Helvetica, sans-serif;
+
+}
+label{
+	display: block;
+	margin-top: 5px;
+	font-weight: bold;
+}
+
+input{
+	padding: 3px;
+	width: 300px;
+	font-size: 1.2em;
+}
+
+.input_form
+{
+	border: solid;
+	border-width:1px;
+	border-color:#8c8d8f;
+	background:#f1f3f7;
+	height:23px;
+	width:190px;
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+input.boton{
+	width: auto;
+	background:#8b8c8e;
+	color:#FFFFFF;
+	font-weight:bold;
+	border-radius:5px;
+	padding:5px;
+	border:solid;
+	border-width:1px;
+	border-color:#f1f3f7;
+	cursor:pointer;
+	
+}
+
+.espacio{
+	clear: both; height: 20px;
+}
+
+.clear{
+	clear: both;
+}
