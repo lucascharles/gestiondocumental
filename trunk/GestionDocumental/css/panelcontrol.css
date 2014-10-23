@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+
+	body
+	{
+		background-color: #ffffff;
+		font-family: sans-serif;
+		font-size: 0.875em;
+		margin:0;
+		padding:0;
+	}
+	
+	.azul, .rojo
+	{
+		width: 25px;
+		height: 20px;
+		position: absolute;
+	}
+	
+	.azul
+	{
+		background-color: #33c;
+	}
+	
+	.rojo
+	{
+		/*background:url(images/bcg_tssrans_blanco.png) repeat;*/
+		background:#FFF;
+		border: 1px solid #3278b4;
+		height:200px;
+		width:300px;
+		text-align: center;
+	}
+	
+	.suelta
+	{	
+		border: 1px solid #ddd;
+		float: none;
+		left:0px;
+		top:0px;
+		text-align: center;
+		margin: 2px;
+		background-color: #ffffff;
+		height:200px;
+		width:300px;
+		border-top-left-radius: 10px;
+    	border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+    	border-bottom-right-radius: 10px;
+		box-shadow: 0px 0px 10px #666666;;
+		-o-box-shadow: 2px 2px 10px #666666;
+		-webkit-box-shadow: 2px 2px 10px #666666;
+		-moz-box-shadow: 0px 0px 10px #666666;
+	}
+	
+	.arrastrable
+	{
+		overflow:auto;
+		border-radius:10px;
+	}
+	
+	.content_panel
+	{
+		border-radius:5px;
+		background:#9eb0e0;
+		padding:0;
+		margin:0;
+	}
+	
+	.panel_titulo
+	{
+		background:url(../img/backgtitulo.png) repeat-x;
+		height:10px;
+	}
+	
+	.panel_detalle
+	{
+		background:#f0f3fa;
+		border-radius:3px;
+		border:solid;
+		border-width:1px;
+		border-color:#999999;
+		height:97%;
+	}
+	
+	.cabecera
+	{
+		background: #009999;
+		color:#FFFFFF;
+	}
+	.fila
+	{
+		background:#FFFFFF;
+		font-size:12px;
+		text-align:left;
+		
+	}
