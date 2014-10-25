@@ -3,19 +3,36 @@
 <?
 	$titulo_form = "Alta Faena";
 	
-	$id = ($tipop=="M") ? $dato->get_data("id") : "";
-	$id_usuario = ($tipop=="M") ? $dato->get_data("id_usuario") : "";
-	$ape_usuario = ($tipop=="M") ? $dato->get_data("ape_usuario") : "";
-	$nom_usu = ($tipop=="M") ? $dato->get_data("nom_usuario") : "";
-	$clave = ($tipop=="M") ? $dato->get_data("clave") : "";
-	$fec_alta = ($tipop=="M" && $dato->get_data("fec_alta")<>"0000-00-00") ? formatoFecha($dato->get_data("fec_alta"),"yyyy-mm-dd H:m:s","dd/mm/yyyy") : "";
+// 	$id = ($tipop=="M") ? $dato->get_data("id") : "";
+// 	$id_usuario = ($tipop=="M") ? $dato->get_data("id_usuario") : "";
+// 	$ape_usuario = ($tipop=="M") ? $dato->get_data("ape_usuario") : "";
+// 	$nom_usu = ($tipop=="M") ? $dato->get_data("nom_usuario") : "";
+// 	$clave = ($tipop=="M") ? $dato->get_data("clave") : "";
+// 	$fec_alta = ($tipop=="M" && $dato->get_data("fec_alta")<>"0000-00-00") ? formatoFecha($dato->get_data("fec_alta"),"yyyy-mm-dd H:m:s","dd/mm/yyyy") : "";
+	
+	$id = ($tipop=="M") ? $dato->get_data("faeIdFaenas") : "";
+	$faeIdFaenas = ($tipop=="M") ? $dato->get_data("faeIdFaenas") : "";
+	$consIdConstructora = ($tipop=="M") ? $dato->get_data("consIdConstructora") : "";
+	$dirIdDireccion = ($tipop=="M") ? $dato->get_data("dirIdDireccion") : "";
+	$faeEstado = ($tipop=="M") ? $dato->get_data("faeEstado") : "";
+	$faeFechaCreacion = ($tipop=="M") ? $dato->get_data("faeFechaCreacion") : "";
+	$faeFechaInicio = ($tipop=="M") ? $dato->get_data("faeFechaInicio") : "";
+	$faeFechaModificacion = ($tipop=="M") ? $dato->get_data("faeFechaModificacion") : "";
+	$faeFechaTermino = ($tipop=="M") ? $dato->get_data("faeFechaTermino") : "";
+	$faeIdFaenaPadre = ($tipop=="M") ? $dato->get_data("faeIdFaenaPadre") : "";
+	$faeNombre = ($tipop=="M") ? $dato->get_data("faeNombre") : "";
+	$faeResponsable = ($tipop=="M") ? $dato->get_data("faeResponsable") : "";
+	$faeTelefono = ($tipop=="M") ? $dato->get_data("faeTelefono") : "";
+	$faeUsuarioCreacion = ($tipop=="M") ? $dato->get_data("faeUsuarioCreacion") : "";
+	$faeUsuarioModificacion = ($tipop=="M") ? $dato->get_data("faeUsuarioModificacion") : "";
+	
 	
 	if($tipop=="M")
 	{
-		$titulo_form = "Edici&oacute;n Faena(Id: ".$id_usuario.")";
+		$titulo_form = "Edici&oacute;n Faena(Id: ".$faeIdFaenas.")";
 	}
 ?>
-<form name="frmUsuario" action="" method='post'>
+<form name="frmFaenas" action="" method='post'>
 <input type="hidden" name="id_usu" id="id_usu" value="<? echo($id)?>" />
 <input type="hidden" name="tipop" id="tipop" value="<? echo($tipop)?>" />
 
@@ -24,33 +41,30 @@
 		<th align="left" colspan="3"><? echo($titulo_form) ?></th>
     </tr>
 
-	<tr>
-    	<td align="right" class="etiqueta_form">Constructora:</td>
-        <td align="left" class="etiqueta_form" colspan="1">
-        
-        <select name="consIdConstructora" id="consIdConstructora" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this)" onchange="mostrar()">	
-                    <option value="">Seleccione</option>
-                    <?
-//                     for($i=0; $i<$constructoras->get_count(); $i++)
-// 					{
-// 						$dtmp = &$constructoras->items[$i];
-						
-					?>
-                    	<option value="<?=$dtmp->get_data("id")?>"> <?=utf8_decode($dtmp->get_data("consNombre"))?> </option>
-                    <?
-// 					}
-					?>
-        </select>
+   <tr>
+   		<td align="right" class="etiqueta_form">Constructora:</td>
+   		<td align="left" class="etiqueta_form" colspan="1">
+   			<select name="consIdConstructora" id="consIdConstructora"  valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+				<option value="">Seleccion</option>
+   			<?
+            $coleccion = $listConstructoras[0];
+            $cant = $listConstructoras[1];
+			  for($j=0; $j<$cant; $j++)
+			  {
+				$datoTmp = &$coleccion->items[$j];
+		    ?>
+			   <option value="<?=$datoTmp->get_data("consIdConstructora")?>" > <? echo($datoTmp->get_data("consRazonSocial")); ?> </option>
+			<?
+			  }
+    		?>
+            </select>
         </td>
-        <td align="left" class="etiqueta_form" >
-       
-        </td>
-    </tr>
-	
+   </tr>
+
 	<tr>
 		<td align="right" class="etiqueta_form">Nombre Faena:</td>
 		   <td align="left" class="etiqueta_form" colspan="1">
-		   <input type="text" name="ape_usuario" id="ape_usuario" value="<? echo($ape_usuario); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+		   <input type="text" name="faeNombre" id="faeNombre" value="<? echo($faeNombre); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
 		   </td>
 		   <td align="left" class="etiqueta_form" >
 		  
@@ -59,7 +73,7 @@
      <tr>
     	<td align="right" class="etiqueta_form">Fecha Inicio:</td>
         <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="fec_alta" id="fec_alta" value="<? echo($fec_alta); ?>" valida="" tipovalida="fecha" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+        <input type="text" name="faeFechaInicio" id="faeFechaInicio" value="<? echo($faeFechaInicio); ?>" valida="" tipovalida="fecha" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
         </td>
         <td align="left" class="etiqueta_form" >
        
@@ -68,7 +82,7 @@
     <tr>
        	<td align="right" class="etiqueta_form">Fecha Fin:</td>
            <td align="left" class="etiqueta_form" colspan="1">
-           <input type="text" name="fec_alta" id="fec_alta" value="<? echo($fec_alta); ?>" valida="" tipovalida="fecha" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+           <input type="text" name="faeFechaInicio" id="faeFechaInicio" value="<? echo($faeFechaInicio); ?>" valida="" tipovalida="fecha" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
            </td>
            <td align="left" class="etiqueta_form" >
           
@@ -77,7 +91,7 @@
         <tr>
        	<td align="right" class="etiqueta_form">Responsable:</td>
            <td align="left" class="etiqueta_form" colspan="1">
-           <input type="text" name="fec_alta" id="fec_alta" value="<? echo($fec_alta); ?>" valida="" tipovalida="fecha" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+           <input type="text" name="faeResponsable" id="faeResponsable" value="<? echo($faeResponsable); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
            </td>
            <td align="left" class="etiqueta_form" >
           
@@ -86,7 +100,7 @@
         <tr>
        	<td align="right" class="etiqueta_form">Telefono:</td>
            <td align="left" class="etiqueta_form" colspan="1">
-           <input type="text" name="fec_alta" id="fec_alta" value="<? echo($fec_alta); ?>" valida="" tipovalida="fecha" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+           <input type="text" name="faeTelefono" id="faeTelefono" value="<? echo($faeTelefono); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
            </td>
            <td align="left" class="etiqueta_form" >
           
@@ -110,6 +124,6 @@
          </td>
     </tr>
 </table>
-<!-- </div>  -->
+</div>
 </form>
 <? include("views/pie.php"); ?>

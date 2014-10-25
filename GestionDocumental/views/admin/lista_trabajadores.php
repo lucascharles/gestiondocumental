@@ -43,6 +43,7 @@ include("views/cabecera_listado.php");
       <!--  <img src="images/permisos.png" title="Permisos" class="oplistado" onclick="window.parent.configurarRegistro('<? echo($controller) ?>',<?php echo ($datoTmp->get_data("id")) ?>)" /> -->
         <img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($datoTmp->get_data("trbIdTrabajador")) ?>)" />
         <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($datoTmp->get_data("trbIdTrabajador")) ?>)" />
+        <img src="images/permisos.png" title="Documentos" class="oplistado" onclick="window.parent.documentosTrabajador('<? echo($controller) ?>',<?php echo ($datoTmp->get_data("trbIdTrabajador")) ?>)" />
         </td>
 	</tr>
     <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($datoTmp->get_data("id")) ?>">

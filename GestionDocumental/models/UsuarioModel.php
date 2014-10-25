@@ -89,7 +89,7 @@ class UsuarioModel extends ModelBase
 		$sql .= " WHERE ur.id_usuario = '".$param["usrLogin"]."'";
 		$sql .= " and ur.id_rol = p.id_rol ";
 
-		$idsql = consulta($sql);
+// 		$idsql = consulta($sql);
 		
 		$permisos = array();
 		while($rs=mysql_fetch_array($idsql))
