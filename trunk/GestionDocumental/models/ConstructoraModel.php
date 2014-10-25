@@ -105,7 +105,6 @@ class ConstructoraModel extends ModelBase
 		$result = array();
 		$result[] = $sqlpersonal;
 		$result[] = $cant;
-		
     	return $result;	
 	}
 

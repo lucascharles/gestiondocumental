@@ -24,7 +24,7 @@
 		$ini_pag = $_SESSION["f_inicio_pag"];
 	}
  ?>
-<form name="frmusuario">
+<form name="frmfaenas">
 <input type="hidden" name="controller" id="controller" value="<?=$controller?>" />
 <input type="hidden" name="id_reg" id="id_reg" value="" />
 <input type="hidden" name="inicio" id="inicio" value="<? echo($ini) ?>" filtro="S" />

@@ -77,6 +77,7 @@ class TrabajadoresControlModel extends ModelBase
 	public function getTrabajadorIDint($array)
 	{
 		$dato = new Trabajador();
+		
 		$dato->add_filter("trbIdTrabajador","=",$array["id"]);
 		$dato->load();
 		

@@ -39,40 +39,50 @@ class FaenasController extends ControllerBase
 		
 	public function alta($array)
 	{
+		require 'models/FaenasModel.php';
 		require 'models/ConstructoraModel.php';
-		$dato = new ConstructoraModel();
+		
+		$dato = new FaenasModel();
+		$cons = new ConstructoraModel();
+		
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "A";
-		$data['constructoras'] = $dato->getListaConstructora($array);
+
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
+		
+		$data['listConstructoras'] = $cons->getListaConstructora($array);
 		
 		$this->view->show("form/faena.php", $data);
 	}
 	
 	public function editar($array)
 	{
-		require 'models/FaenaModel.php';
+		require 'models/FaenasModel.php';
+		require 'models/ConstructoraModel.php';
 		
-		$dato = new FaenaModel();
+		$dato = new FaenasModel();
+		$cons = new ConstructoraModel();
 		
-		$fae = $dato->getFaenaIDint($array);
+		$afp = $dato->getFaenaIDint($array);
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "M";
-		$data['dato'] = $fae; 
+		$data['dato'] = $afp; 
 
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
+		
+		$data['listConstructoras'] = $cons->getListaConstructora($array);
 		
 		$this->view->show("form/faena.php", $data);
 	}
 	
 	public function grabar_form($array)
 	{
-		require 'models/FaenaModel.php';
-		$dato = new FaenaModel();
+		require 'models/FaenasModel.php';
+		$dato = new FaenasModel();
 		
 		$dato->grabar_datosForm($array);
 		

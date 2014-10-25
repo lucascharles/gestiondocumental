@@ -21,8 +21,11 @@ class FaenasModel extends ModelBase
 			$dato->add_filter("faeIdFaenas","=",$array["faeIdFaenas"]);
 			$dato->load();
 		}
-		
-		if(trim($array["faeIdFaenas"])<>"")$dato->set_data("faeIdFaenas",$array["faeIdFaenas"]);
+echo($array["tipop"]);
+echo($array["faeIdFaenas"]);
+echo($array["consIdConstructora"]);
+exit;
+// autoincremental		if(trim($array["faeIdFaenas"])<>"")$dato->set_data("faeIdFaenas",$array["faeIdFaenas"]);
 		if(trim($array["consIdConstructora"])<>"")$dato->set_data("consIdConstructora",$array["consIdConstructora"]);
 		if(trim($array["dirIdDireccion"])<>"")$dato->set_data("dirIdDireccion",$array["dirIdDireccion"]);
 		if(trim($array["faeEstado"])<>"")$dato->set_data("faeEstado",$array["faeEstado"]);
@@ -54,7 +57,7 @@ class FaenasModel extends ModelBase
 	public function getFaenaIDint($array)
 	{
 		$dato = new Faenas();
-		$dato->add_filter("faeIdFaenas","=",$array["faeIdFaenas"]);
+		$dato->add_filter("faeIdFaenas","=",$array["id"]);
 		$dato->load();
 		
 		return $dato;
@@ -73,7 +76,7 @@ class FaenasModel extends ModelBase
 	{
 		include("config.php");
 		
-		$select = "  f.faeIdFaenas faeIdFaenas, f.consIdConstructora consIdConstructora,f.dirIdDireccion dirIdDireccion, f.faeEstado faeEstado,f.faeFechaCreacion faeFechaCreacion, f.faeFechaInicio faeFechaInicio,f.faeFechaTermino faeFechaTermino, f.faeIdFaenaPadre faeIdFaenaPadre,f.faeNombre faeNombre, f.faeResponsable faeResponsable,f.faeTelefono faeTelefono ";
+		$select = "  f.faeIdFaenas id, f.consIdConstructora consIdConstructora,f.dirIdDireccion dirIdDireccion, f.faeEstado faeEstado,f.faeFechaCreacion faeFechaCreacion, f.faeFechaInicio faeFechaInicio,f.faeFechaTermino faeFechaTermino, f.faeIdFaenaPadre faeIdFaenaPadre,f.faeNombre faeNombre, f.faeResponsable faeResponsable,f.faeTelefono faeTelefono ";
 		$from = " faena f ";
 		$where = " f.activo = 'S' ";
 		
@@ -83,7 +86,7 @@ class FaenasModel extends ModelBase
 		}
 		
 		$where .= " ORDER BY f.faeNombre ";
-		
+
 		$sqlpersonal = new SqlPersonalizado($config->get('dbhost'), $config->get('dbuser'), $config->get('dbpass') );
 		$sqlpersonal->set_select($select); 
 	  	$sqlpersonal->set_from($from);
