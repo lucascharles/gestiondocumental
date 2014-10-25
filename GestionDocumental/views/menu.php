@@ -138,7 +138,29 @@
 								  </tr>
 								  </table>
 								  </li>
-							    <? /*if(checkPermisos(3,"vista")) { */?>                 
+					            
+<!-- 					            ------------------ -->
+								  
+<!-- 								<li>  -->
+                                  <table border="0" cellpadding="0" cellspacing="0" width="160" align="center" onClick="">
+<!-- 									<tr> -->
+<!--                                    		<td align="center" valign="middle"  height="25" class=""> -->
+                                  		<div class="principal" onClick="cargarOpcion('TrabajadoresControl')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
+<!--                                         <table> -->
+<!--                                             	<tr><td align="center"> -->
+<!--                                         <img src="images/configuracion.png" /> -->
+<!--                                         </td></tr> -->
+<!--                                                 <tr><td align="center"> -->
+<!--                                             	PRUEBA -->
+<!--                                             	</td></tr> -->
+<!--                                             </table> -->
+<!--                                         </div> -->
+<!--                                  		</td> -->
+<!--                                   	</tr> -->
+<!--                                   </table>                                   -->
+<!--                                 </li>  -->
+<!-- 					            ------------------ -->
+					            
                                   <li> 
                                   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center" onClick="">
 									<tr>
@@ -157,8 +179,7 @@
                                   	</tr>
                                   </table>                                  
                                 </li>   
-                               <? /*} */?> 
-                               </*? if(checkPermisos(4,"vista")) { */ ?>                 
+                                             
                                 <li>
                                 <table border="0" cellpadding="0" cellspacing="0" width="160" align="center" onClick="">
 								<tr>
