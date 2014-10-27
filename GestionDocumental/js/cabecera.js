@@ -4,7 +4,7 @@ $(document).ready(function()
 	//documentacionVencida();
 	//habilitacionVehiculos();
 	//habilitacionContratista();
-	banderaPendientes();
+	//banderaPendientes();
 	//banderaActualiza();
 });
 
