@@ -17,7 +17,7 @@
                                     <div class="principal" onClick="cargarOpcion('Dashboard')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
                                     <table>
                                             	<tr><td align="center">
-                                    <img src="images/dashboard.png" />
+                                    <img src="images/dashboard.png" class="btn_menu" />
                                     </td></tr>
                                                 <tr><td align="center">
                                             	DASHBOARD
@@ -40,7 +40,7 @@
                                   <div class="principal" onClick="cargarOpcion('TrabajadoresControl')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
                                   <table>
                                           	<tr><td align="center">
-                                  <img src="images/kdmconfig.png" />
+                                  <img src="images/kdmconfig.png" class="btn_menu"  />
                                   </td></tr>
                                               <tr><td align="center">
                                           	TRABAJADORES
@@ -62,7 +62,7 @@
                                   <div class="principal" onClick="cargarOpcion('Constructora')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
                                   <table>
                                           	<tr><td align="center">
-                                  <img src="images/firewall.png" />
+                                  <img src="images/firewall.png" class="btn_menu" />
                                   </td></tr>
                                               <tr><td align="center">
                                           	CONSTRUCTORAS
@@ -83,7 +83,7 @@
 								  <div class="principal" onClick="cargarOpcion('Contratistas')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
 								  <table>
 											<tr><td align="center">
-								  <img src="images/kuser.png" />
+								  <img src="images/kuser.png" class="btn_menu" />
 								  </td></tr>
 											  <tr><td align="center">
 											CONTRATISTAS
@@ -105,7 +105,7 @@
 									  <div class="principal" onClick="cargarOpcion('Afp')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
 									  <table>
 												<tr><td align="center">
-									  <img src="images/my_documents.png" />
+									  <img src="images/my_documents.png" class="btn_menu" />
 									  </td></tr>
 												  <tr><td align="center">
 												AFPs
@@ -127,7 +127,7 @@
 									  <div class="principal" onClick="cargarOpcion('Faenas')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
 									  <table>
 												<tr><td align="center">
-									  <img src="images/advancedsettings.png" />
+									  <img src="images/advancedsettings.png" class="btn_menu" />
 									  </td></tr>
 												  <tr><td align="center">
 												FAENAS
@@ -138,29 +138,7 @@
 								  </tr>
 								  </table>
 								  </li>
-					            
-<!-- 					            ------------------ -->
-								  
-<!-- 								<li>  -->
-                                  <table border="0" cellpadding="0" cellspacing="0" width="160" align="center" onClick="">
-<!-- 									<tr> -->
-<!--                                    		<td align="center" valign="middle"  height="25" class=""> -->
-                                  		<div class="principal" onClick="cargarOpcion('TrabajadoresControl')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
-<!--                                         <table> -->
-<!--                                             	<tr><td align="center"> -->
-<!--                                         <img src="images/configuracion.png" /> -->
-<!--                                         </td></tr> -->
-<!--                                                 <tr><td align="center"> -->
-<!--                                             	PRUEBA -->
-<!--                                             	</td></tr> -->
-<!--                                             </table> -->
-<!--                                         </div> -->
-<!--                                  		</td> -->
-<!--                                   	</tr> -->
-<!--                                   </table>                                   -->
-<!--                                 </li>  -->
-<!-- 					            ------------------ -->
-					            
+							    <? /*if(checkPermisos(3,"vista")) { */?>                 
                                   <li> 
                                   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center" onClick="">
 									<tr>
@@ -168,7 +146,7 @@
                                   		<div class="principal" onClick="cargarOpcion('Dispositivo')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
                                         <table>
                                             	<tr><td align="center">
-                                        <img src="images/configuracion.png" />
+                                        <img src="images/configuracion.png" class="btn_menu" />
                                         </td></tr>
                                                 <tr><td align="center">
                                             	CONFIGURARCI&Oacute;N
@@ -187,7 +165,7 @@
                                   	<div class="principal" onClick="cargarOpcion('Usuario')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
                                     <table>
                                             	<tr><td align="center">
-                                    <img src="images/usuarios.png">
+                                    <img src="images/usuarios.png" class="btn_menu">
                                     </td></tr>
                                                 <tr><td align="center">
                                             	USUARIOS
