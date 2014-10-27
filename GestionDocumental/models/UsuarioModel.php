@@ -175,25 +175,25 @@ class UsuarioModel extends ModelBase
 		$dato->save();
 	}
 	
-	public function validarUsuario($id_usuario, $clave)
+	public function validarUsuario($param)
 	{
 		$resp = false; 
 		
-		$oUsuario = new Usuarios();
-		$oUsuario->add_filter("id_usuario","=",$id_usuario);
-		$oUsuario->add_filter("AND");
-		$oUsuario->add_filter("clave","=",$clave);
-		$oUsuario->add_filter("AND");
-		$oUsuario->add_filter("activo","=","S");
-		$oUsuario->load();
-	
-		if(!is_null($oUsuario->get_data("nom_usuario")))
+		$sql = " SELECT id, tipo_usuario, id_empresa  ";
+		$sql .= " FROM usuarios ";
+		$sql .= " WHERE id_usuario = '".$param["usrLogin"]."'";
+		$sql .= " AND clave = '".$param["passLogin"]."'";
+		$sql .= " AND activo = 'S' ";
+		//echo($sql);
+		//exit();
+		$idsql = consulta($sql);
+		$rs=mysql_fetch_array($idsql);
+		if(mysql_num_rows($idsql)>0)
 		{
-			$_SESSION['idusuario'] = $oUsuario->get_data("id_usuario");
 			$resp = true; 
 		}
 		
-		return $resp;
+		return array($resp,$rs);
 
 	}
 	
