@@ -1,6 +1,30 @@
 <?php
 class ContratistaModel extends ModelBase
 {
+	public function getContratista($param)
+	{
+		$sql = " SELECT c.*, CONCAT(d.dirCalle,' ',d.dirNumero,' ',d.dirEstado) direccion ";
+		$sql .= " FROM contratista c LEFT JOIN direccion d ON (c.ctrIdContratista = d.id_contratista and d.activo = 'S') ";
+		$sql .= " WHERE c.activo = 'S' ";
+		$sql .= " AND ctrIdContratista = ".$param["id"];
+		//echo($sql);
+		$idsql = consulta($sql);
+		
+		return mysql_fetch_array($idsql);
+	}
+	
+	public function getFaenasContratista($param)
+	{
+		$sql = " SELECT f.* ";
+		$sql .= " FROM faenasxcontratista fc, faena f ";
+		$sql .= " WHERE f.activo = 'S' ";
+		$sql .= " AND fc.id_faena = f.faeIdFaenas ";
+		$sql .= " AND fc.fxcIdContratistaPadre = ".$param["id"];
+		//echo($sql);
+		$idsql = consulta($sql);
+		
+		return $idsql;
+	}
 	
 	public function bajaRegistro($array)
 	{
@@ -56,33 +80,8 @@ class ContratistaModel extends ModelBase
 		$dato->save();
 	}
 
-	public function getContratista($id_contratista)
-	{
-		$dato = new Contratista();
-		$dato->add_filter("ctrIdContratista","=",$id_contratista);
-		$dato->load();
-		
-		return $dato;
-	}
 	
-
-	public function getContratistaIDint($array)
-	{
-		$dato = new Contratista();
-		$dato->add_filter("ctrIdContratista","=",$array["id"]);
-		$dato->load();
-		
-		return $dato;
-	}
 	
-	public function getDatosContratista($array)
-	{
-		$dato = new Contratista();
-		$dato->add_filter("ctrIdContratista","=",$array["idcontratista"]);
-		$dato->load();
-		
-		return $dato;
-	}
 		
 	public function getListaContratistas($array)
 	{
