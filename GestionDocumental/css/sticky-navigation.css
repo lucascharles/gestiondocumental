@@ -2,7 +2,7 @@
 .demo_container { width:100%;  }
 #demo_top_wrapper { margin:0 0 20px 0; }
 #demo_top { height:50px; padding:20px 0 0 0; }
-#my_logo { font-size:25px; font-weight:bold; color: #333; font-family:Calibri, Verdana, Geneva, sans-serif; margin-left:10%; }
+#my_logo { font-size:25px; font-weight:bold; color: #333; font-family:Calibri, Verdana, Geneva, sans-serif; margin-left:0; }
 
 #sticky_navigation_wrapper { width:90%; height:50px; background:#000; margin-right: auto; margin-left: auto; 	
 	border-radius:5px;
