@@ -21,18 +21,17 @@ class FaenasModel extends ModelBase
 			$dato->add_filter("faeIdFaenas","=",$array["faeIdFaenas"]);
 			$dato->load();
 		}
-echo($array["tipop"]);
-echo($array["faeIdFaenas"]);
-echo($array["consIdConstructora"]);
-exit;
-// autoincremental		if(trim($array["faeIdFaenas"])<>"")$dato->set_data("faeIdFaenas",$array["faeIdFaenas"]);
+		
+// 		var_dump($array);
+		// autoincremental		if(trim($array["faeIdFaenas"])<>"")$dato->set_data("faeIdFaenas",$array["faeIdFaenas"]);
 		if(trim($array["consIdConstructora"])<>"")$dato->set_data("consIdConstructora",$array["consIdConstructora"]);
 		if(trim($array["dirIdDireccion"])<>"")$dato->set_data("dirIdDireccion",$array["dirIdDireccion"]);
 		if(trim($array["faeEstado"])<>"")$dato->set_data("faeEstado",$array["faeEstado"]);
-		if(trim($array["faeFechaCreacion"])<>"")$dato->set_data("faeFechaCreacion",$array["faeFechaCreacion"]);
-		if(trim($array["faeFechaInicio"])<>"")$dato->set_data("faeFechaInicio",$array["faeFechaInicio"]);
-		if(trim($array["faeFechaModificacion"])<>"")$dato->set_data("faeFechaModificacion",$array["faeFechaModificacion"]);
-		if(trim($array["faeFechaTermino"])<>"")$dato->set_data("faeFechaTermino",$array["faeFechaTermino"]);
+		if(trim($array["faeFechaCreacion"])<>"")$dato->set_data("faeFechaCreacion",formatoFecha($array["faeFechaCreacion"],"dd/mm/yyyy","yyyy-mm-dd"));
+		if(trim($array["faeFechaInicio"])<>"")$dato->set_data("faeFechaInicio",formatoFecha($array["faeFechaInicio"],"dd/mm/yyyy","yyyy-mm-dd"));
+		
+		if(trim($array["faeFechaModificacion"])<>"")$dato->set_data("faeFechaModificacion",formatoFecha($array["faeFechaModificacion"],"dd/mm/yyyy","yyyy-mm-dd"));
+		if(trim($array["faeFechaTermino"])<>"")$dato->set_data("faeFechaTermino",formatoFecha($array["faeFechaTermino"],"dd/mm/yyyy","yyyy-mm-dd"));
 		if(trim($array["faeIdFaenaPadre"])<>"")$dato->set_data("faeIdFaenaPadre",$array["faeIdFaenaPadre"]);
 		if(trim($array["faeNombre"])<>"")$dato->set_data("faeNombre",$array["faeNombre"]);
 		if(trim($array["faeResponsable"])<>"")$dato->set_data("faeResponsable",$array["faeResponsable"]);
