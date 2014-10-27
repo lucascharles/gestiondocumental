@@ -20,7 +20,7 @@ class IndexController extends ControllerBase
 		$this->view->show("home.php", $data);
     }
 	
-	public function valid_login($array)
+	public function valid_login($param)
 	{
 		// SE INCLUYE MODELO USUARIO 
 		require 'models/UsuarioModel.php';
@@ -29,18 +29,30 @@ class IndexController extends ControllerBase
 		$usuario = new UsuarioModel();
 	
 		// VALIDAMOS USUARIO Y CLAVE CONTRA LA BASE DE DATOS
-		$resp = $usuario->validarUsuario($array["usrLogin"], $array["passLogin"]);
-		$data['nom_sistema'] = $array["nombre_sistema"];
-		if($resp == false)
+		if(trim($param["usrLogin"]) <> "" && trim($param["passLogin"]) <> "")
+		{
+			$resp = $usuario->validarUsuario($param);
+		}
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		if($resp[0] == false)
 		{
 			$destino = "login.php";
 			$data['accion_form'] = "index.php?controlador=Index&accion=valid_login";
 		}
 		else
 		{
-			$_SESSION["permisosusu"] = $usuario->getPermisos($array);
+			//$_SESSION["permisosusu"] = $usuario->getPermisos($array);
 			$destino = "default.php";
-			$_SESSION["idusuario"] = $array["usrLogin"];
+			$_SESSION["idusuario"] = $param["usrLogin"];
+			$_SESSION["userid"] = $resp[1]["id"];
+			$_SESSION["tip_usuario"] = $resp[1]["tipo_usuario"];
+			
+			if($_SESSION["tip_usuario"] == "E")
+			{
+				$_SESSION["userid"] = $resp[1]["id_empresa"];
+				
+				redir("index.php?controlador=Documento&accion=carga");
+			}
 			include("init.php");
 		}
 
