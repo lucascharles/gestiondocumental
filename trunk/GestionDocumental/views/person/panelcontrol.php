@@ -5,12 +5,14 @@
 	$titulo_form = "DASHBOARD";
 ?>
     <div id="content">
-	<div id="ventana_1" class="rojo arrastrable" cuadrante="cuadrante_1" style="display:none" onDblClick="zoomVentana(this)" zoom="0">1</div>
+<!-- 
+    <div id="ventana_1" class="rojo arrastrable" cuadrante="cuadrante_1" style="display:none" onDblClick="zoomVentana(this)" zoom="0">1</div>
 	<div id="ventana_2" class="rojo arrastrable" cuadrante="cuadrante_2" style="display:none" onDblClick="zoomVentana(this)" zoom="0">2</div>
     <div id="ventana_3" class="rojo arrastrable" cuadrante="cuadrante_3" style="display:none" onDblClick="zoomVentana(this)"  zoom="0">3</div>
     <div id="ventana_4" class="rojo arrastrable" cuadrante="cuadrante_4" style="display:none" onDblClick="zoomVentana(this)"  zoom="0">4</div>
     <div id="ventana_5" class="rojo arrastrable" cuadrante="cuadrante_5" style="display:none" onDblClick="zoomVentana(this)" zoom="0">5</div>
     <div id="ventana_6" class="rojo arrastrable" cuadrante="cuadrante_6" style="display:none" onDblClick="zoomVentana(this)" zoom="0">6</div>
+ -->        
     <table width="800" align="center" cellpadding="0" cellspacing="15" border="0">
     	<tr>
         	<td>

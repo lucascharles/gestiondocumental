@@ -46,10 +46,10 @@
 
  	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Estado Faena:</td>
 					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-<!--
+
  	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Responsable Faena:</td>
  	 	 	 		<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-
+<!--
  	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Telefono Faena:</td>
  	 	 	 		<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
 
