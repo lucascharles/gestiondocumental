@@ -1,25 +1,23 @@
 <html>
 <head>
 <title>
-	Gestion-Documentos
+	Gestión-Documental
 </title>
 <link rel="stylesheet" href="css/sticky-navigation.css" />
- <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico" />
+ <!--<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico" />-->
 	<script src="js/jquery-1.7.1.min.js"></script>
     <script src="js/home.js"></script>
-
 	 <link rel="stylesheet" type="text/css" href="css/home.css" />
 </head>
 
 <body>
+
 <div id="demo_top_wrapper">
 
-	<div id="demo_top">
-		<div class="demo_container">
-			<div id="my_logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gestion Documentos</div>
-		</div>
-	</div>
 
+    <div style="width:90%; height:50px;  margin-right: auto; margin-left: auto;">
+	<div id="my_logo">Gesti&oacute;n Documental</div>	
+    </div>
 	<div id="sticky_navigation_wrapper">
 		<div id="sticky_navigation">
 			<div class="demo_container">
@@ -55,11 +53,10 @@
            </div>
 		</div>
 	</div>
-
-	
 </div><!-- #demo_top_wrapper -->
+<div id="page-wrap" >
 
-<div id="header_top">
+<div id="header_top" >
 	<table width="920" align="center">
     	<tr>
         	<td>
@@ -70,7 +67,7 @@
             	La forma m&aacute;s f&aacute;cil de seguir, gestionar y colaborar en su seguridad. 
                 </span> </h2><br>
                 <h2 class="sub_title_prin"><span>
-				Con el poder de Gestion-Documentos.
+				Con el poder de Seguridad-Ip.
                 </span> </h2>
                  
             </td>
@@ -79,9 +76,6 @@
 
 </div>
 
-<div id="">
-
-<div>
 <table width="100%">
     <tr>
     	<td>
@@ -137,7 +131,7 @@
                     <tr>
                     	<td>
                         <font class="txt_feature">
-				Con la ayuda de Gestion-Documentos, se puede realizar un seguimiento de las caracter&iacute;sticas e hitos previstos y establecer las fechas de lanzamiento.
+				Con la ayuda de Seguridad-Ip, se puede realizar un seguimiento de las caracter&iacute;sticas e hitos previstos y establecer las fechas de lanzamiento.
                 		</font>
                 		</td>
                     </tr>
@@ -196,8 +190,6 @@
         </td>
 	</tr>
 </table>
-<div>
-<div>
 <table width="100%">
 	<tr>
     	<td>
@@ -207,61 +199,61 @@
                 
                 </td>
             </tr>
-<!--         	<tr> -->
-<!--             	<td colspan="4" align="left" width="100%"> -->
-<!--                 	 <h2 class="title-divider"><span>Migrar a Seguridad-Ip</span> </h2> -->
-<!--                 </td> -->
-<!--             </tr> -->
-<!--             <tr> -->
-<!--             	<td colspan="4" > -->
-<!--                 	 <table width="100%" border="0" > -->
-<!--                      	<tr> -->
-<!--                         	<td valign="top" width="50%"> -->
-<!--                             	<table width="100%" border="0"> -->
-<!--                                 <tr> -->
-<!--                                 	<td> -->
-<!--                                   <label class="tit_feature">  Esta usted ...</label> -->
-<!--                                     </td> -->
-<!--                                 </tr> -->
-<!--                                 <tr> -->
-<!--                                 	<td> -->
-<!--                                     <font class="txt_feature"> -->
-<!--                                     <ul> -->
-<!--                                     <li>Cansado de mantener su sistema de seguridad en casa?</li> -->
-<!--                                     <li>Insatisfecho con los proveedores de hosting gen&aacute;ricos con poca o ninguna experiencia en Seguridad-Ip?</li> -->
-<!--                                     <li> -->
-<!-- Buscando un apoyo profesional de las personas que saben Seguridad-Ip mejor?</li> -->
-<!--                                     </ul> -->
-<!--                                     </font> -->
-<!--                                     </td> -->
-<!--                                 </tr> -->
-<!--                                 </table> -->
-<!--                             </td> -->
-<!--                             <td valign="top" width="50%" > -->
-<!--                             <table width="100%"> -->
-<!--                                 <tr> -->
-<!--                                 	<td> -->
-<!--                                    <label class="tit_feature"> Usted ha venido al lugar correcto ...</label> -->
-<!--                                     </td> -->
-<!--                                 </tr> -->
-<!--                                 <tr> -->
-<!--                                 	<td height="5"> -->
+        	<tr>
+            	<td colspan="4" align="left" width="100%">
+                	 <h2 class="title-divider"><span>Migrar a Seguridad-Ip</span> </h2>
+                </td>
+            </tr>
+            <tr>
+            	<td colspan="4" >
+                	 <table width="100%" border="0" >
+                     	<tr>
+                        	<td valign="top" width="50%">
+                            	<table width="100%" border="0">
+                                <tr>
+                                	<td>
+                                  <label class="tit_feature">  Esta usted ...</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td>
+                                    <font class="txt_feature">
+                                    <ul>
+                                    <li>Cansado de mantener su sistema de seguridad en casa?</li>
+                                    <li>Insatisfecho con los proveedores de hosting gen&aacute;ricos con poca o ninguna experiencia en Seguridad-Ip?</li>
+                                    <li>
+Buscando un apoyo profesional de las personas que saben Seguridad-Ip mejor?</li>
+                                    </ul>
+                                    </font>
+                                    </td>
+                                </tr>
+                                </table>
+                            </td>
+                            <td valign="top" width="50%" >
+                            <table width="100%">
+                                <tr>
+                                	<td>
+                                   <label class="tit_feature"> Usted ha venido al lugar correcto ...</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td height="5">
                                    
-<!--                                     </td> -->
-<!--                                 </tr> -->
-<!--                                 <tr> -->
-<!--                                 	<td> -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<td>
                                     
-<!--                                     <font class="txt_feature"> -->
-<!--                                     Con m&aacute;s de 14 a&ntilde;os de experiencia en la construcci&aacute;n de software, nosotros hemos llegado a conocer sobre Seguridad-Ip de adentro hacia afuera. -->
+                                    <font class="txt_feature">
+                                    Con m&aacute;s de 14 a&ntilde;os de experiencia en la construcci&aacute;n de software, nosotros hemos llegado a conocer sobre Seguridad-Ip de adentro hacia afuera.
 
-<!-- Ofrecemos servicios profesionales de consultor&iacute;a para ayudarle a importar sus datos existentes, archivos adjuntos, archivos a su Seguridad-Ip representan sin problemas y libre de riesgos. -->
-<!-- 									</font> -->
-<!--                                     </td> -->
-<!--                                 </tr> -->
-<!--                                 </table> -->
-<!--                             </td> -->
-<!--                         </tr> -->
+Ofrecemos servicios profesionales de consultor&iacute;a para ayudarle a importar sus datos existentes, archivos adjuntos, archivos a su Seguridad-Ip representan sin problemas y libre de riesgos.
+									</font>
+                                    </td>
+                                </tr>
+                                </table>
+                            </td>
+                        </tr>
                          <tr>
 			            	<td colspan="4" align="right" >
                             	 <div class="content_op"> 
@@ -278,11 +270,15 @@
         <td>
         </td>
 	</tr>
+    <tr> <td height="15"></td></tr>
 </table>
-<br>
-<div>
+
+
+
+
 
 </div>
+
 <div class="foot">
 <table width="90%" align="center" >
 	<tr>
@@ -303,7 +299,7 @@
                     	<tr>
                         	<td> <img src="images/mail.png"></td>
                         	<td>
-			                 <font class="txt_foot">support@gestion-documentos.com</font>
+			                 <font class="txt_foot">support@seguridad-ip.com</font>
                     		</td>
                     	</tr>
                         <tr>
@@ -327,7 +323,7 @@
                 <tr>
                 	<td>
                     <font class="txt_foot">
-                    Gestion-Documentos podr&iacute;a ser la herramienta de seguridad que ha estado esperando.
+                    Seguridad-Ip podr&iacute;a ser la herramienta de seguridad que ha estado esperando.
                     </font>
                     </td>
                 </tr>
@@ -372,7 +368,7 @@
 <table width="90%" style="position:relative; margin-top:15px;"  align="center">
 	<tr>
     	<td align="left">
-        <a href="#" class="txt_foot">Gestion-Documentos</a><font class="txt_foot"> &Iota; Copyright <?=date("Y")?> &copy; All Rights Reserved.</font>
+        <a href="#" class="txt_foot">Seguridad-Ip</a><font class="txt_foot"> &Iota; Copyright <?=date("Y")?> &copy; All Rights Reserved.</font>
         </td>
     </tr>
 </table>
