@@ -65,16 +65,19 @@ class FaenasController extends ControllerBase
 		$dato = new FaenasModel();
 		$cons = new ConstructoraModel();
 		
-		$afp = $dato->getFaenaIDint($array);
+		$fae = $dato->getFaenaIDint($array);
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "M";
-		$data['dato'] = $afp; 
+		$data['dato'] = $fae;
 
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
 		$data['listConstructoras'] = $cons->getListaConstructora($array);
+		
+		$idcons = $fae->get_data("consIdConstructora");
+		$data['cons'] = $cons->getConstructoraIDint($idcons);
 		
 		$this->view->show("form/faena.php", $data);
 	}
@@ -83,6 +86,8 @@ class FaenasController extends ControllerBase
 	{
 		require 'models/FaenasModel.php';
 		$dato = new FaenasModel();
+		
+
 		
 		$dato->grabar_datosForm($array);
 		
