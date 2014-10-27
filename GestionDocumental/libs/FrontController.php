@@ -10,10 +10,6 @@ class FrontController
 		require 'libs/View.php'; //Mini motor de plantillas
 		
 		require 'config.php'; //Archivo con configuraciones.
-		require $include_url.'/includes/clases/mygen_framework.php'; 
-
-		require $include_url.'/includes/clases/mygen_mysql.php';
-		require $include_url.'/includes/clases/clases_seguridadip.php';
 		require $include_url.'/includes/funciones/funciones.php'; 
 
 		
