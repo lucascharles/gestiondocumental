@@ -3,13 +3,7 @@
 <?
 	$titulo_form = "Alta Faena";
 	
-// 	$id = ($tipop=="M") ? $dato->get_data("id") : "";
-// 	$id_usuario = ($tipop=="M") ? $dato->get_data("id_usuario") : "";
-// 	$ape_usuario = ($tipop=="M") ? $dato->get_data("ape_usuario") : "";
-// 	$nom_usu = ($tipop=="M") ? $dato->get_data("nom_usuario") : "";
-// 	$clave = ($tipop=="M") ? $dato->get_data("clave") : "";
-// 	$fec_alta = ($tipop=="M" && $dato->get_data("fec_alta")<>"0000-00-00") ? formatoFecha($dato->get_data("fec_alta"),"yyyy-mm-dd H:m:s","dd/mm/yyyy") : "";
-	
+
 	$id = ($tipop=="M") ? $dato->get_data("faeIdFaenas") : "";
 	$faeIdFaenas = ($tipop=="M") ? $dato->get_data("faeIdFaenas") : "";
 	$consIdConstructora = ($tipop=="M") ? $dato->get_data("consIdConstructora") : "";
@@ -25,7 +19,7 @@
 	$faeTelefono = ($tipop=="M") ? $dato->get_data("faeTelefono") : "";
 	$faeUsuarioCreacion = ($tipop=="M") ? $dato->get_data("faeUsuarioCreacion") : "";
 	$faeUsuarioModificacion = ($tipop=="M") ? $dato->get_data("faeUsuarioModificacion") : "";
-	
+	$consRazonSocial = ($tipop=="M") ? $cons->get_data("consRazonSocial") : "";
 	
 	if($tipop=="M")
 	{
@@ -34,6 +28,7 @@
 ?>
 <form name="frmFaenas" action="" method='post'>
 <input type="hidden" name="id_usu" id="id_usu" value="<? echo($id)?>" />
+<input type="hidden" name="faeIdFaenas" id="faeIdFaenas" value="<? echo($id)?>" />
 <input type="hidden" name="tipop" id="tipop" value="<? echo($tipop)?>" />
 
 <table  align="center" border="0" width="" cellpadding="0" cellspacing="0" id="formulario">
@@ -45,7 +40,20 @@
    		<td align="right" class="etiqueta_form">Constructora:</td>
    		<td align="left" class="etiqueta_form" colspan="1">
    			<select name="consIdConstructora" id="consIdConstructora"  valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+				<?
+				if($consIdConstructora == ""){
+				?>	
+				
 				<option value="">Seleccion</option>
+				<?
+				}
+				else
+				{
+				?>
+				<option value="<?=$consIdConstructora;?>" > <? echo($consRazonSocial); ?> </option>
+				<?
+				}
+				?>
    			<?
             $coleccion = $listConstructoras[0];
             $cant = $listConstructoras[1];
@@ -82,7 +90,7 @@
     <tr>
        	<td align="right" class="etiqueta_form">Fecha Fin:</td>
            <td align="left" class="etiqueta_form" colspan="1">
-           <input type="text" name="faeFechaInicio" id="faeFechaInicio" value="<? echo($faeFechaInicio); ?>" valida="" tipovalida="fecha" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+           <input type="text" name="faeFechaTermino" id="faeFechaTermino" value="<? echo($faeFechaTermino); ?>" valida="" tipovalida="fecha" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
            </td>
            <td align="left" class="etiqueta_form" >
           

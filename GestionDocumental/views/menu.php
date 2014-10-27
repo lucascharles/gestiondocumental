@@ -14,7 +14,7 @@
                                     </td>
                                    <td align="center" valign="middle"  height="25" class="">
 
-                                    <div class="principal" onClick="cargarOpcion('PanelControl')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
+                                    <div class="principal" onClick="cargarOpcion('Dashboard')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
                                     <table>
                                             	<tr><td align="center">
                                     <img src="images/dashboard.png" />
