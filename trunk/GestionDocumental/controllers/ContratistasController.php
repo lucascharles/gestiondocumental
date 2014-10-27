@@ -50,17 +50,15 @@ class ContratistasController extends ControllerBase
 		$this->view->show("form/contratista.php", $data);
 	}
 	
-	public function editar($array)
+	public function editar($param)
 	{
 		require 'models/ContratistaModel.php';
 		
 		$dato = new ContratistaModel();
-		
-		$usuario = $dato->getContratistaIDint($array);
-		$data['nom_sistema'] = $array["nombre_sistema"];
-		$data['controller'] = $array["controlador"];
+		$data['dato'] = $dato->getContratista($param);
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		$data['controller'] = $param["controlador"];
 		$data['tipop'] = "M";
-		$data['dato'] = $usuario; 
 
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
