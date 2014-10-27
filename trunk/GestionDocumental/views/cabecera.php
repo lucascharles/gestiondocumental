@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title><?php echo $nom_sistema; ?></title>
-         <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico" />
+        <!-- <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico" />-->
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <link rel="stylesheet" type="text/css" href="css/menuheader.css" />
         <link rel="stylesheet" type="text/css" href="css/general.css" />
@@ -25,17 +25,19 @@
 </head>
 <body>
 	<div id="encabezado">
-    	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
+    	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" >
+        	<!--
         	<tr>
-            	<td class="secc_opcabecera" colspan="3" height="4">
-                </td>
+			<td  class="secc_opcabecera_2" valign="top"  height="4" colspan="1"></td>
+                 <td  class="secc_opcabecera_1" valign="top"  height="4" colspan="2"></td>
             </tr>
-        	<tr>
+			-->
+        	<tr class="secc_opcabecera">
             	<td valign="top" align="left">
                 	<table border="0">
                     <tr>
                     	<td valign="middle">
-                	<img src="images/logoproyecto_min.png" style="height:32px;" />
+                	<img src="images/logoproyecto_min.png" />
                     	</td>
                     	<td align="left" valign="middle">
                 	<div id="nombre_sistema">
@@ -45,12 +47,9 @@
                     </tr>
                    </table>
                 </td>
-                <td valign="top" style="background:url(images/inclina.png); width:52px;">
-                	
-                </td>
-                <td valign="middle" width="400" class="secc_opcabecera" >
+                <td width="300" class="" valign="top" colspan="2" >
 			       	<div id="opcEncabezado">
-                    	<table align="right" >
+                    	<table align="right"  border="0">
                         	<tr>
                             	<td align="left" width="50">
                                     	<img src="images/aviso.png" id="bandera_aviso" title="Notificaciones" onmouseover="resaltarImagen(this)" onmouseout="noresaltarImagen(this)" style="cursor:pointer; display:none;" onclick="abrirAvisos()" />
