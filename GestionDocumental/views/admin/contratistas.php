@@ -41,14 +41,10 @@
     	<td colspan="3">
         	<table width="100%" border="0" cellpadding="0" cellspacing="3" align="center" id="buscador">
 		        <tr>
-					<td colspan="1" align="right" width="50"  class="etiqueta_form">Rut Contratista:</td>
+					<td colspan="1" align="right" width="50"  class="etiqueta_form">Rut:</td>
 					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="ctrRut" id="ctrRut"  filtro="S" value="<? echo($_SESSION["f_ctrRazonSocial"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-
- 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Razon Social:</td>
-					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="ctrRazonSocial" id="ctrRazonSocial"  filtro="S" value="<? echo($_SESSION["f_ctrRazonSocial"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
+ 	 	 	 	 	<td colspan="2" align="left" width="50"  class="etiqueta_form">Razon Social:&nbsp;<input type="text" name="ctrRazonSocial" id="ctrRazonSocial"  filtro="S" value="<? echo($_SESSION["f_ctrRazonSocial"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
                     
-                    </td>
-                    <td colspan="1"></td>
 			    </tr>
                
                
