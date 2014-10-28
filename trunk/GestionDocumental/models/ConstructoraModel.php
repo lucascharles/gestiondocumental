@@ -70,41 +70,28 @@ class ConstructoraModel extends ModelBase
 		return $dato;
 	}
 		
-	public function getListaConstructora($array)
+	public function getListaConstructora($param)
 	{
 		include("config.php");
 		
-		$select = " c.consIdConstructora consIdConstructora, c.consNombreFantasia consNombreFantasia, c.consRazonSocial consRazonSocial, c.consRut consRut ";
-		$from = " constructora c ";
-		$where = " c.activo = 'S' ";
+		$sql = " SELECT c.consIdConstructora consIdConstructora, c.consNombreFantasia consNombreFantasia, c.consRazonSocial consRazonSocial, c.consRut consRut ";
+		$sql .= " FROM constructora c ";
+		$sql .= " WHERE c.activo = 'S' ";
 		
-		if(trim($array["consRazonSocial"]) <> "")
+		if(trim($param["consRazonSocial"]) <> "")
 		{
-			$where .= " and c.consRazonSocial LIKE '".trim($array["consRazonSocial"])."%'";
+			$sql .= " and c.consRazonSocial LIKE '".trim($param["consRazonSocial"])."%'";
 		}
 
-		if(trim($array["consRut"]) <> "")
+		if(trim($param["consRut"]) <> "")
 		{
-			$where .= " and c.consRut LIKE '".trim($array["consRut"])."%'";
+			$sql .= " and c.consRut LIKE '".trim($param["consRut"])."%'";
 		}
 		
-		$where .= " ORDER BY c.consRazonSocial ";
+		$sql .= " ORDER BY c.consRazonSocial ";
 		
-		$sqlpersonal = new SqlPersonalizado($config->get('dbhost'), $config->get('dbuser'), $config->get('dbpass') );
-		$sqlpersonal->set_select($select); 
-	  	$sqlpersonal->set_from($from);
-		$sqlpersonal->set_where($where);
-		if(!($array["all_rows"] == "S"))
-		{
-			$sqlpersonal->set_limit(($array["inicio"]*40),($array["inicio"]*40)+40); // PARA MYSQL
-		}
-	
-    	$sqlpersonal->load();
-		$cant = $sqlpersonal->get_cant_registros();
+		$result = consulta($sql);
 		
-		$result = array();
-		$result[] = $sqlpersonal;
-		$result[] = $cant;
     	return $result;	
 	}
 
