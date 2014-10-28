@@ -97,37 +97,23 @@ class TrabajadoresControlModel extends ModelBase
 	{
 		include("config.php");
 		
-		$select = " t.trbIdTrabajador trbIdTrabajador, t.trbNombre trbNombre, t.trbApPaterno trbApPaterno, t.trbRut trbRut ";
-		$from = " trabajador t ";
-		$where = " t.activo = 'S' ";
+		$sql = " SELECT t.trbIdTrabajador trbIdTrabajador, t.trbNombre trbNombre, t.trbApPaterno trbApPaterno, t.trbRut trbRut ";
+		$sql .= " FROM trabajador t ";
+		$sql .= " WHERE t.activo = 'S' ";
 		
 		if(trim($array["trbNombre"]) <> "")
 		{
-			$where .= " and t.trbNombre LIKE '".trim($array["trbNombre"])."%'";
+			$sql .= " and t.trbNombre LIKE '".trim($array["trbNombre"])."%'";
 		}
 
 		if(trim($array["trbApPaterno"]) <> "")
 		{
-			$where .= " and t.trbApPaterno LIKE '".trim($array["trbApPaterno"])."%'";
+			$sql .= " and t.trbApPaterno LIKE '".trim($array["trbApPaterno"])."%'";
 		}
 		
-		$where .= " ORDER BY t.trbApPaterno ";
+		$sql .= " ORDER BY t.trbApPaterno ";
 		
-		$sqlpersonal = new SqlPersonalizado($config->get('dbhost'), $config->get('dbuser'), $config->get('dbpass') );
-		$sqlpersonal->set_select($select); 
-	  	$sqlpersonal->set_from($from);
-		$sqlpersonal->set_where($where);
-		if(!($array["all_rows"] == "S"))
-		{
-			$sqlpersonal->set_limit(($array["inicio"]*40),($array["inicio"]*40)+40); // PARA MYSQL
-		}
-	
-    	$sqlpersonal->load();
-		$cant = $sqlpersonal->get_cant_registros();
-		
-		$result = array();
-		$result[] = $sqlpersonal;
-		$result[] = $cant;
+		$result = consulta($sql);
 		
     	return $result;	
 	}
