@@ -38,24 +38,24 @@
     </tr>
     
     <tr>
-    	<td colspan="3">
-        	<table width="100%" border="0" cellpadding="0" cellspacing="3" align="center" id="buscador">
+    	<td colspan="3" align="left">
+        	<table width="100%" border="0" cellpadding="0" cellspacing="3" align="left" id="buscador">
 		        <tr>
-					<td colspan="1" align="right" width="50"  class="etiqueta_form">Contratista</td>
-					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="contratista" id="contratista"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-
- 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Apellido&nbsp;</td>
-					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="trbApPaterno" id="trbApPaterno"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-                    <td colspan="1" align="left" class="etiqueta_form">Nombre&nbsp;
-                    <input type="text" name="trbNombre" id="trbNombre"  filtro="S" value="<? echo($_SESSION["f_nombre"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' />
-                    
+					<td colspan="1" align="right" width="50"  class="etiqueta_form">Contratista&nbsp;</td>
+                    <td colspan="2" align="left" class="etiqueta_form">
+                    <input type="text" name="contratista" id="contratista"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/>
                     </td>
-                    <td colspan="1"></td>
+			    </tr>
+                <tr>
+                	<td colspan="1" align="right" width="50"  class="etiqueta_form">Apellido&nbsp;</td>
+					<td colspan="2" align="left" class="etiqueta_form"><input type="text" name="trbApPaterno" id="trbApPaterno"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/>
+                    &nbsp;&nbsp;&nbsp;Nombre&nbsp;
+                    <input type="text" name="trbNombre" id="trbNombre"  filtro="S" value="<? echo($_SESSION["f_nombre"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' />
+                    </td>
 			    </tr>
                
-               
                 <tr>
-			     	<td align="right"  colspan="4" class="etiqueta_form">
+			     	<td align="right"  colspan="3" class="etiqueta_form">
                     <table class="opciones" onclick="nuevoRegistro('<?=$controller?>')" title="Nuevo Trabajador">
                         <tr>
                             <td align="right" valign="middle">
