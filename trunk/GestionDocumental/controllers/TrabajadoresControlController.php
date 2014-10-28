@@ -32,8 +32,6 @@ class TrabajadoresControlController extends ControllerBase
 				
 		$data['controller'] = $array["controlador"];
 		$data['result'] = $dato->getListaTrabajador($array);
-		$data['inicio'] = $array["inicio"];
-		$data['inicio_pag'] = $array["inicio_pag"];
 	
 		$this->view->show("admin/lista_trabajadores.php", $data);
 
