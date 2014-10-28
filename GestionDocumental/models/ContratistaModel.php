@@ -83,42 +83,28 @@ class ContratistaModel extends ModelBase
 	
 	
 		
-	public function getListaContratistas($array)
+	public function getListaContratistas($param)
 	{
 		include("config.php");
 		
-		$select = " c.ctrIdContratista ctrIdContratista, c.ctrRazonSocial ctrRazonSocial, c.ctrRut ctrRut, c.ctrNombreFantasia ctrNombreFantasia ";
-		$from = " contratista c ";
-		$where = " c.activo = 'S' ";
+		$sql = " SELECT c.ctrIdContratista ctrIdContratista, c.ctrRazonSocial ctrRazonSocial, c.ctrRut ctrRut, c.ctrNombreFantasia ctrNombreFantasia ";
+		$sql .= " FROM contratista c ";
+		$sql .= " WHERE c.activo = 'S' ";
 		
-		if(trim($array["ctrRazonSocial"]) <> "")
+		if(trim($param["ctrRazonSocial"]) <> "")
 		{
-			$where .= " and c.ctrRazonSocial LIKE '".trim($array["ctrRazonSocial"])."%'";
+			$sql .= " and c.ctrRazonSocial LIKE '".trim($param["ctrRazonSocial"])."%'";
 		}
 
-		if(trim($array["ctrRut"]) <> "")
+		if(trim($param["ctrRut"]) <> "")
 		{
-			$where .= " and c.ctrRut LIKE '".trim($array["ctrRut"])."%'";
+			$sql .= " and c.ctrRut LIKE '".trim($param["ctrRut"])."%'";
 		}
 		
-		$where .= " ORDER BY c.ctrRazonSocial ";
+		$sql .= " ORDER BY c.ctrRazonSocial ";
 		
-		$sqlpersonal = new SqlPersonalizado($config->get('dbhost'), $config->get('dbuser'), $config->get('dbpass') );
-		$sqlpersonal->set_select($select); 
-	  	$sqlpersonal->set_from($from);
-		$sqlpersonal->set_where($where);
-		if(!($array["all_rows"] == "S"))
-		{
-			$sqlpersonal->set_limit(($array["inicio"]*40),($array["inicio"]*40)+40); // PARA MYSQL
-		}
-	
-    	$sqlpersonal->load();
-		$cant = $sqlpersonal->get_cant_registros();
-		
-		$result = array();
-		$result[] = $sqlpersonal;
-		$result[] = $cant;
-		
+		$result = consulta($sql);
+				
     	return $result;	
 	}
 
