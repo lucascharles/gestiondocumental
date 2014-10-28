@@ -4,7 +4,7 @@ include("views/cabecera_listado.php");
 <table width="100%" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="#FFFFFF" id="listado">
 	<tr>
     	<th width="" align="center" height="25"></th>
-		<th align="left" width="">ID TRABAJADOR</th>
+		<th align="left" width="">ID</th>
         <th align="left" width="">NOMBRE</th>
         <th align="left" width="">APELLIDO</th>
 		<th align="left" width="">RUT</th>
