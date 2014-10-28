@@ -21,21 +21,18 @@ class ConstructoraController extends ControllerBase
 	}
 	
 	
-	public function listaritemsadmin($array)
+	public function listaritemsadmin($param)
 	{
 
 		require 'models/ConstructoraModel.php';
 		$dato = new ConstructoraModel();		
-		$_SESSION["f_consRut"] = $array["consRut"];
-		$_SESSION["f_consRazonSocial"] = $array["consRazonSocial"];
+		$_SESSION["f_consRut"] = $param["consRut"];
+		$_SESSION["f_consRazonSocial"] = $param["consRazonSocial"];
 				
-		$data['controller'] = $array["controlador"];
-		$data['result'] = $dato->getListaConstructora($array);
-		$data['inicio'] = $array["inicio"];
-		$data['inicio_pag'] = $array["inicio_pag"];
+		$data['controller'] = $param["controlador"];
+		$data['result'] = $dato->getListaConstructora($param);
 	
 		$this->view->show("admin/lista_constructoras.php", $data);
-
 	}
 		
 	public function alta($array)

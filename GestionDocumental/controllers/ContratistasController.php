@@ -22,19 +22,17 @@ class ContratistasController extends ControllerBase
 	}
 	
 	
-	public function listaritemsadmin($array)
+	public function listaritemsadmin($param)
 	{
 		require 'models/ContratistaModel.php';
 		$dato = new ContratistaModel();
 		
-		$_SESSION["f_ctrRut"] = $array["ctrRut"];
-		$_SESSION["f_ctrRazonSocial"] = $array["ctrRazonSocial"];
+		$_SESSION["f_ctrRut"] = $param["ctrRut"];
+		$_SESSION["f_ctrRazonSocial"] = $param["ctrRazonSocial"];
 				
-		$data['controller'] = $array["controlador"];
-		$data['result'] = $dato->getListaContratistas($array);
-		$data['inicio'] = $array["inicio"];
-		$data['inicio_pag'] = $array["inicio_pag"];
-	
+		$data['controller'] = $param["controlador"];
+		$data['result'] = $dato->getListaContratistas($param);
+		
 		$this->view->show("admin/lista_contratistas.php", $data);
 	}
 	
