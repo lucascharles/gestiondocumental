@@ -21,8 +21,6 @@ class DashboardController extends ControllerBase
 				
 		$data['controller'] = $array["controlador"];
 		$data['result'] = $dato->getListaConstructoras($array);
-		$data['inicio'] = $array["inicio"];
-		$data['inicio_pag'] = $array["inicio_pag"];
 	
 		$this->view->show("admin/lista_dashboard.php", $data);
 	}
