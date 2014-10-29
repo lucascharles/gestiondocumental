@@ -21,18 +21,15 @@ class AfpController extends ControllerBase
 	}
 	
 	
-	public function listaritemsadmin($array)
+	public function listaritemsadmin($param)
 	{
-
 		require 'models/AfpModel.php';
 		$dato = new AfpModel();		
-		$_SESSION["f_afpNombre"] = $array["afpNombre"];
-		$_SESSION["f_afpEstado"] = $array["afpEstado"];
+		$_SESSION["f_afpNombre"] = $param["afpNombre"];
+		$_SESSION["f_afpEstado"] = $param["afpEstado"];
 				
 		$data['controller'] = $array["controlador"];
-		$data['result'] = $dato->getListaAfp($array);
-		$data['inicio'] = $array["inicio"];
-		$data['inicio_pag'] = $array["inicio_pag"];
+		$data['result'] = $dato->getListaAfp($param);
 	
 		$this->view->show("admin/lista_afps.php", $data);
 	}
