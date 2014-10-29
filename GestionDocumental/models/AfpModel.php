@@ -66,32 +66,18 @@ class AfpModel extends ModelBase
 	{
 		include("config.php");
 		
-		$select = "  a.afpIdAfp afpIdAfp, a.afpEstado afpEstado, a.afpFechaCreacion afpFechaCreacion, a.afpFechaModificacion afpFechaModificacion, a.afpNombre afpNombre, a.afpUsuarioCreacion afpUsuarioCreacion, a.afpUsuarioModificacion afpUsuarioModificacion ";
-		$from = " afp a ";
-		$where = " a.activo = 'S' ";
+		$sql = "  SELECT a.afpIdAfp afpIdAfp, a.afpEstado afpEstado, a.afpFechaCreacion afpFechaCreacion, a.afpFechaModificacion afpFechaModificacion, a.afpNombre afpNombre, a.afpUsuarioCreacion afpUsuarioCreacion, a.afpUsuarioModificacion afpUsuarioModificacion ";
+		$sql .= " FROM afp a ";
+		$sql .= " WHERE a.activo = 'S' ";
 		
 		if(trim($array["afpNombre"]) <> "")
 		{
-			$where .= " and a.afpNombre LIKE '".trim($array["afpNombre"])."%'";
+			$sql .= " and a.afpNombre LIKE '".trim($array["afpNombre"])."%'";
 		}
 		
-		$where .= " ORDER BY a.afpNombre ";
+		$sql .= " ORDER BY a.afpNombre ";
 		
-		$sqlpersonal = new SqlPersonalizado($config->get('dbhost'), $config->get('dbuser'), $config->get('dbpass') );
-		$sqlpersonal->set_select($select); 
-	  	$sqlpersonal->set_from($from);
-		$sqlpersonal->set_where($where);
-		if(!($array["all_rows"] == "S"))
-		{
-			$sqlpersonal->set_limit(($array["inicio"]*40),($array["inicio"]*40)+40); // PARA MYSQL
-		}
-	
-    	$sqlpersonal->load();
-		$cant = $sqlpersonal->get_cant_registros();
-		
-		$result = array();
-		$result[] = $sqlpersonal;
-		$result[] = $cant;
+		$result = consulta($sql);
 		
     	return $result;	
 	}
