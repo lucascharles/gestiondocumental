@@ -2,14 +2,6 @@
 include("views/cabecera_listado.php"); 
 ?>
 <table width="100%" cellpadding="0" cellspacing="0" align="center" border="0" bgcolor="#FFFFFF" id="listado">
-	<?
-    	$coleccion = $result[0];
-		$cant = $result[1];
-		if($cant > 40)
-		{
-			include ('views/paginador.php');
-		}
-	?>
 	
 	<tr>
     	<th width="" align="center" height="25"></th>
@@ -20,24 +12,21 @@ include("views/cabecera_listado.php");
     </tr>
 	<?php
 	
-	for($j=0; $j<$coleccion->get_count(); $j++) 
-	{
-		$datoTmp = &$coleccion->items[$j];
-			
+	while($rs=mysql_fetch_array($result))
+	{		
 	?>
-	<tr bgcolor="#FFFFFF" id="fila_<?php echo ($datoTmp->get_data("afpIdAfp")) ?>">
+	<tr bgcolor="#FFFFFF" id="fila_<?php echo ($rs["afpIdAfp"]) ?>">
     	<td height="" width="5%"></td>
-        <td align="left" width="10%"><?php echo ($datoTmp->get_data("afpIdAfp")) ?></td>
-		<td align="left" width="40%"><?php echo (utf8_decode($datoTmp->get_data("afpNombre"))) ?></td>
-        <td align="left" width="40%"><?php echo (utf8_decode($datoTmp->get_data("afpEstado"))) ?></td>
-		<td align="left" width="15%">
-        <!-- <img src="images/permisos.png" title="Permisos" class="oplistado" onclick="window.parent.configurarRegistro('<? echo($controller) ?>',<?php echo ($datoTmp->get_data("id")) ?>)" /> -->
-        <img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($datoTmp->get_data("afpIdAfp")) ?>)" />
-        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($datoTmp->get_data("afpIdAfp")) ?>)" />
+        <td align="left" width="10%"><?php echo ($rs["afpIdAfp"]) ?></td>
+		<td align="left" width="35%"><?php echo (utf8_decode($rs["afpNombre"])) ?></td>
+        <td align="left" width="35%"><?php echo (utf8_decode($rs["afpEstado"])) ?></td>
+		<td align="left" width="25%">
+        <img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["afpIdAfp"]) ?>)" />
+        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["afpIdAfp"]) ?>)" />
         </td>
 	</tr>
-    <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($datoTmp->get_data("afpIdAfp")) ?>">
-    	<td colspan="6" style="border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC; "></td>
+    <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($rs["afpIdAfp"]) ?>">
+    	<td colspan="5" style="border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC; "></td>
 	</tr>
 	<?php
 	}
