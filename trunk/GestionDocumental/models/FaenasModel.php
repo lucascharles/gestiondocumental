@@ -75,32 +75,18 @@ class FaenasModel extends ModelBase
 	{
 		include("config.php");
 		
-		$select = "  f.faeIdFaenas id, f.consIdConstructora consIdConstructora,f.dirIdDireccion dirIdDireccion, f.faeEstado faeEstado,f.faeFechaCreacion faeFechaCreacion, f.faeFechaInicio faeFechaInicio,f.faeFechaTermino faeFechaTermino, f.faeIdFaenaPadre faeIdFaenaPadre,f.faeNombre faeNombre, f.faeResponsable faeResponsable,f.faeTelefono faeTelefono ";
-		$from = " faena f ";
-		$where = " f.activo = 'S' ";
+		$sql .= " SELECT f.faeIdFaenas id, f.consIdConstructora consIdConstructora,f.dirIdDireccion dirIdDireccion, f.faeEstado faeEstado,f.faeFechaCreacion faeFechaCreacion, f.faeFechaInicio faeFechaInicio,f.faeFechaTermino faeFechaTermino, f.faeIdFaenaPadre faeIdFaenaPadre,f.faeNombre faeNombre, f.faeResponsable faeResponsable,f.faeTelefono faeTelefono ";
+		$sql .= " FROM faena f ";
+		$sql .= " WHERE f.activo = 'S' ";
 		
 		if(trim($array["faeNombre"]) <> "")
 		{
-			$where .= " and f.faeNombre LIKE '".trim($array["faeNombre"])."%'";
+			$sql .= " and f.faeNombre LIKE '".trim($array["faeNombre"])."%'";
 		}
 		
-		$where .= " ORDER BY f.faeNombre ";
+		$sql .= " ORDER BY f.faeNombre ";
 
-		$sqlpersonal = new SqlPersonalizado($config->get('dbhost'), $config->get('dbuser'), $config->get('dbpass') );
-		$sqlpersonal->set_select($select); 
-	  	$sqlpersonal->set_from($from);
-		$sqlpersonal->set_where($where);
-		if(!($array["all_rows"] == "S"))
-		{
-			$sqlpersonal->set_limit(($array["inicio"]*40),($array["inicio"]*40)+40); // PARA MYSQL
-		}
-	
-    	$sqlpersonal->load();
-		$cant = $sqlpersonal->get_cant_registros();
-		
-		$result = array();
-		$result[] = $sqlpersonal;
-		$result[] = $cant;
+		$result = consulta($sql);
 		
     	return $result;	
 	}
