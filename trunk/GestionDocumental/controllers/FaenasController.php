@@ -21,19 +21,17 @@ class FaenasController extends ControllerBase
 	}
 	
 	
-	public function listaritemsadmin($array)
+	public function listaritemsadmin($param)
 	{
 
 		require 'models/FaenasModel.php';
 		$dato = new FaenasModel();		
-		$_SESSION["f_faeNombre"] = $array["faeNombre"];
-		$_SESSION["f_faeEstado"] = $array["faeEstado"];
+		$_SESSION["f_faeNombre"] = $param["faeNombre"];
+		$_SESSION["f_faeEstado"] = $param["faeEstado"];
 				
-		$data['controller'] = $array["controlador"];
-		$data['result'] = $dato->getListaFaenas($array);
-		$data['inicio'] = $array["inicio"];
-		$data['inicio_pag'] = $array["inicio_pag"];
-	
+		$data['controller'] = $param["controlador"];
+		$data['result'] = $dato->getListaFaenas($param);
+
 		$this->view->show("admin/lista_faenas.php", $data);
 	}
 		
