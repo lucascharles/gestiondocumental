@@ -59,19 +59,17 @@ class UsuarioController extends ControllerBase
 		$this->view->show("admin/usuario.php", $data);
 	}
 	
-	public function listaritemsadmin($array)
+	public function listaritemsadmin($param)
 	{
 		require 'models/UsuarioModel.php';
 		$dato = new UsuarioModel();
 		
-		$_SESSION["f_nombre"] = $array["nombre"];
-		$_SESSION["f_apellido"] = $array["apellido"];
+		$_SESSION["f_nombre"] = $param["nombre"];
+		$_SESSION["f_apellido"] = $param["apellido"];
 				
-		$data['controller'] = $array["controlador"];
-		$data['result'] = $dato->getListaUsuario($array);
-		$data['inicio'] = $array["inicio"];
-		$data['inicio_pag'] = $array["inicio_pag"];
-	
+		$data['controller'] = $param["controlador"];
+		$data['result'] = $dato->getListaUsuario($param);
+
 		$this->view->show("admin/lista_usuario.php", $data);
 	}
 	
