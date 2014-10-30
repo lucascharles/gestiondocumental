@@ -197,42 +197,28 @@ class UsuarioModel extends ModelBase
 
 	}
 	
-	public function getListaUsuario($array)
+	public function getListaUsuario($param)
 	{
 		include("config.php");
 		
-		$select = " u.id id, u.id_usuario id_usuario, u.nom_usuario nom_usuario, u.ape_usuario ape_usuario, u.fec_alta fec_alta ";
-		$from = " si_usuarios u ";
-		$where = " u.activo = 'S' ";
+		$sql = " SELECT u.id id, u.id_usuario id_usuario, u.nom_usuario nom_usuario, u.ape_usuario ape_usuario, u.fec_alta fec_alta ";
+		$sql .= " FROM usuarios u ";
+		$sql .= " WHERE u.activo = 'S' ";
 		
 		if(trim($array["nombre"]) <> "")
 		{
-			$where .= " and u.nom_usuario LIKE '".trim($array["nombre"])."%'";
+			$sql .= " and u.nom_usuario LIKE '".trim($param["nombre"])."%'";
 		}
 
 		if(trim($array["apellido"]) <> "")
 		{
-			$where .= " and u.ape_usuario LIKE '".trim($array["apellido"])."%'";
+			$sql .= " and u.ape_usuario LIKE '".trim($param["apellido"])."%'";
 		}
 		
-		$where .= " ORDER BY u.ape_usuario ";
-		
-		$sqlpersonal = new SqlPersonalizado($config->get('dbhost'), $config->get('dbuser'), $config->get('dbpass') );
-		$sqlpersonal->set_select($select); 
-	  	$sqlpersonal->set_from($from);
-		$sqlpersonal->set_where($where);
-		if(!($array["all_rows"] == "S"))
-		{
-			$sqlpersonal->set_limit(($array["inicio"]*40),($array["inicio"]*40)+40); // PARA MYSQL
-		}
-	
-    	$sqlpersonal->load();
-		$cant = $sqlpersonal->get_cant_registros();
-		
-		$result = array();
-		$result[] = $sqlpersonal;
-		$result[] = $cant;
-		
+		$sql .= " ORDER BY u.ape_usuario ";
+			
+		$result = consulta($sql);
+				
     	return $result;	
 	}
 	
