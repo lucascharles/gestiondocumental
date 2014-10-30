@@ -7,22 +7,7 @@
 
 	include("views/popup_confirmacion.php"); 
 		
-	if((!isset($_SESSION["f_inicio"])) || trim($_SESSION["f_inicio"]) == "")
-	{
-		$ini = 0;
-	}
-	else
-	{
-		$ini = $_SESSION["f_inicio"];
-	}
-	if((!isset($_SESSION["f_inicio_pag"])) || trim($_SESSION["f_inicio_pag"]) == "")
-	{
-		$ini_pag = 0;
-	}
-	else
-	{
-		$ini_pag = $_SESSION["f_inicio_pag"];
-	}
+
  ?>
 <form name="frmfaenas">
 <input type="hidden" name="controller" id="controller" value="<?=$controller?>" />
@@ -41,31 +26,17 @@
     	<td colspan="3">
         	<table width="100%" border="0" cellpadding="0" cellspacing="3" align="center" id="buscador">
 		        <tr>
-					<td colspan="1" align="right" width="50"  class="etiqueta_form">Nombre Faena:</td>
+					<td colspan="1" align="right" width="50"  class="etiqueta_form">Nombre:</td>
 					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="contratista" id="contratista"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
 
- 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Estado Faena:</td>
+ 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Estado:</td>
 					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
 
- 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Responsable Faena:</td>
+ 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Responsable:</td>
  	 	 	 		<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-<!--
- 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Telefono Faena:</td>
- 	 	 	 		<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-
- 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Fecha Inicio:</td>
- 	 	 	 		<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-
- 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Fecha Termino:</td>
- 	 	 	 		<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
---> 	 	 	 	 	
-                    </td>
-                    <td colspan="1"></td>
-			    </tr>
-               
-               
+ 	 	 	 	</tr>
                 <tr>
-			     	<td align="right"  colspan="4" class="etiqueta_form">
+			     	<td align="right"  colspan="6" class="etiqueta_form">
                     <table class="opciones" onclick="nuevoRegistro('<?=$controller?>')" title="Nueva Faena">
                         <tr>
                             <td align="right" valign="middle">
