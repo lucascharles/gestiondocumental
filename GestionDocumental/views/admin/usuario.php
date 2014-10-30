@@ -7,22 +7,7 @@
 
 	include("views/popup_confirmacion.php"); 
 		
-	if((!isset($_SESSION["f_inicio"])) || trim($_SESSION["f_inicio"]) == "")
-	{
-		$ini = 0;
-	}
-	else
-	{
-		$ini = $_SESSION["f_inicio"];
-	}
-	if((!isset($_SESSION["f_inicio_pag"])) || trim($_SESSION["f_inicio_pag"]) == "")
-	{
-		$ini_pag = 0;
-	}
-	else
-	{
-		$ini_pag = $_SESSION["f_inicio_pag"];
-	}
+	
  ?>
 <form name="frmusuario">
 <input type="hidden" name="controller" id="controller" value="<?=$controller?>" />
