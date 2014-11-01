@@ -69,5 +69,85 @@ class DocumentoModel extends ModelBase
 		//exit();
 	}
 	
+	public function getListaRemuneraciones($array)
+	{
+		include("config.php");
+		
+// 		$sql = "	SELECT @rownum:=@rownum+1 AS rownum, dt.trbIdTrabajador trbIdTrabajador,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'enero')enero,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'febrero')febrero,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'marzo')marzo,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'abril')abril,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'mayo')mayo,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'junio')junio,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'julio')julio,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'agosto')agosto,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'septiembre')septiembre,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'octubre')octubre,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'noviembre')noviembre,
+// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'diciembre')diciembre
+// 					FROM trabajador dt,  (SELECT @rownum:=0) r ";		
+
+		$sql = " SELECT trbIdTrabajador FROM trabajador ";
+		
+		
+		$idsql = consulta($sql);
+		
+		return $idsql;	
+	}
+	
+	public function getListaAntecedentesLaborales($array)
+	{
+		include("config.php");
+	
+		// 		$sql = "	SELECT @rownum:=@rownum+1 AS rownum, dt.trbIdTrabajador trbIdTrabajador,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'enero')enero,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'febrero')febrero,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'marzo')marzo,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'abril')abril,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'mayo')mayo,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'junio')junio,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'julio')julio,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'agosto')agosto,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'septiembre')septiembre,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'octubre')octubre,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'noviembre')noviembre,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'diciembre')diciembre
+		// 					FROM trabajador dt,  (SELECT @rownum:=0) r ";
+	
+		$sql = " SELECT * FROM trabajador ";
+	
+	
+		$idsql = consulta($sql);
+	
+		return $idsql;
+	}
+	
+	public function getListaRemuneracionAsistencia($array)
+	{
+		include("config.php");
+	
+		// 		$sql = "	SELECT @rownum:=@rownum+1 AS rownum, dt.trbIdTrabajador trbIdTrabajador,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'enero')enero,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'febrero')febrero,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'marzo')marzo,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'abril')abril,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'mayo')mayo,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'junio')junio,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'julio')julio,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'agosto')agosto,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'septiembre')septiembre,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'octubre')octubre,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'noviembre')noviembre,
+		// 				       (SELECT de.doctFechaPertenece FROM documentotrabajador de WHERE de.doctIdTRabajador = dt.trbIdTrabajador AND de.doctFechaPertenece = 'diciembre')diciembre
+		// 					FROM trabajador dt,  (SELECT @rownum:=0) r ";
+	
+		$sql = " SELECT * FROM trabajador ";
+	
+	
+		$idsql = consulta($sql);
+	
+		return $idsql;
+	}
 }
 ?>

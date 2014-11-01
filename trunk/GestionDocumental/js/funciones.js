@@ -209,6 +209,69 @@ function cargarPantalla(opt)
 //	alert(url);
 	document.getElementById("frmsubpantalla").src = url;
 }
+
+function cargarTab(opt,cont)
+{
+	var url = "";
+	var accion = "";
+	document.getElementById("btnAntecedentesLaborales").setAttribute("seleccionado","");
+	$(document.getElementById("btnAntecedentesLaborales")).removeClass('boton_form_brillante');
+	$(document.getElementById("btnAntecedentesLaborales")).addClass('boton_form');
+	
+	document.getElementById("btnRemuneracionAsistencia").setAttribute("seleccionado","");
+	$(document.getElementById("btnRemuneracionAsistencia")).removeClass('boton_form_brillante');
+	$(document.getElementById("btnRemuneracionAsistencia")).addClass('boton_form');
+	
+	document.getElementById("btnContratoTrabajo").setAttribute("seleccionado","");
+	$(document.getElementById("btnContratoTrabajo")).removeClass('boton_form_brillante');
+	$(document.getElementById("btnContratoTrabajo")).addClass('boton_form');
+	
+	document.getElementById("btnPlanPagoPrev").setAttribute("seleccionado","");
+	$(document.getElementById("btnPlanPagoPrev")).removeClass('boton_form_brillante');
+	$(document.getElementById("btnPlanPagoPrev")).addClass('boton_form');
+	
+	document.getElementById("btnPrevencionRiesgo").setAttribute("seleccionado","");
+	$(document.getElementById("btnPrevencionRiesgo")).removeClass('boton_form_brillante');
+	$(document.getElementById("btnPrevencionRiesgo")).addClass('boton_form');
+
+	if(opt == "ANTECEDENTES_LABORALES")
+	{
+		accion = "antecedentes_laborales";
+		document.getElementById("btnAntecedentesLaborales").setAttribute("seleccionado","S");
+		$(document.getElementById("btnAntecedentesLaborales")).addClass('boton_form_brillante');
+		
+	}
+	if(opt == "REMUNERACION_ASISTENCIA")
+	{
+		accion = "remuneracion_asistencia";
+		document.getElementById("btnRemuneracionAsistencia").setAttribute("seleccionado","S");
+		$(document.getElementById("btnRemuneracionAsistencia")).addClass('boton_form_brillante');
+	}
+	if(opt == "CONTRATO_TRABAJO")
+	{
+		accion = "contrato_trabajo";
+		document.getElementById("btnContratoTrabajo").setAttribute("seleccionado","S");
+		$(document.getElementById("btnContratoTrabajo")).addClass('boton_form_brillante');
+	}
+	if(opt == "PLANPAGOPREVISIONAL")
+	{
+		accion = "pago_previsional";
+		document.getElementById("btnPlanPagoPrev").setAttribute("seleccionado","S");
+		$(document.getElementById("btnPlanPagoPrev")).addClass('boton_form_brillante');
+	}
+	if(opt == "PREVENCIONRIESGO")
+	{
+		accion = "prevencion_riesgo";
+		document.getElementById("btnPrevencionRiesgo").setAttribute("seleccionado","S");
+		$(document.getElementById("btnPrevencionRiesgo")).addClass('boton_form_brillante');
+	}
+
+	url = "index.php?controlador="+cont+"&accion=listar_documentos&opt="+opt;
+//	alert(url);
+	document.getElementById("frmsubpantalla").src = url;
+}
+
+
 //----------------------------
 $(document).ready(function()
 {
