@@ -60,6 +60,29 @@
    
     	
     </tr>
+    <tr>
+    <?
+		$cont = 0;
+        while($rs=mysql_fetch_array($idsql_tip_doc))
+		{
+			$cont++;
+	?>
+    	<td  class="solapa" onclick="cargarDocumento(<?=$rs["id"]?>)"><?=$rs["descripcion"]?></td>
+    <?
+    	}
+	?>
+    </tr>
+	<tr>
+    	<td colspan="<?=$cont?>">
+        	Nombre: <input type="text" name="doctNombreArchivo" id="doctNombreArchivo" class="input_form" onFocus="resaltar(this)" onBlur="noresaltar(this)" />
+		</td>
+    </tr>
+    
+    <tr>
+    	<td colspan="<?=$cont?>">
+        	Archivo: <input type='file' id='archivo' name='archivo' />&nbsp;<input  type="button" name="btngrabar" id="btngrabar" onclick="grabarFormUploadArch(<?=$_SESSION["f_id_tipo_documento"]?>)"  value="Adjuntar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/>
+		</td>
+	</tr>
     
     
     <tr>
@@ -114,12 +137,6 @@
         	<span id="mensaje"></span>
          </td>
     </tr>   
-    <tr>
-        <td colspan="3" align="center" height="50">
-        	<input  type="button" name="btngrabar" id="btngrabar" onclick="grabarForm('<?=$controller?>')"  value="Grabar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/>&nbsp;
-            <input  type="button" name="btnsalir" id="btnsalir" onclick="salirForm('<?=$controller?>')"value="Cancelar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)' />
-         </td>
-    </tr>
 </table>
 </div>
 </form>
