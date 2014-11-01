@@ -105,19 +105,29 @@ class TrabajadoresControlController extends ControllerBase
 	{
 	
 		require 'models/TrabajadoresControlModel.php';
-// 		$dato = new TrabajadoresControlModel();
+		require 'models/DocumentoModel.php';
+
 		$_SESSION["f_nombre"] = $array["trbNombre"];
 		$_SESSION["f_apellido"] = $array["trbApPaterno"];
 	
 		$data['controller'] = $array["controlador"];
-// 		$data['result'] = $dato->getListaTrabajador($array);
 		$data['inicio'] = $array["inicio"];
 		$data['inicio_pag'] = $array["inicio_pag"];
+		
 		if($array["opt"] == "ANTECEDENTES_LABORALES" ){
+			$dato = new DocumentoModel();
+			$lista = $dato->getListaRemuneraciones($array);
+			$data['result'] = $lista;
+							
+			
 			$this->view->show("docs/lista_antecedentes_laborales.php", $data);
 		}
 			
 		if($array["opt"] == "REMUNERACION_ASISTENCIA" ){
+			$dato = new DocumentoModel();
+			$lista = $dato->getListaRemuneraciones($array);
+			$data['listaRemuneraciones'] = $lista;
+				
 			$this->view->show("docs/lista_remuneracion_asistencia.php", $data);
 		}
 		

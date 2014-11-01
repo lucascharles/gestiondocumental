@@ -42,23 +42,16 @@ class ConstructoraModel extends ModelBase
 		$dato->save();
 	}
 
-	public function getConstructora($id_constructora)
+	public function getConstructora($array)
 	{
-		$dato = new Constructora();
-		$dato->add_filter("consIdConstructora","=",$id_constructora);
-		$dato->load();
-		
-		return $dato;
-	}
-	
+		$sql = " SELECT c.consIdConstructora, c.consNombreFantasia , c.consRazonSocial, c.consRut "; 
+		$sql .= " FROM constructora c ";
+		$sql .= " WHERE c.activo = 'S' ";
+		$sql .= " AND c.consIdConstructora = ".$array["id"];
 
-	public function getConstructoraIDint($array)
-	{
-		$dato = new Constructora();
-		$dato->add_filter("consIdConstructora","=",$array["id"]);
-		$dato->load();
+		$idsql = consulta($sql);
 		
-		return $dato;
+		return mysql_fetch_array($idsql);
 	}
 	
 	public function getDatosConstructora($array)

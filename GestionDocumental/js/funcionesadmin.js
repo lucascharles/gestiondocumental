@@ -42,6 +42,14 @@ function editarRegistro(op,id)
 {
 	window.location = 'index.php?controlador='+op+'&accion=editar'+'&id='+id;
 }
+
+function verDetalle(op,id)
+{
+//	alert('index.php?controlador='+op+'&accion=verDetalle'+'&id='+id);
+	window.location = 'index.php?controlador='+op+'&accion=verDetalle'+'&id='+id;
+}
+
+
 function documentosTrabajador(op,id)
 {
 	window.location = 'index.php?controlador='+op+'&accion=documentos_trabajador'+'&id='+id;

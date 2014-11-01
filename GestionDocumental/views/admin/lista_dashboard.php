@@ -18,7 +18,6 @@ include("views/cabecera_listado.php");
     </tr>
 	<?php
 	
-	//for($j=0; $j<$coleccion->get_count(); $j++) 
 	while($rs=mysql_fetch_array($result))
 	{	
 	?>
@@ -30,43 +29,49 @@ include("views/cabecera_listado.php");
         <td align="left" width="25%"><?php echo (utf8_decode($rs["consRazonSocial"])) ?></td>
         <td align="left" width="10%">
         	<? if($rs["consIdConstructora"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/cerrarpopup.png" title="Faltan" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         	<? } ?>	
         </td>
 		<td align="left" width="10%">
         	<? if($rs["consIdConstructora"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/cerrarpopup.png" title="Faltan" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        	<? } ?>	
+		        </td>
+        <td align="left" width="10%">
+        	<? if($rs["consIdConstructora"] == 1){ ?>
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        	<? } else {	?>
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        	<? } ?>	
+                </td>
+        <td align="left" width="10%">
+        	<? if($rs["consIdConstructora"] == 1){ ?>
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        	<? } else {	?>
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        	<? } ?>	
+                </td>
+        <td align="left" width="10%">
+        	<? if($rs["consIdConstructora"] == 1){ ?>
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        	<? } else {	?>
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         	<? } ?>	
         </td>
         <td align="left" width="10%">
         	<? if($rs["consIdConstructora"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/cerrarpopup.png" title="Faltan" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         	<? } ?>	
-        </td>
-        <td align="left" width="10%">
-        	<? if($rs["consIdConstructora"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
-        	<? } else {	?>
-        		<img src="images/cerrarpopup.png" title="Faltan" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["consIdConstructora"]) ?>)" />
-        	<? } ?>	
-        </td>
-        <td align="left" width="10%">
-        	<? if($rs["consIdConstructora"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
-        	<? } else {	?>
-        		<img src="images/cerrarpopup.png" title="Faltan" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["consIdConstructora"]) ?>)" />
-        	<? } ?>	
-        </td>
+                </td>
+        
 	</tr>
-    <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($rs["id"]) ?>">
-    	<td colspan="10" style="border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC; "></td>
-	</tr>
+   
 	<?php
 	}
 	?>

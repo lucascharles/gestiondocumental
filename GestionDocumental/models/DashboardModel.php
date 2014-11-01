@@ -21,9 +21,11 @@ class DashboardModel extends ModelBase
 		}
 		
 		$sql .= " ORDER BY c.consRazonSocial ";
-	
 		
 		$result = consulta($sql);
+
+// 		echo("paso");
+// 		exit;
 		
     	return $result;	
 	}
