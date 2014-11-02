@@ -141,10 +141,10 @@ function borrarFila(id)
 	
 }
 
-function abrirVentanaConfirmacion(id)
+function abrirVentanaDoc(cont,vent,id)
 {
-	$("#popup_confirmacion").css("margin-top",($(window).scrollTop()+50));
-	$("#popup_confirmacion").slideDown(1000);	
+	$("#"+vent).css("margin-top",($(window).scrollTop()+50));
+	$("#"+vent).slideDown(1000);	
 	$("#id_reg").val(id)
 }
 //----------------------------

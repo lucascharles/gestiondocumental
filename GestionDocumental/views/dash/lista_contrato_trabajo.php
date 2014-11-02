@@ -31,23 +31,23 @@ include("views/cabecera_listado.php");
 		<td align="left" width="10%"><?php echo (utf8_decode($rs["trbNombre"])) ?></td>
         <td align="left" width="25%">
         <? if($rs["trbIdTrabajador"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         <? } ?>
         </td>
         <td align="left" width="10%">
         <? if($rs["trbIdTrabajador"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         <? } ?>
         </td>
          <td align="left" width="20%">
         <? if($rs["trbIdTrabajador"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>',<?php echo ($rs["consIdConstructora"]) ?>)" />
         <? } ?>
         </td>
 	</tr>
