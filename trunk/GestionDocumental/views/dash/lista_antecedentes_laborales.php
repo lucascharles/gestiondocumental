@@ -32,30 +32,30 @@ include("views/cabecera_listado.php");
         <td align="left" width="10%"><?php echo (utf8_decode($rs["trbNombre"])) ?></td>
 		<td align="left" width="10%">
         <? if($rs["trbIdTrabajador"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="verDocTrb('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>','popup_contrato',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="verDocTrb('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>','popup_contrato',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         <? } ?>
 				</td>
         <td align="left" width="25%">
         <? if($rs["trbIdTrabajador"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="verDocTrb('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>','popup_confirmacion',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="verDocTrb('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>','popup_confirmacion',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         <? } ?>
         </td>
         <td align="left" width="10%">
         <? if($rs["trbIdTrabajador"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="verDocTrb('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>','ventanaX',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="verDocTrb('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>','ventanaX',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         <? } ?>
         </td>
         <td align="left" width="25%">
         <? if($rs["trbIdTrabajador"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="verDocTrb('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>','ventanaX',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="verDocTrb('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.abrirVentanaDoc('<? echo($controller) ?>','ventanaX',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         <? } ?>
                 
         </td>

@@ -1,0 +1,45 @@
+* {
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: Georgia, "Times New Roman", Times, serif;
+font-size: 2em;
+background: #9fffff;
+color: #0000ff;
+}
+
+a {
+color: #F00;
+}
+
+/* base semi-transparente */
+    .overlay{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index:1001;
+opacity:.75;
+        -moz-opacity: 0.75;
+        filter: alpha(opacity=75);
+    }
+
+    /* estilo para la ventana modal */
+    .modal {
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        padding: 16px;
+        background: #fff;
+color: #333;
+        z-index:1002;
+        overflow: auto;
+    }
