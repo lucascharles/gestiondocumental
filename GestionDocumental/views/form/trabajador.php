@@ -3,31 +3,31 @@
 <?
 	$titulo_form = "Alta Trabajador";
 	
-	$id = ($tipop=="M") ? $dato->get_data("trbIdTrabajador") : "";
-	$id_usuario = ($tipop=="M") ? $dato->get_data("trbIdTrabajador") : "";
-	$ape_usuario = ($tipop=="M") ? $dato->get_data("trbApPaterno") : "";
-	$nom_usu = ($tipop=="M") ? $dato->get_data("trbNombre") : "";
-	$clave = ($tipop=="M") ? $dato->get_data("clave") : "";
-	$fec_alta = ($tipop=="M" && $dato->get_data("fec_alta")<>"0000-00-00") ? formatoFecha($dato->get_data("fec_alta"),"yyyy-mm-dd H:m:s","dd/mm/yyyy") : "";
+	$id = ($tipop=="M") ? $rs["trbIdTrabajador"] : "";
+	$id_usuario = ($tipop=="M") ? $rs["trbIdTrabajador"] : "";
+	$ape_usuario = ($tipop=="M") ? $rs["trbApPaterno"] : "";
+	$nom_usu = ($tipop=="M") ? $rs["trbNombre"] : "";
+	$clave = ($tipop=="M") ? $rs["clave"] : "";
+	$fec_alta = ($tipop=="M" && $rs["fec_alta"]<>"0000-00-00") ? formatoFecha($rs["fec_alta"],"yyyy-mm-dd H:m:s","dd/mm/yyyy") : "";
 	
-	$trbApPaterno= ($tipop=="M") ? $dato->get_data("trbApPaterno") : "";
-	$trbIdTrabajador= ($tipop=="M") ? $dato->get_data("trbIdTrabajador") : "";
-	$dirIdDireccion= ($tipop=="M") ? $dato->get_data("dirIdDireccion") : "";
-	$comIdComuna= ($tipop=="M") ? $dato->get_data("comIdComuna") : "";
-	$isaIdIsapre= ($tipop=="M") ? $dato->get_data("isaIdIsapre") : "";
-	$nacIdNacionalidad= ($tipop=="M") ? $dato->get_data("nacIdNacionalidad") : "";
-	$tgrlIdCargoContractual= ($tipop=="M") ? $dato->get_data("tgrlIdCargoContractual") : "";
-	$tgrlIdOficioCab= ($tipop=="M") ? $dato->get_data("tgrlIdOficioCab") : "";
-	$tgrlIdOficioDet= ($tipop=="M") ? $dato->get_data("tgrlIdOficioDet") : "";
-	$tgrlIdTipoContrato= ($tipop=="M") ? $dato->get_data("tgrlIdTipoContrato") : "";
-	$tjorIdTipoJornada= ($tipop=="M") ? $dato->get_data("tjorIdTipoJornada") : "";
-	$trbAfectoArt22= ($tipop=="M") ? $dato->get_data("trbAfectoArt22") : "";
-	$trbAntiguedadMeses= ($tipop=="M") ? $dato->get_data("trbAntiguedadMeses") : "";
-	$trbApMaterno= ($tipop=="M") ? $dato->get_data("trbApMaterno") : "";
-	$trbCeco= ($tipop=="M") ? $dato->get_data("trbCeco") : "";
-	$trbFechaNac= ($tipop=="M") ? $dato->get_data("trbFechaNac") : "";
-	$trbTelefono= ($tipop=="M") ? $dato->get_data("trbTelefono") : "";
-	$trbTitulo= ($tipop=="M") ? $dato->get_data("trbTitulo") : "";
+	$trbApPaterno= ($tipop=="M") ? $rs["trbApPaterno"] : "";
+	$trbIdTrabajador= ($tipop=="M") ? $rs["trbIdTrabajador"] : "";
+	$dirIdDireccion= ($tipop=="M") ? $rs["dirIdDireccion"] : "";
+	$comIdComuna= ($tipop=="M") ? $rs["comIdComuna"] : "";
+	$isaIdIsapre= ($tipop=="M") ? $rs["isaIdIsapre"] : "";
+	$nacIdNacionalidad= ($tipop=="M") ? $rs["nacIdNacionalidad"] : "";
+	$tgrlIdCargoContractual= ($tipop=="M") ? $rs["tgrlIdCargoContractual"] : "";
+	$tgrlIdOficioCab= ($tipop=="M") ? $rs["tgrlIdOficioCab"] : "";
+	$tgrlIdOficioDet= ($tipop=="M") ? $rs["tgrlIdOficioDet"] : "";
+	$tgrlIdTipoContrato= ($tipop=="M") ? $rs["tgrlIdTipoContrato"] : "";
+	$tjorIdTipoJornada= ($tipop=="M") ? $rs["tjorIdTipoJornada"] : "";
+	$trbAfectoArt22= ($tipop=="M") ? $rs["trbAfectoArt22"] : "";
+	$trbAntiguedadMeses= ($tipop=="M") ? $rs["trbAntiguedadMeses"] : "";
+	$trbApMaterno= ($tipop=="M") ? $rs["trbApMaterno"] : "";
+	$trbCeco= ($tipop=="M") ? $rs["trbCeco"] : "";
+	$trbFechaNac= ($tipop=="M") ? $rs["trbFechaNac"] : "";
+	$trbTelefono= ($tipop=="M") ? $rs["trbTelefono"] : "";
+	$trbTitulo= ($tipop=="M") ? $rs["trbTitulo"] : "";
 
 	
 	if($tipop=="M")

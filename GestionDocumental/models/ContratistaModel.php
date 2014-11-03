@@ -10,7 +10,7 @@ class ContratistaModel extends ModelBase
 		//echo($sql);
 		$idsql = consulta($sql);
 		
-		return mysql_fetch_array($idsql);
+		return ($idsql);
 	}
 	
 	public function getFaenasContratista($param)

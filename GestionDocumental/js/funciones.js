@@ -143,10 +143,13 @@ function borrarFila(id)
 
 function abrirVentanaDoc(cont,vent,id)
 {
+//	alert(vent);
+	
 	$("#"+vent).css("margin-top",($(window).scrollTop()+50));
 	$("#"+vent).slideDown(1000);	
 	$("#id_reg").val(id)
 }
+
 //----------------------------
 
 function cargarPantalla(opt)

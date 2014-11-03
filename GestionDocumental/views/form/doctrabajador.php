@@ -4,25 +4,25 @@
 	$titulo_form = "Documentos del Trabajador";
 		
 	
-	$trbNombre= $dato->get_data("trbNombre");
-	$trbApPaterno= $dato->get_data("trbApPaterno");
-	$trbIdTrabajador= $dato->get_data("trbIdTrabajador");
-	$dirIdDireccion= $dato->get_data("dirIdDireccion");
-	$comIdComuna= $dato->get_data("comIdComuna");
-	$isaIdIsapre= $dato->get_data("isaIdIsapre");
-	$nacIdNacionalidad= $dato->get_data("nacIdNacionalidad");
-	$tgrlIdCargoContractual= $dato->get_data("tgrlIdCargoContractual");
-	$tgrlIdOficioCab= $dato->get_data("tgrlIdOficioCab");
-	$tgrlIdOficioDet= $dato->get_data("tgrlIdOficioDet");
-	$tgrlIdTipoContrato= $dato->get_data("tgrlIdTipoContrato");
-	$tjorIdTipoJornada= $dato->get_data("tjorIdTipoJornada");
-	$trbAfectoArt22= $dato->get_data("trbAfectoArt22");
-	$trbAntiguedadMeses= $dato->get_data("trbAntiguedadMeses");
-	$trbApMaterno= $dato->get_data("trbApMaterno");
-	$trbCeco= $dato->get_data("trbCeco");
-	$trbFechaNac= $dato->get_data("trbFechaNac");
-	$trbTelefono= $dato->get_data("trbTelefono");
-	$trbTitulo= $dato->get_data("trbTitulo");
+	$trbNombre= $rs["trbNombre"];
+	$trbApPaterno= $rs["trbApPaterno"];
+	$trbIdTrabajador= $rs["trbIdTrabajador"];
+	$dirIdDireccion= $rs["dirIdDireccion"];
+	$comIdComuna= $rs["comIdComuna"];
+	$isaIdIsapre= $rs["isaIdIsapre"];
+	$nacIdNacionalidad= $rs["nacIdNacionalidad"];
+	$tgrlIdCargoContractual= $rs["tgrlIdCargoContractual"];
+	$tgrlIdOficioCab= $rs["tgrlIdOficioCab"];
+	$tgrlIdOficioDet= $rs["tgrlIdOficioDet"];
+	$tgrlIdTipoContrato= $rs["tgrlIdTipoContrato"];
+	$tjorIdTipoJornada= $rs["tjorIdTipoJornada"];
+	$trbAfectoArt22= $rs["trbAfectoArt22"];
+	$trbAntiguedadMeses= $rs["trbAntiguedadMeses"];
+	$trbApMaterno= $rs["trbApMaterno"];
+	$trbCeco= $rs["trbCeco"];
+	$trbFechaNac= $rs["trbFechaNac"];
+	$trbTelefono= $rs["trbTelefono"];
+	$trbTitulo= $rs["trbTitulo"];
 
 
 ?>
@@ -61,16 +61,7 @@
     	
     </tr>
     <tr>
-    <?
-		$cont = 0;
-        while($rs=mysql_fetch_array($idsql_tip_doc))
-		{
-			$cont++;
-	?>
-    	<td  class="solapa" onclick="cargarDocumento(<?=$rs["id"]?>)"><?=$rs["descripcion"]?></td>
-    <?
-    	}
-	?>
+    
     </tr>
 	<tr>
     	<td colspan="<?=$cont?>">

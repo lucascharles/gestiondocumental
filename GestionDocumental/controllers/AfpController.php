@@ -51,11 +51,11 @@ class AfpController extends ControllerBase
 		require 'models/AfpModel.php';
 		
 		$dato = new AfpModel();
-		
-		$afp = $dato->getAfpIDint($array);
+
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "M";
+		$afp = $dato->getAfp($array);
 		$data['dato'] = $afp; 
 
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");

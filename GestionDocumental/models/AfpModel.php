@@ -34,25 +34,18 @@ class AfpModel extends ModelBase
 		$dato->save();
 	}
 
-	public function getAfp($id_afp)
+	public function getFaenasContratista($param)
 	{
-		$dato = new Constructora();
-		$dato->add_filter("afpIdAfp","=",$id_afp);
-		$dato->load();
-		
-		return $dato;
-	}
-	
+		$sql = " SELECT a.* ";
+		$sql .= " FROM afp a ";
+		$sql .= " WHERE a.activo = 'S' ";
+		$sql .= " AND a.afpIdAfp = ".$param["id"];
 
-	public function getAfpIDint($array)
-	{
-		$dato = new Afp();
-		$dato->add_filter("afpIdAfp","=",$array["id"]);
-		$dato->load();
+		$idsql = consulta($sql);
 		
-		return $dato;
+		return $idsql;
 	}
-	
+		
 	public function getDatosAfp($array)
 	{
 		$dato = new Afp();

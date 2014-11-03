@@ -3,43 +3,36 @@
 <?
 	$titulo_form = "Alta Contratista";
 	
-//	$id = ($tipop=="M") ? $dato->get_data("id") : "";
-//	$id_usuario = ($tipop=="M") ? $dato->get_data("id_usuario") : "";
-//	$ape_usuario = ($tipop=="M") ? $dato->get_data("ape_usuario") : "";
-//	$nom_usu = ($tipop=="M") ? $dato->get_data("nom_usuario") : "";
-//	$clave = ($tipop=="M") ? $dato->get_data("clave") : "";
-//	$fec_alta = ($tipop=="M" && $dato->get_data("fec_alta")<>"0000-00-00") ? formatoFecha($dato->get_data("fec_alta"),"yyyy-mm-dd H:m:s","dd/mm/yyyy") : "";
-	
-	$id = ($tipop=="M") ? $dato->get_data("ctrIdContratista") : "";
-	$ctrIdContratista = ($tipop=="M") ? $dato->get_data("ctrIdContratista") : "";
-	$ccatIdAfiliado = ($tipop=="M") ? $dato->get_data("ccatIdAfiliado") : "";
-	$ctrEmail = ($tipop=="M") ? $dato->get_data("ctrEmail") : "";
-	$ctrEmailExpertoMutualidad = ($tipop=="M") ? $dato->get_data("ctrEmailExpertoMutualidad") : "";
-	$ctrEstado = ($tipop=="M") ? $dato->get_data("ctrEstado") : "";
-	$ctrFechaCreacion = ($tipop=="M") ? $dato->get_data("ctrFechaCreacion") : "";
-	$ctrFechaModificacion = ($tipop=="M") ? $dato->get_data("ctrFechaModificacion") : "";
-	$ctrFonoExpertoMutualidad = ($tipop=="M") ? $dato->get_data("ctrFonoExpertoMutualidad") : "";
-	$ctrIdAfiliadoMutualidad = ($tipop=="M") ? $dato->get_data("ctrIdAfiliadoMutualidad") : "";
-	$ctrIdServicioContratado = ($tipop=="M") ? $dato->get_data("ctrIdServicioContratado") : "";
-	$ctrIngresoFaena = ($tipop=="M") ? $dato->get_data("ctrIngresoFaena") : "";
-	$ctrNombreExpertoMutualidad = ($tipop=="M") ? $dato->get_data("ctrNombreExpertoMutualidad") : "";
-	$ctrNombreFantasia = ($tipop=="M") ? $dato->get_data("ctrNombreFantasia") : "";
-	$ctrNroActividadCab = ($tipop=="M") ? $dato->get_data("ctrNroActividadCab") : "";
-	$ctrNroActividadDet = ($tipop=="M") ? $dato->get_data("ctrNroActividadDet") : "";
-	$ctrRazonSocial = ($tipop=="M") ? $dato->get_data("ctrRazonSocial") : "";
-	$ctrRut = ($tipop=="M") ? $dato->get_data("ctrRut") : "";
-	$ctrTasaCotizacionActual = ($tipop=="M") ? $dato->get_data("ctrTasaCotizacionActual") : "";
-	$ctrTasaCotizacionTotal = ($tipop=="M") ? $dato->get_data("ctrTasaCotizacionTotal") : "";
-	$ctrTasaGenerica = ($tipop=="M") ? $dato->get_data("ctrTasaGenerica") : "";
-	$ctrTelefono = ($tipop=="M") ? $dato->get_data("ctrTelefono") : "";
-	$ctrTelefono2 = ($tipop=="M") ? $dato->get_data("ctrTelefono2") : "";
-	$ctrTelefono3 = ($tipop=="M") ? $dato->get_data("ctrTelefono3") : "";
-	$ctrUsuarioCreacion = ($tipop=="M") ? $dato->get_data("ctrUsuarioCreacion") : "";
-	$ctrUsuarioModificacion = ($tipop=="M") ? $dato->get_data("ctrUsuarioModificacion") : "";
-	$dirIdDirecion = ($tipop=="M") ? $dato->get_data("dirIdDirecion") : "";
-	$mutIdMutualidad = ($tipop=="M") ? $dato->get_data("mutIdMutualidad") : "";
-	$rplIdRepLegal = ($tipop=="M") ? $dato->get_data("rplIdRepLegal") : "";
-	$tjor_idTipoJornada = ($tipop=="M") ? $dato->get_data("tjor_idTipoJornada") : "";
+	$id = ($tipop=="M") ? $rs["ctrIdContratista"] : "";
+	$ctrIdContratista = ($tipop=="M") ? $rs["ctrIdContratista"] : "";
+	$ccatIdAfiliado = ($tipop=="M") ? $rs["ccatIdAfiliado"] : "";
+	$ctrEmail = ($tipop=="M") ? $rs["ctrEmail"] : "";
+	$ctrEmailExpertoMutualidad = ($tipop=="M") ? $rs["ctrEmailExpertoMutualidad"] : "";
+	$ctrEstado = ($tipop=="M") ? $rs["ctrEstado"] : "";
+	$ctrFechaCreacion = ($tipop=="M") ? $rs["ctrFechaCreacion"] : "";
+	$ctrFechaModificacion = ($tipop=="M") ? $rs["ctrFechaModificacion"] : "";
+	$ctrFonoExpertoMutualidad = ($tipop=="M") ? $rs["ctrFonoExpertoMutualidad"] : "";
+	$ctrIdAfiliadoMutualidad = ($tipop=="M") ? $rs["ctrIdAfiliadoMutualidad"] : "";
+	$ctrIdServicioContratado = ($tipop=="M") ? $rs["ctrIdServicioContratado"] : "";
+	$ctrIngresoFaena = ($tipop=="M") ? $rs["ctrIngresoFaena"] : "";
+	$ctrNombreExpertoMutualidad = ($tipop=="M") ? $rs["ctrNombreExpertoMutualidad"] : "";
+	$ctrNombreFantasia = ($tipop=="M") ? $rs["ctrNombreFantasia"] : "";
+	$ctrNroActividadCab = ($tipop=="M") ? $rs["ctrNroActividadCab"] : "";
+	$ctrNroActividadDet = ($tipop=="M") ? $rs["ctrNroActividadDet"] : "";
+	$ctrRazonSocial = ($tipop=="M") ? $rs["ctrRazonSocial"] : "";
+	$ctrRut = ($tipop=="M") ? $rs["ctrRut"] : "";
+	$ctrTasaCotizacionActual = ($tipop=="M") ? $rs["ctrTasaCotizacionActual"] : "";
+	$ctrTasaCotizacionTotal = ($tipop=="M") ? $rs["ctrTasaCotizacionTotal"] : "";
+	$ctrTasaGenerica = ($tipop=="M") ? $rs["ctrTasaGenerica"] : "";
+	$ctrTelefono = ($tipop=="M") ? $rs["ctrTelefono"] : "";
+	$ctrTelefono2 = ($tipop=="M") ? $rs["ctrTelefono2"] : "";
+	$ctrTelefono3 = ($tipop=="M") ? $rs["ctrTelefono3"] : "";
+	$ctrUsuarioCreacion = ($tipop=="M") ? $rs["ctrUsuarioCreacion"] : "";
+	$ctrUsuarioModificacion = ($tipop=="M") ? $rs["ctrUsuarioModificacion"] : "";
+	$dirIdDirecion = ($tipop=="M") ? $rs["dirIdDirecion"] : "";
+	$mutIdMutualidad = ($tipop=="M") ? $rs["mutIdMutualidad"] : "";
+	$rplIdRepLegal = ($tipop=="M") ? $rs["rplIdRepLegal"] : "";
+	$tjor_idTipoJornada = ($tipop=="M") ? $rs["tjor_idTipoJornada"] : "";
 
 	
 	
