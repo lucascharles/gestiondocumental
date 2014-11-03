@@ -14,24 +14,22 @@ class AfpModel extends ModelBase
 	public function grabar_datosForm($array)
 	{
 		$tipop = $array["tipop"];
-		
-		$dato = new Afp();
-		if($tipop=="M")
-		{
-			$dato->add_filter("afpIdAfp","=",$array["afpIdAfp"]);
-			$dato->load();
-		}
-		
-//autonumerico		if(trim($array["afpIdAfp"])<>"")$dato->set_data("afpIdAfp",$array["afpIdAfp"]);
-		if(trim($array["afpEstado"])<>"")$dato->set_data("afpEstado",$array["afpEstado"]);
-		if(trim($array["afpFechaCreacion"])<>"")$dato->set_data("afpFechaCreacion",$array["afpFechaCreacion"]);
-		if(trim($array["afpFechaModificacion"])<>"")$dato->set_data("afpFechaModificacion",$array["afpFechaModificacion"]);
-		if(trim($array["afpNombre"])<>"")$dato->set_data("afpNombre",$array["afpNombre"]);
-		if(trim($array["afpUsuarioCreacion"])<>"")$dato->set_data("afpUsuarioCreacion",$array["afpUsuarioCreacion"]);
-		if(trim($array["afpUsuarioModificacion"])<>"")$dato->set_data("afpUsuarioModificacion",$array["afpUsuarioModificacion"]);
 
-		$dato->set_data("activo","S");
-		$dato->save();
+		$sql = " SELECT * ";
+		$sql .= " FROM afp ";
+		$sql .= " WHERE afpIdAfp = ".$array["afpIdAfp"];
+		
+		$idsql = consulta($sql);
+		
+		if(mysql_num_rows ($idsql) == 0)
+		{
+			$sql = " INSERT INTO afp (afpNombre, activo) VALUES ('".$array["afpNombre"]."','S')  ";
+		}else{
+			$sql = " UPDATE afp SET afpNombre = '".$array["afpNombre"]."' WHERE afpIdAfp = ".$array["afpIdAfp"];
+			
+		}
+		consulta($sql);
+		
 	}
 
 	public function getFaenasContratista($param)
@@ -50,7 +48,7 @@ class AfpModel extends ModelBase
 	{
 		include("config.php");
 		
-		$sql = "  SELECT a.afpIdAfp afpIdAfp, a.afpEstado afpEstado, a.afpFechaCreacion afpFechaCreacion, a.afpFechaModificacion afpFechaModificacion, a.afpNombre afpNombre, a.afpUsuarioCreacion afpUsuarioCreacion, a.afpUsuarioModificacion afpUsuarioModificacion ";
+		$sql = "  SELECT a.afpIdAfp , a.afpEstado , a.afpFechaCreacion , a.afpFechaModificacion , a.afpNombre , a.afpUsuarioCreacion , a.afpUsuarioModificacion  ";
 		$sql .= " FROM afp a ";
 		$sql .= " WHERE a.activo = 'S' ";
 		$sql .= " AND a.afpIdAfp = " . $array["id"];
