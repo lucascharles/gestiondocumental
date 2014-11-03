@@ -55,8 +55,7 @@ class AfpController extends ControllerBase
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "M";
-		$afp = $dato->getAfp($array);
-		$data['dato'] = $afp; 
+		$data['result'] = $dato->getAfp($array); 
 
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");

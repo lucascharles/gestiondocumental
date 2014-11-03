@@ -2,14 +2,11 @@
 <? include("views/menu.php"); ?>
 <?
 	$titulo_form = "Alta AFP";
-$rs= $rs=mysql_fetch_array($dato);	
+	
+$rs = ($result=="") ? "" : mysql_fetch_array($result);	
 $id = ($tipop=="M") ? $rs["afpIdAfp"] : "";
 $afpEstado = ($tipop=="M") ? $rs["afpEstado"] : "";
-$afpFechaCreacion = ($tipop=="M") ? $rs["afpFechaCreacion"] : "";
-$afpFechaModificacion = ($tipop=="M") ? $rs["afpFechaModificacion"] : "";
 $afpNombre = ($tipop=="M") ? $rs["afpNombre"] : "";
-$afpUsuarioCreacion = ($tipop=="M") ? $rs["afpUsuarioCreacion"] : "";
-$afpUsuarioModificacion = ($tipop=="M") ? $rs["afpUsuarioModificacion"] : "";
 	
 	if($tipop=="M")
 	{
