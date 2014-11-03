@@ -55,7 +55,7 @@ class TrabajadoresControlController extends ControllerBase
 		
 		$dato = new TrabajadoresControlModel();
 		
-		$trabajador = $dato->getTrabajadorIDint($array);
+		$trabajador = $dato->getTrabajador($array);
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "M";
@@ -88,7 +88,7 @@ class TrabajadoresControlController extends ControllerBase
 		
 		$dato = new TrabajadoresControlModel();
 		
-		$trabajador = $dato->getTrabajadorIDint($array);
+		$trabajador = $dato->getTrabajador($array);
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "M";

@@ -3,22 +3,22 @@
 <?
 	$titulo_form = "Alta Constructora";
 	
-	$id = ($tipop=="M") ? $dato->get_data("consIdConstructora") : "";
-	$consIdConstructora = ($tipop=="M") ? $dato->get_data("consIdConstructora") : "";
-	$consEmail = ($tipop=="M") ? $dato->get_data("consEmail") : "";
-	$consEstado = ($tipop=="M") ? $dato->get_data("consEstado") : "";
-	$consFechaCreacion = ($tipop=="M") ? $dato->get_data("consFechaCreacion") : "";
-	$consFechaModificacion = ($tipop=="M") ? $dato->get_data("consFechaModificacion") : "";
-	$consNombreFantasia = ($tipop=="M") ? $dato->get_data("consNombreFantasia") : "";
-	$consRazonSocial = ($tipop=="M") ? $dato->get_data("consRazonSocial") : "";
-	$consRut = ($tipop=="M") ? $dato->get_data("consRut") : "";
-	$consTelefono = ($tipop=="M") ? $dato->get_data("consTelefono") : "";
-	$consTelefono2 = ($tipop=="M") ? $dato->get_data("consTelefono2") : "";
-	$consTelefono3 = ($tipop=="M") ? $dato->get_data("consTelefono3") : "";
-	$consUsuarioCreacion = ($tipop=="M") ? $dato->get_data("consUsuarioCreacion") : "";
-	$consUsuarioModificacion = ($tipop=="M") ? $dato->get_data("consUsuarioModificacion") : "";
-	$dirIdDireccion = ($tipop=="M") ? $dato->get_data("dirIdDireccion") : "";
-	$rplIdRepLegal = ($tipop=="M") ? $dato->get_data("rplIdRepLegal") : "";
+	$id = ($tipop=="M") ? $rs["consIdConstructora"] : "";
+	$consIdConstructora = ($tipop=="M") ? $rs["consIdConstructora"] : "";
+	$consEmail = ($tipop=="M") ? $rs["consEmail"] : "";
+	$consEstado = ($tipop=="M") ? $rs["consEstado"] : "";
+	$consFechaCreacion = ($tipop=="M") ? $rs["consFechaCreacion"] : "";
+	$consFechaModificacion = ($tipop=="M") ? $rs["consFechaModificacion"] : "";
+	$consNombreFantasia = ($tipop=="M") ? $rs["consNombreFantasia"] : "";
+	$consRazonSocial = ($tipop=="M") ? $rs["consRazonSocial"] : "";
+	$consRut = ($tipop=="M") ? $rs["consRut"] : "";
+	$consTelefono = ($tipop=="M") ? $rs["consTelefono"] : "";
+	$consTelefono2 = ($tipop=="M") ? $rs["consTelefono2"] : "";
+	$consTelefono3 = ($tipop=="M") ? $rs["consTelefono3"] : "";
+	$consUsuarioCreacion = ($tipop=="M") ? $rs["consUsuarioCreacion"] : "";
+	$consUsuarioModificacion = ($tipop=="M") ? $rs["consUsuarioModificacion"] : "";
+	$dirIdDireccion = ($tipop=="M") ? $rs["dirIdDireccion"] : "";
+	$rplIdRepLegal = ($tipop=="M") ? $rs["rplIdRepLegal"] : "";
 
 	
 	if($tipop=="M")

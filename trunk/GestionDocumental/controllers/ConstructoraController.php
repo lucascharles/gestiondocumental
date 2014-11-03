@@ -53,7 +53,7 @@ class ConstructoraController extends ControllerBase
 		
 		$dato = new ConstructoraModel();
 		
-		$constructora = $dato->getConstructoraIDint($array);
+		$constructora = $dato->getConstructora($array);
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "M";

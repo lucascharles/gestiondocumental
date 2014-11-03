@@ -3,13 +3,13 @@
 <?
 	$titulo_form = "Alta AFP";
 	
-$id = ($tipop=="M") ? $dato->get_data("afpIdAfp") : "";
-$afpEstado = ($tipop=="M") ? $dato->get_data("afpEstado") : "";
-$afpFechaCreacion = ($tipop=="M") ? $dato->get_data("afpFechaCreacion") : "";
-$afpFechaModificacion = ($tipop=="M") ? $dato->get_data("afpFechaModificacion") : "";
-$afpNombre = ($tipop=="M") ? $dato->get_data("afpNombre") : "";
-$afpUsuarioCreacion = ($tipop=="M") ? $dato->get_data("afpUsuarioCreacion") : "";
-$afpUsuarioModificacion = ($tipop=="M") ? $dato->get_data("afpUsuarioModificacion") : "";
+$id = ($tipop=="M") ? $rs["afpIdAfp"] : "";
+$afpEstado = ($tipop=="M") ? $rs["afpEstado"] : "";
+$afpFechaCreacion = ($tipop=="M") ? $rs["afpFechaCreacion"] : "";
+$afpFechaModificacion = ($tipop=="M") ? $rs["afpFechaModificacion"] : "";
+$afpNombre = ($tipop=="M") ? $rs["afpNombre"] : "";
+$afpUsuarioCreacion = ($tipop=="M") ? $rs["afpUsuarioCreacion"] : "";
+$afpUsuarioModificacion = ($tipop=="M") ? $rs["afpUsuarioModificacion"] : "";
 	
 	if($tipop=="M")
 	{

@@ -48,13 +48,7 @@
                    </td>
 
 			    </tr>
-                <!--
-                <tr>
-			        <td align="right" colspan="4">
-                    <input  type="button" name="btnbuscar" id="btnbuscar" onclick="mostrar()"  value="Buscar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/>&nbsp;
-                    </td>
-                    </tr>
-                    -->
+  
              </table>
          <td>
     </tr>

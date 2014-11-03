@@ -73,15 +73,16 @@ class TrabajadoresControlModel extends ModelBase
 		return $dato;
 	}
 	
-
-	public function getTrabajadorIDint($array)
+	public function getTrabajador($array)
 	{
-		$dato = new Trabajador();
-		
-		$dato->add_filter("trbIdTrabajador","=",$array["id"]);
-		$dato->load();
-		
-		return $dato;
+		$sql = " SELECT t.* ";
+		$sql .= " FROM trabajador t ";
+		$sql .= " WHERE t.activo = 'S' ";
+		$sql .= " AND t.trbIdTrabajador = ".$array["id"];
+	
+		$idsql = consulta($sql);
+	
+		return mysql_fetch_array($idsql);
 	}
 	
 	public function getDatosUsuario($array)
