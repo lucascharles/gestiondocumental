@@ -11,7 +11,7 @@ include("views/cabecera_listado.php");
         <th align="left" width=""></th>
     </tr>
 	<?php
-	
+	$controller = 'Afp';
 	while($rs=mysql_fetch_array($result))
 	{		
 	?>

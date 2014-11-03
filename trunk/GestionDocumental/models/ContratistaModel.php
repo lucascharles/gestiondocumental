@@ -4,10 +4,10 @@ class ContratistaModel extends ModelBase
 	public function getContratista($param)
 	{
 		$sql = " SELECT c.*, CONCAT(d.dirCalle,' ',d.dirNumero,' ',d.dirEstado) direccion ";
-		$sql .= " FROM contratista c LEFT JOIN direccion d ON (c.ctrIdContratista = d.id_contratista and d.activo = 'S') ";
+		$sql .= " FROM contratista c LEFT JOIN direccion d ON (c.ctrIdContratista = d.dirIdDireccion and d.activo = 'S') ";
 		$sql .= " WHERE c.activo = 'S' ";
 		$sql .= " AND ctrIdContratista = ".$param["id"];
-		//echo($sql);
+// 		echo($sql);
 		$idsql = consulta($sql);
 		
 		return ($idsql);

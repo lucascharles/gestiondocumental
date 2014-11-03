@@ -46,13 +46,18 @@ class AfpModel extends ModelBase
 		return $idsql;
 	}
 		
-	public function getDatosAfp($array)
+	public function getAfp($array)
 	{
-		$dato = new Afp();
-		$dato->add_filter("afpIdAfp","=",$array["idafp"]);
-		$dato->load();
+		include("config.php");
 		
-		return $dato;
+		$sql = "  SELECT a.afpIdAfp afpIdAfp, a.afpEstado afpEstado, a.afpFechaCreacion afpFechaCreacion, a.afpFechaModificacion afpFechaModificacion, a.afpNombre afpNombre, a.afpUsuarioCreacion afpUsuarioCreacion, a.afpUsuarioModificacion afpUsuarioModificacion ";
+		$sql .= " FROM afp a ";
+		$sql .= " WHERE a.activo = 'S' ";
+		$sql .= " AND a.afpIdAfp = " . $array["id"];
+		
+		$result = consulta($sql);
+		
+    	return $result;	
 	}
 		
 	public function getListaAfp($array)

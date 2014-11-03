@@ -2,7 +2,7 @@
 <? include("views/menu.php"); ?>
 <?
 	$titulo_form = "Alta Trabajador";
-	
+	$rs = $dato;
 	$id = ($tipop=="M") ? $rs["trbIdTrabajador"] : "";
 	$id_usuario = ($tipop=="M") ? $rs["trbIdTrabajador"] : "";
 	$ape_usuario = ($tipop=="M") ? $rs["trbApPaterno"] : "";
