@@ -2,7 +2,7 @@
 <? include("views/menu.php"); ?>
 <?
 	$titulo_form = "Alta AFP";
-	
+$rs= $rs=mysql_fetch_array($dato);	
 $id = ($tipop=="M") ? $rs["afpIdAfp"] : "";
 $afpEstado = ($tipop=="M") ? $rs["afpEstado"] : "";
 $afpFechaCreacion = ($tipop=="M") ? $rs["afpFechaCreacion"] : "";

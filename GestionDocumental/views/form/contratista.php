@@ -3,6 +3,8 @@
 <?
 	$titulo_form = "Alta Contratista";
 	
+    $rs=mysql_fetch_array($dato);
+	
 	$id = ($tipop=="M") ? $rs["ctrIdContratista"] : "";
 	$ctrIdContratista = ($tipop=="M") ? $rs["ctrIdContratista"] : "";
 	$ccatIdAfiliado = ($tipop=="M") ? $rs["ccatIdAfiliado"] : "";

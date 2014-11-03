@@ -3,6 +3,8 @@
 <?
 	$titulo_form = "Alta Constructora";
 	
+	$rs= $dato;
+	
 	$id = ($tipop=="M") ? $rs["consIdConstructora"] : "";
 	$consIdConstructora = ($tipop=="M") ? $rs["consIdConstructora"] : "";
 	$consEmail = ($tipop=="M") ? $rs["consEmail"] : "";
