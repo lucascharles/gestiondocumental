@@ -14,34 +14,54 @@ class ConstructoraModel extends ModelBase
 	public function grabar_datosForm($array)
 	{
 		$tipop = $array["tipop"];
-		
-		$dato = new Constructora();
-		if($tipop=="M")
+	
+		$sql = " SELECT * ";
+		$sql .= " FROM constructora ";
+		$sql .= " WHERE consIdConstructora = ".$array["consIdConstructora"];
+	
+		$idsql = consulta($sql);
+	
+		if(mysql_num_rows ($idsql) == 0)
 		{
-			$dato->add_filter("consIdConstructora","=",$array["id_usu"]);
-			$dato->load();
+			$sql = " INSERT INTO constructora (";
+			$sql .= "consEmail,consEstado, ";
+			$sql .= "consNombreFantasia,consRazonSocial,consRut,consTelefono, ";
+			$sql .= "consTelefono2,consTelefono3, ";
+			$sql .= "dirIdDireccion,rplIdRepLegal )";
+			$sql .= " VALUES ";
+			$sql .= "('";
+			if(trim($array["consEmail"]) <> ""){ $sql .= trim($array["consEmail"])."','"; }else{ $sql .= "NULL,"; }
+			if(trim($array["consEstado"]) <> ""){ $sql .= trim($array["consEstado"])."','"; }else{$sql .= "NULL,"; }
+			if(trim($array["consNombreFantasia"]) <> ""){ $sql .= trim($array["consNombreFantasia"])."','"; }else{$sql .= "NULL,";}
+			if(trim($array["consRazonSocial"]) <> ""){ $sql .= trim($array["consRazonSocial"])."',"; }else{$sql .= "NULL,";}
+			if(trim($array["consRut"]) <> ""){ $sql .= trim($array["consRut"]).","; }else{$sql .= "NULL,";}
+			if(trim($array["consTelefono"]) <> ""){ $sql .= trim($array["consTelefono"]).","; }else{$sql .= "NULL,";}
+			if(trim($array["consTelefono2"]) <> ""){ $sql .= trim($array["consTelefono2"]).","; }else{$sql .= "NULL,";}
+			if(trim($array["consTelefono3"]) <> ""){ $sql .= trim($array["consTelefono3"]).","; }else{$sql .= "NULL,";}
+			if(trim($array["dirIdDireccion"]) <> ""){ $sql .= trim($array["dirIdDireccion"]).","; }else{$sql .= "NULL,";}
+			if(trim($array["rplIdRepLegal"]) <> ""){ $sql .= trim($array["rplIdRepLegal"]); }else{$sql .= "NULL";}
+			$sql .= ")";
+		}else{
+			$sql = " UPDATE constructora SET ";
+			if(trim($array["consEmail"]) <> "") $sql .= "consEmail = '".trim($array["consEmail"])."'";
+			if(trim($array["consNombreFantasia"]) <> "") $sql .= " ,consNombreFantasia = '".trim($array["consNombreFantasia"])."'";
+			if(trim($array["consRazonSocial"]) <> "") $sql .= " ,consRazonSocial = '".trim($array["consRazonSocial"])."'";
+			if(trim($array["consRut"]) <> "") $sql .= " ,consRut =".trim($array["consRut"]);
+			if(trim($array["consTelefono"]) <> "") $sql .= " ,consTelefono = '".trim($array["consTelefono"])."'";
+			if(trim($array["consTelefono2"]) <> "") $sql .= " ,consTelefono2 = '".trim($array["consTelefono2"])."'";
+			if(trim($array["consTelefono3"]) <> "") $sql .= " ,consTelefono3 = '".trim($array["consTelefono3"])."'";
+			if(trim($array["dirIdDireccion"]) <> "") $sql .= " ,dirIdDireccion =".trim($array["dirIdDireccion"]);
+			if(trim($array["rplIdRepLegal"]) <> "") $sql .= " ,rplIdRepLegal =".trim($array["rplIdRepLegal"]);
+			$sql .= " WHERE consIdConstructora = ".$array["consIdConstructora"];
+				
 		}
-		
-// autonumerico		if(trim($array["consIdConstructora"])<>"")$dato->set_data("consIdConstructora",$array["consIdConstructora"]);
-		if(trim($array["consEmail"])<>"")$dato->set_data("consEmail",$array["consEmail"]);
-		if(trim($array["consEstado"])<>"")$dato->set_data("consEstado",$array["consEstado"]);
-		if(trim($array["consFechaCreacion"])<>"")$dato->set_data("consFechaCreacion",$array["consFechaCreacion"]);
-		if(trim($array["consFechaModificacion"])<>"")$dato->set_data("consFechaModificacion",$array["consFechaModificacion"]);
-		if(trim($array["consNombreFantasia"])<>"")$dato->set_data("consNombreFantasia",$array["consNombreFantasia"]);
-		if(trim($array["consRazonSocial"])<>"")$dato->set_data("consRazonSocial",$array["consRazonSocial"]);
-		if(trim($array["consRut"])<>"")$dato->set_data("consRut",$array["consRut"]);
-		if(trim($array["consTelefono"])<>"")$dato->set_data("consTelefono",$array["consTelefono"]);
-		if(trim($array["consTelefono2"])<>"")$dato->set_data("consTelefono2",$array["consTelefono2"]);
-		if(trim($array["consTelefono3"])<>"")$dato->set_data("consTelefono3",$array["consTelefono3"]);
-		if(trim($array["consUsuarioCreacion"])<>"")$dato->set_data("consUsuarioCreacion",$array["consUsuarioCreacion"]);
-		if(trim($array["consUsuarioModificacion"])<>"")$dato->set_data("consUsuarioModificacion",$array["consUsuarioModificacion"]);
-		if(trim($array["dirIdDireccion"])<>"")$dato->set_data("dirIdDireccion",$array["dirIdDireccion"]);
-		if(trim($array["rplIdRepLegal"])<>"")$dato->set_data("rplIdRepLegal",$array["rplIdRepLegal"]);
-
-		$dato->set_data("activo","S");
-		$dato->save();
+		echo($sql);
+		exit;
+		consulta($sql);
+	
 	}
-
+	
+	
 	public function getConstructora($array)
 	{
 		$sql = " SELECT c.consIdConstructora, c.consNombreFantasia , c.consRazonSocial, c.consRut "; 
