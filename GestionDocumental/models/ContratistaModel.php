@@ -7,10 +7,10 @@ class ContratistaModel extends ModelBase
 		$sql .= " FROM contratista c LEFT JOIN direccion d ON (c.ctrIdContratista = d.dirIdDireccion and d.activo = 'S') ";
 		$sql .= " WHERE c.activo = 'S' ";
 		$sql .= " AND ctrIdContratista = ".$param["id"];
-// 		echo($sql);
+ 		//echo($sql);
 		$idsql = consulta($sql);
 		
-		return ($idsql);
+		return mysql_fetch_array($idsql);
 	}
 	
 	public function getFaenasContratista($param)
