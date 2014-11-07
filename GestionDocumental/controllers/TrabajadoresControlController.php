@@ -2,15 +2,15 @@
 class TrabajadoresControlController extends ControllerBase
 {
 
-	public function admin($array)
+	public function admin($param)
 	{
-		$data['nom_sistema'] = $array["nombre_sistema"];
-		$data['controller'] = $array["controlador"];
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		$data['controller'] = $param["controlador"];
 						
 		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
 	
-		$this->view->show("admin/trabajadores.php", $data);
-// 		$this->view->show("form/doctrabajador.php", $data);
+		$this->view->show("admin/trabajador.php", $data);
+
 	}
 	
 	public function baja($array)
@@ -49,18 +49,16 @@ class TrabajadoresControlController extends ControllerBase
 		$this->view->show("form/trabajador.php", $data);
 	}
 	
-	public function editar($array)
+	public function editar($param)
 	{
 		require 'models/TrabajadoresControlModel.php';
 		
 		$dato = new TrabajadoresControlModel();
 		
-		$trabajador = $dato->getTrabajador($array);
-		$data['nom_sistema'] = $array["nombre_sistema"];
-		$data['controller'] = $array["controlador"];
+		$data['rs'] = $dato->getTrabajador($param);
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		$data['controller'] = $param["controlador"];
 		$data['tipop'] = "M";
-		$data['dato'] = $trabajador; 
-
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
