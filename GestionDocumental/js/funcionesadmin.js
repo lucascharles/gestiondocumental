@@ -19,8 +19,9 @@ function mostrar()
 		 }
 	}
 
-	document.getElementById("frmitemsadmin").src = url;
+	$("#frmitemsadmin").load(url);
 }
+
 
 $(document).ready(function() 
 {
