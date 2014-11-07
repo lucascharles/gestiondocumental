@@ -19,18 +19,18 @@ include("views/cabecera_listado.php");
 	{	
 	?>
 	
-	<tr bgcolor="#FFFFFF" id="fila_<?php echo ($rs["id"]) ?>">
+	<tr bgcolor="#FFFFFF" id="fila_<?php echo ($rs["trbIdTrabajador"]) ?>">
     	<td height="" width="5%"></td>
         <td align="left" width="10%"><?php echo ($rs["trbIdTrabajador"]) ?></td>
 		<td align="left" width="15%"><?php echo (utf8_decode($rs["trbNombre"])) ?></td>
-        <td align="left" width="15%"><?php echo (utf8_decode($rs["trbApPaterno"])) ?></td>
-      <!--  <td align="left" width="10%"><?=($rs["fec_alta"]=="0000-00-00") ? "" : formatoFecha($rs["fec_alta"],"yyyy-mm-dd","dd/mm/yyyy"); ?></td> -->
-		<td align="left" width="10%"><?php echo (utf8_decode($rs["trbApPaterno"])) ?></td>
-		<td align="left" width="10%"><?php echo (utf8_decode($rs["trbApPaterno"])) ?></td>
-		<td align="left" width="10%"><?php echo (utf8_decode($rs["trbApPaterno"])) ?></td>    
+   		<td align="left" width="10%"><?php echo (utf8_decode($rs["trbApPaterno"])) ?></td>
+        <td align="left" width="15%"><?php echo (utf8_decode($rs["trbRut"])) ?></td>
+		<td align="left" width="10%"><?php echo (utf8_decode($rs["afp"])) ?></td>
+
+        <td align="left" width="10%"><?=($rs["fec_alta"]=="0000-00-00") ? "" : formatoFecha($rs["fec_alta"],"yyyy-mm-dd","dd/mm/yyyy"); ?></td> 
+		<td align="left" width="10%"><?php echo (utf8_decode($rs["contratista"])) ?></td>    
 		<td align="left" width="15%">
-      <!--  <img src="images/permisos.png" title="Permisos" class="oplistado" onclick="window.parent.configurarRegistro('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" /> -->
-        <img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+      	<img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         <img src="images/permisos.png" title="Documentos" class="oplistado" onclick="window.parent.documentosTrabajador('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         </td>
