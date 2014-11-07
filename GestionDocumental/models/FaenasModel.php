@@ -43,13 +43,13 @@ class FaenasModel extends ModelBase
 		$dato->save();
 	}
 
-	public function getFaena($id_faena)
+	public function getFaena($param)
 	{
-		$dato = new Faenas();
-		$dato->add_filter("faeIdFaenas","=",$id_faena);
-		$dato->load();
+		$sql = " SELECT * FROM faena WHERE faeIdFaenas = ".$param["id"];
+		//echo($sql);
+		$idsql = consulta($sql);
 		
-		return $dato;
+		return mysql_fetch_array($idsql);
 	}
 	
 
