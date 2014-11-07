@@ -1,4 +1,134 @@
 <?php
+function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot='', $func_pivot='', $titulo_tabla='')
+{
+	$cadena='';
+    $cadena.= "<table class='panel_control_doc_trabajador' >";
+    
+	$cabeceras = ConvierteEtiquetaEjeX(array_keys($data[0]), $FormatoCabecera);
+
+	$pos=0;
+    foreach ($cabeceras as $item) 
+	{
+		if ($pos==0) $item = (trim($labelpivot) <> "") ? $labelpivot : "&nbsp;";
+        $cab_column.=  "<th><b>{$item}<b></th>";
+		++$pos;
+    }
+	
+	$cab_titulo .=  "<thead>";
+	$cab_titulo .=  "<th colspan='".$pos."'><h2>".$titulo_tabla."</h2></th>";
+    $cab_titulo .=  "</thead>";
+	
+	$cadena.=  $cab_titulo;
+	
+	$cadena.=  "<tr>".$cab_column."</tr>";
+	$band_fila = 0;
+    foreach ($data as $row) {
+
+		$band_fila++;
+         $cadena_fila =  "<tr>";
+		 $pos_item = 0;
+		 $col = 0;
+		 $id_trabajador = 0;
+        foreach ($row as $item) {
+		//echo("<br>".$item);
+			$col ++;
+			
+			$enlaceIni='';
+			$enlaceFin='';
+			if (count($enlace) > 0)
+			{
+				if($enlace["col"] == $col)
+				{
+					$link = $enlace['href'];
+					$itemaux = explode("@",$item); 
+					if(count($itemaux) > 1)
+					{
+						$item = $itemaux[1];
+						$link .= ($link=="#")?"":$itemaux[0];
+						$aux = array_keys($data[0]);
+						//$funct = "onclick='".$enlace["funcion"]."(".$itemaux[0].",".$aux[$col].")'";
+						$id_trabajador = $itemaux[0];
+						eval("\$enlace_convertido = \"$link\";"); 
+						$enlaceIni="<div style='color:#0000CC' >";
+						$enlaceFin="</div>";
+						if($enlace["ocultar"] > 0)
+						{
+							$enlaceIni='';
+							$enlaceFin='';
+						}
+					}
+				}
+			}
+			//$arr = explode("@",$item);
+			$aux = array_keys($data[0]);
+			$funct = "onclick='".$enlace["funcion"]."(".$id_trabajador.",".$aux[$col-1].")'";
+			//$item = $arr[1];
+			$valor = $item;
+			//$valor = $arr[0];
+			$clase='class=texto';
+			$nopaso = 'no paso';
+			if(is_numeric($valor))  
+			{ 
+				$nopaso = '';
+			
+				//$valor = ($item > 0)?"<img src='images/activar.gif' style='cursor:pointer' ".$funct .">":"<img src='images/borrar.gif' style='cursor:pointer' ".$funct ." >";  
+				
+				//$arr = explode("@",$item);
+				
+				switch($item)
+				{
+					case 1:	// Sin subir
+						$valor = "<img src='images/estado_naranja.png' style='cursor:pointer' ".$funct .">";
+					break;
+					case 2: // Subido sin revisar
+						$valor = "<img src='images/estado_azul.png' style='cursor:pointer' ".$funct .">";
+					break;
+					case 3:	// Rechazado
+						$valor = "<img src='images/estado_rojo.png' style='cursor:pointer' ".$funct .">";
+					break;
+					case 4:	// Aprobado
+						$valor = "<img src='images/estado_verde.png' style='cursor:pointer' ".$funct .">";
+					break;
+				}
+			}
+
+
+			//if($valor == "") $valor = ($item > 0)?"<img src='images/activar.gif' style='cursor:pointer' ".$funct ." >":"<img src='images/borrar.gif' style='cursor:pointer' ".$funct ." >";
+			//$valor = ($item > 0)?"<img src='images/activar.gif' >":"<img src='images/borrar.gif' >";  
+			$cadena_fila.=  "<td $clase>".$enlaceIni.$valor.$enlaceFin."</td>";
+			
+			
+			
+        }
+        $cadena_fila.=  "</tr>";
+		$cadena .=  $cadena_fila;
+    }
+     $cadena.=  "</table>";
+	 return $cadena;
+}
+
+	function ConvierteEtiquetaEjeX($a)
+	{
+
+		$etiquetas = array();
+	
+		foreach($a as $a)
+		{
+			if($a <> "")
+			{
+			$sql = " SELECT * FROM sub_tipodocumento WHERE id = '".$a."'";
+			//echo("<br>".$sql);
+			$idsql = consulta($sql);
+			$rs = mysql_fetch_array($idsql);
+			}
+		
+			$etiquetas[] =$rs["descripcion"];
+		}
+
+		return $etiquetas;
+	
+	}
+
 	function conDecimales($valor, $decimales=2)
 	{
 		return number_format($valor,$decimales,'.',',');
