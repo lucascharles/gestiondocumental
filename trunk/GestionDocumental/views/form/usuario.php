@@ -84,6 +84,6 @@
          </td>
     </tr>
 </table>
-</div>
+
 </form>
 <? include("views/pie.php"); ?>
