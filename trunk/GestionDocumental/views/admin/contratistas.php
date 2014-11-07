@@ -80,7 +80,7 @@
     </tr>  
 	<tr>
         <td colspan="3" valign="top">
-        	<iframe id="frmitemsadmin" src="" frameborder="0" width="100%" align="middle" scrolling="no" height="1050"></iframe>
+        	  <div id="frmitemsadmin" style=" width:100%; min-height:1050px; overflow:auto;"></div>
          </td>
     </tr>  
 </table>
