@@ -71,7 +71,6 @@ class DashboardController extends ControllerBase
 	{
 		require 'models/ContratistaModel.php';
 		$dato = new ContratistaModel();		
-				
 		$data['controller'] = $param["controlador"];
 		$data['result'] = $dato->getListaContratistas($param);
 	

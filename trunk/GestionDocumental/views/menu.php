@@ -6,7 +6,7 @@
 				<td width="100%" height="30" align="left">
                 <div class="menulayout" id="content_menu">
                  <ul id="nav" style="position:relative; margin-left:0px;">
-                 	 <? /*if(checkPermisos(1,"vista")) { */?>                 
+                 	 <? if($_SESSION["tip_usuario"] <> "E"){ ?>                 
                       <li>
                                  <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 								<tr>
@@ -28,8 +28,8 @@
                                 </tr>
                                 </table>
                                 </li>
-                               <? /*}*/ ?>
-
+                               <? } ?>
+					<? if($_SESSION["tip_usuario"] <> "E"){ ?>
 							<li>
                                <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 								<tr>
@@ -51,7 +51,8 @@
                               </tr>
                               </table>
                               </li>
-
+						<?php } ?>	
+						<? if($_SESSION["tip_usuario"] <> "E"){ ?>
 							<li>
                                <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 								<tr>
@@ -73,6 +74,8 @@
                               </tr>
                               </table>
                               </li>
+                          <?php }?>
+                          <? if($_SESSION["tip_usuario"] <> "E"){ ?>    
 							<li>
 							   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 								<tr>
@@ -94,7 +97,8 @@
 							  </tr>
 							  </table>
 							  </li>
-
+							<?php }?>
+							<? if($_SESSION["tip_usuario"] <> "E"){ ?>
 								<li>
 								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 									<tr>
@@ -116,7 +120,7 @@
 								  </tr>
 								  </table>
 								  </li>
-
+							<?php }?>
 								<li>
 								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 									<tr>

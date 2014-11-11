@@ -18,7 +18,6 @@ function mostrar()
 			url += "&"+arraySelect[i].getAttribute('name')+"="+arraySelect[i].value;
 		 }
 	}
-
 	$("#frmitemsadmin").load(url);
 }
 
@@ -67,12 +66,19 @@ function volverAdmin(op,id)
 	window.location = url;
 }
 
+function volverFaenaEmp(op,id)
+{
+	var url = 'index.php?controlador='+op+'&accion=faenasempresa';
+	if(id > 0) url += "&id="+id; 
+	window.location = url;
+}
+
 function abrirVentanaDoc(id_trab, id_ts_doc)
 {
 	var idf = $("#id_faena").val();
 	//var id_ts_doc = $("#id_tipodocumento").val();
 	var id_contratista = $("#id_contratista").val();
-	var url = "index.php?controlador=DashBoard&accion=carga_documento";
+	var url = "index.php?controlador=Dashboard&accion=carga_documento";
 	url += "&id_d="+id_ts_doc;
 	url += "&id_t="+id_trab;
 	url += "&id_f="+idf;

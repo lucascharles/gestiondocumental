@@ -64,7 +64,8 @@ class DocumentoModel extends ModelBase
 		$sql .= " AND std.id = dt.id_sub_tipodocumento ";
 		$sql .= " AND dt.doctIdTrabajador = t.trbIdTrabajador AND  dt.id_faena = ".$param["id_faena"]." AND std.id_tipodocumento = ".$param["id_tipodocumento"];
 		
-		//echo($sql);
+// 		echo($sql);
+// 		exit;
 		$idsql = consulta($sql);
 		
 		return $idsql;
