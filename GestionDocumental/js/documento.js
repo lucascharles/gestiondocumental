@@ -3,7 +3,7 @@ function grabarFormUploadArch(id)
 	if(validar('N'))
 	{
 		if($.trim($("#archivo").val()) == "" || $.trim($("#doctNombreArchivo").val()) == "") return false;
-		setTimeout("document.frmcargadoc.action = 'index.php?controlador=DashBoard&accion=grabasubir_archivo'",1);
+		setTimeout("document.frmcargadoc.action = 'index.php?controlador=Dashboard&accion=grabasubir_archivo'",1);
 		setTimeout("document.frmcargadoc.submit()",10);
 	}
 }

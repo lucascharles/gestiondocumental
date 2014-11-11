@@ -71,7 +71,7 @@ include("views/cabecera_listado.php");
                 </td>
         
 	</tr>
-   <tr bgcolor="#FFFFFF" id="fila_sep_<?=$rs["id"]?>">
+   <tr bgcolor="#FFFFFF" id="fila_sep_<?=$rs["ctrIdContratista"]?>">
     	<td colspan="10" style="border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC; "></td>
 	</tr>
 	<?php

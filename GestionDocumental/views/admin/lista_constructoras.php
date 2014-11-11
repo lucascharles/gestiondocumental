@@ -29,7 +29,7 @@ include("views/cabecera_listado.php");
         <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["consIdConstructora"]) ?>)" />
         </td>
 	</tr>
-    <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($rs["id"]) ?>">
+    <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($rs["consIdConstructora"]) ?>">
     	<td colspan="7" style="border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC; "></td>
 	</tr>
 	<?php

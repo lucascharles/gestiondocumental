@@ -52,16 +52,6 @@ class FaenasModel extends ModelBase
 		return mysql_fetch_array($idsql);
 	}
 	
-
-	public function getFaenaIDint($array)
-	{
-		$dato = new Faenas();
-		$dato->add_filter("faeIdFaenas","=",$array["id"]);
-		$dato->load();
-		
-		return $dato;
-	}
-	
 	public function getDatosFaenas($array)
 	{
 		$dato = new Faenas();
@@ -91,6 +81,21 @@ class FaenasModel extends ModelBase
     	return $result;	
 	}
 
+	public function getListaFaenasEmpresa($idempresa)
+	{
+		include("config.php");
+	
+		$sql = " SELECT f.faeIdFaenas id, f.consIdConstructora ,f.dirIdDireccion , f.faeEstado , f.faeFechaInicio ,f.faeFechaTermino , f.faeIdFaenaPadre ,f.faeNombre , f.faeResponsable ,f.faeTelefono  ";
+		$sql .= " FROM faena f, faenasxcontratista fc ";
+		$sql .= " WHERE f.faeIdFaenas = fc.id_faena ";
+		$sql .= " AND fc.fxcIdContratistaPadre = ".$idempresa;
+	
+		$sql .= " ORDER BY f.faeNombre ";
+	
+		$result = consulta($sql);
+	
+		return $result;
+	}
 	
 	
 

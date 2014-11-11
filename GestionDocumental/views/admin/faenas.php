@@ -50,13 +50,6 @@
                    </td>
 
 			    </tr>
-                <!--
-                <tr>
-			        <td align="right" colspan="4">
-                    <input  type="button" name="btnbuscar" id="btnbuscar" onclick="mostrar()"  value="Buscar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/>&nbsp;
-                    </td>
-                    </tr>
-                    -->
              </table>
          <td>
     </tr>
@@ -67,7 +60,7 @@
     </tr>  
 	<tr>
         <td colspan="3" valign="top">
-        	<iframe id="frmitemsadmin" src="" frameborder="0" width="100%" align="middle" scrolling="no" height="1050"></iframe>
+        	<div id="frmitemsadmin" style=" width:100%; min-height:1050px; overflow:auto;"></div>
          </td>
     </tr>  
 </table>

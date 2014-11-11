@@ -49,9 +49,9 @@ class IndexController extends ControllerBase
 			
 			if($_SESSION["tip_usuario"] == "E")
 			{
-				$_SESSION["userid"] = $resp[1]["id_empresa"];
+				$_SESSION["idempresa"] = $resp[1]["id_empresa"];
 				
-				redir("index.php?controlador=Documento&accion=carga");
+				redir("index.php?controlador=Faenas&accion=faenasempresa");
 			}
 			include("init.php");
 		}
