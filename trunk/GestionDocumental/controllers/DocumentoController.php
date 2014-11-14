@@ -1,6 +1,35 @@
 <?php
 class DocumentoController extends ControllerBase
 {
+	public function borrar_documento($param)
+	{
+		require 'models/DocumentoModel.php';
+		
+		$doc = new DocumentoModel();		
+		
+		$doc->borrar_documento($param);
+	}
+	
+	public function grabar_editar_estado($param)
+	{
+		require 'models/DocumentoModel.php';
+		
+		$doc = new DocumentoModel();		
+		
+		$doc->grabar_editar_estado($param);
+	}
+
+	public function editar_estado($param)
+    {
+		require 'models/DocumentoModel.php';
+		$doc = new DocumentoModel();
+		$data["rs_doc"] = $doc->getDocumento($param);
+		$data["idsql_estado"] = $doc->getListaEstadoDocumento($param);
+		$data['arrayscriptJs'] = array("validacampos.js","documento.js");
+		$data['id'] = $param["id"];
+		$this->view->show("person/cambia_estado_documento.php", $data);
+	}
+	
     public function carga($param)
     {
 		require 'models/ContratistaModel.php';
