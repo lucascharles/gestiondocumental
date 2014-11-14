@@ -19,7 +19,7 @@ class DashboardController extends ControllerBase
 		$data["rs_trabajador"]= $trabajador->getTrabajador(array("id"=>$param["id_trabajador"]));
 		$data["rs_sub_doc"]= $doc->getSubTipoDocumento(array("id"=>$param["id_sub_tipodocumento"]));
 		$data['controller'] = $param["controlador"];
-		$data['nom_empresa'] = $param["nombre_empresa"];
+		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['arrayscriptJs'] = array("validacampos.js","documento.js");
 		$data["id_f"] = $param["id_faena"];
 		$data["id_t"] = $param["id_trabajador"];
@@ -46,7 +46,7 @@ class DashboardController extends ControllerBase
 		$data["rs_trabajador"]= $trabajador->getTrabajador(array("id"=>$param["id_t"]));
 		$data["rs_sub_doc"]= $doc->getSubTipoDocumento(array("id"=>$param["id_d"]));
 		$data['controller'] = $param["controlador"];
-		$data['nom_empresa'] = $param["nombre_empresa"];
+		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['arrayscriptJs'] = array("validacampos.js","documento.js");
 		$data["id_f"] = $param["id_f"];
 		$data["id_t"] = $param["id_t"];
@@ -71,6 +71,7 @@ class DashboardController extends ControllerBase
 	{
 		require 'models/ContratistaModel.php';
 		$dato = new ContratistaModel();		
+				
 		$data['controller'] = $param["controlador"];
 		$data['result'] = $dato->getListaContratistas($param);
 	
