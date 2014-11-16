@@ -141,7 +141,7 @@ class DocumentoModel extends ModelBase
 			$aname = explode(".",$nombre_original);//=strrchr($archivo_name,'.');
 			$ext = $aname[1];
 			$ext = strrchr($nombre_original,'.');
-			
+						
 			if($ext<>'')
 			{
 				$nombre = $nombre.$ext;

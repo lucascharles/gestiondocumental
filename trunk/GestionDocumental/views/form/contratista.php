@@ -3,8 +3,9 @@
 <?
 	$titulo_form = "Alta Contratista";
 	
-    $rs=mysql_fetch_array($dato);
-	
+	if($tipop=="M"){
+    	$rs=$dato;
+	}
 	$id = ($tipop=="M") ? $rs["ctrIdContratista"] : "";
 	$ctrIdContratista = ($tipop=="M") ? $rs["ctrIdContratista"] : "";
 	$ccatIdAfiliado = ($tipop=="M") ? $rs["ccatIdAfiliado"] : "";
@@ -46,6 +47,7 @@
 <form name="frmContratistas" action="" method='post'>
 <input type="hidden" name="id_usu" id="id_usu" value="<? echo($id)?>" />
 <input type="hidden" name="tipop" id="tipop" value="<? echo($tipop)?>" />
+<input type="hidden" name="ctrIdContratista" id="ctrIdContratista" value="<? echo($ctrIdContratista)?>" />
 
 <table  align="center" border="0" width="" cellpadding="0" cellspacing="0" id="formulario">
 	<tr>

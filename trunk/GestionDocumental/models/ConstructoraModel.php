@@ -55,8 +55,8 @@ class ConstructoraModel extends ModelBase
 			$sql .= " WHERE consIdConstructora = ".$array["consIdConstructora"];
 				
 		}
-		echo($sql);
-		exit;
+// 		echo($sql);
+// 		exit;
 		consulta($sql);
 	
 	}

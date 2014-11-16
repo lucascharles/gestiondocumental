@@ -3,7 +3,7 @@ function grabarFormUploadArch(id)
 	if(validar('N'))
 	{
 		if($.trim($("#archivo").val()) == "" || $.trim($("#doctNombreArchivo").val()) == "") return false;
-		setTimeout("document.frmcargadoc.action = 'index.php?controlador=DashBoard&accion=grabasubir_archivo'",1);
+		setTimeout("document.frmcargadoc.action = 'index.php?controlador=Dashboard&accion=grabasubir_archivo'",1);
 		setTimeout("document.frmcargadoc.submit()",10);
 	}
 }
@@ -61,7 +61,7 @@ function grabarEditEstado(id)
 				var id_t = $("#id_trabajador").val();
 				var id_f = $("#id_faena").val(); 
 				var id_c = $("#id_contratista").val(); 
-				var url = "index.php?controlador=DashBoard&accion=carga_documento&id_d="+id_d+"&id_t="+id_t+"&id_f="+id_f+"&id_c="+id_c;
+				var url = "index.php?controlador=Dashboard&accion=carga_documento&id_d="+id_d+"&id_t="+id_t+"&id_f="+id_f+"&id_c="+id_c;
 				window.location = url;
 			},
 			error: function(){
@@ -86,7 +86,7 @@ function borrarDocumento(obj)
 				var id_t = $("#id_trabajador").val();
 				var id_f = $("#id_faena").val(); 
 				var id_c = $("#id_contratista").val(); 
-				var url = "index.php?controlador=DashBoard&accion=carga_documento&id_d="+id_d+"&id_t="+id_t+"&id_f="+id_f+"&id_c="+id_c;
+				var url = "index.php?controlador=Dashboard&accion=carga_documento&id_d="+id_d+"&id_t="+id_t+"&id_f="+id_f+"&id_c="+id_c;
 				window.location = url;
 			},
 			error: function(){

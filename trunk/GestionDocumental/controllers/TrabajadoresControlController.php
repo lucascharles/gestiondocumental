@@ -4,11 +4,16 @@ class TrabajadoresControlController extends ControllerBase
 
 	public function admin($param)
 	{
+		require 'models/ContratistaModel.php';
+		$dato = new ContratistaModel();
+		
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 						
 		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
 	
+		$data['result'] = $dato->getListaContratistas("");
+		
 		$this->view->show("admin/trabajador.php", $data);
 
 	}
@@ -39,6 +44,12 @@ class TrabajadoresControlController extends ControllerBase
 		
 	public function alta($array)
 	{
+		require 'models/ContratistaModel.php';
+		require 'models/FaenasModel.php';
+		
+		$datoc = new ContratistaModel();
+		$datof = new FaenasModel();
+		
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "A";
@@ -46,6 +57,9 @@ class TrabajadoresControlController extends ControllerBase
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
+		$data['contratistas'] = $datoc->getListaContratistas("");
+		$data['faenas'] = $datof->getListaFaenas("");
+		//var_dump($data);
 		$this->view->show("form/trabajador.php", $data);
 	}
 	
