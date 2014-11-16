@@ -52,6 +52,7 @@ class DashboardController extends ControllerBase
 		$data["id_t"] = $param["id_t"];
 		$data["id_d"] = $param["id_d"];
 		$data["id_c"] = $param["id_c"];
+		$data["id_td"] = $param["id_td"];
 		$data["idsql_doc"] = $doc->getDocumentos(array("id_sub_tipodocumento"=>$param["id_d"],"id_faena"=>$param["id_f"],"id_trabajador"=>$param["id_t"],"id_contratista"=>$param["id_c"]));
 		
 		$this->view->show("person/carga_documento.php", $data);
@@ -74,7 +75,6 @@ class DashboardController extends ControllerBase
 				
 		$data['controller'] = $param["controlador"];
 		$data['result'] = $dato->getListaContratistas($param);
-	
 		$this->view->show("admin/lista_dashboard.php", $data);
 	}
 	
@@ -104,7 +104,7 @@ class DashboardController extends ControllerBase
 		
 		$data['controller'] = $param["controlador"];
 		$data["idsql_doc_trabajador"] = $dato->getListaDocumentos($param);
-
+		$data["id_tipodocumento"] = $param["id_tipodocumento"];
 		$this->view->show("person/lista_dashboard_contatista.php", $data);
 		
 	}

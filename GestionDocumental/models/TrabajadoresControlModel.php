@@ -108,6 +108,12 @@ class TrabajadoresControlModel extends ModelBase
 		{
 			$sql .= " and t.trbApPaterno LIKE '".trim($array["trbApPaterno"])."%'";
 		}
+
+		if(trim($array["ctrIdContratista"]) <> "")
+		{
+			$sql .= " and t.ctrIdContratista = '".trim($array["ctrIdContratista"])."%'";
+		}
+		
 		
 		$sql .= " ORDER BY t.trbApPaterno ";
 		

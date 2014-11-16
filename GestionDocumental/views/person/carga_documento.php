@@ -14,7 +14,7 @@ include("views/menu.php");
 
 <table  align="center" border="0" cellpadding="0" cellspacing="0" id="formulario" height="" width="70%" >
 	<tr>
-		<th align="left" colspan="3">Carga documentos</th>
+		<th align="left" colspan="3">Carga documentos: <?php echo($rs_sub_doc["descripcion"])?></th>
     </tr>
     <tr>
 		<td align="left" height="10" colspan="3"></td>
@@ -32,7 +32,7 @@ include("views/menu.php");
         <td align="left" class="etiqueta_form"></td>
     </tr>
     <tr>
-		<td align="left" class="etiqueta_form">Documento:&nbsp;<?=$rs_sub_doc["descripcion"]?></td>
+		<!-- <td align="left" class="etiqueta_form">Documento:&nbsp;<?=$rs_sub_doc["descripcion"]?></td>  -->
         <td align="left" class="etiqueta_form"></td>
         <td align="left" class="etiqueta_form"></td>
     </tr>
@@ -51,11 +51,39 @@ include("views/menu.php");
     <tr>
         <td colspan="3" height="5" valign="top">
         <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#55A79A">
+	        
+	        <? if($rs_sub_doc["id"]==1) {?>
 	        <tr>
             	<td colspan="<?=$cont?>">
                 Nombre: <input type="text" name="doctNombreArchivo" id="doctNombreArchivo" class="input_form" onFocus="resaltar(this)" onBlur="noresaltar(this)" />
                 </td>
             </tr>
+            <? }?>
+            
+            <? if($rs_sub_doc["id"]==9||$rs_sub_doc["id"]==10||$rs_sub_doc["id"]==11) {?>
+	        <tr>
+            	<td colspan="<?=$cont?>">
+                Nombre:
+                <!-- <input type="text" name="doctNombreArchivo" id="doctNombreArchivo" class="input_form" onFocus="resaltar(this)" onBlur="noresaltar(this)" /> -->
+                 <select name="doctNombreArchivo" id="doctNombreArchivo" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+					<option value="Enero" > Enero </option>
+					<option value="Febrero" > Febrero </option>
+					<option value="Marzo" > Marzo </option>
+					<option value="Abril" > Abril </option>
+					<option value="Mayo" > Mayo </option>
+					<option value="Junio" > Junio </option>
+					<option value="Julio" > Julio </option>
+					<option value="Agosto" > Agosto </option>
+					<option value="Septiembre" > Septiembre </option>
+					<option value="Octubre" > Octubre </option>
+					<option value="Noviembre" > Noviembre </option>
+					<option value="Diciembre" > Diciembre </option>
+				
+	   			 </select>
+                
+                </td>
+            </tr>
+            <? }?>
             <tr>
             	<td colspan="<?=$cont?>">
                 Archivo: <input type='file' id='archivo' name='archivo' />&nbsp;<input  type="button" name="btngrabar" id="btngrabar" onclick="grabarFormUploadArch(<?=$_SESSION["f_id_tipo_documento"]?>)"  value="Adjuntar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/>

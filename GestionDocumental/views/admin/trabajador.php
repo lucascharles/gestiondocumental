@@ -27,7 +27,19 @@
 		        <tr>
 					<td colspan="1" align="right" width="50"  class="etiqueta_form">Contratista&nbsp;</td>
                     <td colspan="2" align="left" class="etiqueta_form">
-                    <input type="text" name="contratista" id="contratista"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/>
+                    <!-- <input type="text" name="contratista" id="contratista"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/> -->
+                    	<select name="ctrIdContratista" id="ctrIdContratista" filtro ="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+								<option value="">Seleccion</option>
+				   			<?
+				   			while($rs=mysql_fetch_array($result))
+							{
+						    ?>
+							   <option value="<?=$rs["ctrIdContratista"]?>" > <? echo($rs["ctrNombreFantasia"]); ?> </option>
+							<?
+							  }
+				    		?>
+            			</select>
+                    	
                     </td>
 			    </tr>
                 <tr>

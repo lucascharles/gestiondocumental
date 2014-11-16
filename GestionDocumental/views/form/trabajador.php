@@ -168,7 +168,18 @@
     </tr> 	
     <td align="right" class="etiqueta_form">Contratista:</td>
 	   <td align="left" class="etiqueta_form" colspan="1">
-	   <input type="text" name="ctrIdContratista" id="ctrIdContratista" value="<? echo($ctrIdContratista); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+	   <!-- <input type="text" name="ctrIdContratista" id="ctrIdContratista" value="<? echo($ctrIdContratista); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" /> -->
+	   <select name="ctrIdContratista" id="ctrIdContratista" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+			<option value="">Seleccion</option>
+	   			<?
+	   			while($rs=mysql_fetch_array($contratistas))
+				{
+			    ?>
+			<option value="<?=$rs["ctrIdContratista"]?>" > <? echo($rs["ctrNombreFantasia"]); ?> </option>
+				<?
+				  }
+	    		?>
+	   </select>
 	   </td>
 	   <td align="left" class="etiqueta_form" >
 	  
@@ -176,7 +187,19 @@
    </tr>    	
    <td align="right" class="etiqueta_form">Faena:</td>
 	   <td align="left" class="etiqueta_form" colspan="1">
-	   <input type="text" name="id_faena" id="id_faena" value="<? echo($id_faena); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+	   <!-- <input type="text" name="id_faena" id="id_faena" value="<? echo($id_faena); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />-->
+	   <select name="faeIdFaenas" id="faeIdFaenas" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+			<option value="">Seleccion</option>
+	   			<?
+	   			while($rs=mysql_fetch_array($faenas))
+				{
+			    ?>
+			<option value="<?=$rs["faeIdFaenas"]?>" > <? echo($rs["faeNombre"]); ?> </option>
+				<?
+				  }
+	    		?>
+	   </select>
+	   
 	   </td>
 	   <td align="left" class="etiqueta_form" >
 	  

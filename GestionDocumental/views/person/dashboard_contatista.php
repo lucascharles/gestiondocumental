@@ -69,7 +69,6 @@ $id= $dato["ctrIdContratista"];
                                 while($rs=mysql_fetch_array($idsql_tip_doc))
 								{
 									$selected = "class='boton_form'";
-									//if($cont == 0)	$selected = "class='boton_form_brillante' seleccionado='S'";
 									$cont++;
 								?>
 			                	<td <?=$selected ?> id="btn_<?=$rs["id"]?>" tabname="btn_tipo_doc"  onclick="cargarTab('<?=$controller?>',<?=$rs["id"]?>)">
@@ -78,20 +77,6 @@ $id= $dato["ctrIdContratista"];
                                	<?
                                 }
 								?>
-                                <!--
-			                    <td class="boton_form" id="btnRemuneracionAsistencia" onMouseOver='overClassBotonMenu(this)' onMouseOut='outClassBotonMenu(this)' onclick="cargarTab('REMUNERACION_ASISTENCIA','Dashboard')">
-			                    	Remuneracion & Asistencia
-			                    </td>
-			                    <td class="boton_form" id="btnContratoTrabajo" onMouseOver='overClassBotonMenu(this)' onMouseOut='outClassBotonMenu(this)' onclick="cargarTab('CONTRATO_TRABAJO','Dashboard')">
-			                    	Contrato Trabajo
-			                    </td>
-			                    <td class="boton_form" id="btnPlanPagoPrev" onMouseOver='overClassBotonMenu(this)' onMouseOut='outClassBotonMenu(this)' onclick="cargarTab('PLANPAGOPREVISIONAL','Dashboard')">
-			                    	Plan Pago Prev.
-			                    </td>
-			                    <td class="boton_form" id="btnPrevencionRiesgo" onMouseOver='overClassBotonMenu(this)' onMouseOut='outClassBotonMenu(this)' onclick="cargarTab('PREVENCIONRIESGO','Dashboard')">
-			                    	Prevencion de riesgo
-			                    </td>
-                                -->
 			                </tr>
 			            </table>
 			        </td>
@@ -103,7 +88,6 @@ $id= $dato["ctrIdContratista"];
 			    </tr>
 			    <tr>
 					<td colspan="3">
-			          <!--<iframe id="frmsubpantalla" src="" width="100%" align="middle" height="300" scrolling="auto" frameborder="0"></iframe>-->
                       <div id="frmitemsadmin" style=" width:100%; min-height:1050px; overflow:auto;"></div>
 			        </td>
 			    </tr>
