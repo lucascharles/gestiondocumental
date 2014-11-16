@@ -23,47 +23,37 @@
 	$trbFechaNac= $rs["trbFechaNac"];
 	$trbTelefono= $rs["trbTelefono"];
 	$trbTitulo= $rs["trbTitulo"];
-
+	$trbRut= $rs["trbRut"];
 
 ?>
 <form name="frmTrabajadoresControl" action="" method='post'>
 <input type="hidden" name="id_usu" id="id_usu" value="<? echo($id)?>" />
 <input type="hidden" name="tipop" id="tipop" value="<? echo($tipop)?>" />
 
-<table  align="center" border="0" width="" cellpadding="0" cellspacing="0" id="formulario">
+<table  align="center" border="0" width="80%" cellpadding="0" cellspacing="0" id="formulario">
 	<tr>
 		<th align="left" colspan="3"><? echo($titulo_form) ?></th>
     </tr>
+
     <tr>
-    	<td align="right" class="etiqueta_form">ID:</td>
-        <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="trbIdTrabajador" id="trbIdTrabajador" value="<? echo($trbIdTrabajador); ?>" valida="requerido" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+    	<td align="left" class="etiqueta_form" colspan="2">Rut:&nbsp;<?=$trbRut?></td>
+        <td align="right" class="etiqueta_form" colspan="1">
+        <table class="opciones" onclick="volverTrabajador('<?=$controller?>',0)" title="Volver" >
+                        <tr>
+                            <td align="right" valign="middle">.
+                            <img src="images/volver.gif" onmouseover="resaltarImagen(this)" onmouseout="noresaltarImagen(this)"/>
+                            </td>
+                            <td align="left" valign="middle" >
+                            Volver
+                            </td>
+                        </tr>
+         </table>
         </td>
-        <td align="left" class="etiqueta_form" >
-        </td>
-        
-    	<td align="right" class="etiqueta_form">Nombre:</td>
-        <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="trbNombre" id="trbNombre" value="<? echo(utf8_decode($trbNombre)); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" tabindex="0"/>
-        </td>
-        <td align="left" class="etiqueta_form" >
-       
-        </td>
-    
-    	<td align="right" class="etiqueta_form">Apellido:</td>
-        <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="trbApPaterno" id="trbApPaterno" value="<? echo($trbApPaterno); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-        </td>
-        <td align="left" class="etiqueta_form" >
-       
-        </td>
-   
-    	
-    </tr>
-    <tr>
-    
     </tr>
 	<tr>
+       	<td align="left" colspan="3" class="etiqueta_form">Nombre:&nbsp;<?=$trbNombre?></td>
+   	</tr>    
+ <tr>
     	<td colspan="<?=$cont?>">
         	Nombre: <input type="text" name="doctNombreArchivo" id="doctNombreArchivo" class="input_form" onFocus="resaltar(this)" onBlur="noresaltar(this)" />
 		</td>
@@ -77,57 +67,47 @@
     
     
     <tr>
-    <div id="documentos" style="">
-		 <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
-		 	<tr>
-				<td colspan="3">
-		        	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
-		            	<tr>
-		                	<td class="boton_form_brillante" seleccionado="S" id="btnAntecedentesLaborales" onMouseOver='overClassBotonMenu(this)' onMouseOut='outClassBotonMenu(this)' onclick="cargarPantalla('ANTECEDENTES_LABORALES')">
-		                    	Antecedentes Laborales
-		                    </td>
-		                    <td class="boton_form" id="btnRemuneracionAsistencia" onMouseOver='overClassBotonMenu(this)' onMouseOut='outClassBotonMenu(this)' onclick="cargarPantalla('REMUNERACION_ASISTENCIA')">
-		                    	Remuneracion & Asistencia
-		                    </td>
-		                    <td class="boton_form" id="btnContratoTrabajo" onMouseOver='overClassBotonMenu(this)' onMouseOut='outClassBotonMenu(this)' onclick="cargarPantalla('CONTRATO_TRABAJO')">
-		                    	Contrato Trabajo
-		                    </td>
-		                    <td class="boton_form" id="btnPlanPagoPrev" onMouseOver='overClassBotonMenu(this)' onMouseOut='outClassBotonMenu(this)' onclick="cargarPantalla('PLANPAGOPREVISIONAL')">
-		                    	Plan Pago Prev.
-		                    </td>
-		                    <td class="boton_form" id="btnPrevencionRiesgo" onMouseOver='overClassBotonMenu(this)' onMouseOut='outClassBotonMenu(this)' onclick="cargarPantalla('PREVENCIONRIESGO')">
-		                    	Prevencion de riesgo
-		                    </td>
-		                </tr>
-		            </table>
-		        </td>
-		    </tr>
-		    <tr>
-				<td colspan="3" height="10">
-		        
-		        </td>
-		    </tr>
-		    <tr>
-				<td colspan="3">
-		        	<iframe id="frmsubpantalla" src="" width="100%" align="middle" height="300" scrolling="auto" frameborder="0"></iframe>
-		        </td>
-		    </tr>
-		
-		</table>
-	</div>
-    </tr>
-
-     	
-    	
-    <tr>
-        <td colspan="3" height="5">
-         </td>
-    </tr>
-    <tr>
-        <td colspan="3">
-        	<span id="mensaje"></span>
-         </td>
-    </tr>   
+	   	<td colspan="3"> 
+        	 <div id="documentos" style="">
+			 <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
+			 	<tr>
+					<td colspan="3">
+			        	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
+			            	<tr>
+                            	<?
+								$cont = 0;
+                                while($rs=mysql_fetch_array($idsql_tip_doc))
+								{
+									$selected = "class='boton_form'";
+									$cont++;
+								?>
+			                	<td <?=$selected ?> id="btn_<?=$rs["id"]?>" tabname="btn_tipo_doc"  onclick="cargarTab('<?=$controller?>',<?=$rs["id"]?>)">
+			                    	<?=$rs["descripcion"]?>
+			                    </td>
+                               	<?
+                                }
+								?>
+                                
+			                </tr>
+			            </table>
+			        </td>
+			    </tr>
+			    <tr>
+					<td colspan="3" height="10">
+			        
+			        </td>
+			    </tr>
+			    <tr>
+					<td colspan="3">
+                      <div id="frmitemsadmin" style=" width:100%; min-height:1050px; overflow:auto;"></div>
+			        </td>
+			    </tr>
+			
+			</table>
+		</div>
+        </td>
+    </tr> 
+   
 </table>
 </div>
 </form>

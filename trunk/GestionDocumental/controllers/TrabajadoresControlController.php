@@ -97,16 +97,22 @@ class TrabajadoresControlController extends ControllerBase
 	{
 		
 		require 'models/TrabajadoresControlModel.php';
+		require 'models/DocumentoModel.php';
 		
 		$dato = new TrabajadoresControlModel();
-		
 		$trabajador = $dato->getTrabajador($array);
+		$data['rs'] = $trabajador;
+		
+		
+		$doc = new DocumentoModel();
+		$data['idsql_tip_doc'] = $doc->getListaTipoDocumento();
+		$data['rs_tip_doc'] = mysql_fetch_array($doc->getListaTipoDocumento());
+		$data['ctrIdContratista'] = $_SESSION["idempresa"];
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
-		$data['tipop'] = "M";
-		$data['dato'] = $trabajador;
+		$data['tipop'] = "M";		
 		
-		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
+		$data['arrayscriptJs'] = array("dashboard.js","funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
 		$this->view->show("form/doctrabajador.php", $data);
