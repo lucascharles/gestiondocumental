@@ -84,7 +84,7 @@ class TrabajadoresControlModel extends ModelBase
 		$sql .= " FROM trabajador t ";
 		$sql .= " WHERE t.activo = 'S' ";
 		$sql .= " AND t.trbIdTrabajador = ".$array["id"];
-	
+
 		$idsql = consulta($sql);
 	
 		return mysql_fetch_array($idsql);
