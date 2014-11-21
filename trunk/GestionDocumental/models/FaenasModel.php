@@ -61,18 +61,25 @@ class FaenasModel extends ModelBase
 		return $dato;
 	}
 		
-	public function getListaFaenas($array)
+	public function getListaFaenas($param)
 	{
 		include("config.php");
 		
-		$sql .= " SELECT f.faeIdFaenas id, f.consIdConstructora consIdConstructora,f.dirIdDireccion dirIdDireccion, f.faeEstado faeEstado,f.faeFechaCreacion faeFechaCreacion, f.faeFechaInicio faeFechaInicio,f.faeFechaTermino faeFechaTermino, f.faeIdFaenaPadre faeIdFaenaPadre,f.faeNombre faeNombre, f.faeResponsable faeResponsable,f.faeTelefono faeTelefono ";
+		$sql .= " SELECT f.faeIdFaenas id, f.consIdConstructora consIdConstructora,f.dirIdDireccion dirIdDireccion, f.faeEstado faeEstado, f.faeFechaInicio faeFechaInicio,f.faeFechaTermino faeFechaTermino, f.faeIdFaenaPadre faeIdFaenaPadre,f.faeNombre faeNombre, f.faeResponsable faeResponsable,f.faeTelefono faeTelefono ";
 		$sql .= " FROM faena f ";
+		if($param["id_empresa"] > 0) $sql .= " , faenasxcontratista fc ";
 		$sql .= " WHERE f.activo = 'S' ";
 		
-		if(trim($array["faeNombre"]) <> "")
+		if(trim($param["faeNombre"]) <> "")
 		{
-			$sql .= " and f.faeNombre LIKE '".trim($array["faeNombre"])."%'";
+			$sql .= " and f.faeNombre LIKE '".trim($param["faeNombre"])."%'";
 		}
+		if(trim($param["faeResponsable"]) <> "")
+		{
+			$sql .= " and f.faeResponsable LIKE '".trim($param["faeResponsable"])."%'";
+		}
+		
+		if($param["id_empresa"] > 0)  $sql .= " AND f.faeIdFaenas = fc.id_faena  AND fc.fxcIdContratistaPadre = ".$param["id_empresa"];
 		
 		$sql .= " ORDER BY f.faeNombre ";
 
@@ -80,24 +87,5 @@ class FaenasModel extends ModelBase
 		
     	return $result;	
 	}
-
-	public function getListaFaenasEmpresa($idempresa)
-	{
-		include("config.php");
-	
-		$sql = " SELECT f.faeIdFaenas id, f.consIdConstructora ,f.dirIdDireccion , f.faeEstado , f.faeFechaInicio ,f.faeFechaTermino , f.faeIdFaenaPadre ,f.faeNombre , f.faeResponsable ,f.faeTelefono  ";
-		$sql .= " FROM faena f, faenasxcontratista fc ";
-		$sql .= " WHERE f.faeIdFaenas = fc.id_faena ";
-		$sql .= " AND fc.fxcIdContratistaPadre = ".$idempresa;
-	
-		$sql .= " ORDER BY f.faeNombre ";
-	
-		$result = consulta($sql);
-	
-		return $result;
-	}
-	
-	
-
 }
 ?>
