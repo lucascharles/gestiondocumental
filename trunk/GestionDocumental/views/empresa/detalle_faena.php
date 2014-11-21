@@ -1,16 +1,22 @@
 <? 
-include("views/cabecera.php");
-include("views/menu.php");
+include("views/cabecera_front.php");
+include("views/menu_front.php");
 
 $titulo_form = "Detalle Faena";
-
 $id= $ctrIdContratista;
+while($rs=mysql_fetch_array($idsql_tip_doc_aux))
+{
+	$id_tip_doc = $rs["id"];
+	break;
+}
+
+
 ?>
 <form name="frmdashboard" action="" method='post'>
-<input type="hidden" name="id_contratista" id="id_contratista" filtro="S" value="<? echo($ctrIdContratista)?>" />
+<input type="hidden" name="id_contratista" id="id_contratista" filtro="S" value="<?=$ctrIdContratista?>" />
 <input type="hidden" name="controller" id="controller" value="<? echo($controller)?>" />
-<input type="hidden" name="id_faena" id="idFaena" filtro="S" value="<? echo($datoFaena["faeIdFaenas"])?>" />
-<input type="hidden" name="id_tipodocumento" id="id_tipodocumento" filtro="S" value="<?=$rs_tip_doc["id"]?>" />
+<input type="hidden" name="id_faena" id="id_faena" filtro="S" value="<?=$datoFaena["faeIdFaenas"]?>" />
+<input type="hidden" name="id_tipodocumento" id="id_tipodocumento" filtro="S" value="<?=$id_tip_doc?>" />
 
 
 <table  align="center" border="0" width="80%" cellpadding="0" cellspacing="0" id="formulario">
@@ -52,7 +58,6 @@ $id= $ctrIdContratista;
                                 while($rs=mysql_fetch_array($idsql_tip_doc))
 								{
 									$selected = "class='boton_form'";
-									//if($cont == 0)	$selected = "class='boton_form_brillante' seleccionado='S'";
 									$cont++;
 								?>
 			                	<td <?=$selected ?> id="btn_<?=$rs["id"]?>" tabname="btn_tipo_doc"  onclick="cargarTab('<?=$controller?>',<?=$rs["id"]?>)">
