@@ -6,9 +6,12 @@
 <link rel="stylesheet" href="css/sticky-navigation.css" />
  <!--<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico" />-->
 	<script src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/cabecera.js"></script>
     <script src="js/home.js"></script>
 	 <link rel="stylesheet" type="text/css" href="css/home.css" />
-     <link rel="stylesheet" type="text/css" href="css/general.css" />
+     <link rel="stylesheet" type="text/css" href="css/general_front.css" />
+     <link rel="stylesheet" type="text/css" href="css/menuheader.css" />
      <?php
 
 	for($i=0;$i<count($arrayscriptJs);$i++)
@@ -19,6 +22,7 @@
 	{
 		echo "<link rel='stylesheet' type='text/css' href='css/".$arrayscriptCss[$i]."' />\n";
 	}
+	
 ?>		
 </head>
 
@@ -53,7 +57,7 @@
                             </td>
                             <td>
 							<div class="content_op">
-                            <button class="selected_op" onclick="salirSistema()" >SALIR</button>
+                            <button class="selected_op" onClick="salirSistema()" >SALIR</button>
                             </div>
                     		</td>
                     	</tr>
