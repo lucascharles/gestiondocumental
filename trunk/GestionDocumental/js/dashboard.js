@@ -33,23 +33,6 @@ function verDocTrb(op,id)
 	window.location = 'index.php?controlador='+op+'&accion=verDocTrb'+'&id='+id;
 }
 
-function abrirLiquidaciones(id)
-{
-	$("#popup_confirmacion").css("margin-top",($(window).scrollTop()+50));
-	$("#popup_confirmacion").slideDown(1000);	
-	$("#id_reg").val(id)
-}
-
-
-function abrirVentanaDoc(cont,vent,id)
-{
-//	alert(vent);
-	
-	$("#"+vent).css("margin-top",($(window).scrollTop()+50));
-	$("#"+vent).slideDown(1000);	
-	$("#id_reg").val(id)
-}
-
 
 function cargarTab(op,id)
 {
@@ -66,19 +49,12 @@ function volverAdmin(op,id)
 	window.location = url;
 }
 
-function volverFaenaEmp(op,id)
-{
-	var url = 'index.php?controlador='+op+'&accion=faenasempresa';
-	if(id > 0) url += "&id="+id; 
-	window.location = url;
-}
-
 function abrirVentanaDoc(id_trab, id_ts_doc)
 {
 	var idf = $("#id_faena").val();
 	var id_tipo_doc = $("#id_tipodocumento").val();
 	var id_contratista = $("#id_contratista").val();
-	var url = "index.php?controlador=Dashboard&accion=carga_documento";
+	var url = "index.php?controlador=Faena&accion=carga_documento";
 	url += "&id_td="+id_tipo_doc;
 	url += "&id_d="+id_ts_doc;
 	url += "&id_t="+id_trab;
