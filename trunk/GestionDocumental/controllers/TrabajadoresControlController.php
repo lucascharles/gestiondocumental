@@ -10,11 +10,12 @@ class TrabajadoresControlController extends ControllerBase
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 						
-		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
+		$data['arrayscriptJs'] = array("funcionesadmin.js");
+		$data['result'] = $dato->getListaContratistas($param);
+		$destino = "";	
+		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
 	
-		$data['result'] = $dato->getListaContratistas("");
-		
-		$this->view->show("admin/trabajador.php", $data);
+		$this->view->show($destino."admin/trabajador.php", $data);
 
 	}
 	
@@ -34,11 +35,13 @@ class TrabajadoresControlController extends ControllerBase
 		$dato = new TrabajadoresControlModel();		
 		$_SESSION["f_nombre"] = $array["trbNombre"];
 		$_SESSION["f_apellido"] = $array["trbApPaterno"];
+		$_SESSION["f_ctrIdContratista"] = $array["ctrIdContratista"];
 				
 		$data['controller'] = $array["controlador"];
 		$data['result'] = $dato->getListaTrabajador($array);
-	
-		$this->view->show("admin/lista_trabajadores.php", $data);
+		$destino = "";	
+		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
+		$this->view->show($destino."admin/lista_trabajadores.php", $data);
 
 	}
 		
@@ -54,13 +57,14 @@ class TrabajadoresControlController extends ControllerBase
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "A";
 
-		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
+		$data['arrayscriptJs'] = array("funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
-		$data['contratistas'] = $datoc->getListaContratistas("");
-		$data['faenas'] = $datof->getListaFaenas("");
-		//var_dump($data);
-		$this->view->show("form/trabajador.php", $data);
+		$data['contratistas'] = $datoc->getListaContratistas($param);
+		$data['faenas'] = $datof->getListaFaenas($param);
+		$destino = "";	
+		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
+		$this->view->show($destino."form/trabajador.php", $data);
 	}
 	
 	public function editar($param)
@@ -73,10 +77,12 @@ class TrabajadoresControlController extends ControllerBase
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 		$data['tipop'] = "M";
-		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
+		$data['arrayscriptJs'] = array("funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
-		$this->view->show("form/trabajador.php", $data);
+		$destino = "";	
+		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
+		$this->view->show($destino."form/trabajador.php", $data);
 	}
 	
 	public function grabar_form($array)
@@ -114,54 +120,12 @@ class TrabajadoresControlController extends ControllerBase
 		
 		$data['arrayscriptJs'] = array("dashboard.js","funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
-		
-		$this->view->show("form/doctrabajador.php", $data);
+		$destino = "";	
+		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
+		$this->view->show($destino."form/doctrabajador.php", $data);
 	}
 
 	
-	public function listar_documentos($array)
-	{
-	
-		require 'models/TrabajadoresControlModel.php';
-		require 'models/DocumentoModel.php';
 
-		$_SESSION["f_nombre"] = $array["trbNombre"];
-		$_SESSION["f_apellido"] = $array["trbApPaterno"];
-	
-		$data['controller'] = $array["controlador"];
-		$data['inicio'] = $array["inicio"];
-		$data['inicio_pag'] = $array["inicio_pag"];
-		
-		if($array["opt"] == "ANTECEDENTES_LABORALES" ){
-			$dato = new DocumentoModel();
-			$lista = $dato->getListaRemuneraciones($array);
-			$data['result'] = $lista;
-							
-			
-			$this->view->show("docs/lista_antecedentes_laborales.php", $data);
-		}
-			
-		if($array["opt"] == "REMUNERACION_ASISTENCIA" ){
-			$dato = new DocumentoModel();
-			$lista = $dato->getListaRemuneraciones($array);
-			$data['listaRemuneraciones'] = $lista;
-				
-			$this->view->show("docs/lista_remuneracion_asistencia.php", $data);
-		}
-		
-		if($array["opt"] == "CONTRATO_TRABAJO" ){
-			$this->view->show("docs/lista_contrato_trabajo.php", $data);
-		}
-		
-		if($array["opt"] == "PLANPAGOPREVISIONAL" ){
-			$this->view->show("docs/lista_pago_previsionales.php", $data);
-		}
-		
-		if($array["opt"] == "PREVENCIONRIESGO" ){
-			$this->view->show("docs/lista_prevencion_riesgo.php", $data);
-		}
-		
-	
-	}
 }
 ?>
