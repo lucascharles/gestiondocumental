@@ -32,7 +32,7 @@ include("views/cabecera_listado.php");
 		<td align="left" width="15%">
       	<img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
         <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["trbIdTrabajador"]) ?>)" />
-        <img src="images/permisos.png" title="Documentos" class="oplistado" onclick="window.parent.documentosTrabajador('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        <img src="images/permisos.png" title="Documentos" class="oplistado" onclick="window.parent.documentosTrabajador('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>,<?echo($id_f)?>,<?echo($id_c)?>)" />
         </td>
 	</tr>
     <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($rs["id"]) ?>">

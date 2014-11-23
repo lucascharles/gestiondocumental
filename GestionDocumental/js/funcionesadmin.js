@@ -18,7 +18,6 @@ function mostrar()
 			url += "&"+arraySelect[i].getAttribute('name')+"="+arraySelect[i].value;
 		 }
 	}
-
 	$("#frmitemsadmin").load(url);
 }
 
@@ -56,10 +55,11 @@ function verDetalle(op,id)
 	window.location = 'index.php?controlador='+op+'&accion=verDetalle'+'&id='+id;
 }
 
-function documentosTrabajador(op,id)
+function documentosTrabajador(op,id,id_f,id_c)
 {
-	window.location = 'index.php?controlador='+op+'&accion=documentos_trabajador'+'&id='+id;
+	window.location = 'index.php?controlador='+op+'&accion=documentos_trabajador'+'&id='+id+'&id_f='+id_f+'&id_c='+id_c;
 }
+
 function bajaRegistro(op)
 {
 	var datos = "controlador="+op;
