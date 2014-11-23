@@ -64,7 +64,9 @@ class DocumentoModel extends ModelBase
 	{
 		$sql = " SELECT id, descripcion, id_tipodocumento ";
 		$sql .= " FROM sub_tipodocumento";
-		$sql .= " WHERE id_tipodocumento = ".$param["id_tipodocumento"];
+		if($param["id_tipodocumento"] <>""){
+			$sql .= " WHERE id_tipodocumento = ".$param["id_tipodocumento"];
+		}
 		//echo($sql);
 		$idsql = consulta($sql);
 		
@@ -93,12 +95,31 @@ class DocumentoModel extends ModelBase
 		if($param["id_faena"] > 0) $sql .= " AND d.id_faena = ".$param["id_faena"];
 		if($param["id_sub_tipodocumento"] > 0) $sql .= " AND d.id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
 		if($param["id_trabajador"] > 0) $sql .= " AND d.doctIdTrabajador = ".$param["id_trabajador"];
-		
-		//echo($sql);
+		echo($sql);
+// 		exit;	
 		$idsql = consulta($sql);
 		
 		return $idsql;
 	}
+	
+	public function getDocumentosxTipo($param)
+	{
+		$sql = " SELECT doc.id id_documento, d.doctIdDocumento, doc.id_estado_documento, doc.doctFechaSubida, doc.doctFechaPertenece, d.doctIdTrabajador, d.id_contratista, doc.doctNombreArchivo, ";
+		$sql .= " doc.doctNombreEncrip, doc.NombreOriginal, d.tpdIdTipoDocumento, t.descripcion, e.descripcion estado_documento ";
+		$sql .= " FROM documentotrabajador d LEFT JOIN  tipodocumento t ON (d.tpdIdTipoDocumento = t.id), documentos doc LEFT JOIN  estado_documento e ON (doc.id_estado_documento = e.id) ";
+		$sql .= " WHERE d.doctIdDocumento = doc.id_documentotrabajador ";
+	
+		if($param["id_contratista"] > 0) $sql .= " AND d.id_contratista = ".$param["id_contratista"];
+		if($param["id_faena"] > 0) $sql .= " AND d.id_faena = ".$param["id_faena"];
+		if($param["tpdIdTipoDocumento"] > 0) $sql .= " AND d.tpdIdTipoDocumento = ".$param["tpdIdTipoDocumento"];
+		if($param["id_trabajador"] > 0) $sql .= " AND d.doctIdTrabajador = ".$param["id_trabajador"];
+	
+		// 		echo($sql);
+		$idsql = consulta($sql);
+	
+		return $idsql;
+	}
+	
 	
 	
 	public function getListaDocumentos($param)
@@ -146,13 +167,24 @@ class DocumentoModel extends ModelBase
 				$nombre = $nombre.$ext;
 				move_uploaded_file($param["arch_upload"]["archivo"]["tmp_name"],$carpeta.$nombre);
 				
-				$sql = " UPDATE documentotrabajador ";
-				$sql .= " SET id_estado_documento = 2 ";
-				$sql .= " WHERE ";
-				$sql .= " doctIdTrabajador = ".$param["id_trabajador"];
-				$sql .= " AND id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
-				$sql .= " AND id_contratista = ".$param["id_contratista"];
-				$sql .= " AND id_faena = ".$param["id_faena"];
+// 				$sql = " UPDATE documentotrabajador ";
+// 				$sql .= " SET id_estado_documento = 2 ";
+// 				$sql .= " WHERE ";
+// 				$sql .= " doctIdTrabajador = ".$param["id_trabajador"];
+// 				$sql .= " AND id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
+// 				$sql .= " AND id_contratista = ".$param["id_contratista"];
+// 				$sql .= " AND id_faena = ".$param["id_faena"];
+				
+				$sql = " INSERT INTO documentotrabajador ";
+				$sql .= " SET ";
+				$sql .= " id_estado_documento = 2 ";
+				$sql .= " ,doctIdTrabajador = ".$param["id_trabajador"];
+				$sql .= " ,tpdIdTipoDocumento = ".$param["id_tipo_documento"];
+				$sql .= " ,id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
+				$sql .= " ,id_contratista = ".$param["id_contratista"];
+				$sql .= " ,id_faena = ".$param["id_faena"];
+				
+// 				echo($sql);
 				consulta($sql);
 				
 				$sql = " SELECT doctIdDocumento FROM documentotrabajador ";
@@ -161,7 +193,22 @@ class DocumentoModel extends ModelBase
 				$sql .= " AND id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
 				$sql .= " AND id_contratista = ".$param["id_contratista"];
 				$sql .= " AND id_faena = ".$param["id_faena"];
+
+// 				echo($sql);
 				$idsql = consulta($sql);
+				
+// 				if(mysql_num_rows($idsql) == 0 )
+// 				{
+// 					$sql = " INSERT INTO documentotrabajador ";
+// 					$sql .= " SET ";
+// 					$sql .= " id_estado_documento = 2 ";
+// 					$sql .= " ,doctIdTrabajador = ".$param["id_trabajador"];
+// 					$sql .= " ,id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
+// 					$sql .= " ,id_contratista = ".$param["id_contratista"];
+// 					$sql .= " ,id_faena = ".$param["id_faena"];
+						
+// 					consulta($sql);
+// 				}
 				
 				$rs = mysql_fetch_array($idsql);
 			
@@ -175,10 +222,7 @@ class DocumentoModel extends ModelBase
 				$sql .= " id_estado_documento =  2, ";
 				$sql .= " id_documentotrabajador = '".$rs["doctIdDocumento"]."' ";
 
-			
-				//echo($sql);
 				consulta($sql);
-				//exit();
 			}	
 		}
 		

@@ -7,7 +7,7 @@ class TrabajadoresControlModel extends ModelBase
 		$sql = " UPDATE trabajador SET activo = 'N' WHERE trbIdTrabajador = ".$param["id_reg"];
 		consulta($sql);
 	}		
-	
+
 	public function grabar_datosForm($param)
 	{
 		$sql = " INSERT INTO trabajador SET ";
@@ -74,10 +74,9 @@ class TrabajadoresControlModel extends ModelBase
 			}
 		}
 		
-			//exit();
 	}
 
-	
+		
 	public function getTrabajador($array)
 	{
 		$sql = " SELECT t.* ";
@@ -85,11 +84,12 @@ class TrabajadoresControlModel extends ModelBase
 		$sql .= " WHERE t.activo = 'S' ";
 		$sql .= " AND t.trbIdTrabajador = ".$array["id"];
 
+// 		echo($sql);
+// 		exit;
 		$idsql = consulta($sql);
 	
 		return mysql_fetch_array($idsql);
 	}
-	
 		
 	public function getListaTrabajador($array)
 	{
@@ -122,7 +122,6 @@ class TrabajadoresControlModel extends ModelBase
     	return $result;	
 	}
 
-	
 	
 
 }

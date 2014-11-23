@@ -5,7 +5,11 @@ class TrabajadoresControlController extends ControllerBase
 	public function admin($param)
 	{
 		require 'models/ContratistaModel.php';
+		require 'models/FaenasModel.php';
+		
 		$dato = new ContratistaModel();
+		$faenas = new FaenasModel();
+		
 		
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
@@ -15,7 +19,10 @@ class TrabajadoresControlController extends ControllerBase
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
 	
-		$this->view->show($destino."admin/trabajador.php", $data);
+		$data['result'] = $dato->getListaContratistas("");
+		$data['list_faenas'] = $faenas->getListaFaenas("");
+		
+		$this->view->show("admin/trabajador.php", $data);
 
 	}
 	
@@ -32,17 +39,37 @@ class TrabajadoresControlController extends ControllerBase
 	{
 
 		require 'models/TrabajadoresControlModel.php';
-		$dato = new TrabajadoresControlModel();		
+		
+		$dato = new TrabajadoresControlModel();
+		
 		$_SESSION["f_nombre"] = $array["trbNombre"];
 		$_SESSION["f_apellido"] = $array["trbApPaterno"];
 		$_SESSION["f_ctrIdContratista"] = $array["ctrIdContratista"];
 				
 		$data['controller'] = $array["controlador"];
+		
 		$data['result'] = $dato->getListaTrabajador($array);
+		
+		$data['id_c'] = $array["ctrIdContratista"];
+		$data['id_f'] = $array["faeIdFaenas"];
+
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
 		$this->view->show($destino."admin/lista_trabajadores.php", $data);
 
+	}
+	
+	public function listardoctrb($array)
+	{
+		require 'models/DocumentoModel.php';
+		$dato = new DocumentoModel();		
+				
+		$data['controller'] = $array["controlador"];
+		
+		$data['result'] = $dato->getDocumentos($array);
+		
+		$this->view->show("admin/lista_doctrabajadores.php", $data);
+		
 	}
 		
 	public function alta($array)
@@ -104,6 +131,9 @@ class TrabajadoresControlController extends ControllerBase
 		
 		require 'models/TrabajadoresControlModel.php';
 		require 'models/DocumentoModel.php';
+
+		$data['nom_sistema'] = $array["nombre_sistema"];
+		$data['controller'] = $array["controlador"];
 		
 		$dato = new TrabajadoresControlModel();
 		$trabajador = $dato->getTrabajador($array);
@@ -112,13 +142,25 @@ class TrabajadoresControlController extends ControllerBase
 		
 		$doc = new DocumentoModel();
 		$data['idsql_tip_doc'] = $doc->getListaTipoDocumento();
-		$data['rs_tip_doc'] = mysql_fetch_array($doc->getListaTipoDocumento());
-		$data['ctrIdContratista'] = $_SESSION["idempresa"];
-		$data['nom_sistema'] = $array["nombre_sistema"];
-		$data['controller'] = $array["controlador"];
-		$data['tipop'] = "M";		
+		$data['grupo_doc'] = $doc->getListaTipoDocumento();
+		$data['rs_tip_doc'] = $doc->getListaSubTipoDocumento("");
+
+		$data["id_f"] = $array["id_f"];
+		$data["id_t"] = $array["id"];
+		$data["id_d"] = $array["id_d"];
+		$data["id_c"] = $array["id_c"];
+		$data["id_td"] = $array["id_td"];
+
+		$_SESSION["id_f"] = $array["id_f"];
+		$_SESSION["id_t"] = $array["id_t"]; 
+		$_SESSION["id_c"] = $array["id_c"]; 
+		$_SESSION["id_d"] = $array["id_d"];
 		
-		$data['arrayscriptJs'] = array("dashboard.js","funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
+		
+		$data["idsql_doc"] = $doc->getDocumentos(array("id_sub_tipodocumento"=>$array["id_d"],"id_faena"=>$array["id_f"],"id_trabajador"=>$array["id"],"id_contratista"=>$array["id_c"]));
+		
+		
+		$data['arrayscriptJs'] = array("doctrabajador.js","funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
@@ -127,5 +169,41 @@ class TrabajadoresControlController extends ControllerBase
 
 	
 
+
+	public function grabasubir_archivo($param)
+	{
+		require 'models/ContratistaModel.php';
+		require 'models/DocumentoModel.php';
+		require 'models/FaenasModel.php';
+		require 'models/TrabajadoresControlModel.php';
+		$doc = new DocumentoModel();
+		$faena = new FaenasModel();
+		$trabajador = new TrabajadoresControlModel();
+		
+		$doc->uploadDocumento($param);
+		
+		$data['grupo_doc'] = $doc->getListaTipoDocumento();
+		$data['rs_tip_doc'] = $doc->getListaSubTipoDocumento("");
+
+		$data['rs'] = $trabajador->getTrabajador(array("id"=>$param["id_trabajador"]));
+		
+		$data['controller'] = $param["controlador"];
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		$data['arrayscriptJs'] = array("validacampos.js","documento.js");
+		
+		$data["id_tdoc"] = $param["id_tipo_documento"];
+		$data["id_f"] = $param["id_faena"];
+		$data["id_t"] = $param["id_trabajador"];
+		$data["id_d"] = $param["id_sub_tipodocumento"];
+		$data["id_c"] = $param["id_contratista"];
+		
+		$_SESSION["id_f"] = $param["id_f"];
+		$_SESSION["id_t"] = $param["id_t"];
+		$_SESSION["id_c"] = $param["id_c"];
+		$_SESSION["id_d"] = $param["id_d"];
+		
+		$this->view->show("form/doctrabajador.php", $data);
+	}
+	
 }
 ?>
