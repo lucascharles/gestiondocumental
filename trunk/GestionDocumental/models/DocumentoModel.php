@@ -84,6 +84,17 @@ class DocumentoModel extends ModelBase
 		return mysql_fetch_array($idsql);
 	}
 	
+	public function getTipoDocumento($idTipo)
+	{
+		$sql = " SELECT id, descripcion ";
+		$sql .=" FROM  tipodocumento ";
+		$sql .=" WHERE id = ".$idTipo;
+// 		echo($sql);
+// 		exit;
+		$idsql = consulta($sql);
+		return mysql_fetch_array($idsql);
+	}
+	
 	public function getDocumentos($param)
 	{
 		$sql = " SELECT doc.id id_documento, d.doctIdDocumento, doc.id_estado_documento, doc.doctFechaSubida, doc.doctFechaPertenece, d.doctIdTrabajador, d.id_contratista, doc.doctNombreArchivo, ";

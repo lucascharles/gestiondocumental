@@ -23,15 +23,15 @@ $trbTelefono= $rs["trbTelefono"];
 $trbTitulo= $rs["trbTitulo"];
 $trbRut= $rs["trbRut"];
 
-if($id_f =="" ){
-	$id_f = $_SESSION["id_f"];
-}
-if($id_c =="" ){
-	$id_c = $_SESSION["id_c"];
-}
-if($id_t =="" ){
-	$id_t = $_SESSION["id_t"];
-}
+	if($id_f =="" ){
+		$id_f = $_SESSION["id_f"];
+	}
+	if($id_c =="" ){
+		$id_c = $_SESSION["id_c"];
+	}
+	if($id_t =="" ){
+		$id_t = $_SESSION["id_t"];
+	}
 
  ?>
 
@@ -86,6 +86,7 @@ if($id_t =="" ){
             	<td colspan="<?=$cont?>">
         	Grupo documento:
 			<select name="id_tipo_documento" id="id_tipo_documento" valida="" filtro="S" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)" onchange='mostrar(this)'>
+		   		<option value="<?=$tipoDoc["id"]?>" > <? echo($tipoDoc["descripcion"]); ?> </option>
 		   	<?
 		   			while($rs=mysql_fetch_array($grupo_doc))
 					{
@@ -102,6 +103,7 @@ if($id_t =="" ){
             	<td colspan="<?=$cont?>">
         	Tipo documento:
 			<select name="id_sub_tipodocumento" id="id_sub_tipodocumento" valida="" filtro="S" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange='mostrar(this)'>
+		   		<option value="<?=$subTipoDoc["id"]?>" > <? echo($subTipoDoc["descripcion"]); ?> </option>
 		   	<?
 		   			while($rs=mysql_fetch_array($rs_tip_doc))
 					{

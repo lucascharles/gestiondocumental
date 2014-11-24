@@ -65,7 +65,7 @@ class TrabajadoresControlController extends ControllerBase
 		$dato = new DocumentoModel();		
 				
 		$data['controller'] = $array["controlador"];
-		
+		var_dump($data);
 		$data['result'] = $dato->getDocumentos($array);
 		
 		$this->view->show("admin/lista_doctrabajadores.php", $data);
@@ -157,7 +157,7 @@ class TrabajadoresControlController extends ControllerBase
 		$_SESSION["id_d"] = $array["id_d"];
 		
 		
-		$data["idsql_doc"] = $doc->getDocumentos(array("id_sub_tipodocumento"=>$array["id_d"],"id_faena"=>$array["id_f"],"id_trabajador"=>$array["id"],"id_contratista"=>$array["id_c"]));
+// 		$data["idsql_doc"] = $doc->getDocumentos(array("id_sub_tipodocumento"=>$array["id_d"],"id_faena"=>$array["id_f"],"id_trabajador"=>$array["id"],"id_contratista"=>$array["id_c"]));
 		
 		
 		$data['arrayscriptJs'] = array("doctrabajador.js","funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
@@ -192,6 +192,9 @@ class TrabajadoresControlController extends ControllerBase
 		$data['arrayscriptJs'] = array("validacampos.js","documento.js");
 		
 		$data["id_tdoc"] = $param["id_tipo_documento"];
+ 		$data["tipoDoc"] = $doc->getTipoDocumento($param["id_tipo_documento"]);
+ 		$data["subTipoDoc"] = $doc->getSubTipoDocumento($param["id_sub_tipodocumento"]);
+ 		
 		$data["id_f"] = $param["id_faena"];
 		$data["id_t"] = $param["id_trabajador"];
 		$data["id_d"] = $param["id_sub_tipodocumento"];
@@ -201,6 +204,8 @@ class TrabajadoresControlController extends ControllerBase
 		$_SESSION["id_t"] = $param["id_t"];
 		$_SESSION["id_c"] = $param["id_c"];
 		$_SESSION["id_d"] = $param["id_d"];
+		$data['arrayscriptJs'] = array("doctrabajador.js","funciones.js");
+		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
 		$this->view->show("form/doctrabajador.php", $data);
 	}
