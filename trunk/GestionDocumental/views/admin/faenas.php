@@ -27,16 +27,10 @@
         	<table width="100%" border="0" cellpadding="0" cellspacing="3" align="center" id="buscador">
 		        <tr>
 					<td colspan="1" align="right" width="50"  class="etiqueta_form">Nombre:</td>
-					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="contratista" id="contratista"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-
- 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Estado:</td>
-					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
-
- 	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Responsable:</td>
- 	 	 	 		<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
+					<td colspan="3" align="left" width="200"  class="etiqueta_form"><input type="text" name="contratista" id="contratista"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/>&nbsp;&nbsp;Responsable:&nbsp;<input type="text" name="apellido" id="apellido"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
  	 	 	 	</tr>
                 <tr>
-			     	<td align="right"  colspan="6" class="etiqueta_form">
+			     	<td align="right"  colspan="4" class="etiqueta_form">
                     <table class="opciones" onclick="nuevoRegistro('<?=$controller?>')" title="Nueva Faena">
                         <tr>
                             <td align="right" valign="middle">
