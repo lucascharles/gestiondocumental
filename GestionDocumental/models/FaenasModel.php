@@ -1,14 +1,46 @@
 <?php
 class FaenasModel extends ModelBase
 {
-	
-	public function bajaRegistro($array)
+	public function bloquear_contratista($param)
 	{
-		$dato = new Faenas();
-		$dato->add_filter("faeIdFaenas","=",$array["faeIdFaenas"]);
-		$dato->load();
-		$dato->set_data("activo","N");
-		$dato->save();
+		$sql = " SELECT bloqueada FROM faenasxcontratista ";
+		$sql .= " WHERE id_faena = ".$param["id_faena"];
+		$sql .= " AND fxcIdContratistaPadre = ".$param["id_contratista"];
+		//echo($sql);
+		$idsql = consulta($sql);
+		$rs = mysql_fetch_array($idsql);
+		
+		$bloquea = 1;
+		if($rs["bloqueada"] == 1) $bloquea = 0;
+		
+		$sql = " UPDATE faenasxcontratista SET bloqueada = ".$bloquea;
+		$sql .= " WHERE id_faena = ".$param["id_faena"];
+		$sql .= " AND fxcIdContratistaPadre = ".$param["id_contratista"];;
+		//echo("<br>".$sql);
+		consulta($sql);
+		
+		return $bloquea;
+	}
+	
+	public function getContratistas($param)
+	{
+		$sql .= " SELECT c.ctrIdContratista,  c.ctrRazonSocial, fc.bloqueada ";
+		$sql .= " FROM faenasxcontratista fc, contratista c";
+		$sql .= " WHERE fc.id_faena = ".$param["id"];
+		$sql .= " AND fc.fxcIdContratistaPadre = c.ctrIdContratista ";
+		$sql .= " ORDER BY c.ctrRazonSocial ";
+
+		//echo($sql);
+
+		$result = consulta($sql);
+		
+    	return $result;	
+	}
+	
+	public function bajaRegistro($param)
+	{
+		$sql .= " UPDATE faenas SET activo = 'N' WHERE faeIdFaenas = ".$param["faeIdFaenas"];
+		consulta($sql);
 	}
 	
 	public function grabar_datosForm($array)
@@ -52,14 +84,6 @@ class FaenasModel extends ModelBase
 		return mysql_fetch_array($idsql);
 	}
 	
-	public function getDatosFaenas($array)
-	{
-		$dato = new Faenas();
-		$dato->add_filter("faeIdFaenas","=",$array["faeIdFaenas"]);
-		$dato->load();
-		
-		return $dato;
-	}
 		
 	public function getListaFaenas($param)
 	{
