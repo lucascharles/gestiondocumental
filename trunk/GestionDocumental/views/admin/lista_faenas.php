@@ -18,21 +18,21 @@ include("views/cabecera_listado.php");
 	
 	while($rs=mysql_fetch_array($result))
 	{		
+		$img = "desbloqueado.png";
 	?>
 	<tr bgcolor="#FFFFFF" id="fila_<?php echo ($rs["id"]) ?>">
     	<td height="" width="5%"></td>
 		<td align="left" width="5%"><?php echo (utf8_decode($rs["id"])) ?></td>
-		<td align="left" width="15%"><?php echo (utf8_decode($rs["faeNombre"])) ?></td>
-        <td align="left" width="5%"><?php echo (utf8_decode($rs["faeEstado"])) ?></td>
+		<td align="left" width="25%"><?php echo (utf8_decode($rs["faeNombre"])) ?></td>
 		<td align="left" width="10%"><?php echo (utf8_decode($rs["faeFechaInicio"])) ?></td>
 	    <td align="left" width="10%"><?php echo (utf8_decode($rs["faeFechaTermino"])) ?></td>
 		<td align="left" width="20%"><?php echo (utf8_decode($rs["faeResponsable"])) ?></td>
 	    <td align="left" width="10%"><?php echo (utf8_decode($rs["faeTelefono"])) ?></td>
 
 		<td align="left" width="15%">
-        <!--<img src="images/permisos.png" title="Permisos" class="oplistado" onclick="window.parent.configurarRegistro('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" />-->
-        <img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" />
-        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["id"]) ?>)" />
+        <img src="images/<?=$img?>" title="Bloquear" class="oplistado" onclick="bloqueoFaena('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" />
+        <img src="images/editar.gif" title="Editar" class="oplistado" onclick="editarRegistro('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" />
+        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="abrirVentanaConfirmacion(<?php echo ($rs["id"]) ?>)" />
         </td>
 	</tr>
     <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($rs["id"]) ?>">
