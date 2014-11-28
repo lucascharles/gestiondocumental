@@ -28,47 +28,40 @@ include("views/cabecera_listado.php");
 		<td align="left" width="10%"><?php echo (utf8_decode($rs["ctrRut"])) ?></td>
         <td align="left" width="25%"><?php echo (utf8_decode($rs["ctrRazonSocial"])) ?></td>
         <td align="left" width="10%">
-        	<? if($rs["ctrIdContratista"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        	<? if($rs["tipo1"] == 4){ ?>
+        		<img src="images/activar.gif" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        		<img src="images/borrar.gif" title="Verificar" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } ?>	
         </td>
 		<td align="left" width="10%">
-        	<? if($rs["ctrIdContratista"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        	<? if($rs["tipo2"] == 4){ ?>
+        		<img src="images/activar.gif" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        		<img src="images/borrar.gif" title="Verificar" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } ?>	
 		        </td>
         <td align="left" width="10%">
-        	<? if($rs["ctrIdContratista"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        	<? if($rs["tipo3"] == 4){ ?>
+        		<img src="images/activar.gif" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        		<img src="images/borrar.gif" title="Verificar" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } ?>	
                 </td>
         <td align="left" width="10%">
-        	<? if($rs["ctrIdContratista"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        	<? if($rs["tipo4"] == 4){ ?>
+        		<img src="images/activar.gif" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        		<img src="images/borrar.gif" title="Verificar" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } ?>	
                 </td>
         <td align="left" width="10%">
-        	<? if($rs["ctrIdContratista"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        	<? if($rs["tipo5"] == 4){ ?>
+        		<img src="images/activar.gif" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        		<img src="images/borrar.gif" title="Verificar" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         	<? } ?>	
         </td>
-        <td align="left" width="10%">
-        	<? if($rs["ctrIdContratista"] == 1){ ?>
-        		<img src="images/activar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
-        	<? } else {	?>
-        		<img src="images/borrar.gif" title="Completos" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
-        	<? } ?>	
-                </td>
         
 	</tr>
    <tr bgcolor="#FFFFFF" id="fila_sep_<?=$rs["ctrIdContratista"]?>">

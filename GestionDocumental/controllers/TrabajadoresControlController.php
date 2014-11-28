@@ -63,9 +63,7 @@ class TrabajadoresControlController extends ControllerBase
 	{
 		require 'models/DocumentoModel.php';
 		$dato = new DocumentoModel();		
-				
 		$data['controller'] = $array["controlador"];
-		var_dump($data);
 		$data['result'] = $dato->getDocumentos($array);
 		
 		$this->view->show("admin/lista_doctrabajadores.php", $data);
@@ -97,9 +95,15 @@ class TrabajadoresControlController extends ControllerBase
 	public function editar($param)
 	{
 		require 'models/TrabajadoresControlModel.php';
+		require 'models/ContratistaModel.php';
+		require 'models/FaenasModel.php';
 		
+		$datoc = new ContratistaModel();
+		$datof = new FaenasModel();
 		$dato = new TrabajadoresControlModel();
 		
+		$data['contratistas'] = $datoc->getListaContratistas($param);
+		$data['faenas'] = $datof->getListaFaenas($param);
 		$data['rs'] = $dato->getTrabajador($param);
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
@@ -189,7 +193,7 @@ class TrabajadoresControlController extends ControllerBase
 		
 		$data['controller'] = $param["controlador"];
 		$data['nom_sistema'] = $param["nombre_sistema"];
-		$data['arrayscriptJs'] = array("validacampos.js","documento.js");
+		$data['arrayscriptJs'] = array("doctrabajador.js","validacampos.js","documento.js");
 		
 		$data["id_tdoc"] = $param["id_tipo_documento"];
  		$data["tipoDoc"] = $doc->getTipoDocumento($param["id_tipo_documento"]);
@@ -204,10 +208,12 @@ class TrabajadoresControlController extends ControllerBase
 		$_SESSION["id_t"] = $param["id_t"];
 		$_SESSION["id_c"] = $param["id_c"];
 		$_SESSION["id_d"] = $param["id_d"];
-		$data['arrayscriptJs'] = array("doctrabajador.js","funciones.js");
+
+		$data['arrayscriptJs'] = array("doctrabajador.js","funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
-		
-		$this->view->show("form/doctrabajador.php", $data);
+		$destino = "";	
+		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
+		$this->view->show($destino."form/doctrabajador.php", $data);
 	}
 	
 }

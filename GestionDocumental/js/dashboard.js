@@ -54,7 +54,7 @@ function abrirVentanaDoc(id_trab, id_ts_doc)
 	var idf = $("#id_faena").val();
 	var id_tipo_doc = $("#id_tipodocumento").val();
 	var id_contratista = $("#id_contratista").val();
-	var url = "index.php?controlador=DashBoard&accion=carga_documento";
+	var url = "index.php?controlador=Dashboard&accion=carga_documento";
 	url += "&id_td="+id_tipo_doc;
 	url += "&id_d="+id_ts_doc;
 	url += "&id_t="+id_trab;
