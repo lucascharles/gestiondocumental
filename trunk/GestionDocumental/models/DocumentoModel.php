@@ -106,7 +106,8 @@ class DocumentoModel extends ModelBase
 		if($param["id_faena"] > 0) $sql .= " AND d.id_faena = ".$param["id_faena"];
 		if($param["id_sub_tipodocumento"] > 0) $sql .= " AND d.id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
 		if($param["id_trabajador"] > 0) $sql .= " AND d.doctIdTrabajador = ".$param["id_trabajador"];
-		//echo($sql);
+		if($param["id_tipo_documento"] > 0) $sql .= " AND d.tpdIdTipoDocumento = ".$param["id_tipo_documento"];
+// 		echo($sql);
 // 		exit;	
 		$idsql = consulta($sql);
 		
@@ -125,7 +126,7 @@ class DocumentoModel extends ModelBase
 		if($param["tpdIdTipoDocumento"] > 0) $sql .= " AND d.tpdIdTipoDocumento = ".$param["tpdIdTipoDocumento"];
 		if($param["id_trabajador"] > 0) $sql .= " AND d.doctIdTrabajador = ".$param["id_trabajador"];
 	
-		// 		echo($sql);
+// 		echo($sql);
 		$idsql = consulta($sql);
 	
 		return $idsql;
@@ -135,7 +136,6 @@ class DocumentoModel extends ModelBase
 	
 	public function getListaDocumentos($param)
 	{
-		//$sql .= " SELECT t.trbIdTrabajador, CONCAT(t.trbIdTrabajador,'@',t.trbNombre) as trabajador, dt.id_sub_tipodocumento doc, CONCAT(dt.id_sub_tipodocumento,'@',dt.id_estado_documento) as estado ";
 		$sql .= " SELECT t.trbIdTrabajador, CONCAT(t.trbIdTrabajador,'@',t.trbNombre) as trabajador, dt.id_sub_tipodocumento doc, dt.id_estado_documento estado ";
 		$sql .= " FROM trabajador t, documentotrabajador dt, sub_tipodocumento std, trabajadorxfaena tf ,  faenasxcontratista fc";
 		$sql .= " WHERE  t.trbIdTrabajador = tf.txf_id_trabajador AND tf.txf_id_faena = fc.id_faena ";
@@ -178,14 +178,6 @@ class DocumentoModel extends ModelBase
 				$nombre = $nombre.$ext;
 				move_uploaded_file($param["arch_upload"]["archivo"]["tmp_name"],$carpeta.$nombre);
 				
-// 				$sql = " UPDATE documentotrabajador ";
-// 				$sql .= " SET id_estado_documento = 2 ";
-// 				$sql .= " WHERE ";
-// 				$sql .= " doctIdTrabajador = ".$param["id_trabajador"];
-// 				$sql .= " AND id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
-// 				$sql .= " AND id_contratista = ".$param["id_contratista"];
-// 				$sql .= " AND id_faena = ".$param["id_faena"];
-				
 				$sql = " INSERT INTO documentotrabajador ";
 				$sql .= " SET ";
 				$sql .= " id_estado_documento = 2 ";
@@ -208,18 +200,6 @@ class DocumentoModel extends ModelBase
 // 				echo($sql);
 				$idsql = consulta($sql);
 				
-// 				if(mysql_num_rows($idsql) == 0 )
-// 				{
-// 					$sql = " INSERT INTO documentotrabajador ";
-// 					$sql .= " SET ";
-// 					$sql .= " id_estado_documento = 2 ";
-// 					$sql .= " ,doctIdTrabajador = ".$param["id_trabajador"];
-// 					$sql .= " ,id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
-// 					$sql .= " ,id_contratista = ".$param["id_contratista"];
-// 					$sql .= " ,id_faena = ".$param["id_faena"];
-						
-// 					consulta($sql);
-// 				}
 				
 				$rs = mysql_fetch_array($idsql);
 			
@@ -240,6 +220,6 @@ class DocumentoModel extends ModelBase
 		//exit();
 	}
 	
-
+	
 }
 ?>

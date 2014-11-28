@@ -1,3 +1,9 @@
+$(document).ready(function() 
+{
+	mostrar();
+});
+
+
 function grabarFormUploadArch(id)
 {
 	if(validar('N'))
@@ -29,7 +35,6 @@ function mostrar()
 			url += "&"+arraySelect[i].getAttribute('name')+"="+arraySelect[i].value;
 		 }
 	}
-
 	$("#frmitemsadmin").load(url);
 }
 

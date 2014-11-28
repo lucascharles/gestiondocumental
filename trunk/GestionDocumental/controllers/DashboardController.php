@@ -71,10 +71,16 @@ class DashboardController extends ControllerBase
 	public function listaritemsadmin($param)
 	{
 		require 'models/ContratistaModel.php';
+// 		require 'models/DocumentoModel.php';
+		require 'models/DashboardModel.php';
+		
 		$dato = new ContratistaModel();		
+// 		$doc = new DocumentoModel();
+		$dash = new DashboardModel();
 				
 		$data['controller'] = $param["controlador"];
-		$data['result'] = $dato->getListaContratistas($param);
+// 		$data['result'] = $dato->getListaContratistas($param);
+		$data['result'] = $dash->getListaEstadoContratistas($param);
 		$this->view->show("admin/lista_dashboard.php", $data);
 	}
 	
@@ -129,5 +135,7 @@ class DashboardController extends ControllerBase
 		
 	}	
 
+	
+	
 }
 ?>

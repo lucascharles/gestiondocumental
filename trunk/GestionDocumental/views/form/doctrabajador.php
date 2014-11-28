@@ -86,7 +86,9 @@ $trbRut= $rs["trbRut"];
             	<td colspan="<?=$cont?>">
         	Grupo documento:
 			<select name="id_tipo_documento" id="id_tipo_documento" valida="" filtro="S" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)" onchange='mostrar(this)'>
-		   		<option value="<?=$tipoDoc["id"]?>" > <? echo($tipoDoc["descripcion"]); ?> </option>
+			<?if($tipoDoc["id"] != ""){ ?>
+				<option value="<?=$tipoDoc["id"]?>" > <? echo($tipoDoc["descripcion"]); ?> </option>
+			<? }?>	
 		   	<?
 		   			while($rs=mysql_fetch_array($grupo_doc))
 					{
@@ -103,7 +105,9 @@ $trbRut= $rs["trbRut"];
             	<td colspan="<?=$cont?>">
         	Tipo documento:
 			<select name="id_sub_tipodocumento" id="id_sub_tipodocumento" valida="" filtro="S" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange='mostrar(this)'>
-		   		<option value="<?=$subTipoDoc["id"]?>" > <? echo($subTipoDoc["descripcion"]); ?> </option>
+			<?if($subTipoDoc["id"] != ""){ ?>
+				<option value="<?=$subTipoDoc["id"]?>" > <? echo($subTipoDoc["descripcion"]); ?> </option>
+			<? }?>	
 		   	<?
 		   			while($rs=mysql_fetch_array($rs_tip_doc))
 					{
