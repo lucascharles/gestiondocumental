@@ -11,7 +11,16 @@
         <th align="left" width="">&nbsp;</th>
     </tr>
 	<?php
-	
+	$hidden = "";
+	$img = "images/editar.gif";
+	if(isset($_SESSION["bloqueo"]))
+	{
+		if(in_array($_SESSION["f_id_faena"],$_SESSION["bloqueo"]))
+		{ 
+			$hidden = "style='display:none;'";
+			$img = "images/preview.png";
+		}
+	}
 	while($rs = mysql_fetch_array($result))
 	{	
 	?>
@@ -26,8 +35,8 @@
         <td align="left" width="10%"><?=($rs["fec_alta"]=="0000-00-00") ? "" : formatoFecha($rs["fec_alta"],"yyyy-mm-dd","dd/mm/yyyy"); ?></td> 
 		<td align="left" width="10%"><?php echo (utf8_decode($rs["contratista"])) ?></td>    
 		<td align="left" width="20%">
-      	<img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
-        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+      	<img src="<?=$img?>" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["trbIdTrabajador"]) ?>)" <?=$hidden?> />
         
         </td>
 	</tr>
