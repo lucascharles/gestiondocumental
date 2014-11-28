@@ -2,6 +2,11 @@
 include("views/cabecera_front.php");
 include("views/menu_front.php");
 
+$hidden = "";
+if(isset($_SESSION["bloqueo"]))
+{
+	if(in_array($id_f,$_SESSION["bloqueo"])) $hidden = "style='display:none;'";
+}
  ?>
 
 <form name="frmcargadoc" enctype='multipart/form-data' method='post' action='' target='_self'>
@@ -91,7 +96,10 @@ include("views/menu_front.php");
             <? }?>
             <tr>
             	<td colspan="<?=$cont?>">
-                Archivo: <input type='file' id='archivo' name='archivo' />&nbsp;<input  type="button" name="btngrabar" id="btngrabar" onclick="grabarFormUploadArch(<?=$_SESSION["f_id_tipo_documento"]?>)"  value="Adjuntar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/>
+                <div <?=$hidden?>>
+                Archivo: <input type='file' id='archivo' name='archivo' />&nbsp;
+                <input  type="button" name="btngrabar" id="btngrabar" onclick="grabarFormUploadArch(<?=$_SESSION["f_id_tipo_documento"]?>)"  value="Adjuntar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/>
+                </div>
                 </td>
             </tr>
             <tr>
