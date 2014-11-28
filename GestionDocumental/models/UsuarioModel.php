@@ -179,7 +179,7 @@ class UsuarioModel extends ModelBase
 	{
 		$resp = false; 
 		
-		$sql = " SELECT id, tipo_usuario, id_empresa  ";
+		$sql = " SELECT id, tipo_usuario, id_empresa ";
 		$sql .= " FROM usuarios ";
 		$sql .= " WHERE id_usuario = '".$param["usrLogin"]."'";
 		$sql .= " AND clave = '".$param["passLogin"]."'";
@@ -188,13 +188,26 @@ class UsuarioModel extends ModelBase
 		//exit();
 		$idsql = consulta($sql);
 		$rs=mysql_fetch_array($idsql);
+		$bloqueo = array();
+		if($rs["tipo_usuario"] == "E")
+		{
+			$sql = " SELECT id_faena FROM faenasxcontratista ";
+			$sql .= " WHERE bloqueada = 1 AND fxcIdContratistaPadre = ".$rs["id_empresa"];
+			//echo($sql);
+			
+			$idsql_bloq = consulta($sql);
+			
+			while($rs_bloq=mysql_fetch_array($idsql_bloq))
+			{
+				$bloqueo[] = $rs_bloq["id_faena"];
+			}
+		}
 		if(mysql_num_rows($idsql)>0)
 		{
 			$resp = true; 
 		}
 		
-		return array($resp,$rs);
-
+		return array($resp,$rs,$bloqueo);
 	}
 	
 	public function getListaUsuario($param)
