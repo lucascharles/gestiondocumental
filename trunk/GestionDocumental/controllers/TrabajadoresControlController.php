@@ -6,23 +6,28 @@ class TrabajadoresControlController extends ControllerBase
 	{
 		require 'models/ContratistaModel.php';
 		require 'models/FaenasModel.php';
-		
 		$dato = new ContratistaModel();
 		$faenas = new FaenasModel();
-		
 		
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 						
 		$data['arrayscriptJs'] = array("funcionesadmin.js");
-		$data['result'] = $dato->getListaContratistas($param);
-		$destino = "";	
-		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
-	
-		$data['result'] = $dato->getListaContratistas("");
-		$data['list_faenas'] = $faenas->getListaFaenas("");
 		
-		$this->view->show("admin/trabajador.php", $data);
+		$destino = "";	
+		if($_SESSION["tip_usuario"] == "E")
+		{
+			$destino = "empresa/";
+			$param["id_empresa"] = $_SESSION["idempresa"];
+			$data['result'] = $faenas->getListaFaenas($param);	
+		}
+		else
+		{
+			$data['result'] = $dato->getListaContratistas($param);	
+			$data['list_faenas'] = $faenas->getListaFaenas($param);
+		}
+	
+		$this->view->show($destino."admin/trabajador.php", $data);
 
 	}
 	
@@ -35,24 +40,19 @@ class TrabajadoresControlController extends ControllerBase
 	}
 	
 	
-	public function listaritemsadmin($array)
+	public function listaritemsadmin($param)
 	{
-
 		require 'models/TrabajadoresControlModel.php';
+		$dato = new TrabajadoresControlModel();		
+		$_SESSION["f_nombre"] = $param["trbNombre"];
+		$_SESSION["f_apellido"] = $param["trbApPaterno"];
+		$_SESSION["f_ctrIdContratista"] = $param["ctrIdContratista"];
+		$_SESSION["f_id_faena"] = $param["id_faena"];
 		
-		$dato = new TrabajadoresControlModel();
-		
-		$_SESSION["f_nombre"] = $array["trbNombre"];
-		$_SESSION["f_apellido"] = $array["trbApPaterno"];
-		$_SESSION["f_ctrIdContratista"] = $array["ctrIdContratista"];
-				
-		$data['controller'] = $array["controlador"];
-		
-		$data['result'] = $dato->getListaTrabajador($array);
-		
+		$data['controller'] = $param["controlador"];
+		$data['result'] = $dato->getListaTrabajador($param);
 		$data['id_c'] = $array["ctrIdContratista"];
 		$data['id_f'] = $array["faeIdFaenas"];
-
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
 		$this->view->show($destino."admin/lista_trabajadores.php", $data);
