@@ -2,14 +2,7 @@ function mostrar()
 {
 	var op = document.getElementById('controller').value;
 	var url = "index.php?controlador="+op+"&accion=listaritemsadmin";
-	var arrayInput = document.getElementsByTagName('input');
-	for(var i=0; i<arrayInput.length; i++)
-	{	 
-  		 if(arrayInput[i].getAttribute('filtro') == "S")
-   		 {
-			url += "&"+arrayInput[i].getAttribute('name')+"="+arrayInput[i].value;
-		 }
-	}
+	
 	var arraySelect = document.getElementsByTagName('select');
 	for(var i=0; i<arraySelect.length; i++)
 	{	 
@@ -18,6 +11,16 @@ function mostrar()
 			url += "&"+arraySelect[i].getAttribute('name')+"="+arraySelect[i].value;
 		 }
 	}
+	var arrayInput = document.getElementsByTagName('input');
+	for(var i=0; i<arrayInput.length; i++)
+	{	 
+  		 if(arrayInput[i].getAttribute('filtro') == "S")
+   		 {
+			url += "&"+arrayInput[i].getAttribute('name')+"="+arrayInput[i].value;
+		 }
+	}
+	
+
 	$("#frmitemsadmin").load(url);
 }
 
@@ -104,3 +107,7 @@ function imprimirForm(op)
 	cerrarPopUp("popup_impresion");
 }
 
+function refrescarAdmin(op)
+{
+	window.location = 'index.php?controlador='+op+'&accion=admin';
+}
