@@ -1,13 +1,34 @@
 <?php
 class FaenasController extends ControllerBase
 {
+	public function bloquear_contratista($param)
+	{
+		require 'models/FaenasModel.php';
+		$dato = new FaenasModel();		
+		$res = $dato->bloquear_contratista($param);
+		
+		echo($res);
+	}
+	public function bloquear($param)
+	{
+		require 'models/FaenasModel.php';
+		$dato = new FaenasModel();		
+		
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		$data['controller'] = $param["controlador"];
+		$data['id_faena'] = $param["id"];
+		$data["idsql_contratistas"] = $dato->getContratistas($param);
+		$data['arrayscriptJs'] = array("bloquear_faena.js");
+	
+		$this->view->show("person/bloquear_faena.php", $data);
+	}
 
 	public function admin($array)
 	{
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 						
-		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
+		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_faena.js");
 	
 		$this->view->show("admin/faenas.php", $data);
 	}
@@ -69,7 +90,7 @@ class FaenasController extends ControllerBase
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "A";
 
-		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
+		$data['arrayscriptJs'] = array("validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
 		$data['listConstructoras'] = $cons->getListaConstructora($array);
