@@ -106,7 +106,7 @@ class DocumentoModel extends ModelBase
 		if($param["id_faena"] > 0) $sql .= " AND d.id_faena = ".$param["id_faena"];
 		if($param["id_sub_tipodocumento"] > 0) $sql .= " AND d.id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
 		if($param["id_trabajador"] > 0) $sql .= " AND d.doctIdTrabajador = ".$param["id_trabajador"];
-		echo($sql);
+		//echo($sql);
 // 		exit;	
 		$idsql = consulta($sql);
 		
