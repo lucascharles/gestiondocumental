@@ -3,7 +3,7 @@
    		<td>
         	<ul id="nav">
             	<li>
-			<div class="principal" onClick="cargarOpcion('DashBoar@faenasempresa')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">DASHBOARD</div>
+			<div class="principal" onClick="cargarOpcion('Faenas@faenasempresa')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">DASHBOARD</div>
             	</li>
             </ul>
 		</td>
