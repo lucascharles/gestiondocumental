@@ -50,6 +50,7 @@ class IndexController extends ControllerBase
 			if($_SESSION["tip_usuario"] == "E")
 			{
 				$_SESSION["idempresa"] = $resp[1]["id_empresa"];
+				$_SESSION["bloqueo"] = $resp[2];
 				
 				redir("index.php?controlador=Faenas&accion=faenasempresa");
 			}
