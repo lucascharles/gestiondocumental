@@ -26,9 +26,9 @@
         	<table width="100%" border="0" cellpadding="0" cellspacing="3" align="center" id="buscador">
 		        <tr>
 					<td colspan="1" align="right" width="50"  class="etiqueta_form">Nombre:</td>
-					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="afpIdAfp" id="afpIdAfp"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
+					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="afpNombre" id="afpNombre"  filtro="S" value="<? echo($_SESSION["f_afpNombre"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
 
- 	 	 	 	 	<td colspan="2" align="left" width="50"  class="etiqueta_form">Estado:&nbsp;<input type="text" name="afpEstado" id="afpEstado"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
+ 	 	 	 	 	<td colspan="2" align="left" width="50"  class="etiqueta_form"></td>
                     
 			    </tr>
                
@@ -59,7 +59,7 @@
     </tr>  
 	<tr>
         <td colspan="3" valign="top">
-        	<iframe id="frmitemsadmin" src="" frameborder="0" width="100%" align="middle" scrolling="no" height="1050"></iframe>
+            <div id="frmitemsadmin" style=" width:100%; min-height:1050px; overflow:auto;"></div>
          </td>
     </tr>  
 </table>
