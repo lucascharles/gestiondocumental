@@ -4,32 +4,26 @@
 	$titulo_form = "Alta Faena";
 	
 
-	$id = ($tipop=="M") ? $dato->get_data("faeIdFaenas") : "";
-	$faeIdFaenas = ($tipop=="M") ? $dato->get_data("faeIdFaenas") : "";
-	$consIdConstructora = ($tipop=="M") ? $dato->get_data("consIdConstructora") : "";
-	$dirIdDireccion = ($tipop=="M") ? $dato->get_data("dirIdDireccion") : "";
-	$faeEstado = ($tipop=="M") ? $dato->get_data("faeEstado") : "";
-	$faeFechaCreacion = ($tipop=="M") ? $dato->get_data("faeFechaCreacion") : "";
-	$faeFechaInicio = ($tipop=="M") ? $dato->get_data("faeFechaInicio") : "";
-	$faeFechaModificacion = ($tipop=="M") ? $dato->get_data("faeFechaModificacion") : "";
-	$faeFechaTermino = ($tipop=="M") ? $dato->get_data("faeFechaTermino") : "";
-	$faeIdFaenaPadre = ($tipop=="M") ? $dato->get_data("faeIdFaenaPadre") : "";
-	$faeNombre = ($tipop=="M") ? $dato->get_data("faeNombre") : "";
-	$faeResponsable = ($tipop=="M") ? $dato->get_data("faeResponsable") : "";
-	$faeTelefono = ($tipop=="M") ? $dato->get_data("faeTelefono") : "";
-	$faeUsuarioCreacion = ($tipop=="M") ? $dato->get_data("faeUsuarioCreacion") : "";
-	$faeUsuarioModificacion = ($tipop=="M") ? $dato->get_data("faeUsuarioModificacion") : "";
-	$consRazonSocial = ($tipop=="M") ? $cons->get_data("consRazonSocial") : "";
+	$id = ($tipop=="M") ? $dato["faeIdFaenas"] : "";
+	$consIdConstructora = ($tipop=="M") ? $dato["consIdConstructora"] : "";
+	$dirIdDireccion = ($tipop=="M") ? $dato["dirIdDireccion"] : "";
+	$faeEstado = ($tipop=="M") ? $dato["faeEstado"] : "";
+	$faeFechaInicio = ($tipop=="M") ? formatoFecha($dato["faeFechaInicio"],"yyyy-mm-dd", "dd/mm/yyyy") : "";
+	$faeFechaTermino = ($tipop=="M") ? formatoFecha($dato["faeFechaTermino"],"yyyy-mm-dd","dd/mm/yyyy") : "";
+	$faeIdFaenaPadre = ($tipop=="M") ? $dato["faeIdFaenaPadre"] : "";
+	$faeNombre = ($tipop=="M") ? $dato["faeNombre"] : "";
+	$faeResponsable = ($tipop=="M") ? $dato["faeResponsable"] : "";
+	$faeTelefono = ($tipop=="M") ? $dato["faeTelefono"] : "";
+	$consRazonSocial = ($tipop=="M") ? $cons["consRazonSocial"] : "";
 	
 	if($tipop=="M")
 	{
-		$titulo_form = "Edici&oacute;n Faena(Id: ".$faeIdFaenas.")";
+		$titulo_form = "Edici&oacute;n Faena(Id: ".$id.")";
 	}
 ?>
 <form name="frmFaenas" action="" method='post'>
-<input type="hidden" name="id_usu" id="id_usu" value="<? echo($id)?>" />
-<input type="hidden" name="faeIdFaenas" id="faeIdFaenas" value="<? echo($id)?>" />
-<input type="hidden" name="tipop" id="tipop" value="<? echo($tipop)?>" />
+<input type="hidden" name="id_reg" id="id_reg" value="<?=$id?>" />
+<input type="hidden" name="tipop" id="tipop" value="<?=$tipop?>" />
 
 <table  align="center" border="0" width="" cellpadding="0" cellspacing="0" id="formulario">
 	<tr>
@@ -39,29 +33,14 @@
    <tr>
    		<td align="right" class="etiqueta_form">Constructora:</td>
    		<td align="left" class="etiqueta_form" colspan="1">
-   			<select name="consIdConstructora" id="consIdConstructora"  valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
-				<?
-				if($consIdConstructora == ""){
-				?>	
-				
-				<option value="">Seleccion</option>
-				<?
-				}
-				else
-				{
-				?>
-				<option value="<?=$consIdConstructora;?>" > <? echo($consRazonSocial); ?> </option>
-				<?
-				}
-				?>
+   			<select name="consIdConstructora" id="consIdConstructora"  valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">			
    			<?
-            $coleccion = $listConstructoras[0];
-            $cant = $listConstructoras[1];
-			  for($j=0; $j<$cant; $j++)
-			  {
-				$datoTmp = &$coleccion->items[$j];
+			while($rs=mysql_fetch_array($idsql_constructora))
+			{
+				$selected = "";
+				if($rs["consIdConstructora"] == $consIdConstructora) $selected = "selected='selected'";
 		    ?>
-			   <option value="<?=$datoTmp->get_data("consIdConstructora")?>" > <? echo($datoTmp->get_data("consRazonSocial")); ?> </option>
+			   <option value="<?=$rs["consIdConstructora"]?>" <?=$selected?> > <?=$rs["consRazonSocial"]?> </option>
 			<?
 			  }
     		?>
