@@ -62,27 +62,18 @@ class ConstructoraModel extends ModelBase
 	}
 	
 	
-	public function getConstructora($array)
+	public function getConstructora($param)
 	{
 		$sql = " SELECT c.consIdConstructora, c.consNombreFantasia , c.consRazonSocial, c.consRut "; 
 		$sql .= " FROM constructora c ";
 		$sql .= " WHERE c.activo = 'S' ";
-		$sql .= " AND c.consIdConstructora = ".$array["id"];
+		$sql .= " AND c.consIdConstructora = ".$param["id"];
 
 		$idsql = consulta($sql);
 		
 		return mysql_fetch_array($idsql);
 	}
 	
-	public function getDatosConstructora($array)
-	{
-		$dato = new Constructora();
-		$dato->add_filter("consIdConstructora","=",$array["idconstructora"]);
-		$dato->load();
-		
-		return $dato;
-	}
-		
 	public function getListaConstructora($param)
 	{
 		include("config.php");
