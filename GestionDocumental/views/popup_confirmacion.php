@@ -12,7 +12,7 @@
     </tr>
      <tr>
      	<td align="center" height="5" colspan="3" class="mensaje_confirmacion">
-        Popup_confirmacion2 la baja del registro de <? echo($label) ?>?
+        Confirma la baja del registro de <? echo($label) ?>?
         </td>
 
     </tr>
