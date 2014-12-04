@@ -24,8 +24,8 @@ include("views/cabecera_listado.php");
     	<td height="" width="5%"></td>
 		<td align="left" width="5%"><?php echo (utf8_decode($rs["id"])) ?></td>
 		<td align="left" width="25%"><?php echo (utf8_decode($rs["faeNombre"])) ?></td>
-		<td align="left" width="10%"><?php echo (utf8_decode($rs["faeFechaInicio"])) ?></td>
-	    <td align="left" width="10%"><?php echo (utf8_decode($rs["faeFechaTermino"])) ?></td>
+		<td align="left" width="10%"><?php echo (utf8_decode(formatoFecha($rs["faeFechaInicio"],"yyyy-mm-dd", "dd/mm/yyyy"))) ?></td>
+	    <td align="left" width="10%"><?php echo (utf8_decode(formatoFecha($rs["faeFechaTermino"],"yyyy-mm-dd", "dd/mm/yyyy"))) ?></td>
 		<td align="left" width="20%"><?php echo (utf8_decode($rs["faeResponsable"])) ?></td>
 	    <td align="left" width="10%"><?php echo (utf8_decode($rs["faeTelefono"])) ?></td>
 
