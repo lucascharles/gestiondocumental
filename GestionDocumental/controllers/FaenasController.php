@@ -98,7 +98,7 @@ class FaenasController extends ControllerBase
 		$this->view->show("form/faena.php", $data);
 	}
 	
-	public function editar($array)
+	public function editar($param)
 	{
 		require 'models/FaenasModel.php';
 		require 'models/ConstructoraModel.php';
@@ -106,19 +106,20 @@ class FaenasController extends ControllerBase
 		$dato = new FaenasModel();
 		$cons = new ConstructoraModel();
 		
-		$fae = $dato->getFaena($array);
-		$data['nom_sistema'] = $array["nombre_sistema"];
-		$data['controller'] = $array["controlador"];
+		$rsfaena = $dato->getFaena($param);
+		$data['dato'] = $rsfaena;
+		
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		$data['controller'] = $param["controlador"];
 		$data['tipop'] = "M";
-		$data['dato'] = $fae;
 
-		$data['arrayscriptJs'] = array("funcionesemp.js","usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
+		$data['arrayscriptJs'] = array("faena.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
+		if($_SESSION["tip_usuario"] == "E")
+		{
+			$data['arrayscriptJs'][] = "funcionesemp.js";
+		}
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
-		
-		$data['listConstructoras'] = $cons->getListaConstructora($array);
-		
-		$idcons = $fae->get_data("consIdConstructora");
-		$data['cons'] = $cons->getConstructoraIDint($idcons);
+		$data['idsql_constructora'] = $cons->getListaConstructora($param);
 		
 		$this->view->show("form/faena.php", $data);
 	}
