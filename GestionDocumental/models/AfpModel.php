@@ -2,13 +2,15 @@
 class AfpModel extends ModelBase
 {
 	
-	public function bajaRegistro($array)
+	public function bajaRegistro($param)
 	{
-		$dato = new Afp();
-		$dato->add_filter("afpIdAfp","=",$array["afpIdAfp"]);
-		$dato->load();
-		$dato->set_data("activo","N");
-		$dato->save();
+		
+		$sql = " UPDATE  afp ";
+		$sql .= " SET activo = 'N' ";
+		$sql .= " WHERE afpIdAfp = ".$param["id"];
+
+		consulta($sql);
+		
 	}
 	
 	public function grabar_datosForm($array)
@@ -32,18 +34,7 @@ class AfpModel extends ModelBase
 		
 	}
 
-	public function getFaenasContratista($param)
-	{
-		$sql = " SELECT a.* ";
-		$sql .= " FROM afp a ";
-		$sql .= " WHERE a.activo = 'S' ";
-		$sql .= " AND a.afpIdAfp = ".$param["id"];
 
-		$idsql = consulta($sql);
-		
-		return $idsql;
-	}
-		
 	public function getAfp($array)
 	{
 		include("config.php");
@@ -72,6 +63,8 @@ class AfpModel extends ModelBase
 		}
 		
 		$sql .= " ORDER BY a.afpNombre ";
+		
+		//echo($sql);
 		
 		$result = consulta($sql);
 		
