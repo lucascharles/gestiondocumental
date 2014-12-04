@@ -77,7 +77,7 @@ function bajaRegistro(op)
 		success: function(res)
 		{		
 			cerrarPopUp('popup_confirmacion');
-			document.getElementById('frmitemsadmin').contentWindow.borrarFila($("#id_reg").val());
+			borrarFila($("#id_reg").val());
 		},
 		error: function()
 		{
@@ -110,4 +110,11 @@ function imprimirForm(op)
 function refrescarAdmin(op)
 {
 	window.location = 'index.php?controlador='+op+'&accion=admin';
+}
+
+function abrirVentanaConfirmacion(id)
+{
+	$("#popup_confirmacion").css("margin-top",($(window).scrollTop()+50));
+	$("#popup_confirmacion").slideDown(1000);	
+	$("#id_reg").val(id)
 }
