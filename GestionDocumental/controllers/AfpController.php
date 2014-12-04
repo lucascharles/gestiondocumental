@@ -7,17 +7,17 @@ class AfpController extends ControllerBase
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 						
-		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
+		$data['arrayscriptJs'] = array("funcionesadmin.js","funciones.js");
 	
 		$this->view->show("admin/afps.php", $data);
 	}
 	
-	public function baja($array)
+	public function baja($param)
 	{
 		require 'models/AfpModel.php';
 		
 		$dato = new AfpModel();
-		$dato->bajaRegistro($array);
+		$dato->bajaRegistro($param);
 	}
 	
 	
@@ -26,9 +26,8 @@ class AfpController extends ControllerBase
 		require 'models/AfpModel.php';
 		$dato = new AfpModel();		
 		$_SESSION["f_afpNombre"] = $param["afpNombre"];
-		$_SESSION["f_afpEstado"] = $param["afpEstado"];
 				
-		$data['controller'] = $array["controlador"];
+		$data['controller'] = $param["controlador"];
 		$data['result'] = $dato->getListaAfp($param);
 	
 		$this->view->show("admin/lista_afps.php", $data);
