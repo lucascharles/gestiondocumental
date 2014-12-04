@@ -39,45 +39,50 @@ class FaenasModel extends ModelBase
 	
 	public function bajaRegistro($param)
 	{
-		$sql .= " UPDATE faenas SET activo = 'N' WHERE faeIdFaenas = ".$param["faeIdFaenas"];
+		$sql = " UPDATE faena SET activo = 'N' WHERE faeIdFaenas = ".$param["id"];
+		//echo($sql);
 		consulta($sql);
 	}
 	
-	public function grabar_datosForm($array)
-	{
-		$tipop = $array["tipop"];
-		
-		$dato = new Faenas();
-		if($tipop=="M")
+	public function grabar_datosForm($param)
+	{	
+		if($param["tipop"]=="M")
 		{
-			$dato->add_filter("faeIdFaenas","=",$array["faeIdFaenas"]);
-			$dato->load();
+			$sql = " UPDATE faena ";
+			$sql .= " SET consIdConstructora = ".$param["consIdConstructora"].",";
+			if(trim($param["dirIdDireccion"])<>"") $sql .= " dirIdDireccion = '".$param["dirIdDireccion"]."', ";
+			if(trim($param["faeFechaInicio"])<>"") $sql .= " faeFechaInicio = '".formatoFecha($param["faeFechaInicio"],"dd/mm/yyyy","yyyy-mm-dd")."', ";
+			if(trim($param["faeFechaTermino"])<>"") $sql .= " faeFechaTermino = '".formatoFecha($param["faeFechaTermino"],"dd/mm/yyyy","yyyy-mm-dd")."', ";
+			if(trim($param["faeIdFaenaPadre"])<>"") $sql .= " faeIdFaenaPadre = ".$param["faeIdFaenaPadre"].", ";
+			if(trim($param["faeNombre"])<>"") $sql .= " faeNombre = '".$param["faeNombre"]."', ";
+			if(trim($param["faeResponsable"])<>"") $sql .= " faeResponsable = '".$param["faeResponsable"]."', ";
+			if(trim($param["faeTelefono"])<>"") $sql .= " faeTelefono = '".$param["faeTelefono"]."' ";
+			$sql .= " WHERE faeIdFaenas = ".$param["id_reg"];
 		}
 		
-// 		var_dump($array);
-		// autoincremental		if(trim($array["faeIdFaenas"])<>"")$dato->set_data("faeIdFaenas",$array["faeIdFaenas"]);
-		if(trim($array["consIdConstructora"])<>"")$dato->set_data("consIdConstructora",$array["consIdConstructora"]);
-		if(trim($array["dirIdDireccion"])<>"")$dato->set_data("dirIdDireccion",$array["dirIdDireccion"]);
-		if(trim($array["faeEstado"])<>"")$dato->set_data("faeEstado",$array["faeEstado"]);
-		if(trim($array["faeFechaCreacion"])<>"")$dato->set_data("faeFechaCreacion",formatoFecha($array["faeFechaCreacion"],"dd/mm/yyyy","yyyy-mm-dd"));
-		if(trim($array["faeFechaInicio"])<>"")$dato->set_data("faeFechaInicio",formatoFecha($array["faeFechaInicio"],"dd/mm/yyyy","yyyy-mm-dd"));
+		if($param["tipop"]=="A")
+		{
+			$sql = " INSERT INTO faena (consIdConstructora, dirIdDireccion, faeFechaInicio, faeFechaTermino, faeIdFaenaPadre, faeNombre, faeResponsable, faeTelefono, activo )   ";
+			$sql .= " VALUES ";
+			$sql .= " (".$param["consIdConstructora"].", '".$param["dirIdDireccion"]."', ";
+			$sql .= " '".formatoFecha($param["faeFechaInicio"],"dd/mm/yyyy","yyyy-mm-dd")."',";
+			$sql .= " '".formatoFecha($param["faeFechaTermino"],"dd/mm/yyyy","yyyy-mm-dd")."',";
+			$sql .= " ".$param["faeIdFaenaPadre"].",";
+			$sql .= " '".$param["faeNombre"]."',";
+			$sql .= " '".$param["faeResponsable"]."',";
+			$sql .= " '".$param["faeTelefono"]."',";
+			$sql .= " ,'S') ";
+		}
 		
-		if(trim($array["faeFechaModificacion"])<>"")$dato->set_data("faeFechaModificacion",formatoFecha($array["faeFechaModificacion"],"dd/mm/yyyy","yyyy-mm-dd"));
-		if(trim($array["faeFechaTermino"])<>"")$dato->set_data("faeFechaTermino",formatoFecha($array["faeFechaTermino"],"dd/mm/yyyy","yyyy-mm-dd"));
-		if(trim($array["faeIdFaenaPadre"])<>"")$dato->set_data("faeIdFaenaPadre",$array["faeIdFaenaPadre"]);
-		if(trim($array["faeNombre"])<>"")$dato->set_data("faeNombre",$array["faeNombre"]);
-		if(trim($array["faeResponsable"])<>"")$dato->set_data("faeResponsable",$array["faeResponsable"]);
-		if(trim($array["faeTelefono"])<>"")$dato->set_data("faeTelefono",$array["faeTelefono"]);
-		if(trim($array["faeUsuarioCreacion"])<>"")$dato->set_data("faeUsuarioCreacion",$array["faeUsuarioCreacion"]);
-		if(trim($array["faeUsuarioModificacion"])<>"")$dato->set_data("faeUsuarioModificacion",$array["faeUsuarioModificacion"]);
-
-		$dato->set_data("activo","S");
-		$dato->save();
+		//echo($sql);
+		consulta($sql);
+		//exit();
 	}
 
 	public function getFaena($param)
 	{
-		$sql = " SELECT * FROM faena WHERE faeIdFaenas = ".$param["id"];
+		$sql = " SELECT faeIdFaenas, consIdConstructora, dirIdDireccion, faeEstado, faeFechaInicio,	faeFechaTermino, faeIdFaenaPadre, faeNombre, faeResponsable ";
+		$sql .= " , faeTelefono, activo FROM faena WHERE faeIdFaenas = ".$param["id"];
 		//echo($sql);
 		$idsql = consulta($sql);
 		
@@ -92,6 +97,7 @@ class FaenasModel extends ModelBase
 		$sql .= " SELECT f.faeIdFaenas id, f.consIdConstructora consIdConstructora,f.dirIdDireccion dirIdDireccion, f.faeEstado faeEstado, f.faeFechaInicio faeFechaInicio,f.faeFechaTermino faeFechaTermino, f.faeIdFaenaPadre faeIdFaenaPadre,f.faeNombre faeNombre, f.faeResponsable faeResponsable,f.faeTelefono faeTelefono ";
 		$sql .= " FROM faena f ";
 		if($param["id_empresa"] > 0) $sql .= " , faenasxcontratista fc ";
+		
 		$sql .= " WHERE f.activo = 'S' ";
 		
 		if(trim($param["faeNombre"]) <> "")
