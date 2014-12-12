@@ -51,8 +51,8 @@ class TrabajadoresControlController extends ControllerBase
 		
 		$data['controller'] = $param["controlador"];
 		$data['result'] = $dato->getListaTrabajador($param);
-		$data['id_c'] = $array["ctrIdContratista"];
-		$data['id_f'] = $array["faeIdFaenas"];
+		$data['id_c'] = $param["ctrIdContratista"];
+		$data['id_f'] = $param["faeIdFaenas"];
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
 		$this->view->show($destino."admin/lista_trabajadores.php", $data);

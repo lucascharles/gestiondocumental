@@ -117,5 +117,48 @@ class FaenasModel extends ModelBase
 		
     	return $result;	
 	}
+	
+	public function getEstadoDocFaena($param)
+	{
+		include("config.php");
+		
+		$sql .= " SELECT ";
+		$sql .= " f.faeIdFaenas id, ";
+		$sql .= " f.consIdConstructora, ";
+		$sql .= " f.dirIdDireccion, ";
+		$sql .= " f.faeEstado, ";
+		$sql .= " f.faeFechaInicio, ";
+		$sql .= " f.faeFechaTermino, ";
+		$sql .= " f.faeIdFaenaPadre, ";
+		$sql .= " f.faeNombre, ";
+		$sql .= " f.faeResponsable, ";
+		$sql .= " f.faeTelefono, ";
+		$sql .= " MIN(dt.id_estado_documento) estado_doc ";
+		$sql .= " FROM (faenasxcontratista fc LEFT JOIN documentotrabajador dt ";
+		$sql .= " 		ON dt.id_faena = dt.id_faena), 	faena f ";
+		$sql .= " WHERE fc.id_faena = f.faeIdFaenas ";
+		$sql .= " AND dt.doctIdDocumento IN ";
+		$sql .= " (SELECT d.id_documentotrabajador FROM	documentos d ";
+		$sql .= " 		WHERE EXTRACT(YEAR FROM d.doctFechaPertenece) = ".$param["periodo"].") ";
+		$sql .= "   	AND fc.fxcIdContratistaPadre = ".$param["id_empresa"];
+		$sql .= " GROUP BY f.faeIdFaenas,	f.consIdConstructora, ";
+		$sql .= "   	f.dirIdDireccion,f.faeEstado,f.faeFechaInicio,f.faeFechaTermino, ";
+		$sql .= " f.faeIdFaenaPadre,f.faeNombre,f.faeResponsable,f.faeTelefono ";
+		
+		if(trim($param["faeNombre"]) <> "")
+		{
+			$sql .= " and f.faeNombre LIKE '".trim($param["faeNombre"])."%'";
+		}
+		if(trim($param["faeResponsable"]) <> "")
+		{
+			$sql .= " and f.faeResponsable LIKE '".trim($param["faeResponsable"])."%'";
+		}
+		
+		$sql .= " ORDER BY f.faeNombre ";
+		
+		$result = consulta($sql);
+		
+		return $result;
+	}
 }
 ?>

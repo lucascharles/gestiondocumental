@@ -200,7 +200,7 @@
 	   			while($rs=mysql_fetch_array($faenas))
 				{
 			    ?>
-			<option value="<?=$rs["faeIdFaenas"]?>" > <? echo($rs["faeNombre"]); ?> </option>
+			<option value="<?=$rs["id"]?>" > <? echo($rs["faeNombre"]); ?> </option>
 				<?
 				  }
 	    		?>
