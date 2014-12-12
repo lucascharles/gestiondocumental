@@ -58,19 +58,21 @@ class TrabajadoresControlModel extends ModelBase
 		
 		if($param["tipop"] == "A")
 		{
-			$sql = " SELECT trbIdTrabajador FROM trabajador WHERE trbRut = '".$param["trbRut"]."' AND trbNombre = '".$param["trbNombre"]."' AND trbApPaterno = '".$param["trbApPaterno"]."' ORDER BY id DESC LIMIT 1" ;
+			$sql = " SELECT trbIdTrabajador FROM trabajador WHERE trbRut = '".$param["trbRut"]."' AND trbNombre = '".$param["trbNombre"]."' AND trbApPaterno = '".$param["trbApPaterno"]."' ORDER BY trbIdTrabajador DESC LIMIT 1" ;
 			$idsql_new = consulta($sql);
 			$rs_new = mysql_fetch_array($idsql_new);
 			$id_new = $rs_new["trbIdTrabajador"];
 			
-			$sql = " SELECT id FROM sub_tipodocumento ORDER BY id ASC ";
+			$sql = " SELECT st.id, st.id_tipodocumento tipodoc  FROM sub_tipodocumento st ORDER BY st.id ASC ";
 			$idsql = consulta($sql);
 			while($rs=mysql_fetch_array($idsql))
 			{
 				$sql = " INSERT INTO documentotrabajador ";
-				$sql .= " (id_estado_documento, doctIdTrabajador, id_contratista, id_faena, id_sub_tipodocumento) ";
+				$sql .= " (id_estado_documento, doctIdTrabajador, id_contratista, id_faena, id_sub_tipodocumento,tpdIdTipoDocumento) ";
 				$sql .= " VALUES ";
-				$sql .= " (1, ".$id_new.", ".$param["ctrIdContratista"].", ".$param["id_faena"].",".$rs["id"].") ";
+				$sql .= " (1, ".$id_new.", ".$param["ctrIdContratista"].", ".$param["faeIdFaenas"].",".$rs["id"].",".$rs["tipodoc"].") ";
+				
+				$idsql_ins = consulta($sql);
 			}
 		}
 		

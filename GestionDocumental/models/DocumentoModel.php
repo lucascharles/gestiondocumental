@@ -136,13 +136,23 @@ class DocumentoModel extends ModelBase
 	
 	public function getListaDocumentos($param)
 	{
-		$sql .= " SELECT t.trbIdTrabajador, CONCAT(t.trbIdTrabajador,'@',t.trbNombre) as trabajador, dt.id_sub_tipodocumento doc, dt.id_estado_documento estado ";
-		$sql .= " FROM trabajador t, documentotrabajador dt, sub_tipodocumento std, trabajadorxfaena tf ,  faenasxcontratista fc";
-		$sql .= " WHERE  t.trbIdTrabajador = tf.txf_id_trabajador AND tf.txf_id_faena = fc.id_faena ";
-		$sql .= " AND tf.txf_id_faena = ".$param["id_faena"];
-		$sql .= " AND fc.fxcIdContratistaPadre = ".$param["id_contratista"];
-		$sql .= " AND std.id = dt.id_sub_tipodocumento ";
-		$sql .= " AND dt.doctIdTrabajador = t.trbIdTrabajador AND  dt.id_faena = ".$param["id_faena"]." AND std.id_tipodocumento = ".$param["id_tipodocumento"];
+// 		$sql .= " SELECT t.trbIdTrabajador, CONCAT(t.trbIdTrabajador,'@',t.trbNombre) as trabajador, dt.id_sub_tipodocumento doc, dt.id_estado_documento estado ";
+// 		$sql .= " FROM trabajador t, documentotrabajador dt, sub_tipodocumento std, trabajadorxfaena tf ,  faenasxcontratista fc";
+// 		$sql .= " WHERE  t.trbIdTrabajador = tf.txf_id_trabajador AND tf.txf_id_faena = fc.id_faena ";
+// 		$sql .= " AND tf.txf_id_faena = ".$param["id_faena"];
+// 		$sql .= " AND fc.fxcIdContratistaPadre = ".$param["id_contratista"];
+// 		$sql .= " AND std.id = dt.id_sub_tipodocumento ";
+// 		$sql .= " AND dt.doctIdTrabajador = t.trbIdTrabajador AND  dt.id_faena = ".$param["id_faena"]." AND std.id_tipodocumento = ".$param["id_tipodocumento"];
+		
+		$sql .= " SELECT t.trbIdTrabajador, CONCAT(t.trbIdTrabajador,'@',	t.trbNombre) AS trabajador, ";
+		$sql .= "  	   dt.id_sub_tipodocumento doc, dt.id_estado_documento estado ";
+		$sql .= " FROM documentotrabajador dt, trabajador t ";
+		$sql .= " WHERE dt.doctIdTrabajador = t.trbIdTrabajador ";
+		$sql .= "   AND dt.tpdIdTipoDocumento = ".$param["id_tipodocumento"];
+		$sql .= "   AND dt.id_faena =  ".$param["id_faena"];
+		$sql .= "   AND dt.id_contratista = ".$param["id_contratista"];
+		
+//  		echo($sql);
 		
 		$idsql = consulta($sql);
 		

@@ -71,8 +71,8 @@ class FaenasController extends ControllerBase
 			$param["id_empresa"] = $_SESSION["idempresa"];
 		}
 		
-		$data['result'] = $dato->getListaFaenas($param);
-
+// 		$data['result'] = $dato->getListaFaenas($param);
+		$data['result'] = $dato->getEstadoDocFaena($param);
 		$this->view->show($destino."/lista_faenas.php", $data);
 
 		

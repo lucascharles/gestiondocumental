@@ -10,6 +10,7 @@
 		<th align="left" width="">FIN</th>
 		<th align="left" width="">RESPONSABLE</th>
 		<th align="left" width="">TELEFONO</th>
+		<th align="left" width="">ESTADO</th>
         <th align="left" width="">&nbsp;</th>
     </tr>
 	<?php
@@ -26,7 +27,21 @@
 	    <td align="left" width="10%"><?php echo (utf8_decode($rs["faeTelefono"])) ?></td>
 
 		<td align="left" width="20%">
-        <img src="images/carpetas.gif" title="Documentos" class="oplistado" onclick="window.parent.verDetalles('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" />
+        <?php if($rs["estado_doc"] == 4) {?>
+        <img src="images/activar.gif" title="Documentos" class="oplistado" onclick="window.parent.verDetalles('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" />
+        <?php }?>
+        
+        <?php if($rs["estado_doc"] == 3) {?>
+        <img src="images/cancelar.gif" title="Documentos" class="oplistado" onclick="window.parent.verDetalles('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" />
+        <?php }?>
+        
+        <?php if($rs["estado_doc"] == 2) {?>
+        <img src="images/advertencia.png" title="Documentos" class="oplistado" onclick="window.parent.verDetalles('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" />
+        <?php }?>
+        
+        <?php if($rs["estado_doc"] == 1) {?>
+        <img src="images/alerta.png" title="Documentos" class="oplistado" onclick="window.parent.verDetalles('<? echo($controller) ?>',<?php echo ($rs["id"]) ?>)" />
+        <?php }?>
         </td>
 	</tr>
     <tr bgcolor="#FFFFFF" id="fila_sep_<?=$rs["id"]?>">
