@@ -223,6 +223,7 @@ class FaenasController extends ControllerBase
 		$data["id_t"] = $param["id_trabajador"];
 		$data["id_d"] = $param["id_sub_tipodocumento"];
 		$data["id_c"] = $param["id_contratista"];
+		$data["id_td"] = $param["id_td"];
 		$data["idsql_doc"] = $doc->getDocumentos($param);
 		
 		$this->view->show("empresa/carga_documento.php", $data);

@@ -14,6 +14,7 @@ if(isset($_SESSION["bloqueo"]))
 <input type="hidden" name="id_trabajador" id="id_trabajador" value="<? echo($id_t)?>" />
 <input type="hidden" name="id_sub_tipodocumento" id="id_sub_tipodocumento" value="<? echo($id_d)?>" />
 <input type="hidden" name="id_contratista" id="id_contratista" value="<?=$id_c?>" />
+<input type="hidden" name="id_tipo_documento" id="id_tipo_documento" value="<?=$id_td?>" />
 
 <input type="hidden" name="tipop" id="tipop" value="<? echo($tipop)?>" />
 

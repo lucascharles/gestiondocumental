@@ -26,22 +26,34 @@
     	<td colspan="3">
         	<table width="100%" border="0" cellpadding="0" cellspacing="3" align="left" id="buscador">
 		        <tr>
-					<td colspan="1" align="right" width="10"  class="etiqueta_form">Periodo:</td>
-					<td colspan="1" align="left" width=""  class="etiqueta_form"><input type="text" name="periodo" id="periodo"  filtro="S" value="<?echo(date('Y')) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
+					<td colspan="1" align="right" width="5"  class="etiqueta_form">Periodo:</td>
+					<td colspan="1" align="left" width="80"  class="etiqueta_form"><input type="text" name="periodo" id="periodo"  filtro="S" value="<?echo(date('Y')) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
+					<td colspan="1" align="left" width="15"  class="etiqueta_form">Sin Subir:
+					<img src="images/alerta.png" class="oplistado" />
+					</td>
                </tr>
         	
         		<tr>
-					<td colspan="1" align="right" width="50"  class="etiqueta_form">Nombre:</td>
-					<td colspan="1" align="left" width=""  class="etiqueta_form"><input type="text" name="faeNombre" id="faeNombre"  filtro="S" value="<?=$_SESSION["f_faeNombre"] ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="1"/></td>
+					<td colspan="1" align="right" width="30"  class="etiqueta_form">Nombre:</td>
+					<td colspan="1" align="left" width="55"  class="etiqueta_form"><input type="text" name="faeNombre" id="faeNombre"  filtro="S" value="<?=$_SESSION["f_faeNombre"] ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="1"/></td>
+					<td colspan="1" align="left" width="15"  class="etiqueta_form">Sin Revisar:
+					<img src="images/advertencia.png" class="oplistado" />
+					</td>
                </tr>
                <tr>
-	 	 	 	 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Responsable:</td>
- 	 	 	 		<td colspan="1" align="left" width=""  class="etiqueta_form"><input type="text" name="faeResponsable" id="faeResponsable"  filtro="S" value="<?=$_SESSION["f_faeResponsable"]?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="2"/></td>
+	 	 	 	 	<td colspan="1" align="right" width="30"  class="etiqueta_form">Responsable:</td>
+ 	 	 	 		<td colspan="1" align="left" width="55"  class="etiqueta_form"><input type="text" name="faeResponsable" id="faeResponsable"  filtro="S" value="<?=$_SESSION["f_faeResponsable"]?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="2"/></td>
+ 	 	 	 		<td colspan="1" align="left" width="15"  class="etiqueta_form">Rechazado:
+ 	 	 	 		<img src="images/cancelar.gif" class="oplistado" />
+ 	 	 	 		</td>
  	 	 	 	</tr>
                 <tr>
-			     	<td align="right"  colspan="2" class="etiqueta_form">
+			     	<td colspan="1" align="right" width="30"  class="etiqueta_form"></td>
+			     	<td colspan="1" align="right" width="55"  class="etiqueta_form"></td>
+			     	<td colspan="1" align="left" width="15"  class="etiqueta_form">Aprobado:
+			     	<img src="images/activar.gif" class="oplistado" />
+			     	</td>
                     
-                   </td>
 			    </tr>
              </table>
          <td>
