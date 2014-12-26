@@ -2,7 +2,7 @@
 include("views/cabecera_listado.php"); 
 include("includes/pivot/pivot.class.php");
 
-	
+if(mysql_num_rows ($idsql_doc_trabajador) > 0){	
 	$DataSet = array();
 	while($rs= mysql_fetch_array($idsql_doc_trabajador))
 	{
@@ -19,7 +19,11 @@ include("includes/pivot/pivot.class.php");
 	$enlace = array("col"=>1,"href"=>"#","ocultar"=>false,"funcion"=>"abrirVentanaDoc");
 	//print_r($data);
 	$cadena = simpleHtmlTable($data,3,$enlace,"Trabajador","","");
-	
+}
+else
+{
+	$cadena = "Sin datos";
+}	
 	echo($cadena);
 ?>
 
