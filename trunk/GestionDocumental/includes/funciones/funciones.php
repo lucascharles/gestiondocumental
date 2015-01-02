@@ -78,16 +78,16 @@ function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot
 				switch($item)
 				{
 					case 1:	// Sin subir
-						$valor = "<img src='images/estado_naranja.png' style='cursor:pointer' ".$funct .">";
+						$valor = "<img src='images/alerta.png' style='cursor:pointer' ".$funct .">";
 					break;
 					case 2: // Subido sin revisar
-						$valor = "<img src='images/estado_azul.png' style='cursor:pointer' ".$funct .">";
+						$valor = "<img src='images/advertencia.png' style='cursor:pointer' ".$funct .">";
 					break;
 					case 3:	// Rechazado
-						$valor = "<img src='images/estado_rojo.png' style='cursor:pointer' ".$funct .">";
+						$valor = "<img src='images/cancelar.png' style='cursor:pointer' ".$funct .">";
 					break;
 					case 4:	// Aprobado
-						$valor = "<img src='images/estado_verde.png' style='cursor:pointer' ".$funct .">";
+						$valor = "<img src='images/activar.png' style='cursor:pointer' ".$funct .">";
 					break;
 				}
 			}

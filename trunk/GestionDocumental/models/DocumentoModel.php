@@ -107,7 +107,7 @@ class DocumentoModel extends ModelBase
 		if($param["id_sub_tipodocumento"] > 0) $sql .= " AND d.id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
 		if($param["id_trabajador"] > 0) $sql .= " AND d.doctIdTrabajador = ".$param["id_trabajador"];
 		if($param["id_tipo_documento"] > 0) $sql .= " AND d.tpdIdTipoDocumento = ".$param["id_tipo_documento"];
-		echo($sql);
+// 		echo($sql);
 // 		exit;	
 		$idsql = consulta($sql);
 		
@@ -137,9 +137,28 @@ class DocumentoModel extends ModelBase
 	public function getListaDocumentos($param)
 	{
 		
-		$sql .= " SELECT t.trbIdTrabajador, CONCAT(t.trbIdTrabajador,'@',	t.trbNombre) AS trabajador, ";
-		$sql .= "  	   dt.id_sub_tipodocumento doc, min(dt.id_estado_documento) estado ";
-		$sql .= " FROM documentotrabajador dt, trabajador t ";
+		$sql .= " SELECT t.trbIdTrabajador,  CONCAT(t.trbIdTrabajador, '@', t.trbNombre) AS trabajador, ";
+		$sql .= " dt.id_sub_tipodocumento doc, ";
+// 		$sql .= " IFNULL((SELECT MIN(d.id_estado_documento) FROM documentotrabajador d ";
+// 		$sql .= " 			WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
+// 		$sql .= " 			AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
+// 		$sql .= " 			AND d.id_faena = dt.id_faena ";
+// 		$sql .= " 			AND d.id_contratista = dt.id_contratista ";
+// 		$sql .= " 			AND d.doctIdTrabajador = t.trbIdTrabajador ";
+// 		$sql .= " 			AND d.id_estado_documento <> 1),  1 ) estado ";
+		
+		$sql .= " COUNT(dt.doctIdDocumento) cantidad_doc, ";
+		$sql .= " ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30) meses , ";
+		$sql .= " IF(COUNT(dt.doctIdDocumento) <  ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30),2, ";
+		$sql .= "		IFNULL((SELECT MIN(d.id_estado_documento) ";
+		$sql .= "						FROM documentotrabajador d ";
+		$sql .= "						WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
+		$sql .= "						AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
+		$sql .= "						AND d.id_faena = dt.id_faena ";
+		$sql .= "						AND d.id_contratista = dt.id_contratista ";
+		$sql .= "						AND d.doctIdTrabajador = t.trbIdTrabajador ";
+		$sql .= "						AND d.id_estado_documento <> 1),1)) estado ";		
+		$sql .= " FROM documentotrabajador dt,trabajador t ";
 		$sql .= " WHERE dt.doctIdTrabajador = t.trbIdTrabajador ";
 		$sql .= "   AND dt.tpdIdTipoDocumento = ".$param["id_tipodocumento"];
 		$sql .= "   AND dt.id_faena =  ".$param["id_faena"];
