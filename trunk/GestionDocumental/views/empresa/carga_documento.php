@@ -59,7 +59,7 @@ if(isset($_SESSION["bloqueo"]))
         <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#55A79A">
 	        
 	        <? 
-			if($rs_sub_doc["id"]==1) 
+			if($rs_sub_doc["orden"] !=9 ||$rs_sub_doc["orden"] !=10||$rs_sub_doc["orden"] !=11)
 			{
 			?>
 	        <tr>
@@ -72,7 +72,7 @@ if(isset($_SESSION["bloqueo"]))
 			?>
             
             <? 
-			if($rs_sub_doc["id"]==9||$rs_sub_doc["id"]==10||$rs_sub_doc["id"]==11) 
+			if($rs_sub_doc["orden"]==9||$rs_sub_doc["orden"]==10||$rs_sub_doc["orden"]==11) 
 			{
 			?>
 	        <tr>

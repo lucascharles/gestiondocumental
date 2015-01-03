@@ -75,10 +75,10 @@ class DocumentoModel extends ModelBase
 	
 	public function getSubTipoDocumento($param)
 	{
-		$sql = " SELECT id, descripcion, id_tipodocumento ";
+		$sql = " SELECT id, orden, descripcion, id_tipodocumento ";
 		$sql .= " FROM sub_tipodocumento";
 		$sql .= " WHERE id = ".$param["id"];
-		//echo($sql);
+// 		echo($sql);
 		$idsql = consulta($sql);
 		
 		return mysql_fetch_array($idsql);
@@ -139,25 +139,9 @@ class DocumentoModel extends ModelBase
 		
 		$sql .= " SELECT t.trbIdTrabajador,  CONCAT(t.trbIdTrabajador, '@', t.trbNombre) AS trabajador, ";
 		$sql .= " dt.id_sub_tipodocumento doc, ";
-// 		$sql .= " IFNULL((SELECT MIN(d.id_estado_documento) FROM documentotrabajador d ";
-// 		$sql .= " 			WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
-// 		$sql .= " 			AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
-// 		$sql .= " 			AND d.id_faena = dt.id_faena ";
-// 		$sql .= " 			AND d.id_contratista = dt.id_contratista ";
-// 		$sql .= " 			AND d.doctIdTrabajador = t.trbIdTrabajador ";
-// 		$sql .= " 			AND d.id_estado_documento <> 1),  1 ) estado ";
-		
 		$sql .= " COUNT(dt.doctIdDocumento) cantidad_doc, ";
 		$sql .= " ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30) meses , ";
-		$sql .= " IF(COUNT(dt.doctIdDocumento) <  ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30),2, ";
-		$sql .= "		IFNULL((SELECT MIN(d.id_estado_documento) ";
-		$sql .= "						FROM documentotrabajador d ";
-		$sql .= "						WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
-		$sql .= "						AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
-		$sql .= "						AND d.id_faena = dt.id_faena ";
-		$sql .= "						AND d.id_contratista = dt.id_contratista ";
-		$sql .= "						AND d.doctIdTrabajador = t.trbIdTrabajador ";
-		$sql .= "						AND d.id_estado_documento <> 1),1)) estado ";		
+		$sql .= " determina_estado(dt.tpdIdTipoDocumento, dt.id_sub_tipodocumento,dt.id_faena,dt.id_contratista, t.trbIdTrabajador) estado";
 		$sql .= " FROM documentotrabajador dt,trabajador t ";
 		$sql .= " WHERE dt.doctIdTrabajador = t.trbIdTrabajador ";
 		$sql .= "   AND dt.tpdIdTipoDocumento = ".$param["id_tipodocumento"];
@@ -165,7 +149,7 @@ class DocumentoModel extends ModelBase
 		$sql .= "   AND dt.id_contratista = ".$param["id_contratista"];
 		$sql .= "   GROUP BY dt.id_sub_tipodocumento";
 		
- 		echo($sql);
+//  		echo($sql);
 		
 		$idsql = consulta($sql);
 		
@@ -200,6 +184,18 @@ class DocumentoModel extends ModelBase
 			{
 				$nombre = $nombre.$ext;
 				move_uploaded_file($param["arch_upload"]["archivo"]["tmp_name"],$carpeta.$nombre);
+
+				$sql = " DELETE FROM documentotrabajador ";
+				$sql .= " WHERE doctIdTrabajador = ".$param["id_trabajador"];
+				$sql .= " AND id_estado_documento = 1 ";
+				$sql .= " AND tpdIdTipoDocumento = ".$param["id_tipo_documento"];
+				$sql .= " AND id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
+				$sql .= " AND id_contratista = ".$param["id_contratista"];
+				$sql .= " AND id_faena = ".$param["id_faena"];
+				
+				//echo($sql);
+				consulta($sql);
+				
 				
 				$sql = " INSERT INTO documentotrabajador ";
 				$sql .= " SET ";
