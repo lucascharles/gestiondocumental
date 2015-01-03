@@ -133,17 +133,12 @@ class FaenasModel extends ModelBase
 		$sql .= " f.faeNombre, ";
 		$sql .= " f.faeResponsable, ";
 		$sql .= " f.faeTelefono, ";
-		$sql .= " MIN(dt.id_estado_documento) estado_doc ";
-		$sql .= " FROM (faenasxcontratista fc LEFT JOIN documentotrabajador dt ";
-		$sql .= " 		ON dt.id_faena = dt.id_faena), 	faena f ";
+		$sql .= " IFNULL((SELECT MIN(dt.id_estado_documento) FROM documentotrabajador dt ";
+		$sql .= " 		WHERE dt.id_contratista = fc.fxcIdContratistaPadre";
+		$sql .= " 		AND dt.id_faena = f.faeIdFaenas),1) estado_doc ";
+		$sql .= " FROM faenasxcontratista fc, faena f ";
 		$sql .= " WHERE fc.id_faena = f.faeIdFaenas ";
-		$sql .= " AND dt.doctIdDocumento IN ";
-		$sql .= " (SELECT d.id_documentotrabajador FROM	documentos d ";
-		$sql .= " 		WHERE EXTRACT(YEAR FROM d.doctFechaPertenece) = ".$param["periodo"].") ";
-		$sql .= "   	AND fc.fxcIdContratistaPadre = ".$param["id_empresa"];
-		$sql .= " GROUP BY f.faeIdFaenas,	f.consIdConstructora, ";
-		$sql .= "   	f.dirIdDireccion,f.faeEstado,f.faeFechaInicio,f.faeFechaTermino, ";
-		$sql .= " f.faeIdFaenaPadre,f.faeNombre,f.faeResponsable,f.faeTelefono ";
+		$sql .= " AND fc.fxcIdContratistaPadre = ".$param["id_empresa"];
 		
 		if(trim($param["faeNombre"]) <> "")
 		{
@@ -155,6 +150,8 @@ class FaenasModel extends ModelBase
 		}
 		
 		$sql .= " ORDER BY f.faeNombre ";
+		
+// 		echo($sql);
 		
 		$result = consulta($sql);
 		

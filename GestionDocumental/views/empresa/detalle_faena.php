@@ -29,6 +29,15 @@ while($rs=mysql_fetch_array($idsql_tip_doc_aux))
     <tr>
     	<td align="left" class="etiqueta_form" colspan="2">Faena:&nbsp;<?=$datoFaena["faeNombre"]?></td>
         <td align="right" class="etiqueta_form" colspan="1">
+		<table>
+         	<tr>
+            	<td colspan="1" align="left" class="etiqueta_form">Sin Subir:<img src="images/alerta.png"  /> </td>
+                <td colspan="1" align="left" class="etiqueta_form">Sin Revisar:<img src="images/advertencia.png"  /></td>
+                <td colspan="1" align="left" class="etiqueta_form">Rechazado:<img src="images/cancelar.gif"  /></td>
+                <td colspan="1" align="left" class="etiqueta_form">Aprobado:<img src="images/activar.gif"  /></td>
+            </tr>
+        </table>
+        
         <table class="opciones" onclick="volverFaenaEmp('<?=$controller?>',0)" title="Volver" >
                         <tr>
                             <td align="right" valign="middle">.
@@ -38,7 +47,7 @@ while($rs=mysql_fetch_array($idsql_tip_doc_aux))
                             Volver
                             </td>
                         </tr>
-                    </table>
+        </table>
         </td>
     </tr>
 	<tr>
