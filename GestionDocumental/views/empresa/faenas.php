@@ -3,7 +3,7 @@
  
  	$label = "Faenas";
 
-	$titulo_form = "FAENAS";
+	$titulo_form = "Faenas";
 
 	include("views/popup_confirmacion.php"); 
 		
@@ -49,10 +49,10 @@
     </tr>
 
     <tr>
-    	<td colspan="3">
+    	<td colspan="4">
     		<table width="100%" border="0" cellpadding="0" cellspacing="3" align="right" id="leyendas">
          		<tr>
-            		<td colspan="1" align="right" width="80" class="etiqueta_form"></td>
+            		<td colspan="2" align="right" width="80" class="etiqueta_form"></td>
             		<td align="right" width="5" class="etiqueta_form">Sin Subir:<img src="images/alerta.png"  /> </td>
                 	<td align="right" width="5" class="etiqueta_form">Sin Revisar:<img src="images/advertencia.png"  /></td>
                 	<td align="right" width="5" class="etiqueta_form">Rechazado:<img src="images/cancelar.gif"  /></td>
