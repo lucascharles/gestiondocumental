@@ -39,7 +39,7 @@ $id= $dato["ctrIdContratista"];
    </tr>    
    <tr>
         <td colspan="3" height="5" class="etiqueta_form">Faena:&nbsp;
-         <select id="id_faena" name="id_faena" class="input_form" filtro="S" onFocus="resaltar(this)" onchange="alert('filtrar')" onBlur="noresaltar(this)" >
+         <select id="id_faena" name="id_faena" class="input_form" filtro="S" onFocus="resaltar(this)" onchange='mostrar()' onBlur="noresaltar(this)" >
 		 <?
 			while($rs=mysql_fetch_array($idsql_faena))
             {
