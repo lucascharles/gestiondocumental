@@ -353,12 +353,13 @@ CREATE TABLE `sub_tipodocumento` (
   `mensual` varchar(1) DEFAULT NULL,
   `anual` varchar(1) DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL,
+  `activo` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 /*Data for the table `sub_tipodocumento` */
 
-insert  into `sub_tipodocumento`(`id`,`orden`,`id_tipodocumento`,`descripcion`,`mensual`,`anual`,`cantidad`) values (19,1,1,'Contrato Comercial','','S',NULL),(20,2,1,'Reglamento Especial Contratista','','S',NULL),(21,3,1,'Politica de Seguridad','','S',NULL),(22,4,1,'Plan de emergencia','','S',NULL),(23,5,1,'Comite Paritario Higiene y Seguridad',NULL,'S',NULL),(24,6,1,'Registro de Conocimiento de Trabajadores',NULL,NULL,NULL),(25,7,2,'Ingreso de informacion de trabajadores',NULL,NULL,NULL),(26,8,2,'Contrataciones',NULL,NULL,NULL),(27,9,2,'Desvinculaciones',NULL,NULL,NULL),(28,10,3,'Comprobante de Pagos',NULL,NULL,NULL),(29,11,3,'Copia Libro de Remuneraciones',NULL,NULL,NULL),(30,12,3,'Libro Asistencias',NULL,NULL,NULL),(31,13,3,'Pacto Horas Extraordinarias',NULL,NULL,NULL),(32,14,3,'Justificacion Inasistencia',NULL,NULL,NULL),(33,15,3,'Descuentos realizados',NULL,NULL,NULL),(34,16,3,'Autorizacion Firmada',NULL,NULL,NULL),(35,17,3,'Acreditacion de pago',NULL,NULL,NULL),(36,18,4,'Formulario F30',NULL,NULL,NULL),(37,19,4,'Formulario F30-1',NULL,NULL,NULL),(38,20,4,'Notificacion de Contratista',NULL,NULL,NULL),(39,21,4,'Formulario F43',NULL,NULL,NULL),(40,22,5,'Distintas AFP',NULL,NULL,NULL),(41,23,5,'Distintas ISAPRES / FONASA',NULL,NULL,NULL),(42,24,5,'Distintas Cajas de Compensacion',NULL,NULL,NULL),(43,25,5,'Mutualidades',NULL,NULL,NULL);
+insert  into `sub_tipodocumento`(`id`,`orden`,`id_tipodocumento`,`descripcion`,`mensual`,`anual`,`cantidad`,`activo`) values (19,1,1,'Contrato y Anexo de renovacion','','S',NULL,'S'),(20,2,1,'Carta de Aviso','','S',NULL,'S'),(21,3,1,'Finiquito','','S',NULL,'S'),(22,4,1,'Plan de emergencia','','S',NULL,NULL),(23,5,1,'Comite Paritario Higiene y Seguridad',NULL,'S',NULL,NULL),(24,6,1,'Registro de Conocimiento de Trabajadores',NULL,NULL,NULL,NULL),(25,7,2,'Ingreso de informacion de trabajadores',NULL,NULL,NULL,NULL),(26,8,2,'Contrataciones',NULL,NULL,NULL,NULL),(27,9,2,'Desvinculaciones',NULL,NULL,NULL,NULL),(28,10,3,'Ingreso de Liquidacion',NULL,NULL,NULL,'S'),(29,11,3,'Copia Libro de Remuneraciones',NULL,NULL,NULL,'S'),(30,12,3,'Libro Asistencias',NULL,NULL,NULL,NULL),(31,13,3,'Pacto Horas Extraordinarias',NULL,NULL,NULL,NULL),(32,14,3,'Licencia',NULL,NULL,NULL,'S'),(33,15,3,'Descuentos realizados',NULL,NULL,NULL,NULL),(34,16,3,'Autorizacion Firmada',NULL,NULL,NULL,NULL),(35,17,3,'Acreditacion de pago',NULL,NULL,NULL,NULL),(36,18,4,'Formulario F30',NULL,NULL,NULL,NULL),(37,19,4,'Formulario F30-1',NULL,NULL,NULL,NULL),(38,20,4,'Notificacion de Contratista',NULL,NULL,NULL,NULL),(39,21,4,'Formulario F43',NULL,NULL,NULL,NULL),(40,22,5,'Distintas AFP',NULL,NULL,NULL,NULL),(41,23,5,'Distintas ISAPRES / FONASA',NULL,NULL,NULL,NULL),(42,24,5,'Distintas Cajas de Compensacion',NULL,NULL,NULL,NULL),(43,25,5,'Mutualidades',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `tipodocumento` */
 
@@ -376,7 +377,7 @@ CREATE TABLE `tipodocumento` (
 
 /*Data for the table `tipodocumento` */
 
-insert  into `tipodocumento`(`id`,`descripcion`,`tpdEstado`,`tpdModuloPertenece`,`tpd_nombreTipoDoc`,`activo`) values (1,'Inf. & Coord. Emp.',NULL,NULL,NULL,NULL),(2,'Antecedentes Laborales',NULL,NULL,NULL,NULL),(3,'Remuneraciones',NULL,NULL,NULL,NULL),(4,'Certif. Contratista',NULL,NULL,NULL,NULL),(5,'Pago Prev.',NULL,NULL,NULL,NULL);
+insert  into `tipodocumento`(`id`,`descripcion`,`tpdEstado`,`tpdModuloPertenece`,`tpd_nombreTipoDoc`,`activo`) values (1,'Inf. & Coord. Emp.',NULL,NULL,NULL,'S'),(2,'Antecedentes Laborales',NULL,NULL,NULL,NULL),(3,'Remuneraciones',NULL,NULL,NULL,'S'),(4,'Certif. Contratista',NULL,NULL,NULL,NULL),(5,'Pago Prev.',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `trabajador` */
 
