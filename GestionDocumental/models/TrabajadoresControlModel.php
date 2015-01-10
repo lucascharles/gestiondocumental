@@ -63,7 +63,7 @@ class TrabajadoresControlModel extends ModelBase
 			$rs_new = mysql_fetch_array($idsql_new);
 			$id_new = $rs_new["trbIdTrabajador"];
 			
-			$sql = " SELECT st.id, st.id_tipodocumento tipodoc  FROM sub_tipodocumento st ORDER BY st.id ASC ";
+			$sql = " SELECT st.id, st.id_tipodocumento tipodoc  FROM sub_tipodocumento WHERE activo = 'S' st ORDER BY st.id ASC ";
 			$idsql = consulta($sql);
 			while($rs=mysql_fetch_array($idsql))
 			{

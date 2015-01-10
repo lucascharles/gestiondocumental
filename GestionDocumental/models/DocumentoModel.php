@@ -53,6 +53,7 @@ class DocumentoModel extends ModelBase
 	{
 		$sql = " SELECT id, descripcion ";
 		$sql .= " FROM tipodocumento";
+		$sql .= " WHERE activo = 'S'";
 		$sql .= " ORDER BY id ASC ";
 		
 		$idsql = consulta($sql);
@@ -64,8 +65,9 @@ class DocumentoModel extends ModelBase
 	{
 		$sql = " SELECT id, descripcion, id_tipodocumento ";
 		$sql .= " FROM sub_tipodocumento";
+		$sql .= " WHERE activo = 'S' ";
 		if($param["id_tipodocumento"] <>""){
-			$sql .= " WHERE id_tipodocumento = ".$param["id_tipodocumento"];
+			$sql .= " AND id_tipodocumento = ".$param["id_tipodocumento"];
 		}
 		//echo($sql);
 		$idsql = consulta($sql);
@@ -78,6 +80,7 @@ class DocumentoModel extends ModelBase
 		$sql = " SELECT id, orden, descripcion, id_tipodocumento ";
 		$sql .= " FROM sub_tipodocumento";
 		$sql .= " WHERE id = ".$param["id"];
+		$sql .= " and activo = 'S' ";
 // 		echo($sql);
 		$idsql = consulta($sql);
 		
@@ -89,6 +92,7 @@ class DocumentoModel extends ModelBase
 		$sql = " SELECT id, descripcion ";
 		$sql .=" FROM  tipodocumento ";
 		$sql .=" WHERE id = ".$idTipo;
+		$sql .=" and activo = 'S' ".$idTipo;
 // 		echo($sql);
 // 		exit;
 		$idsql = consulta($sql);
@@ -101,6 +105,7 @@ class DocumentoModel extends ModelBase
 		$sql .= " doc.doctNombreEncrip, doc.NombreOriginal, d.tpdIdTipoDocumento, t.descripcion, e.descripcion estado_documento ";
 		$sql .= " FROM documentotrabajador d LEFT JOIN  tipodocumento t ON (d.tpdIdTipoDocumento = t.id), documentos doc LEFT JOIN  estado_documento e ON (doc.id_estado_documento = e.id) ";
 		$sql .= " WHERE d.doctIdDocumento = doc.id_documentotrabajador ";
+		$sql .= " AND t.activo = 'S' ";
 		
 		if($param["id_contratista"] > 0) $sql .= " AND d.id_contratista = ".$param["id_contratista"];
 		if($param["id_faena"] > 0) $sql .= " AND d.id_faena = ".$param["id_faena"];
@@ -120,7 +125,8 @@ class DocumentoModel extends ModelBase
 		$sql .= " doc.doctNombreEncrip, doc.NombreOriginal, d.tpdIdTipoDocumento, t.descripcion, e.descripcion estado_documento ";
 		$sql .= " FROM documentotrabajador d LEFT JOIN  tipodocumento t ON (d.tpdIdTipoDocumento = t.id), documentos doc LEFT JOIN  estado_documento e ON (doc.id_estado_documento = e.id) ";
 		$sql .= " WHERE d.doctIdDocumento = doc.id_documentotrabajador ";
-	
+		$sql .= " AND t.activo = 'S' ";
+		
 		if($param["id_contratista"] > 0) $sql .= " AND d.id_contratista = ".$param["id_contratista"];
 		if($param["id_faena"] > 0) $sql .= " AND d.id_faena = ".$param["id_faena"];
 		if($param["tpdIdTipoDocumento"] > 0) $sql .= " AND d.tpdIdTipoDocumento = ".$param["tpdIdTipoDocumento"];
@@ -141,9 +147,36 @@ class DocumentoModel extends ModelBase
 		$sql .= " dt.id_sub_tipodocumento doc, ";
 		$sql .= " COUNT(dt.doctIdDocumento) cantidad_doc, ";
 		$sql .= " ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30) meses , ";
-		$sql .= " determina_estado(dt.tpdIdTipoDocumento, dt.id_sub_tipodocumento,dt.id_faena,dt.id_contratista, t.trbIdTrabajador) estado";
-		$sql .= " FROM documentotrabajador dt,trabajador t ";
+		//$sql .= " determina_estado(dt.tpdIdTipoDocumento, dt.id_sub_tipodocumento,dt.id_faena,dt.id_contratista, t.trbIdTrabajador) estado";
+	
+		$sql .= " (SELECT IFNULL(MIN(d.id_estado_documento),1) ";
+		$sql .= " FROM documentotrabajador d ";
+		$sql .= " WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
+		$sql .= " AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
+		$sql .= " AND d.id_faena = ".$param["id_faena"];
+		$sql .= " AND d.id_contratista = ".$param["id_contratista"];
+		$sql .= " AND d.doctIdTrabajador = t.trbIdTrabajador ";
+		$sql .= " AND d.id_estado_documento <> 1 ";
+		$sql .= " )AS estado1, ";
+		$sql .= " IF((COUNT(dt.doctIdDocumento)) < (ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30)), ";
+		$sql .= " 		(IF((SELECT IFNULL(MIN(d.id_estado_documento),1) ";
+		$sql .= " 				FROM documentotrabajador d 	WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
+		$sql .= " 				AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
+		$sql .= " 				AND d.id_faena = ".$param["id_faena"];
+		$sql .= " 				AND d.id_contratista = ".$param["id_contratista"];
+		$sql .= " 				AND d.doctIdTrabajador = t.trbIdTrabajador ";
+		$sql .= " 				AND d.id_estado_documento <> 1)=1,(SELECT IFNULL(MIN(d.id_estado_documento),1) ";
+		$sql .= " 						FROM documentotrabajador d 	WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
+		$sql .= " 						AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
+		$sql .= " 						AND d.id_faena = ".$param["id_faena"];
+		$sql .= " 						AND d.id_contratista = ".$param["id_contratista"];
+		$sql .= " 						AND d.doctIdTrabajador = t.trbIdTrabajador ";
+		$sql .= " 						AND d.id_estado_documento <> 1),2)),1) estado ";
+		
+		$sql .= " FROM documentotrabajador dt,trabajador t, sub_tipodocumento st ";
 		$sql .= " WHERE dt.doctIdTrabajador = t.trbIdTrabajador ";
+		$sql .= " AND dt.id_sub_tipodocumento = st.id ";
+		$sql .= " AND st.activo = 'S' ";		
 		$sql .= "   AND dt.tpdIdTipoDocumento = ".$param["id_tipodocumento"];
 		$sql .= "   AND dt.id_faena =  ".$param["id_faena"];
 		$sql .= "   AND dt.id_contratista = ".$param["id_contratista"];
