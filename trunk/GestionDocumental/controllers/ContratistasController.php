@@ -38,10 +38,15 @@ class ContratistasController extends ControllerBase
 	
 	public function alta($array)
 	{
+		require 'models/ConstructoraModel.php';
+		
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 		$data['tipop'] = "A";
-
+		
+		$dato = new ConstructoraModel();
+		$data['constructoras'] = $dato->getListaConstructora();
+		
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
@@ -51,12 +56,20 @@ class ContratistasController extends ControllerBase
 	public function editar($param)
 	{
 		require 'models/ContratistaModel.php';
+		require 'models/ConstructoraModel.php';
 		
 		$dato = new ContratistaModel();
+		$dato2 = new ConstructoraModel();
+		
+		$data['dato2'] = $dato2->getConstructoraxContratista($param);
+		$data['constructoras'] = $dato2->getListaConstructora();
+		
 		$data['dato'] = $dato->getContratista($param);
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 		$data['tipop'] = "M";
+		
+		
 
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");

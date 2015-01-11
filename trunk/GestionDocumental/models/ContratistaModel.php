@@ -75,7 +75,7 @@ class ContratistaModel extends ModelBase
 					 ctrTelefono2,
 					 ctrTelefono3, ";
 			$sql .=	"dirIdDirecion,
-					 mutIdMutualidad,activo ";
+					 mutIdMutualidad,consIdConstructora,activo ";
 			$sql .=	") VALUES (";
 
 			IF(TRIM($array["ctrRazonSocial"])<>""){	$sql .= "'". $array["ctrRazonSocial"]."',"; }ELSE { $sql.= "NULL,";	};
@@ -100,7 +100,8 @@ class ContratistaModel extends ModelBase
 			IF(TRIM($array["ctrTelefono3"])<>""){ $sql.= "'".$array["ctrTelefono3"]."',"; }ELSE { $sql.= "NULL,";};
 			IF(TRIM($array["dirIdDirecion"])<>""){ $sql.= $array["dirIdDirecion"].","; }ELSE { $sql.= "NULL,";};
 			
-			IF(TRIM($array["mutIdMutualidad"])<>""){ $sql.= $array["mutIdMutualidad"].","; }ELSE { $sql.= "NULL";};
+			IF(TRIM($array["mutIdMutualidad"])<>""){ $sql.= $array["mutIdMutualidad"].","; }ELSE { $sql.= "NULL,";};
+			IF(TRIM($array["consIdConstructora"])<>""){ $sql.= $array["consIdConstructora"].","; }ELSE { $sql.= "NULL";};
 			$sql .= ",'S')";
 		}else{
 			$sql = " UPDATE contratista SET ";
@@ -129,6 +130,7 @@ class ContratistaModel extends ModelBase
 			IF(TRIM($array["ctrTelefono3"])<>"") $sql.= ",ctrTelefono3 = '" . $array["ctrTelefono3"]."'";
 			IF(TRIM($array["dirIdDirecion"])<>"") $sql.= ",dirIdDirecion =" . $array["dirIdDirecion"];
 			IF(TRIM($array["mutIdMutualidad"])<>"")$sql.= ",mutIdMutualidad =" . $array["mutIdMutualidad"];
+			IF(TRIM($array["consIdConstructora"])<>"")$sql.= ",consIdConstructora =" . $array["consIdConstructora"];
 			$sql .= " WHERE ctrIdContratista = ".$array["ctrIdContratista"];
 		}
 // 		echo($sql);

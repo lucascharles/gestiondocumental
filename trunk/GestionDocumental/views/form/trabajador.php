@@ -164,9 +164,9 @@
 	   </td>
    </tr>    	
    <tr>
-	<td align="left" class="subtitulo_form" colspan="3">Contratista</td>
+	<td align="left" class="subtitulo_form" colspan="3">Agencia</td>
     </tr> 	
-    <td align="right" class="etiqueta_form">Contratista:</td>
+    <td align="right" class="etiqueta_form">Agencia:</td>
 	   <td align="left" class="etiqueta_form" colspan="1">
 	   <!-- <input type="text" name="ctrIdContratista" id="ctrIdContratista" value="<? echo($ctrIdContratista); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" /> -->
 	   <select name="ctrIdContratista" id="ctrIdContratista" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">

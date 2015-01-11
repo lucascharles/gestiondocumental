@@ -3,7 +3,7 @@
  
  	$label = "Trabajador";
 
-	$titulo_form = "ADMINISTRAR TRABAJADORES";
+	$titulo_form = "Administrar Trabajadores";
 
 	include("views/empresa/popup_confirmacion.php"); 
 	

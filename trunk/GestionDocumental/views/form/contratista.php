@@ -1,10 +1,11 @@
 <? include("views/cabecera.php"); ?>
 <? include("views/menu.php"); ?>
 <?
-	$titulo_form = "Alta Contratista";
+	$titulo_form = "Alta Agencia";
 	
 	if($tipop=="M"){
     	$rs=$dato;
+    	$rs2=$dato2;
 	}
 	$id = ($tipop=="M") ? $rs["ctrIdContratista"] : "";
 	$ctrIdContratista = ($tipop=="M") ? $rs["ctrIdContratista"] : "";
@@ -36,12 +37,13 @@
 	$mutIdMutualidad = ($tipop=="M") ? $rs["mutIdMutualidad"] : "";
 	$rplIdRepLegal = ($tipop=="M") ? $rs["rplIdRepLegal"] : "";
 	$tjor_idTipoJornada = ($tipop=="M") ? $rs["tjor_idTipoJornada"] : "";
-
+	$ctrIdConstructora = ($tipop=="M") ? $rs2["consIdConstructora"] : "";
+	$ctrConstructora = ($tipop=="M") ? $rs2["consNombreFantasia"] : "";
 	
 	
 	if($tipop=="M")
 	{
-		$titulo_form = "Edici&oacute;n Contratista(Id: ".$ctrIdContratista.")";
+		$titulo_form = "Edici&oacute;n Agencia(Id: ".$ctrIdContratista.")";
 	}
 ?>
 <form name="frmContratistas" action="" method='post'>
@@ -53,6 +55,26 @@
 	<tr>
 		<th align="left" colspan="3"><? echo($titulo_form) ?></th>
     </tr>
+	<tr>    	
+	   <td align="right" class="etiqueta_form">Empresa:</td>
+		   <td align="left" class="etiqueta_form" colspan="1">
+		   <select name="consIdConstructora" id="consIdConstructora" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+				<option value=""><? if($tipop=="M"){echo($ctrConstructora);} else {echo("Seleccion");} ?></option>
+		   			<?
+		   			while($rs=mysql_fetch_array($constructoras))
+					{
+				    ?>
+				<option value="<?=$rs["consIdConstructora"]?>" > <? echo($rs["consNombreFantasia"]); ?> </option>
+					<?
+					  }
+		    		?>
+		   </select>
+		   
+		   </td>
+		   <td align="left" class="etiqueta_form" >
+		  
+		   </td>
+	   </tr> 
     <tr>
     	<td align="right" class="etiqueta_form">Rut:</td>
         <td align="left" class="etiqueta_form" colspan="1">

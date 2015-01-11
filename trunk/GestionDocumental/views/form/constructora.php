@@ -1,7 +1,7 @@
 <? include("views/cabecera.php"); ?>
 <? include("views/menu.php"); ?>
 <?
-	$titulo_form = "Alta Constructora";
+	$titulo_form = "Alta Empresa";
 	
 	$rs= $dato;
 	
@@ -25,13 +25,13 @@
 	
 	if($tipop=="M")
 	{
-		$titulo_form = "Edici&oacute;n Constructora(Id: ".$consIdConstructora.")";
+		$titulo_form = "Edici&oacute;n Empresa(Id: ".$consIdConstructora.")";
 	}
 ?>
 <form name="frmConstructora" action="" method='post'>
 <input type="hidden" name="id_usu" id="id_usu" value="<? echo($id)?>" />
 <input type="hidden" name="tipop" id="tipop" value="<? echo($tipop)?>" />
-
+<input type="hidden" name="consIdConstructora" id="consIdConstructora" value="<? echo($consIdConstructora)?>" />
 <table  align="center" border="0" width="" cellpadding="0" cellspacing="0" id="formulario">
 	<tr>
 		<th align="left" colspan="3"><? echo($titulo_form) ?></th>

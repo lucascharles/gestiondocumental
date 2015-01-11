@@ -20,7 +20,7 @@
                                     <img src="images/dashboard.png" class="btn_menu" />
                                     </td></tr>
                                                 <tr><td align="center">
-                                            	DASHBOARD
+                                            	Panel de Control
                                             	</td></tr>
                                             </table>
                                     </div>
@@ -29,29 +29,7 @@
                                 </table>
                                 </li>
                                <? } ?>
-					<? if($_SESSION["tip_usuario"] <> "E"){ ?>
-							<li>
-                               <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
-								<tr>
-                              	<td align="center" valign="middle" width="10" height="25" class="">
-                                  </td>
-                                 <td align="center" valign="middle"  height="25" class="">
-
-                                  <div class="principal" onClick="cargarOpcion('TrabajadoresControl')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
-                                  <table>
-                                          	<tr><td align="center">
-                                  <img src="images/kdmconfig.png" class="btn_menu"  />
-                                  </td></tr>
-                                              <tr><td align="center">
-                                          	TRABAJADORES
-                                          	</td></tr>
-                                          </table>
-                                  </div>
-									</td>
-                              </tr>
-                              </table>
-                              </li>
-						<?php } ?>	
+					
 						<? if($_SESSION["tip_usuario"] <> "E"){ ?>
 							<li>
                                <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
@@ -63,10 +41,10 @@
                                   <div class="principal" onClick="cargarOpcion('Constructora')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
                                   <table>
                                           	<tr><td align="center">
-                                  <img src="images/firewall.png" class="btn_menu" />
+                                  <img src="images/empresa.jpeg" class="btn_menu" />
                                   </td></tr>
                                               <tr><td align="center">
-                                          	CONSTRUCTORAS
+                                          	Empresas
                                           	</td></tr>
                                           </table>
                                   </div>
@@ -86,10 +64,10 @@
 								  <div class="principal" onClick="cargarOpcion('Contratistas')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
 								  <table>
 											<tr><td align="center">
-								  <img src="images/kuser.png" class="btn_menu" />
+								  <img src="images/agencia.png" class="btn_menu" />
 								  </td></tr>
 											  <tr><td align="center">
-											CONTRATISTAS
+											Agencias
 											</td></tr>
 										  </table>
 								  </div>
@@ -98,6 +76,29 @@
 							  </table>
 							  </li>
 							<?php }?>
+							<? if($_SESSION["tip_usuario"] <> "E"){ ?>
+							<li>
+                               <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
+								<tr>
+                              	<td align="center" valign="middle" width="10" height="25" class="">
+                                  </td>
+                                 <td align="center" valign="middle"  height="25" class="">
+
+                                  <div class="principal" onClick="cargarOpcion('TrabajadoresControl')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
+                                  <table>
+                                          	<tr><td align="center">
+                                  <img src="images/kdmconfig.png" class="btn_menu"  />
+                                  </td></tr>
+                                              <tr><td align="center">
+                                          	Trabajadores
+                                          	</td></tr>
+                                          </table>
+                                  </div>
+									</td>
+                              </tr>
+                              </table>
+                              </li>
+						<?php } ?>	
 							<? if($_SESSION["tip_usuario"] <> "E"){ ?>
 								<li>
 								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
@@ -134,7 +135,7 @@
 									  <img src="images/advancedsettings.png" class="btn_menu" />
 									  </td></tr>
 												  <tr><td align="center">
-												FAENAS
+												Faenas
 												</td></tr>
 											  </table>
 									  </div>
@@ -153,7 +154,7 @@
                                         <img src="images/configuracion.png" class="btn_menu" />
                                         </td></tr>
                                                 <tr><td align="center">
-                                            	CONFIGURARCI&Oacute;N
+                                            	Configuraci&oacute;n
                                             	</td></tr>
                                             </table>
                                         </div>
@@ -172,7 +173,7 @@
                                     <img src="images/usuarios.png" class="btn_menu">
                                     </td></tr>
                                                 <tr><td align="center">
-                                            	USUARIOS
+                                            	Usuarios
                                             	</td></tr>
                                             </table>
                                     </div>

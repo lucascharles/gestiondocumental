@@ -7,7 +7,7 @@
 		<th align="left" width="">RUT</th>
 		<th align="left" width="">AFP</th>
         <th align="left" width="">FECHA ALTA</th>
-		<th align="left" width="">CONTRATISTA</th>
+		<th align="left" width="">AGENCIA</th>
         <th align="left" width="">&nbsp;</th>
     </tr>
 	<?php
