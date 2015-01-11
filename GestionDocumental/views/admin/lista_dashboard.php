@@ -8,12 +8,12 @@ include("views/cabecera_listado.php");
     	<th width="" align="center" height="25"></th>
 		<th align="left" width="">Id</th>
         <th align="left" width="">RUT</th>
-        <th align="left" width="">Razon Soc.</th>
+        <th align="left" width="">Agencia</th>
         <th align="left" width="">Inf. & Coord. Empresarial</th>
-		<th align="left" width="">Antecedentes Laborales</th>
+<!-- 	    <th align="left" width="">Antecedentes Laborales</th> -->
 		<th align="left" width="">Remuneraciones</th>
-		<th align="left" width="">Certificacion del Contratista</th>
-		<th align="left" width="">Pagos Previsionales</th>
+<!-- 		<th align="left" width="">Certificacion de la Agencia</th> -->
+<!-- 		<th align="left" width="">Pagos Previsionales</th> -->
         <th align="left" width=""></th>
     </tr>
 	<?php
@@ -36,7 +36,8 @@ include("views/cabecera_listado.php");
 		        ?>
         		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>
-		<td align="left" width="10%">
+<!-- 
+        <td align="left" width="10%">
 		        <? 
 		        	if($rs["tipo2"] == 1) $icono = "images/alerta.png";
 		        	if($rs["tipo2"] == 2) $icono = "images/advertencia.png";
@@ -45,7 +46,8 @@ include("views/cabecera_listado.php");
 		        ?>
         		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
 		</td>
-        <td align="left" width="10%">
+ -->
+		<td align="left" width="10%">
 		        <? 
 		        	if($rs["tipo3"] == 1) $icono = "images/alerta.png";
 		        	if($rs["tipo3"] == 2) $icono = "images/advertencia.png";
@@ -54,6 +56,7 @@ include("views/cabecera_listado.php");
 		        ?>
         		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>
+<!--
         <td align="left" width="10%">
 		        <? 
 		        	if($rs["tipo4"] == 1) $icono = "images/alerta.png";
@@ -63,16 +66,16 @@ include("views/cabecera_listado.php");
 		        ?>
         		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>
-        <td align="left" width="10%">
+         <td align="left" width="10%">
 		        <? 
 		        	if($rs["tipo5"] == 1) $icono = "images/alerta.png";
 		        	if($rs["tipo5"] == 2) $icono = "images/advertencia.png";
 		        	if($rs["tipo5"] == 3) $icono = "images/cancelar.png";
 		        	if($rs["tipo5"] == 4) $icono = "images/activar.png";
 		        ?>
-        		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+       		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>
-        
+-->   
 	</tr>
    <tr bgcolor="#FFFFFF" id="fila_sep_<?=$rs["ctrIdContratista"]?>">
     	<td colspan="10" style="border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC; "></td>

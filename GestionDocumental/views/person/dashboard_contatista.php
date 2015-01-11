@@ -2,7 +2,7 @@
 include("views/cabecera.php");
 include("views/menu.php");
 
-$titulo_form = "Contratista";
+$titulo_form = "Agencia";
 
 $id= $dato["ctrIdContratista"];
 ?>

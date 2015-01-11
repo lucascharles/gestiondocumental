@@ -1,9 +1,9 @@
 <? 	include("views/cabecera.php"); 
  	include("views/menu.php"); 
  
- 	$label = "Contratistas";
+ 	$label = "Agencias";
 
-	$titulo_form = "ADMINISTRAR CONTRATISTAS";
+	$titulo_form = "Administrar Agencias";
 
 	include("views/popup_confirmacion.php"); 
 		
@@ -50,7 +50,7 @@
                
                 <tr>
 			     	<td align="right"  colspan="4" class="etiqueta_form">
-                    <table class="opciones" onclick="nuevoRegistro('<?=$controller?>')" title="Nuevo Contratista">
+                    <table class="opciones" onclick="nuevoRegistro('<?=$controller?>')" title="Nueva Agencia">
                         <tr>
                             <td align="right" valign="middle">
                             <img src="images/nuevoregistro.png" onmouseover="resaltarImagen(this)" onmouseout="noresaltarImagen(this)"/>

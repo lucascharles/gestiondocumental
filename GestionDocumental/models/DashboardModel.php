@@ -41,7 +41,7 @@ class DashboardModel extends ModelBase
 		$sql .= " COALESCE(tipo2.estado, 1) AS tipo2, ";
 		$sql .= " COALESCE(tipo3.estado, 1) AS tipo3, ";
 		$sql .= " COALESCE(tipo4.estado, 1) AS tipo4, ";
-		$sql .= " COALESCE(tipo5.estado, 1) AS tipo5 ";
+	    $sql .= " COALESCE(tipo5.estado, 1) AS tipo5 ";
 		$sql .= " FROM (SELECT cont.ctrIdContratista,cont.ctrRazonSocial , cont.ctrRut , cont.ctrNombreFantasia FROM contratista cont) AS pivot ";
 		$sql .= " LEFT JOIN ";
 		$sql .= " ( ";
