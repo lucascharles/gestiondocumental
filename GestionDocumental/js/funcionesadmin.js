@@ -60,7 +60,13 @@ function verDetalle(op,id)
 
 function documentosTrabajador(op,id,id_f,id_c)
 {
-	window.location = 'index.php?controlador='+op+'&accion=documentos_trabajador'+'&id='+id+'&id_f='+id_f+'&id_c='+id_c;
+	//if(id_f=="" || id_c==""){
+//		alert('Debe seleccionar Agencia y Faena');
+	//}
+	//else
+	//{
+		window.location = 'index.php?controlador='+op+'&accion=documentos_trabajador'+'&id='+id+'&id_f='+id_f+'&id_c='+id_c;
+	//}
 }
 
 function bajaRegistro(op)

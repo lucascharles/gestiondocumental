@@ -144,7 +144,8 @@
 								  </table>
 								  </li>
 							    <? /*if(checkPermisos(3,"vista")) { */?>                 
-                                  <li> 
+<!-- 
+							    <li> 
                                   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center" onClick="">
 									<tr>
                                    		<td align="center" valign="middle"  height="25" class="">
@@ -181,6 +182,7 @@
                                 </tr>
                                 </table>                              
                                 </li>      
+-->
                                 <?/* } */?>                        
                               </ul>
                             <!--</div>-->

@@ -127,7 +127,7 @@ $trbRut= $rs["trbRut"];
                 </td>
             </tr>
             
-            <? if($tipoDoc==9||$tipoDoc==10||$tipoDoc==11) {?>
+            <? if($tipoDoc==28||$tipoDoc==29||$tipoDoc==11) {?>
 	        <tr>
             	<td colspan="<?=$cont?>">
                 Nombre:
