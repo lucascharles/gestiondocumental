@@ -10,13 +10,13 @@ class DocumentoController extends ControllerBase
 		$doc->borrar_documento($param);
 	}
 	
-	public function grabar_editar_estado($param)
+	public function grabar_editar_datos($param)
 	{
 		require 'models/DocumentoModel.php';
 		
 		$doc = new DocumentoModel();		
 		
-		$doc->grabar_editar_estado($param);
+		$doc->grabar_editar_datos($param);
 	}
 
 	public function editar_estado($param)
@@ -28,6 +28,16 @@ class DocumentoController extends ControllerBase
 		$data['arrayscriptJs'] = array("validacampos.js","documento.js");
 		$data['id'] = $param["id"];
 		$this->view->show("person/cambia_estado_documento.php", $data);
+	}
+	
+	public function editar_nota($param)
+    {
+		require 'models/DocumentoModel.php';
+		$doc = new DocumentoModel();
+		$data["rs_doc"] = $doc->getDocumento($param);
+		$data['arrayscriptJs'] = array("validacampos.js","documento.js");
+		$data['id'] = $param["id"];
+		$this->view->show("person/cambia_nota_documento.php", $data);
 	}
 	
     public function carga($param)
