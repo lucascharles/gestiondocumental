@@ -2,8 +2,7 @@
 SQLyog Ultimate v9.63 
 MySQL - 5.5.40-0ubuntu0.12.04.1 : Database - gestion_documental
 *********************************************************************
-*/
-
+*/ 
 /*!40101 SET NAMES utf8 */;
 
 /*!40101 SET SQL_MODE=''*/;
@@ -151,22 +150,38 @@ INSERT  INTO `direccion`(`dirIdDireccion`,`ciuIdCiudad`,`comIdComuna`,`dirCalle`
 /*Table structure for table `documentos` */
 
 DROP TABLE IF EXISTS `documentos`;
-
 CREATE TABLE `documentos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `doctFechaSubida` DATE DEFAULT NULL,
-  `doctFechaPertenece` DATE DEFAULT NULL,
-  `doctNombreArchivo` VARCHAR(100) DEFAULT NULL,
-  `doctNombreEncrip` VARCHAR(100) DEFAULT NULL,
-  `NombreOriginal` VARCHAR(100) NOT NULL,
-  `id_documentotrabajador` INT(11) NOT NULL,
-  `id_estado_documento` INT(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MYISAM AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL auto_increment,
+  `doctFechaSubida` date default NULL,
+  `doctFechaPertenece` date default NULL,
+  `doctNombreArchivo` varchar(100) default NULL,
+  `doctNombreEncrip` varchar(100) default NULL,
+  `NombreOriginal` varchar(100) NOT NULL,
+  `id_documentotrabajador` int(11) NOT NULL,
+  `id_estado_documento` int(11) NOT NULL,
+  `nota` text character set latin1 collate latin1_spanish_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=98 ;
 
-/*Data for the table `documentos` */
+-- 
+-- Volcar la base de datos para la tabla `documentos`
+-- 
 
-INSERT  INTO `documentos`(`id`,`doctFechaSubida`,`doctFechaPertenece`,`doctNombreArchivo`,`doctNombreEncrip`,`NombreOriginal`,`id_documentotrabajador`,`id_estado_documento`) VALUES (43,'2014-11-26','2014-11-26','liquidacion_enero','46f5b113b7709faf5c4d2382e97fd57c_20141126104549.pdf','228214302.pdf',43,2),(44,'2014-11-26','2014-11-26','liquidacion_febrero','46f5b113b7709faf5c4d2382e97fd57c_20141126105233.pdf','228214302.pdf',43,2),(45,'2014-11-26','2014-11-26','liquidacion_febrero','46f5b113b7709faf5c4d2382e97fd57c_20141126105648.pdf','228214302.pdf',43,2),(46,'2014-11-26','2014-11-26','afp_enero','46f5b113b7709faf5c4d2382e97fd57c_20141126110725.pdf','228214302.pdf',46,2),(51,'2014-11-28','2014-11-28','contrato','46f5b113b7709faf5c4d2382e97fd57c_20141128115236.pdf','228214302.pdf',47,2),(88,'2014-12-12','2014-12-12','pago 2','46f5b113b7709faf5c4d2382e97fd57c_20141212103752.pdf','228214302.pdf',82,2),(89,'2014-12-12','2014-12-12','pago 2','46f5b113b7709faf5c4d2382e97fd57c_20141212150902.pdf','228214302.pdf',82,2),(90,'2014-12-15','2014-12-15','','46f5b113b7709faf5c4d2382e97fd57c_20141215155230.pdf','228214302.pdf',89,2),(91,'2014-12-15','2014-12-15','','46f5b113b7709faf5c4d2382e97fd57c_20141215170142.pdf','228214302.pdf',100,2),(92,'2014-12-27','2014-12-27','','46f5b113b7709faf5c4d2382e97fd57c_20141227215954.pdf','228214302.pdf',101,4),(93,'2015-01-02','2015-01-02','','46f5b113b7709faf5c4d2382e97fd57c_20150102105158.pdf','228214302.pdf',102,2),(94,'2015-01-02','2015-01-02','','46f5b113b7709faf5c4d2382e97fd57c_20150102150143.pdf','228214302.pdf',103,2),(95,'2015-01-02','2015-01-02','','46f5b113b7709faf5c4d2382e97fd57c_20150102155411.pdf','228214302.pdf',104,2),(96,'2015-01-02','2015-01-02','Marzo','46f5b113b7709faf5c4d2382e97fd57c_20150102232319.pdf','228214302.pdf',102,2),(97,'2015-01-02','2015-01-02','registro_conocimiento','46f5b113b7709faf5c4d2382e97fd57c_20150102232359.pdf','228214302.pdf',106,2);
+INSERT INTO `documentos` VALUES (43, '2014-11-26', '2014-11-26', 'liquidacion_enero', '46f5b113b7709faf5c4d2382e97fd57c_20141126104549.pdf', '228214302.pdf', 43, 2, '');
+INSERT INTO `documentos` VALUES (44, '2014-11-26', '2014-11-26', 'liquidacion_febrero', '46f5b113b7709faf5c4d2382e97fd57c_20141126105233.pdf', '228214302.pdf', 43, 2, '');
+INSERT INTO `documentos` VALUES (45, '2014-11-26', '2014-11-26', 'liquidacion_febrero', '46f5b113b7709faf5c4d2382e97fd57c_20141126105648.pdf', '228214302.pdf', 43, 2, '');
+INSERT INTO `documentos` VALUES (46, '2014-11-26', '2014-11-26', 'afp_enero', '46f5b113b7709faf5c4d2382e97fd57c_20141126110725.pdf', '228214302.pdf', 46, 2, '');
+INSERT INTO `documentos` VALUES (51, '2014-11-28', '2014-11-28', 'contrato', '46f5b113b7709faf5c4d2382e97fd57c_20141128115236.pdf', '228214302.pdf', 47, 2, '');
+INSERT INTO `documentos` VALUES (88, '2014-12-12', '2014-12-12', 'pago 2', '46f5b113b7709faf5c4d2382e97fd57c_20141212103752.pdf', '228214302.pdf', 82, 2, '');
+INSERT INTO `documentos` VALUES (89, '2014-12-12', '2014-12-12', 'pago 2', '46f5b113b7709faf5c4d2382e97fd57c_20141212150902.pdf', '228214302.pdf', 82, 2, '');
+INSERT INTO `documentos` VALUES (90, '2014-12-15', '2014-12-15', '', '46f5b113b7709faf5c4d2382e97fd57c_20141215155230.pdf', '228214302.pdf', 89, 2, '');
+INSERT INTO `documentos` VALUES (91, '2014-12-15', '2014-12-15', '', '46f5b113b7709faf5c4d2382e97fd57c_20141215170142.pdf', '228214302.pdf', 100, 2, '');
+INSERT INTO `documentos` VALUES (92, '2014-12-27', '2014-12-27', '', '46f5b113b7709faf5c4d2382e97fd57c_20141227215954.pdf', '228214302.pdf', 101, 4, ' sin mas que decir sss');
+INSERT INTO `documentos` VALUES (93, '2015-01-02', '2015-01-02', '', '46f5b113b7709faf5c4d2382e97fd57c_20150102105158.pdf', '228214302.pdf', 102, 2, ' nono');
+INSERT INTO `documentos` VALUES (94, '2015-01-02', '2015-01-02', '', '46f5b113b7709faf5c4d2382e97fd57c_20150102150143.pdf', '228214302.pdf', 103, 2, '');
+INSERT INTO `documentos` VALUES (95, '2015-01-02', '2015-01-02', '', '46f5b113b7709faf5c4d2382e97fd57c_20150102155411.pdf', '228214302.pdf', 104, 2, '');
+INSERT INTO `documentos` VALUES (96, '2015-01-02', '2015-01-02', 'Marzo', '46f5b113b7709faf5c4d2382e97fd57c_20150102232319.pdf', '228214302.pdf', 102, 2, ' esa');
+INSERT INTO `documentos` VALUES (97, '2015-01-02', '2015-01-02', 'registro_conocimiento', '46f5b113b7709faf5c4d2382e97fd57c_20150102232359.pdf', '228214302.pdf', 106, 2, '');
 
 /*Table structure for table `documentotrabajador` */
 
@@ -209,7 +224,11 @@ CREATE TABLE `estadodocumentos` (
   `idEstadoDocumento` INT(11) NOT NULL AUTO_INCREMENT,
   `estadoDocumento` VARCHAR(50) DEFAULT NULL,
   KEY `idEstadoDocumento` (`idEstadoDocumento`)
+<<<<<<< .mine
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+=======
 ) ENGINE=INNODB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+>>>>>>> .r182
 
 /*Data for the table `estadodocumentos` */
 
