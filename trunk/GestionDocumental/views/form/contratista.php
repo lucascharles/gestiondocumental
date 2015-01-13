@@ -34,11 +34,13 @@
 	$ctrUsuarioCreacion = ($tipop=="M") ? $rs["ctrUsuarioCreacion"] : "";
 	$ctrUsuarioModificacion = ($tipop=="M") ? $rs["ctrUsuarioModificacion"] : "";
 	$dirIdDirecion = ($tipop=="M") ? $rs["dirIdDirecion"] : "";
+	$ctrDireccion = ($tipop=="M") ? $rs["ctrDireccion"] : "";
 	$mutIdMutualidad = ($tipop=="M") ? $rs["mutIdMutualidad"] : "";
 	$rplIdRepLegal = ($tipop=="M") ? $rs["rplIdRepLegal"] : "";
 	$tjor_idTipoJornada = ($tipop=="M") ? $rs["tjor_idTipoJornada"] : "";
 	$ctrIdConstructora = ($tipop=="M") ? $rs2["consIdConstructora"] : "";
 	$ctrConstructora = ($tipop=="M") ? $rs2["consNombreFantasia"] : "";
+	
 	
 	
 	if($tipop=="M")
@@ -76,16 +78,7 @@
 		   </td>
 	   </tr> 
     <tr>
-    	<td align="right" class="etiqueta_form">Rut:</td>
-        <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="ctrRut" id="ctrRut" value="<? echo(utf8_decode($ctrRut)); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" tabindex="0"/>
-        </td>
-        <td align="left" class="etiqueta_form" >
-       
-        </td>
-    </tr>
-    <tr>
-    	<td align="right" class="etiqueta_form">Razon Social:</td>
+    	<td align="right" class="etiqueta_form">Agencia:</td>
         <td align="left" class="etiqueta_form" colspan="1">
         <input type="text" name="ctrRazonSocial" id="ctrRazonSocial" value="<? echo($ctrRazonSocial); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
         </td>
@@ -93,10 +86,29 @@
        
         </td>
     </tr>
+	<tr>
+		<td align="right" class="etiqueta_form">Direccion:</td>
+	   	<td align="left" class="etiqueta_form" colspan="1">
+	   	<input type="text" name="ctrDireccion" id="ctrDireccion" value="<? echo($ctrDireccion); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+	   	</td>
+	   	<td align="left" class="etiqueta_form" ></td>
+    </tr>    	
+    
+
     <tr>
-    	<td align="right" class="etiqueta_form">Nombre Fantasia:</td>
+    	<td align="right" class="etiqueta_form">Encargado:</td>
         <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="ctrNombreFantasia" id="ctrNombreFantasia" value="<? echo($ctrNombreFantasia); ?>" valida="requerido" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+        <input type="text" name="ctrNombreExpertoMutualidad" id="ctrNombreExpertoMutualidad" value="<? echo(utf8_decode($ctrNombreExpertoMutualidad)); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" tabindex="0"/>
+        </td>
+        <td align="left" class="etiqueta_form" >
+       
+        </td>
+    </tr>
+
+	<tr>
+    	<td align="right" class="etiqueta_form">Correo:</td>
+        <td align="left" class="etiqueta_form" colspan="1">
+        <input type="text" name="ctrEmail" id="ctrEmail" value="<? echo($ctrEmail); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
         </td>
         <td align="left" class="etiqueta_form" >
        
@@ -121,16 +133,6 @@
        
         </td>
     </tr>
-
-	<tr>
-	<td align="right" class="etiqueta_form">Direccion:</td>
-	   <td align="left" class="etiqueta_form" colspan="1">
-	   <input type="text" name="afp" id="afp" value="<? echo($fec_alta); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-	   </td>
-	   <td align="left" class="etiqueta_form" >
-	  
-	   </td>
-   </tr>    	
 
 	<tr>
 	<td align="right" class="etiqueta_form">Comuna:</td>

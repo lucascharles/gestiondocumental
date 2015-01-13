@@ -7,7 +7,7 @@ include("views/cabecera_listado.php");
 	<tr>
     	<th width="" align="center" height="25"></th>
 		<th align="left" width="">Id</th>
-        <th align="left" width="">RUT</th>
+<!--         <th align="left" width="">RUT</th> -->
         <th align="left" width="">Agencia</th>
         <th align="left" width="">Inf. & Coord. Empresarial</th>
 <!-- 	    <th align="left" width="">Antecedentes Laborales</th> -->
@@ -25,7 +25,7 @@ include("views/cabecera_listado.php");
     	<td height="" width="5%"></td>
         <td align="left" width="5%"><?php echo (utf8_decode($rs["ctrIdContratista"])) ?></td>
         
-		<td align="left" width="10%"><?php echo (utf8_decode($rs["ctrRut"])) ?></td>
+<!-- 	<td align="left" width="10%"><?php echo (utf8_decode($rs["ctrRut"])) ?></td> -->
         <td align="left" width="25%"><?php echo (utf8_decode($rs["ctrRazonSocial"])) ?></td>
         <td align="left" width="10%">
 		        <? 

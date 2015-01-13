@@ -45,7 +45,7 @@ class ContratistasController extends ControllerBase
 		$data['tipop'] = "A";
 		
 		$dato = new ConstructoraModel();
-		$data['constructoras'] = $dato->getListaConstructora();
+		$data['constructoras'] = $dato->getListaConstructora("");
 		
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
@@ -62,7 +62,7 @@ class ContratistasController extends ControllerBase
 		$dato2 = new ConstructoraModel();
 		
 		$data['dato2'] = $dato2->getConstructoraxContratista($param);
-		$data['constructoras'] = $dato2->getListaConstructora();
+		$data['constructoras'] = $dato2->getListaConstructora($param);
 		
 		$data['dato'] = $dato->getContratista($param);
 		$data['nom_sistema'] = $param["nombre_sistema"];
