@@ -28,7 +28,7 @@
 					<td colspan="1" align="right" width="50"  class="etiqueta_form">**Agencia&nbsp;</td>
                     <td colspan="2" align="left" class="etiqueta_form">
                     <!-- <input type="text" name="contratista" id="contratista"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/> -->
-                    	<select name="ctrIdContratista" id="ctrIdContratista" filtro ="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+                    	<select name="ctrIdContratista" id="ctrIdContratista" filtro ="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="mostrar()">
 								<option value="">Seleccion</option>
 				   			<?
 				   			while($rs=mysql_fetch_array($result))
@@ -42,7 +42,7 @@
                     	
                     </td>
 			    </tr>
-
+<!-- 
 			    <tr>
 					<td colspan="1" align="right" width="50"  class="etiqueta_form">Faena&nbsp;</td>
                     <td colspan="2" align="left" class="etiqueta_form">
@@ -60,7 +60,7 @@
                     	
                     </td>
 			    </tr>
-			    
+ -->			    
 			    <tr>
                 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Apellido&nbsp;</td>
 					<td colspan="2" align="left" class="etiqueta_form"><input type="text" name="trbApPaterno" id="trbApPaterno"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/>

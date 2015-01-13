@@ -92,7 +92,7 @@ class DocumentoModel extends ModelBase
 		$sql = " SELECT id, descripcion ";
 		$sql .=" FROM  tipodocumento ";
 		$sql .=" WHERE id = ".$idTipo;
-		$sql .=" and activo = 'S' ".$idTipo;
+		$sql .=" and activo = 'S' ";
 // 		echo($sql);
 // 		exit;
 		$idsql = consulta($sql);
@@ -143,7 +143,7 @@ class DocumentoModel extends ModelBase
 	public function getListaDocumentos($param)
 	{
 		
-		$sql .= " SELECT t.trbIdTrabajador,  CONCAT(t.trbIdTrabajador, '@', t.trbNombre) AS trabajador, ";
+		$sql .= " SELECT   t.trbRut, t.trbFechaContrato, t.trbFechaDesvinculado, t.trbIdTrabajador,  CONCAT(t.trbIdTrabajador, '@', t.trbNombre) AS trabajador, ";
 		$sql .= " dt.id_sub_tipodocumento doc, ";
 		$sql .= " COUNT(dt.doctIdDocumento) cantidad_doc, ";
 		$sql .= " ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30) meses , ";
@@ -182,7 +182,7 @@ class DocumentoModel extends ModelBase
 		$sql .= "   AND dt.id_contratista = ".$param["id_contratista"];
 		$sql .= "   GROUP BY dt.id_sub_tipodocumento";
 		
-//  		echo($sql);
+ 		echo($sql);
 		
 		$idsql = consulta($sql);
 		

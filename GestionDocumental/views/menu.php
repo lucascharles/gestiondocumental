@@ -122,7 +122,8 @@
 								  </table>
 								  </li>
 							<?php }?>
-								<li>
+<!--
+							<li>
 								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 									<tr>
 									<td align="center" valign="middle" width="10" height="25" class="">
@@ -144,7 +145,7 @@
 								  </table>
 								  </li>
 							    <? /*if(checkPermisos(3,"vista")) { */?>                 
-<!-- 
+ 
 							    <li> 
                                   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center" onClick="">
 									<tr>

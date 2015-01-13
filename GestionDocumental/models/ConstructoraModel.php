@@ -109,6 +109,8 @@ class ConstructoraModel extends ModelBase
 		
 		$sql .= " ORDER BY c.consRazonSocial ";
 		
+// 		echo($sql);
+		
 		$result = consulta($sql);
 		
     	return $result;	

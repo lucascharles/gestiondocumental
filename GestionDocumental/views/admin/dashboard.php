@@ -29,10 +29,10 @@
 					<td colspan="1" align="right" width="50"  class="etiqueta_form">Periodo:</td>
 					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="periodo" id="periodo"  filtro="S" value="<? echo(date("Y")) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/></td>
 		        
-		        	<td colspan="1" align="right" width="50"  class="etiqueta_form">Rut:</td>
-					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="consRut" id="consRut"  filtro="S" value="<? echo($_SESSION["f_consRut"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="1"/></td>
+<!-- 		        	<td colspan="1" align="right" width="50"  class="etiqueta_form">Rut:</td> -->
+<!--  					<td colspan="1" align="left" width="200"  class="etiqueta_form"><input type="text" name="consRut" id="consRut"  filtro="S" value="<? echo($_SESSION["f_consRut"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="1"/></td>-->
 
- 	 	 	 	 	<td colspan="1" align="left"  class="etiqueta_form" colspan="2">Razon Social:&nbsp;<input type="text" name="consRazonSocial" id="consRazonSocial"  filtro="S" value="<? echo($_SESSION["f_consRazonSocial"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="2"/></td>
+ 	 	 	 	 	<td colspan="1" align="left"  class="etiqueta_form" colspan="2">Agencia:&nbsp;<input type="text" name="consRazonSocial" id="consRazonSocial"  filtro="S" value="<? echo($_SESSION["f_consRazonSocial"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="2"/></td>
 				 <td colspan="1"></td>
 				 
 				 </tr>

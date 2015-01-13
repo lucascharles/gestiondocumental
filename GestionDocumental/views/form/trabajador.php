@@ -54,6 +54,7 @@
        
         </td>
     </tr>
+<!-- 
     <tr>
     	<td align="right" class="etiqueta_form">Apellido:</td>
         <td align="left" class="etiqueta_form" colspan="1">
@@ -63,6 +64,7 @@
        
         </td>
     </tr>
+ -->
     <tr>
      	<td align="right" class="etiqueta_form">Ap. Materno:</td>
      	   <td align="left" class="etiqueta_form" colspan="1">
@@ -129,7 +131,7 @@
      	  
      	   </td>
         </tr>    	
-
+<!-- 
         <tr>
      	<td align="right" class="etiqueta_form">Titulo:</td>
      	   <td align="left" class="etiqueta_form" colspan="1">
@@ -139,6 +141,7 @@
      	  
      	   </td>
         </tr>
+ -->        
 	<tr>
 	<td align="left" class="subtitulo_form" colspan="3">Direcci&oacute;n</td>
     </tr>
@@ -184,7 +187,8 @@
 	   <td align="left" class="etiqueta_form" >
 	  
 	   </td>
-   </tr>    	
+<!-- 
+	   </tr>    	
    <td align="right" class="etiqueta_form">Faena:</td>
 	   <td align="left" class="etiqueta_form" colspan="1">
 	   <!-- <input type="text" name="id_faena" id="id_faena" value="<? echo($id_faena); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />-->
@@ -205,7 +209,7 @@
 	  
 	   </td>
    </tr>    	
-    
+ -->    
    <tr>
 	<td align="left" class="subtitulo_form" colspan="3">Datos Laborales</td>
     </tr>
