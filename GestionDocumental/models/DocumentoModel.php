@@ -17,10 +17,11 @@ class DocumentoModel extends ModelBase
 		unlink($file);
 	}
 	
-	public function grabar_editar_estado($param)
+	public function grabar_editar_datos($param)
 	{
 		$sql = " UPDATE documentos ";
-		$sql .= " SET id_estado_documento = ".$param["id_estado"];
+		if($param["id_estado"] > 0)	$sql .= " SET id_estado_documento = ".$param["id_estado"];
+		if(trim($param["nota"]) <> "")	$sql .= " SET nota = '".$param["nota"]."'";
 		$sql .= " WHERE id = ".$param["id"];
 		//echo($sql);
 		consulta($sql);
@@ -28,7 +29,7 @@ class DocumentoModel extends ModelBase
 	
 	public function getDocumento($param)
 	{
-		$sql = " SELECT d.doctFechaSubida, d.doctFechaPertenece, d.doctNombreArchivo, d.doctNombreEncrip, d.NombreOriginal, d.id_documentotrabajador, d.id_estado_documento, e.descripcion ";
+		$sql = " SELECT d.doctFechaSubida, d.doctFechaPertenece, d.doctNombreArchivo, d.doctNombreEncrip, d.NombreOriginal, d.id_documentotrabajador, d.id_estado_documento, e.descripcion, d.nota ";
 		$sql .= " FROM documentos d LEFT JOIN estado_documento e ON (d.id_estado_documento = e.id)";
 		$sql .= " WHERE d.id = ".$param["id"];
 		//echo($sql);
@@ -173,7 +174,7 @@ class DocumentoModel extends ModelBase
 		$sql .= " 						AND d.doctIdTrabajador = t.trbIdTrabajador ";
 		$sql .= " 						AND d.id_estado_documento <> 1),2)),1) estado ";
 		
-		$sql .= " FROM documentotrabajador dt,trabajador t, sub_tipodocumento st ";
+		$sql .= " FROM documentotrabajador dt, trabajador t, sub_tipodocumento st ";
 		$sql .= " WHERE dt.doctIdTrabajador = t.trbIdTrabajador ";
 		$sql .= " AND dt.id_sub_tipodocumento = st.id ";
 		$sql .= " AND st.activo = 'S' ";		
@@ -182,7 +183,7 @@ class DocumentoModel extends ModelBase
 		$sql .= "   AND dt.id_contratista = ".$param["id_contratista"];
 		$sql .= "   GROUP BY dt.id_sub_tipodocumento";
 		
- 		echo($sql);
+ 		//echo($sql);
 		
 		$idsql = consulta($sql);
 		
