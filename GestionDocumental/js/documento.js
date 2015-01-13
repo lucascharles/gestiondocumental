@@ -45,9 +45,41 @@ function editarEstado(obj)
 	$div.slideToggle();
 }
 
+function editarNota(obj)
+{
+	
+	var elemento = $(obj);
+	var posicion = elemento.position();
+	var id = "popupeditar_nota_"+$(obj).attr("id");
+	var url = "index.php?controlador=Documento&accion=editar_nota&id="+$(obj).attr("id");
+	//onclick='cerrarPopEditarPrecio()'
+	var $div = $("<div id='"+id+"' />");
+	$div.css({
+		padding: '5px',
+    	background: '#F4F4F4',
+		left: (posicion.left-270)+'px',
+		top: posicion.top+'px',
+		position: 'absolute',
+		display: 'none',
+		overflow: 'auto',
+		width:'470px',
+		heigth:'60px',
+		'border-top-left-radius': '5px',
+	    'border-top-right-radius': '5px',
+		'border-bottom-left-radius': '5px',
+    	'border-bottom-right-radius': '5px',
+		'-moz-box-shadow': '1px 1px 5px #0B4F92',
+	    '-webkit-box-shadow': '1px 1px 5px #0B4F92',
+    	'box-shadow': '1px 1px 5px #0B4F92'
+	});
+ 	$("body").append($div);
+	$div.load(url);
+	$div.slideToggle();
+}
+
 function grabarEditEstado(id)
 {
-	var datos = "controlador=Documento&accion=grabar_editar_estado&id="+id;
+	var datos = "controlador=Documento&accion=grabar_editar_datos&id="+id;
 	datos += "&id_estado="+$("#id_estado_documento"+id).val();
 		$.ajax({
 			url: "index.php",
@@ -63,6 +95,25 @@ function grabarEditEstado(id)
 				var id_c = $("#id_contratista").val(); 
 				var url = "index.php?controlador=Dashboard&accion=carga_documento&id_d="+id_d+"&id_t="+id_t+"&id_f="+id_f+"&id_c="+id_c;
 				window.location = url;
+			},
+			error: function(){
+				//alert("Ha ocurrido un error y no se ha podido borrar el registro.");
+			}
+		});
+}
+
+function grabarEditNota(id)
+{
+	var datos = "controlador=Documento&accion=grabar_editar_datos&id="+id;
+	datos += "&nota="+$("#nota"+id).val();
+		$.ajax({
+			url: "index.php",
+			data: datos,
+			cache: false,
+			success: function(res)
+			{
+				$("#popupeditar_nota_"+id).hide("slow");
+				$("#popupeditar_nota_"+id).remove();
 			},
 			error: function(){
 				//alert("Ha ocurrido un error y no se ha podido borrar el registro.");
@@ -95,11 +146,14 @@ function borrarDocumento(obj)
 		});
 }
 
-
-
 function cerrarEditEstado(id)
 {
 	$("#popupeditar_estado_"+id).hide("slow");
 	$("#popupeditar_estado_"+id).remove();
 }
 
+function cerrarEditNota(id)
+{
+	$("#popupeditar_nota_"+id).hide("slow");
+	$("#popupeditar_nota_"+id).remove();
+}
