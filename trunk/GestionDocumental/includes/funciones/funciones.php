@@ -32,7 +32,8 @@ function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot
         foreach ($row as $item) {
 		//echo("<br>".$item);
 			$col ++;
-			
+			$origin = $item;
+			$align = "align='center'";
 			$enlaceIni='';
 			$enlaceFin='';
 			if (count($enlace) > 0)
@@ -63,7 +64,8 @@ function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot
 			$aux = array_keys($data[0]);
 			$funct = "onclick='".$enlace["funcion"]."(".$id_trabajador.",".$aux[$col-1].")'";
 			//$item = $arr[1];
-			$valor = $item;
+			//$valor = $item;
+			$valor = $origin;
 			//$valor = $arr[0];
 			$clase='class=texto';
 			$nopaso = 'no paso';
@@ -91,11 +93,36 @@ function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot
 					break;
 				}
 			}
+			else
+			{
+				
+				$align = "align='left' width='400'";
+				$valor = "";
+				$aux = explode("@",$origin);
+				//$valor = "Hola".count($aux);
+				//$valor = $origin;
+				$inicio = 0;
+				foreach($aux as $valaux)
+				{
+					if($inicio > 0)	
+					{
+						if(trim($valaux) <> "")	$valor .= (trim($valor)=="")?$valaux:" | ".$valaux;
+					}
+					$inicio++;
+				}
+				
+				if(strlen($valor)>55)
+				{
+					$valor = "<font title='$valor' style='cursor:pointer'>".substr($valor,0,55)."...</font>";
+				}
+								
+				
+			}
 
 
 			//if($valor == "") $valor = ($item > 0)?"<img src='images/activar.gif' style='cursor:pointer' ".$funct ." >":"<img src='images/borrar.gif' style='cursor:pointer' ".$funct ." >";
 			//$valor = ($item > 0)?"<img src='images/activar.gif' >":"<img src='images/borrar.gif' >";  
-			$cadena_fila.=  "<td $clase>".$enlaceIni.$valor.$enlaceFin."</td>";
+			$cadena_fila.=  "<td $clase $align>".$enlaceIni.$valor.$enlaceFin."</td>";
 			
 			
 			
@@ -104,6 +131,7 @@ function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot
 		$cadena .=  $cadena_fila;
     }
      $cadena.=  "</table>";
+	 //$cadena = "";
 	 return $cadena;
 }
 
