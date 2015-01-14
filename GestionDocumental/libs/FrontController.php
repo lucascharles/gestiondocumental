@@ -10,7 +10,7 @@ class FrontController
 		require 'libs/View.php'; //Mini motor de plantillas
 		
 		require 'config.php'; //Archivo con configuraciones.
-		require $include_url.'/includes/funciones/funciones.php'; 
+		require 'includes/funciones/funciones.php'; 
 
 		
 		if(! empty($_REQUEST['controlador']))
