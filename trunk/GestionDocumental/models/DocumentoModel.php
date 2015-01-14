@@ -144,7 +144,7 @@ class DocumentoModel extends ModelBase
 	public function getListaDocumentos($param)
 	{
 		
-		$sql .= " SELECT   t.trbRut, t.trbFechaContrato, t.trbFechaDesvinculado, t.trbIdTrabajador,  CONCAT(t.trbIdTrabajador, '@', t.trbNombre) AS trabajador, ";
+		$sql .= " SELECT   t.trbRut, t.trbFechaContrato, t.trbFechaDesvinculado, t.trbIdTrabajador,  CONCAT(t.trbIdTrabajador, '@',t.trbRut,'@',DATE_FORMAT(t.trbFechaContrato,'%d/%m/%Y'), '@',if(t.trbFechaDesvinculado<>'0000-00-00',DATE_FORMAT(t.trbFechaDesvinculado,'%d/%m/%Y'),''),'@',t.trbNombre) AS trabajador, ";
 		$sql .= " dt.id_sub_tipodocumento doc, ";
 		$sql .= " COUNT(dt.doctIdDocumento) cantidad_doc, ";
 		$sql .= " ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30) meses , ";
@@ -184,7 +184,7 @@ class DocumentoModel extends ModelBase
 		$sql .= "   GROUP BY dt.id_sub_tipodocumento";
 		
  		//echo($sql);
-		
+		//exit();
 		$idsql = consulta($sql);
 		
 		return $idsql;
