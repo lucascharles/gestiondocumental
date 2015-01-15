@@ -35,9 +35,11 @@
                     	<table>
                         <tr>
                         	<td>
+                            <!--
                             <div class="content_op"> 
                     		<button class="selected_op">REGISTRARSE</button>
                             </div>
+                            -->
                             </td>
                             <td>
 							<div class="content_op">
@@ -64,11 +66,13 @@
             </td>
             <td valign="top">
             	<h2 class="title_prin"><span>
-            	La forma m&aacute;s f&aacute;cil de seguir, gestionar y colaborar en su seguridad. 
+            	La forma m&aacute;s f&aacute;cil de seguir, gestionar y colaborar en el cumplimiento sistémico de la Ley de Subcontratación. 
                 </span> </h2><br>
+                <!--
                 <h2 class="sub_title_prin"><span>
 				Con el poder de Seguridad-Ip.
                 </span> </h2>
+                -->
                  
             </td>
         </tr>
@@ -108,7 +112,7 @@
                     <tr>
                     	<td>
                         <font class="txt_feature">
-				Mantente conectado con los temas que usted est&aacute; viendo, creado, o se le ha asignado y no te pierdas el ritmo mientras se desplaza usando SeguridadIp Touch.
+				Mantengase  conectado con el ritmo de los sucesos referente a su gestión documental.
                 		</font>
                 		</td>
                     </tr>
@@ -131,7 +135,7 @@
                     <tr>
                     	<td>
                         <font class="txt_feature">
-				Con la ayuda de Seguridad-Ip, se puede realizar un seguimiento de las caracter&iacute;sticas e hitos previstos y establecer las fechas de lanzamiento.
+				Con la ayuda de Gesti&oacute;n Documental, se puede realizar un seguimiento de las caracter&iacute;sticas e hitos previstos y establecer las fechas de lanzamiento de sus actividades.
                 		</font>
                 		</td>
                     </tr>
@@ -154,7 +158,7 @@
                     <tr>
                     	<td>
                         <font class="txt_feature">
-						Involucre a sus clientes a trav&eacute;s de inscripciones o invitaciones y controlar su acceso a los proyectos.
+						Involucre a sus clientes a trav&eacute;s de inscripciones o invitaciones y controlar su acceso a las gestiones.
                 		</font>
                 		</td>
                     </tr>
@@ -201,7 +205,7 @@
             </tr>
         	<tr>
             	<td colspan="4" align="left" width="100%">
-                	 <h2 class="title-divider"><span>Migrar a Seguridad-Ip</span> </h2>
+                	 <h2 class="title-divider"><span>Migrar a Gestión Documental</span> </h2>
                 </td>
             </tr>
             <tr>
@@ -219,10 +223,10 @@
                                 	<td>
                                     <font class="txt_feature">
                                     <ul>
-                                    <li>Cansado de mantener su sistema de seguridad en casa?</li>
-                                    <li>Insatisfecho con los proveedores de hosting gen&aacute;ricos con poca o ninguna experiencia en Seguridad-Ip?</li>
+                                    <li>Cansado de mantener su sistema de Gestión Documental?</li>
+                                    <li>Insatisfecho con los proveedores de sistemas con poca o ninguna experiencia en Gestión Documental?</li>
                                     <li>
-Buscando un apoyo profesional de las personas que saben Seguridad-Ip mejor?</li>
+Buscando un apoyo profesional de las personas que saben Gestión Documental mejor?</li>
                                     </ul>
                                     </font>
                                     </td>
@@ -245,9 +249,9 @@ Buscando un apoyo profesional de las personas que saben Seguridad-Ip mejor?</li>
                                 	<td>
                                     
                                     <font class="txt_feature">
-                                    Con m&aacute;s de 14 a&ntilde;os de experiencia en la construcci&aacute;n de software, nosotros hemos llegado a conocer sobre Seguridad-Ip de adentro hacia afuera.
+                                    Con m&aacute;s de 14 a&ntilde;os de experiencia en la construcci&aacute;n de software, nosotros hemos llegado a conocer sobre Gestión Documental de adentro hacia afuera.
 
-Ofrecemos servicios profesionales de consultor&iacute;a para ayudarle a importar sus datos existentes, archivos adjuntos, archivos a su Seguridad-Ip representan sin problemas y libre de riesgos.
+Ofrecemos servicios profesionales de consultor&iacute;a para ayudarle a importar sus datos existentes y archivos adjuntos. 
 									</font>
                                     </td>
                                 </tr>
@@ -257,7 +261,7 @@ Ofrecemos servicios profesionales de consultor&iacute;a para ayudarle a importar
                          <tr>
 			            	<td colspan="4" align="right" >
                             	 <div class="content_op"> 
-                    		<button class="selected_op">Cont&aacute;ctenos para obtener m&aacute;s informaci&oacute;n</button>
+                    		<button class="selected_op" onClick="contacto()">Cont&aacute;ctenos para obtener m&aacute;s informaci&oacute;n</button>
                             </div>
                             </td>
                          </tr>
@@ -299,7 +303,7 @@ Ofrecemos servicios profesionales de consultor&iacute;a para ayudarle a importar
                     	<tr>
                         	<td> <img src="images/mail.png"></td>
                         	<td>
-			                 <font class="txt_foot">support@seguridad-ip.com</font>
+			                 <font class="txt_foot">support@gestion-documental.com</font>
                     		</td>
                     	</tr>
                         <tr>
@@ -323,7 +327,7 @@ Ofrecemos servicios profesionales de consultor&iacute;a para ayudarle a importar
                 <tr>
                 	<td>
                     <font class="txt_foot">
-                    Seguridad-Ip podr&iacute;a ser la herramienta de seguridad que ha estado esperando.
+                    Gesti&oacute;n Documental podr&iacute;a ser la herramienta de seguridad que ha estado esperando.
                     </font>
                     </td>
                 </tr>
@@ -368,7 +372,7 @@ Ofrecemos servicios profesionales de consultor&iacute;a para ayudarle a importar
 <table width="90%" style="position:relative; margin-top:15px;"  align="center">
 	<tr>
     	<td align="left">
-        <a href="#" class="txt_foot">Seguridad-Ip</a><font class="txt_foot"> &Iota; Copyright <?=date("Y")?> &copy; All Rights Reserved.</font>
+        <a href="#" class="txt_foot">Gesti&oacute;n Documental</a><font class="txt_foot"> &Iota; Copyright <?=date("Y")?> &copy; All Rights Reserved.</font>
         </td>
     </tr>
 </table>
