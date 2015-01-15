@@ -61,7 +61,7 @@ de-em{font-weight:normal;color:rgba(51,51,51,0.8)}
 	font-size:15px;
 	text-align:center;
 	cursor:pointer;
-	border-radius:3px;
+	border-radius:2px;
 }
 .content_op button:hover
 {
@@ -73,7 +73,7 @@ de-em{font-weight:normal;color:rgba(51,51,51,0.8)}
 	font-size:15px;
 	text-align:center;
 	cursor:pointer;
-	border-radius:3px;
+	border-radius:2px;
 }
 .icon_disp
 {
