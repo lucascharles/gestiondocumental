@@ -30,7 +30,10 @@ $(function() {
 	});
 	
 });
-
+function contacto()
+{
+	window.location = "index.php?controlador=Index&accion=contacto";
+}
 function smail()
 {
 
