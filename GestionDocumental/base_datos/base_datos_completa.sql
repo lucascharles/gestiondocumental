@@ -11,6 +11,15 @@ MySQL - 5.5.40-0ubuntu0.12.04.1 : Database - gestion_documental
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+DROP TABLE IF EXISTS `mailnews`;
+CREATE TABLE `mailnews` (
+  `id` int(11) NOT NULL auto_increment,
+  `email` varchar(300) NOT NULL,
+  `activo` char(1) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
 /*Table structure for table `afp` */
 
 DROP TABLE IF EXISTS `afp`;
