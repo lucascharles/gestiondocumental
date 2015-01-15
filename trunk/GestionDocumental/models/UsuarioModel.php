@@ -1,21 +1,6 @@
 <?php
 class UsuarioModel extends ModelBase
 {
-	public function save_emailnews($param)
-	{
-		$sql = " SELECT * ";
-		$sql .= " FROM si_mailnews ";
-		$sql .= " WHERE email = '".$param["email"]."'";
-
-		$idsql = consulta($sql);
-		
-		if(mysql_num_rows ($idsql) == 0)
-		{
-			$sql = " INSERT INTO si_mailnews (email, activo) VALUES ('".$param["email"]."','S')  ";
-			consulta($sql);
-		}
-	}
-
 	public function grabar_permisos($param)
 	{
 		$dato = new UsuarioRol();
