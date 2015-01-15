@@ -3,10 +3,9 @@ class IndexController extends ControllerBase
 {
     public function save_emailnews($param)
 	{
-		// SE INCLUYE MODELO USUARIO 
-		require 'models/UsuarioModel.php';
-		$usuario = new UsuarioModel();
-		$usuario->save_emailnews($param);
+		require 'models/ContactoModel.php';
+		$contacto = new ContactoModel();
+		$contacto->save_emailnews($param);
 	}
 	
     public function index($array)
@@ -19,6 +18,35 @@ class IndexController extends ControllerBase
 		//Finalmente presentamos nuestra plantilla
 		$this->view->show("home.php", $data);
     }
+	
+	public function contacto($param)
+	{
+			$destino = "contacto.php";
+			$data['nom_sistema'] = $param["nombre_sistema"];
+			$data['nom_empresa'] = $param["nombre_empresa"];
+			$data['accion_form'] = "index.php?controlador=Index&accion=envia_mail";
+			$data["envio"] = false;	
+			$this->view->show($destino, $data);
+	}
+	
+	public function envia_mail($param)
+	{
+		require 'models/ContactoModel.php';
+		$contacto = new ContactoModel();
+						
+		$data['controller'] = $param["controlador"];
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		$data['nom_empresa'] = $param["nombre_empresa"];
+		$param["destino_mail"] = $_SESSION["config_obj"]->get('destino_mail');
+		$param["destino_nombre"] =  $_SESSION["config_obj"]->get('destino_nombre');
+		$param["mail_envio"] =  $_SESSION["config_obj"]->get('mail_envio');
+		$data['accion_form'] = "index.php";
+		$data["result"] = $contacto->enviar_mensaje($param);
+		$data["envio"] = true;
+		$pagina = "contacto.php";
+				
+		$this->view->show($pagina, $data);
+	}
 	
 	public function valid_login($param)
 	{
