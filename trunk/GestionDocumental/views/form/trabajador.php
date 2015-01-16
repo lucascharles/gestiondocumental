@@ -30,7 +30,28 @@
 	$ctrIdContratista= ($tipop=="M") ? $rs["ctrIdContratista"] : "";
 	$id_faena= ($tipop=="M") ? $rs["id_faena"] : "";
 	
-
+	$trbDireccion = ($tipop=="M") ? $rs["trbDireccion"] : "";
+	
+	$idRegion = ($tipop=="M") ? $rs["idRegion"] : "";
+	$region = ($tipop=="M") ? $rs["region"] : "";
+	
+	$idComuna = ($tipop=="M") ? $rs["idComuna"] : "";
+	$comuna = ($tipop=="M") ? $rs["comuna"] : "";
+	
+	$idCiudad = ($tipop=="M") ? $rs["idCiudad"] : "";
+	$ciudad = ($tipop=="M") ? $rs["ciudad"] : "";
+	
+	$isaIdIsapre= ($tipop=="M") ? $rs["isaIdIsapre"] : "";
+	$isaIsapre= ($tipop=="M") ? $rs["isaIsapre"] : "";
+	
+	$trbPactoIsapre = ($tipop=="M") ? $rs["trbPactoIsapre"] : "";
+	
+	$afpIdAfp= ($tipop=="M") ? $rs["afpIdAfp"] : "";
+	$afpNombre= ($tipop=="M") ? $rs["afpNombre"] : "";
+	
+	$trbPensionado = ($tipop=="M") ? $rs["afpNombre"] : "";
+	$trbSeguroCesantia = ($tipop=="M") ? $rs["afpNombre"] : "";
+	
 	
 	if($tipop=="M")
 	{
@@ -54,17 +75,6 @@
        
         </td>
     </tr>
-<!-- 
-    <tr>
-    	<td align="right" class="etiqueta_form">Apellido:</td>
-        <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="trbApPaterno" id="trbApPaterno" value="<? echo($ape_usuario); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-        </td>
-        <td align="left" class="etiqueta_form" >
-       
-        </td>
-    </tr>
- -->
     <tr>
      	<td align="right" class="etiqueta_form">Ap. Materno:</td>
      	   <td align="left" class="etiqueta_form" colspan="1">
@@ -131,18 +141,7 @@
      	  
      	   </td>
         </tr>    	
-<!-- 
-        <tr>
-     	<td align="right" class="etiqueta_form">Titulo:</td>
-     	   <td align="left" class="etiqueta_form" colspan="1">
-     	   <input type="text" name="trbTitulo" id="trbTitulo" value="<? echo($trbTitulo); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-     	   </td>
-     	   <td align="left" class="etiqueta_form" >
-     	  
-     	   </td>
-        </tr>
- -->        
-	<tr>
+    <tr>
 	<td align="left" class="subtitulo_form" colspan="3">Direcci&oacute;n</td>
     </tr>
     
@@ -150,28 +149,76 @@
 	<tr>
 	<td align="right" class="etiqueta_form">Direccion:</td>
 	   <td align="left" class="etiqueta_form" colspan="1">
-	   <input type="text" name="dirIdDireccion" id="dirIdDireccion" value="<? echo($dirIdDireccion); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-	   </td>
-	   <td align="left" class="etiqueta_form" >
-	  
-	   </td>
-   </tr>    	
-
-	<tr>
-	<td align="right" class="etiqueta_form">Comuna:</td>
-	   <td align="left" class="etiqueta_form" colspan="1">
-	   <input type="text" name="comIdComuna" id="comIdComuna" value="<? echo($comIdComuna); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+	   <input type="text" name="trbDireccion" id="trbDireccion" value="<? echo($trbDireccion); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
 	   </td>
 	   <td align="left" class="etiqueta_form" >
 	  
 	   </td>
    </tr>    	
    <tr>
+    <td align="right" class="etiqueta_form">Region:</td>
+	   <td align="left" class="etiqueta_form" colspan="1">
+	   <select name="idRegion" id="idRegion" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+			<option value="<? echo($idRegion); ?>"><? if($region==""){ echo("Seleccion"); }else{echo($region);} ?></option>
+	   			<?
+	   			while($rs=mysql_fetch_array($regiones))
+				{
+			    ?>
+			<option value="<?=$rs["idRegion"]?>" > <? echo($rs["region"]); ?> </option>
+				<?
+				  }
+	    		?>
+	   </select>
+	   </td>
+	   <td align="left" class="etiqueta_form" >
+	  
+	   </td>
+	</tr>
+   
+   <tr>
+    <td align="right" class="etiqueta_form">Ciudad:</td>
+	   <td align="left" class="etiqueta_form" colspan="1">
+	   <select name="idCiudad" id="idCiudad" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+			<option value="<? echo($idCiudad); ?>"><? if($ciudad==""){ echo("Seleccion"); }else{echo($ciudad);} ?></option>
+	   			<?
+	   			while($rs=mysql_fetch_array($ciudades))
+				{
+			    ?>
+			<option value="<?=$rs["idCiudad"]?>" > <? echo($rs["ciudad"]); ?> </option>
+				<?
+				  }
+	    		?>
+	   </select>
+	   </td>
+	   <td align="left" class="etiqueta_form" >
+	  
+	   </td>
+	</tr>
+	   <tr>
+	    <td align="right" class="etiqueta_form">Comuna:</td>
+		   <td align="left" class="etiqueta_form" colspan="1">
+		   <select name="idComuna" id="idComuna" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+				<option value="<? echo($idComuna); ?>"><? if($comuna==""){ echo("Seleccion"); }else{echo($comuna);} ?></option>
+		   			<?
+		   			while($rs=mysql_fetch_array($comunas))
+					{
+				    ?>
+				<option value="<?=$rs["idComuna"]?>" > <? echo($rs["comuna"]); ?> </option>
+					<?
+					  }
+		    		?>
+		   </select>
+		   </td>
+		   <td align="left" class="etiqueta_form" >
+		  
+		   </td>
+		</tr>
+   <tr>
 	<td align="left" class="subtitulo_form" colspan="3">Agencia</td>
-    </tr> 	
+    </tr>
+    <tr> 	
     <td align="right" class="etiqueta_form">Agencia:</td>
 	   <td align="left" class="etiqueta_form" colspan="1">
-	   <!-- <input type="text" name="ctrIdContratista" id="ctrIdContratista" value="<? echo($ctrIdContratista); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" /> -->
 	   <select name="ctrIdContratista" id="ctrIdContratista" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
 			<option value="">Seleccion</option>
 	   			<?
@@ -184,48 +231,14 @@
 	    		?>
 	   </select>
 	   </td>
-	   <td align="left" class="etiqueta_form" >
-	  
-	   </td>
-<!-- 
-	   </tr>    	
-   <td align="right" class="etiqueta_form">Faena:</td>
-	   <td align="left" class="etiqueta_form" colspan="1">
-	   <!-- <input type="text" name="id_faena" id="id_faena" value="<? echo($id_faena); ?>" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />-->
-	   <select name="faeIdFaenas" id="faeIdFaenas" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
-			<option value="">Seleccion</option>
-	   			<?
-	   			while($rs=mysql_fetch_array($faenas))
-				{
-			    ?>
-			<option value="<?=$rs["id"]?>" > <? echo($rs["faeNombre"]); ?> </option>
-				<?
-				  }
-	    		?>
-	   </select>
-	   
-	   </td>
-	   <td align="left" class="etiqueta_form" >
-	  
-	   </td>
-   </tr>    	
- -->    
-   <tr>
+	   <td align="left" class="etiqueta_form" > </td>
+	   </tr>
+
+	   <tr>
 	<td align="left" class="subtitulo_form" colspan="3">Datos Laborales</td>
     </tr>
-   <tr>
-	<td align="right" class="etiqueta_form">Isapre:</td>
-	   <td align="left" class="etiqueta_form" colspan="1">
-	   <input type="text" name="isaIdIsapre" id="isaIdIsapre" value="<? echo($isaIdIsapre); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-	   </td>
-	   <td align="left" class="etiqueta_form" >
-	  
-	   </td>
-   </tr>    	
-   
-
     	<tr>
-    	<td align="right" class="etiqueta_form">Cargo Contractual:</td>
+    	<td align="right" class="etiqueta_form">Cargo:</td>
     	   <td align="left" class="etiqueta_form" colspan="1">
     	   <input type="text" name="tgrlIdCargoContractual" id="tgrlIdCargoContractual" value="<? echo($tgrlIdCargoContractual); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
     	   </td>
@@ -233,31 +246,75 @@
     	  
     	   </td>
        </tr>    	
-        	
-        	
+       
        <tr>
-    	<td align="right" class="etiqueta_form">Oficio CAB:</td>
-    	   <td align="left" class="etiqueta_form" colspan="1">
-    	   <input type="text" name="tgrlIdOficioCab" id="tgrlIdOficioCab" value="<? echo($tgrlIdOficioCab); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-    	   </td>
-    	   <td align="left" class="etiqueta_form" >
-    	  
-    	   </td>
+       	<td align="right" class="etiqueta_form">Fecha de Ingreso:</td>
+     	   <td align="left" class="etiqueta_form" colspan="1">
+     	   <input type="text" name="trbFechaContrato" id="trbFechaContrato" value="<? echo($trbFechaContrato); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+     	   </td>
+     	   <td align="left" class="etiqueta_form" >
+     	  
+     	</td>
        </tr>    	
-    	<tr>
-    	<td align="right" class="etiqueta_form">Oficio DET:</td>
-    	   <td align="left" class="etiqueta_form" colspan="1">
-    	   <input type="text" name="tgrlIdOficioDet" id="tgrlIdOficioDet" value="<? echo($tgrlIdOficioDet); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-    	   </td>
-    	   <td align="left" class="etiqueta_form" >
-    	  
-    	   </td>
+       
+       <tr>
+       	<td align="right" class="etiqueta_form">Fecha Desvinculacion:</td>
+     	   <td align="left" class="etiqueta_form" colspan="1">
+     	   <input type="text" name="trbFechaDesvinculado" id="trbFechaDesvinculado" value="<? echo($trbFechaDesvinculado); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+     	   </td>
+     	   <td align="left" class="etiqueta_form" >
+     	  
+     	</td>
        </tr>    	
+       
+	   <tr>
+	      <td align="right" class="etiqueta_form">Isapre:</td>
+	   		<td align="left" class="etiqueta_form" colspan="1">
+ 	   			<select name="isaIdIsapre" id="isaIdIsapre" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+					<option value="<? echo($isaIdIsapre); ?>"><? if($isapre==""){ echo("Seleccion"); }else{echo($isapre);} ?></option>
+	   					<?
+				   			while($rs=mysql_fetch_array($isapres))
+							{
+						?>		<option value="<?=$rs["isaIdIsapre"]?>" > <? echo($rs["isaIsapre"]); ?> </option>
+						<?
+							}
+				    	?>
+	   			</select>
+	   		</td>
+	   </tr>    	
 
-    	<tr>
-    	<td align="right" class="etiqueta_form">Tipo Contrato:</td>
+	   <tr>
+	      <td align="right" class="etiqueta_form">Pacto Isapre:</td>
+	   		<td align="left" class="etiqueta_form" colspan="1">
+ 	   			<select name="trbPactoIsapre" id="trbPactoIsapre" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+					<option value="<? echo($trbPactoIsapre); ?>"><? if($trbPactoIsapre==""){ echo("Seleccion"); }else{echo($trbPactoIsapre);} ?></option>
+					<option value="UF">UF</option>
+					<option value="PESOS">PESOS</option>
+					<option value="USD">USD</option>
+	   			</select>
+	   		</td>
+	   </tr>    	
+	   
+	   <tr>
+	      <td align="right" class="etiqueta_form">AFP:</td>
+	   		<td align="left" class="etiqueta_form" colspan="1">
+ 	   			<select name="afpIdAfp" id="afpIdAfp" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+					<option value="<? echo($afpIdAfp); ?>">Seleccion</option>
+	   					<?
+				   			while($rs=mysql_fetch_array($afps))
+							{
+						?>		<option value="<?=$rs["afpIdAfp"]?>" > <? echo($rs["afpNombre"]); ?> </option>
+						<?
+							}
+				    	?>
+	   			</select>
+	   		</td>
+	   </tr>    	
+
+	   <tr>
+    	<td align="right" class="etiqueta_form">Seguro Cesantia:</td>
     	   <td align="left" class="etiqueta_form" colspan="1">
-    	   <input type="text" name="tgrlIdTipoContrato" id="tgrlIdTipoContrato" value="<? echo($tgrlIdTipoContrato); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+    	   <input type="text" name="trbSeguroCesantia" id="trbSeguroCesantia" value="<? echo($trbSeguroCesantia); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
     	   </td>
     	   <td align="left" class="etiqueta_form" >
     	  
@@ -266,9 +323,9 @@
         	
         	
        <tr>
-    	<td align="right" class="etiqueta_form">Tipo Jornada:</td>
+    	<td align="right" class="etiqueta_form">Pensionado:</td>
     	   <td align="left" class="etiqueta_form" colspan="1">
-    	   <input type="text" name="tjorIdTipoJornada" id="tjorIdTipoJornada" value="<? echo($tjorIdTipoJornada); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+    	   <input type="text" name="trbPensionado" id="trbPensionado" value="<? echo($trbPensionado); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
     	   </td>
     	   <td align="left" class="etiqueta_form" >
     	  
@@ -285,32 +342,7 @@
      	  
      	   </td>
         </tr>    	
-     	
-        <tr>
-     	<td align="right" class="etiqueta_form">Antiguedad (Meses):</td>
-     	   <td align="left" class="etiqueta_form" colspan="1">
-     	   <input type="text" name="trbAntiguedadMeses" id="trbAntiguedadMeses" value="<? echo($trbAntiguedadMeses); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-     	   </td>
-     	   <td align="left" class="etiqueta_form" >
-     	  
-     	   </td>
-        </tr>    	
-     	
         
-        
-     	<tr>
-     	<td align="right" class="etiqueta_form">Ceco:</td>
-     	   <td align="left" class="etiqueta_form" colspan="1">
-     	   <input type="text" name="trbCeco" id="trbCeco" value="<? echo($trbCeco); ?>" valida="" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
-     	   </td>
-     	   <td align="left" class="etiqueta_form" >
-     	  
-     	   </td>
-        </tr>    	
-
-            	
-
-     	
 <!-- --------------------------------------------------------------- --> 
     	
     <tr>

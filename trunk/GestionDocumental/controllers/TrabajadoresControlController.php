@@ -79,9 +79,20 @@ class TrabajadoresControlController extends ControllerBase
 	{
 		require 'models/ContratistaModel.php';
 		require 'models/FaenasModel.php';
+		require 'models/CiudadesModel.php';
+		require 'models/RegionesModel.php';
+		require 'models/ComunasModel.php';
+		require 'models/IsapresModel.php';
+		require 'models/AfpModel.php';
 		
 		$datoc = new ContratistaModel();
 		$datof = new FaenasModel();
+		
+		$regiones = new RegionesModel();
+		$ciudades = new CiudadesModel();
+		$comunas = new ComunasModel();
+		$afps = new AfpModel();
+		$isapres = new IsapresModel();
 		
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
@@ -90,8 +101,14 @@ class TrabajadoresControlController extends ControllerBase
 		$data['arrayscriptJs'] = array("funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
-		$data['contratistas'] = $datoc->getListaContratistas($param);
-		$data['faenas'] = $datof->getListaFaenas($param);
+		$data['contratistas'] = $datoc->getListaContratistas($array);
+		$data['faenas'] = $datof->getListaFaenas($array);
+		$data['regiones'] = $regiones->getListaRegiones($array);
+		$data['ciudades'] = $ciudades->getListaCiudades($array);
+		$data['comunas'] = $comunas->getListaComunas($$array);
+		$data['isapres'] = $isapres->getListaIsapres($array);
+		$data['afps'] = $afps->getListaAfp($array);
+		
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
 		$this->view->show($destino."form/trabajador.php", $data);
@@ -99,17 +116,36 @@ class TrabajadoresControlController extends ControllerBase
 	
 	public function editar($param)
 	{
-		require 'models/TrabajadoresControlModel.php';
 		require 'models/ContratistaModel.php';
 		require 'models/FaenasModel.php';
+		require 'models/CiudadesModel.php';
+		require 'models/RegionesModel.php';
+		require 'models/ComunasModel.php';
+		require 'models/IsapresModel.php';
+		require 'models/AfpModel.php';
+		require 'models/TrabajadoresControlModel.php';
 		
 		$datoc = new ContratistaModel();
 		$datof = new FaenasModel();
-		$dato = new TrabajadoresControlModel();
+		$regiones = new RegionesModel();
+		$ciudades = new CiudadesModel();
+		$comunas = new ComunasModel();
+		$afps = new AfpModel();
+		$isapres = new IsapresModel();
+		$trabajador = new TrabajadoresControlModel();
+						
+		$data['contratistas'] = $datoc->getListaContratistas($param);
+		$data['faenas'] = $datof->getListaFaenas($param);
+		$data['rs'] = $trabajador->getTrabajador($param);
 		
 		$data['contratistas'] = $datoc->getListaContratistas($param);
 		$data['faenas'] = $datof->getListaFaenas($param);
-		$data['rs'] = $dato->getTrabajador($param);
+		$data['regiones'] = $regiones->getListaRegiones($array);
+		$data['ciudades'] = $ciudades->getListaCiudades($array);
+		$data['comunas'] = $comunas->getListaComunas($$array);
+		$data['isapres'] = $isapres->getListaIsapres($array);
+		$data['afps'] = $afps->getListaAfp($array);
+		
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 		$data['tipop'] = "M";
