@@ -154,7 +154,7 @@ class DocumentoModel extends ModelBase
 		$sql .= " FROM documentotrabajador d ";
 		$sql .= " WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
 		$sql .= " AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
-		$sql .= " AND d.id_faena = ".$param["id_faena"];
+		if($param["id_faena"] != "") $sql .= " AND d.id_faena = ".$param["id_faena"];
 		$sql .= " AND d.id_contratista = ".$param["id_contratista"];
 		$sql .= " AND d.doctIdTrabajador = t.trbIdTrabajador ";
 		$sql .= " AND d.id_estado_documento <> 1 ";
@@ -163,13 +163,13 @@ class DocumentoModel extends ModelBase
 		$sql .= " 		(IF((SELECT IFNULL(MIN(d.id_estado_documento),1) ";
 		$sql .= " 				FROM documentotrabajador d 	WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
 		$sql .= " 				AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
-		$sql .= " 				AND d.id_faena = ".$param["id_faena"];
+		if($param["id_faena"] != "") $sql .= " AND d.id_faena = ".$param["id_faena"];
 		$sql .= " 				AND d.id_contratista = ".$param["id_contratista"];
 		$sql .= " 				AND d.doctIdTrabajador = t.trbIdTrabajador ";
 		$sql .= " 				AND d.id_estado_documento <> 1)=1,(SELECT IFNULL(MIN(d.id_estado_documento),1) ";
 		$sql .= " 						FROM documentotrabajador d 	WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
 		$sql .= " 						AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
-		$sql .= " 						AND d.id_faena = ".$param["id_faena"];
+		if($param["id_faena"] != "") $sql .= " AND d.id_faena = ".$param["id_faena"];
 		$sql .= " 						AND d.id_contratista = ".$param["id_contratista"];
 		$sql .= " 						AND d.doctIdTrabajador = t.trbIdTrabajador ";
 		$sql .= " 						AND d.id_estado_documento <> 1),2)),1) estado ";
@@ -179,7 +179,7 @@ class DocumentoModel extends ModelBase
 		$sql .= " AND dt.id_sub_tipodocumento = st.id ";
 		$sql .= " AND st.activo = 'S' ";		
 		$sql .= "   AND dt.tpdIdTipoDocumento = ".$param["id_tipodocumento"];
-		$sql .= "   AND dt.id_faena =  ".$param["id_faena"];
+		if($param["id_faena"] != "") $sql .= "   AND dt.id_faena =  ".$param["id_faena"];
 		$sql .= "   AND dt.id_contratista = ".$param["id_contratista"];
 		$sql .= "   GROUP BY dt.id_sub_tipodocumento";
 		

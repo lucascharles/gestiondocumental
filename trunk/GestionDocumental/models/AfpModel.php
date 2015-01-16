@@ -53,7 +53,7 @@ class AfpModel extends ModelBase
 	{
 		include("config.php");
 		
-		$sql = "  SELECT a.afpIdAfp afpIdAfp, a.afpEstado afpEstado, a.afpFechaCreacion afpFechaCreacion, a.afpFechaModificacion afpFechaModificacion, a.afpNombre afpNombre, a.afpUsuarioCreacion afpUsuarioCreacion, a.afpUsuarioModificacion afpUsuarioModificacion ";
+		$sql = "  SELECT * ";
 		$sql .= " FROM afp a ";
 		$sql .= " WHERE a.activo = 'S' ";
 		
@@ -64,7 +64,7 @@ class AfpModel extends ModelBase
 		
 		$sql .= " ORDER BY a.afpNombre ";
 		
-		//echo($sql);
+// 		echo($sql);
 		
 		$result = consulta($sql);
 		
