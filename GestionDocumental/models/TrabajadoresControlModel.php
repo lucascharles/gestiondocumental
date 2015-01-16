@@ -81,9 +81,15 @@ class TrabajadoresControlModel extends ModelBase
 		
 	public function getTrabajador($array)
 	{
-		$sql = " SELECT t.* ";
-		$sql .= " FROM trabajador t ";
+		$sql = " SELECT t.*,r.idRegion, r.region, c.idCiudad, c.ciudad, co.idComuna, co.comuna ";
+		$sql .= " ,a.afpIdAfp, a.afpNombre, i.isaIdIsapre, i.isaIsapre ";
+		$sql .= " FROM trabajador t LEFT JOIN regiones r ON t.idRegion = r.idRegion ";
+		$sql .= " 		LEFT JOIN ciudades c ON t.idCiudad = c.idCiudad ";
+		$sql .= " 		LEFT JOIN comunas co ON t.idComuna = co.idComuna ";
+		$sql .= " 		LEFT JOIN afp a ON t.afpIdAfp = a.afpIdAfp ";
+		$sql .= " 		LEFT JOIN isapre i ON t.isaIdIsapre = i.isaIdIsapre ";
 		$sql .= " WHERE t.activo = 'S' ";
+		$sql .= " AND r.activo = 'S' AND c.activo = 'S' AND co.activo = 'S' AND a.activo ='S' AND i.activo = 'S' ";
 		$sql .= " AND t.trbIdTrabajador = ".$array["id"];
 
 // 		echo($sql);
