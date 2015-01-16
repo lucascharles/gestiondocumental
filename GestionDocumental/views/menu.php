@@ -122,7 +122,7 @@
 								  </table>
 								  </li>
 							<?php }?>
-<!--
+
 							<li>
 								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 									<tr>
@@ -130,13 +130,13 @@
 									  </td>
 									 <td align="center" valign="middle"  height="25" class="">
 								
-									  <div class="principal" onClick="cargarOpcion('Faenas')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
+									  <div class="principal" onClick="cargarOpcion('PrevencionRiesgos')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
 									  <table>
 												<tr><td align="center">
-									  <img src="images/advancedsettings.png" class="btn_menu" />
+									  <img src="images/usuarios.png" class="btn_menu" />
 									  </td></tr>
 												  <tr><td align="center">
-												Faenas
+												Prevencion de Riesgos
 												</td></tr>
 											  </table>
 									  </div>
@@ -150,7 +150,8 @@
                                   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center" onClick="">
 									<tr>
                                    		<td align="center" valign="middle"  height="25" class="">
-                                  		<div class="principal" onClick="cargarOpcion('Dispositivo')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
+                                  		<!-- <div class="principal" onClick="cargarOpcion('Dispositivo')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">  -->
+                                  		<div class="principal" onClick="" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
                                         <table>
                                             	<tr><td align="center">
                                         <img src="images/configuracion.png" class="btn_menu" />
@@ -164,7 +165,7 @@
                                   	</tr>
                                   </table>                                  
                                 </li>   
-                                             
+<!--                                             
                                 <li>
                                 <table border="0" cellpadding="0" cellspacing="0" width="160" align="center" onClick="">
 								<tr>

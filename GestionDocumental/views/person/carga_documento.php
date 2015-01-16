@@ -20,12 +20,14 @@ include("views/menu.php");
 		<td align="left" height="10" colspan="3"></td>
     </tr>
    <tr>
-		<td align="left" class="etiqueta_form" colspan="2">Contratista:&nbsp;<?=$dato["ctrRazonSocial"]?></td>
+		<td align="left" class="etiqueta_form" colspan="2">Agencia:&nbsp;<?=$dato["ctrRazonSocial"]?></td>
         <td align="right"><input  type="button" name="btnsalir" id="btnsalir" onclick="volverDocContratista('<?=$controller?>',<?=$id_c?>)"  value="Volver" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/></td>
     </tr>
-     <tr>
+    <!--  
+    <tr>
 		<td align="left" class="etiqueta_form" colspan="3">Faena:&nbsp;<?=$rs_faena["faeNombre"]?></td>
     </tr>
+     -->
     <tr>
 		<td align="left" class="etiqueta_form">Trabajador:&nbsp;<?=$rs_trabajador["trbNombre"]?></td>
         <td align="left" class="etiqueta_form"></td>
@@ -60,7 +62,7 @@ include("views/menu.php");
             </tr>
             <? }?>
             
-            <? if($rs_sub_doc["id"]==9||$rs_sub_doc["id"]==10||$rs_sub_doc["id"]==11) {?>
+            <? if($rs_sub_doc["id"]==28||$rs_sub_doc["id"]==9||$rs_sub_doc["id"]==10||$rs_sub_doc["id"]==11) {?>
 	        <tr>
             	<td colspan="<?=$cont?>">
                 Nombre:

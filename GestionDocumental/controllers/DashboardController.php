@@ -42,7 +42,7 @@ class DashboardController extends ControllerBase
 		$trabajador = new TrabajadoresControlModel();
 		
 		$data["dato"]= $dato->getContratista(array("id"=>$param["id_c"]));
-		$data["rs_faena"]= $faena->getFaena(array("id"=>$param["id_f"]));
+// 		$data["rs_faena"]= $faena->getFaena(array("id"=>$param["id_f"]));
 		$data["rs_trabajador"]= $trabajador->getTrabajador(array("id"=>$param["id_t"]));
 		$data["rs_sub_doc"]= $doc->getSubTipoDocumento(array("id"=>$param["id_d"]));
 		$data['controller'] = $param["controlador"];
@@ -60,11 +60,14 @@ class DashboardController extends ControllerBase
 
 	public function admin($array)
 	{
+		require 'models/ConstructoraModel.php';
+		$dato = new ConstructoraModel();
+		
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 						
 		$data['arrayscriptJs'] = array("funcionesadmin.js");
-	
+		$data['constructoras'] = $dato->getListaConstructora($array);
 		$this->view->show("admin/dashboard.php", $data);
 	}
 	
@@ -73,7 +76,7 @@ class DashboardController extends ControllerBase
 		require 'models/ContratistaModel.php';
 		require 'models/DashboardModel.php';
 		
-		$dato = new ContratistaModel();		
+// 		$dato = new ContratistaModel();		
 		$dash = new DashboardModel();
 				
 		$data['controller'] = $param["controlador"];
@@ -85,14 +88,18 @@ class DashboardController extends ControllerBase
 	{
 		require 'models/ContratistaModel.php';
 		require 'models/DocumentoModel.php';
+		require 'models/ConstructoraModel.php';
 		
 		$contratista = new ContratistaModel();
+		$constructora = new ConstructoraModel();
 		$doc = new DocumentoModel();
 		
 		$data["idsql_faena"] = $contratista->getFaenasContratista(array("id"=>$param["id"]));
 		$data['idsql_tip_doc'] = $doc->getListaTipoDocumento();
 		$data['rs_tip_doc'] = mysql_fetch_array($doc->getListaTipoDocumento());
 		$data['dato'] = $contratista->getContratista($param);
+		$data['empresa'] = $constructora->getConstructoraxContratista($param);
+		
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 		$data['arrayscriptJs'] = array("dashboard.js","funciones.js");
