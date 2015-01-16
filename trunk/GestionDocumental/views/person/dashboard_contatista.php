@@ -14,13 +14,12 @@ $id= $dato["ctrIdContratista"];
 
 <table  align="center" border="0" width="80%" cellpadding="0" cellspacing="0" id="formulario">
 	<tr>
-		<th align="left" colspan="3"><? echo($titulo_form) ?></th>
+		<th align="left" colspan="3"><? echo($titulo_form) ?> &nbsp;<?=$dato["ctrRazonSocial"]?></th>
     </tr>
     <tr>
 		<th align="left" colspan="3" height="15"> </th>
     </tr>
     <tr>
-    	<td align="left" class="etiqueta_form" colspan="2">Razon Social:&nbsp;<?=$dato["ctrRazonSocial"]?></td>
         <td align="right" class="etiqueta_form" colspan="1">
         <table class="opciones" onclick="volverAdmin('<?=$controller?>',0)" title="Volver" >
                         <tr>
@@ -35,9 +34,12 @@ $id= $dato["ctrIdContratista"];
         </td>
     </tr>
 	<tr>
-       	<td align="left" colspan="3" class="etiqueta_form">Rut:&nbsp;<?=$dato["ctrRut"]?></td>
-   </tr>    
-   <tr>
+       	<td align="left" colspan="3" class="etiqueta_form">Empresa:&nbsp;<?echo($empresa["consNombreFantasia"]) ?></td>
+    </tr>    
+	<tr>
+       	<td align="left" colspan="3" class="etiqueta_form">Encargado:&nbsp;<? echo($dato["ctrNombreExpertoMutualidad"])?></td>
+   	</tr>
+<!--<tr>
         <td colspan="3" height="5" class="etiqueta_form">Faena:&nbsp;
          <select id="id_faena" name="id_faena" class="input_form" filtro="S" onFocus="resaltar(this)" onchange='mostrar()' onBlur="noresaltar(this)" >
 		 <?
@@ -55,7 +57,8 @@ $id= $dato["ctrIdContratista"];
          ?>
          </select>
          </td>
-    </tr>   
+    </tr>
+-->       
     <tr>
 	   	<td colspan="3"> 
         	 <div id="documentos" style="">

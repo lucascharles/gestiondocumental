@@ -81,8 +81,10 @@ class FaenasModel extends ModelBase
 
 	public function getFaena($param)
 	{
+		
 		$sql = " SELECT faeIdFaenas, consIdConstructora, dirIdDireccion, faeEstado, faeFechaInicio,	faeFechaTermino, faeIdFaenaPadre, faeNombre, faeResponsable ";
-		$sql .= " , faeTelefono, activo FROM faena WHERE faeIdFaenas = ".$param["id"];
+		$sql .= " , faeTelefono, activo FROM faena ";  
+		$sql .= " WHERE faeIdFaenas = ".$param["id"];
 		//echo($sql);
 		$idsql = consulta($sql);
 		
