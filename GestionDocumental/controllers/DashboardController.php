@@ -6,11 +6,11 @@ class DashboardController extends ControllerBase
 		require 'models/ContratistaModel.php';
 		require 'models/DocumentoModel.php';
 		require 'models/FaenasModel.php';
-		require 'models/TrabajadoresControlModel.php';
+		require 'models/TrabajadorModel.php';
 		$dato = new ContratistaModel();
 		$doc = new DocumentoModel();
 		$faena = new FaenasModel();
-		$trabajador = new TrabajadoresControlModel();
+		$trabajador = new TrabajadorModel();
 		
 		$doc->uploadDocumento($param);
 		
@@ -35,11 +35,11 @@ class DashboardController extends ControllerBase
 		require 'models/ContratistaModel.php';
 		require 'models/DocumentoModel.php';
 		require 'models/FaenasModel.php';
-		require 'models/TrabajadoresControlModel.php';
+		require 'models/TrabajadorModel.php';
 		$dato = new ContratistaModel();
 		$doc = new DocumentoModel();
 		$faena = new FaenasModel();
-		$trabajador = new TrabajadoresControlModel();
+		$trabajador = new TrabajadorModel();
 		
 		$data["dato"]= $dato->getContratista(array("id"=>$param["id_c"]));
 // 		$data["rs_faena"]= $faena->getFaena(array("id"=>$param["id_f"]));
