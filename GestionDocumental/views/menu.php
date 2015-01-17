@@ -84,7 +84,7 @@
                                   </td>
                                  <td align="center" valign="middle"  height="25" class="">
 
-                                  <div class="principal" onClick="cargarOpcion('TrabajadoresControl')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
+                                  <div class="principal" onClick="cargarOpcion('Trabajador')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
                                   <table>
                                           	<tr><td align="center">
                                   <img src="images/kdmconfig.png" class="btn_menu"  />
