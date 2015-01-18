@@ -18,27 +18,28 @@ class TrabajadorModel extends ModelBase
 			$sql_where = " WHERE trbIdTrabajador = ".$param["id_reg"];
 		}
 		
-		if(trim($array["afpIdAfp"])<>"")$sql .= "afpIdAfp = '".$param["afpIdAfp"]."', ";
+		if(trim($param["afpIdAfp"])<>"")$sql .= "afpIdAfp = ".$param["afpIdAfp"].", ";
 		if(trim($param["comIdComuna"])<>"")$sql .= "comIdComuna = '".$param["comIdComuna"]."', ";
 		if(trim($param["ctrIdContratista"])<>"")$sql .= "ctrIdContratista = '".$param["ctrIdContratista"]."', ";
 		if(trim($param["dirIdDireccion"])<>"")$sql .= "dirIdDireccion = '".$param["dirIdDireccion"]."', ";
-		if(trim($param["isaIdIsapre"])<>"")$sql .= "isaIdIsapre = '".$param["isaIdIsapre"]."', ";
-		if(trim($param["nacIdNacionalidad"])<>"")$sql .= "nacIdNacionalidad = '".$param["nacIdNacionalidad"]."', ";
+		if(trim($param["isaIdIsapre"])<>"")$sql .= "isaIdIsapre = ".$param["isaIdIsapre"].", ";
+		if(trim($param["nacionalidad"])<>"")$sql .= "nacionalidad = '".$param["nacionalidad"]."', ";
 		if(trim($param["tgrlIdCargoContractual"])<>"")$sql .= "tgrlIdCargoContractual = '".$param["tgrlIdCargoContractual"]."', ";
 		if(trim($param["tgrlIdOficioCab"])<>"")$sql .= "tgrlIdOficioCab = '".$param["tgrlIdOficioCab"]."', ";
 		if(trim($param["tgrlIdOficioDet"])<>"")$sql .= "tgrlIdOficioDet = '".$param["tgrlIdOficioDet"]."', ";
 		if(trim($param["tgrlIdTipoContrato"])<>"")$sql .= "tgrlIdTipoContrato = '".$param["tgrlIdTipoContrato"]."', ";
 		if(trim($param["tjorIdTipoJornada"])<>"")$sql .= "tjorIdTipoJornada = '".$param["tjorIdTipoJornada"]."', ";
-		if(trim($param["trbAfectoArt22"])<>"")$sql .= "trbAfectoArt22 = '".$param["trbAfectoArt22"]."', ";
+		if(trim($param["trbAfectoArt22"])<>"")$sql .= "trbAfectoArt22 = ".$param["trbAfectoArt22"].", ";
 		if(trim($param["trbAntiguedadMeses"])<>"")$sql .= "trbAntiguedadMeses = '".$param["trbAntiguedadMeses"]."', ";
 		if(trim($param["trbApMaterno"])<>"")$sql .= "trbApMaterno = '".$param["trbApMaterno"]."', ";
 		if(trim($param["trbApPaterno"])<>"")$sql .= "trbApPaterno = '".$param["trbApPaterno"]."', ";
 		if(trim($param["trbCeco"])<>"")$sql .= "trbCeco = '".$param["trbCeco"]."', ";
 		if(trim($param["trbDireccion"])<>"")$sql .= "trbDireccion = '".$param["trbDireccion"]."', ";
 		if(trim($param["trbEstado"])<>"")$sql .= "trbEstado = '".$param["trbEstado"]."', ";
-		if(trim($param["trbFechaContrato"])<>"")$sql .= "trbFechaContrato = '".$param["trbFechaContrato"]."', ";
+		if(trim($param["trbFechaContrato"])<>"")$sql .= "trbFechaContrato = '".formatoFecha($param["trbFechaContrato"],"dd/mm/yyyy","yyyy-mm-dd")."', ";
+		if(trim($param["trbFechaDesvinculado"])<>"")$sql .= "trbFechaDesvinculado = '".formatoFecha($param["trbFechaDesvinculado"],"dd/mm/yyyy","yyyy-mm-dd")."', ";
 		if(trim($param["trbFechaCreacion"])<>"")$sql .= "trbFechaCreacion = '".$param["trbFechaCreacion"]."', ";
-		if(trim($param["trbFechaNac"])<>"")$sql .= "trbFechaNac = '".$param["trbFechaNac"]."', ";
+		if(trim($param["trbFechaNac"])<>"")$sql .= "trbFechaNac = '".formatoFecha($param["trbFechaNac"],"dd/mm/yyyy","yyyy-mm-dd")."', ";
 		if(trim($param["trbHorasSemanales"])<>"")$sql .= "trbHorasSemanales = '".$param["trbHorasSemanales"]."', ";
 		if(trim($param["trbIngresoObraFecha"])<>"")$sql .= "trbIngresoObraFecha = '".$param["trbIngresoObraFecha"]."', ";
 		if(trim($param["trbNombre"])<>"")$sql .= "trbNombre = '".$param["trbNombre"]."', ";
@@ -47,13 +48,16 @@ class TrabajadorModel extends ModelBase
 		if(trim($param["trbRut"])<>"")$sql .= "trbRut = '".$param["trbRut"]."', ";
 		if(trim($param["trbRutJefe"])<>"")$sql .= "trbRutJefe = '".$param["trbRutJefe"]."', ";
 		if(trim($param["trbSeguroCesantia"])<>"")$sql .= "trbSeguroCesantia = '".$param["trbSeguroCesantia"]."', ";
-		if(trim($param["trbSexo"])<>"")$sql .= "trbSexo = '".$param["trbSexo"]."', ";
+		if(trim($param["trbSexo"])<>"")$sql .= "trbSexo = ".$param["trbSexo"].", ";
 		if(trim($param["trbTelefono"])<>"")$sql .= "trbTelefono = '".$param["trbTelefono"]."', ";
 		if(trim($param["trbTitulo"])<>"")$sql .= "trbTitulo = '".$param["trbTitulo"]."', ";
 		if(trim($param["trbVisa"])<>"")$sql .= "trbVisa = '".$param["trbVisa"]."', ";
-		$sql .= " activo = 'S'";
+		$sql .= "trbPactoIsapre = ".$param["trbPactoIsapre"];
+		
+		$sql .= ", activo = 'S'";
 		$sql .= $sql_where;
 		//echo("<br>SQL: ".$sql);
+		//exit();
 		consulta($sql);
 		
 		if($param["tipop"] == "A")
@@ -128,6 +132,19 @@ class TrabajadorModel extends ModelBase
 		$result = consulta($sql);
 		
     	return $result;	
+	}
+	
+	
+	public function getListaCargos()
+	{
+		$sql = " SELECT id, descripcion  ";
+		$sql .= " FROM cargo_contractual ";
+
+// 		echo($sql);
+// 		exit;
+		$idsql = consulta($sql);
+	
+		return $idsql;
 	}
 
 	
