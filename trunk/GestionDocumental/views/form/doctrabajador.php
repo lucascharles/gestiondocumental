@@ -84,16 +84,15 @@ $trbRut= $rs["trbRut"];
 	        
 	        <tr>
             	<td colspan="<?=$cont?>">
-        	Grupo documento:
-			<select name="id_tipo_documento" id="id_tipo_documento" valida="" filtro="S" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)" onchange='mostrar(this)'>
-			<?if($tipoDoc["id"] != ""){ ?>
-				<option value="<?=$tipoDoc["id"]?>" > <? echo($tipoDoc["descripcion"]); ?> </option>
-			<? }?>	
+        	Grupo documentoaaaa:
+			<select name="id_tipo_documento" id="id_tipo_documento" valida="" filtro="S" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)" onchange="llenarFiltro(this,document.getElementById('id_sub_tipodocumento'),'TIPODOC_SUTIPODOC')">
 		   	<?
 		   			while($rs=mysql_fetch_array($grupo_doc))
 					{
+						$selected = "";
+						if($tipoDoc["id"] == $rs["id"]) $selected = "selected='selected'";
 			?>
-				<option value="<?=$rs["id"]?>" > <? echo($rs["descripcion"]); ?> </option>
+				<option value="<?=$rs["id"]?>" <?=$selected?> > <? echo($rs["descripcion"]); ?> </option>
 			<?
 					  }
 		    ?>
@@ -105,15 +104,14 @@ $trbRut= $rs["trbRut"];
             	<td colspan="<?=$cont?>">
         	Tipo documento:
 			<select name="id_sub_tipodocumento" id="id_sub_tipodocumento" valida="" filtro="S" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange='mostrar(this)'>
-			<?if($subTipoDoc["id"] != ""){ ?>
-				<option value="<?=$subTipoDoc["id"]?>" > <? echo($subTipoDoc["descripcion"]); ?> </option>
-			<? }?>	
 		   	<?
 		   			while($rs=mysql_fetch_array($rs_tip_doc))
 					{
+						$selected = "";
+						if($subTipoDoc["id"] == $rs["id"]) $selected = "selected='selected'";
 						$tipoDoc = $rs["id"];
 			?>
-				<option value="<?=$rs["id"]?>" > <? echo($rs["descripcion"]); ?> </option>
+				<option value="<?=$rs["id"]?>" <?=$selected?> > <? echo($rs["descripcion"]); ?> </option>
 			<?
 					  }
 		    ?>
