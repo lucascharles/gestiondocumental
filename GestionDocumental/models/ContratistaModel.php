@@ -89,17 +89,6 @@ class ContratistaModel extends ModelBase
 			IF(TRIM($array["ctrIdAfiliadoMutualidad"])<>""){ $sql.= $array["ctrIdAfiliadoMutualidad"].","; }ELSE { $sql.= "NULL,";};
 			IF(TRIM($array["ctrIdServicioContratado"])<>""){ $sql.= $array["ctrIdServicioContratado"].","; }ELSE { $sql.= "NULL,";};
 			IF(TRIM($array["ctrIngresoFaena"])<>""){ $sql.= $array["ctrIngresoFaena"].","; }ELSE { $sql.= "NULL,";};
-			IF(trim($array["ctrRazonSocial"])<>""){	$sql .= "'". $array["ctrRazonSocial"]."',"; }ELSE { $sql.= "NULL,";	};
-			IF(trim($array["ctrRut"])<>""){	$sql.= "'".$array["ctrRut"]."',";}ELSE { $sql.= "NULL,";};
-			IF(trim($array["ctrNombreFantasia"])<>""){ $sql.= "'".$array["ctrNombreFantasia"]."',";	}ELSE { $sql.= "NULL,";	};
-			IF(trim($array["ccatIdAfiliado"])<>""){ $sql.= $array["ccatIdAfiliado"].","; }ELSE { $sql.= "NULL,";};
-			IF(trim($array["ctrEmail"])<>"") {	$sql.= "'".$array["ctrEmail"]."',"; }ELSE { $sql.= "NULL,";};
-			IF(trim($array["ctrEmailExpertoMutualidad"])<>"") {	$sql.= "'".$array["ctrEmailExpertoMutualidad"]."',"; }ELSE { $sql.= "NULL,";};
-			IF(trim($array["ctrFonoExpertoMutualidad"])<>""){ $sql.= "'".$array["ctrFonoExpertoMutualidad"]."',"; }ELSE { $sql.= "NULL,";};
-			IF(trim($array["ctrIdAfiliadoMutualidad"])<>""){ $sql.= $array["ctrIdAfiliadoMutualidad"].","; }ELSE { $sql.= "NULL,";};
-			IF(trim($array["ctrIdServicioContratado"])<>""){ $sql.= $array["ctrIdServicioContratado"].","; }ELSE { $sql.= "NULL,";};
-			IF(trim($array["ctrIngresoFaena"])<>""){ $sql.= $array["ctrIngresoFaena"].","; }ELSE { $sql.= "NULL,";};
-			
 			IF(trim($array["ctrNombreExpertoMutualidad"])<>""){ $sql.= "'".$array["ctrNombreExpertoMutualidad"]."',"; }ELSE { $sql.= "NULL,";};
 			IF(trim($array["ctrNroActividadCab"])<>""){ $sql.= "'".$array["ctrNroActividadCab"]."',"; }ELSE { $sql.= "NULL,";};
 			IF(trim($array["ctrNroActividadDet"])<>""){ $sql.= "'".$array["ctrNroActividadDet"]."',"; }ELSE { $sql.= "NULL,";};
@@ -110,7 +99,6 @@ class ContratistaModel extends ModelBase
 			IF(trim($array["ctrTelefono2"])<>""){ $sql.= "'".$array["ctrTelefono2"]."',"; }ELSE { $sql.= "NULL,";};
 			IF(trim($array["ctrTelefono3"])<>""){ $sql.= "'".$array["ctrTelefono3"]."',"; }ELSE { $sql.= "NULL,";};
 			IF(trim($array["dirIdDirecion"])<>""){ $sql.= $array["dirIdDirecion"].","; }ELSE { $sql.= "NULL,";};
-			
 			IF(trim($array["mutIdMutualidad"])<>""){ $sql.= $array["mutIdMutualidad"].","; }ELSE { $sql.= "NULL,";};
 			IF(trim($array["consIdConstructora"])<>""){ $sql.= $array["consIdConstructora"].","; }ELSE { $sql.= "NULL";};
 			IF(trim($array["ctrDireccion"])<>""){$sql.= "'".$array["ctrDireccion"]."',";	}ELSE { $sql.= "NULL";};
@@ -163,7 +151,7 @@ class ContratistaModel extends ModelBase
 		$sql .= " WHERE c.consIdConstructora = co.consIdConstructora ";
 		$sql .= " AND c.activo = 'S' ";
 		
-		if(trim($param["co.consIdConstructora"]) <> "")
+		if(trim($param["id_empresa"]) <> "")
 		{
 			$sql .= " and co.consIdConstructora = ".trim($param["id_empresa"]);
 		}
@@ -185,7 +173,7 @@ class ContratistaModel extends ModelBase
 		
 		$sql .= " ORDER BY c.ctrRazonSocial ";
 		
- 		//echo($sql);
+//  		echo($sql);
 // 		exit;
 		
 		$result = consulta($sql);

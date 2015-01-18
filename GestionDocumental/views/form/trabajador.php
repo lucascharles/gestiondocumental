@@ -239,6 +239,27 @@
 	   </td>
 	   <td align="left" class="etiqueta_form" > </td>
 	   </tr>
+	   
+	<tr>
+    <tr> 	
+    <td align="right" class="etiqueta_form">Agencia:</td>
+	   <td align="left" class="etiqueta_form" colspan="1">
+	   <select name="ctrIdContratista" id="ctrIdContratista" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)" >
+	   			<?
+					while($rs=mysql_fetch_array($contratistas))
+					{
+						$selected = "";
+						if($ctrIdContratista == $rs["ctrIdContratista"])$selected = "selected='selected'";
+					?>
+				<option value="<?=$rs["ctrIdContratista"]?>" <?=$selected?> > <? echo($rs["ctrRazonSocial"]); ?> </option>
+					<?
+					  }
+				
+					?>
+	   </select>
+	   </td>
+	   <td align="left" class="etiqueta_form" > </td>
+	   </tr>
     <tr> 	
 	    <td align="right" class="etiqueta_form">Supervisor:</td>
 		   <td align="left" class="etiqueta_form" colspan="1">
@@ -257,26 +278,6 @@
 		<td align="left" class="etiqueta_form" > </td>
 	</tr>
 	   
-	<tr>
-    <tr> 	
-    <td align="right" class="etiqueta_form">Agencia:</td>
-	   <td align="left" class="etiqueta_form" colspan="1">
-	   <select name="ctrIdContratista" id="ctrIdContratista" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)" >
-	   			<?
-					while($rs=mysql_fetch_array($contratistas))
-					{
-						$selected = "";
-						if($ctrIdContratista == $rs["ctrIdContratista"])$selected = "selected='selected'";
-					?>
-				<option value="<?=$rs["ctrIdContratista"]?>" <?=$selected?> > <? echo($rs["ctrNombreFantasia"]); ?> </option>
-					<?
-					  }
-				
-					?>
-	   </select>
-	   </td>
-	   <td align="left" class="etiqueta_form" > </td>
-	   </tr>
 
 	   <tr>
 	<td align="left" class="subtitulo_form" colspan="3">Datos Laborales</td>

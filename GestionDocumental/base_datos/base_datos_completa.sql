@@ -81,14 +81,14 @@ DROP TABLE IF EXISTS `comunas`;
 CREATE TABLE `comunas` (
   `idComuna` int(11) NOT NULL AUTO_INCREMENT,
   `comuna` varchar(100) DEFAULT NULL,
-  `idRegion` int(11) DEFAULT NULL,
+  `idCiudad` int(11) DEFAULT NULL,
   `activo` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idComuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `comunas` */
 
-insert  into `comunas`(`idComuna`,`comuna`,`idRegion`,`activo`) values (1,'Santiago',4,'S');
+insert  into `comunas`(`idComuna`,`comuna`,`idCiudad`,`activo`) values (1,'Santiago',1,'S');
 
 /*Table structure for table `constructora` */
 
@@ -112,11 +112,11 @@ CREATE TABLE `constructora` (
   `rplIdRepLegal` int(11) DEFAULT NULL,
   `activo` varchar(1) DEFAULT NULL,
   KEY `consIdConstructora` (`consIdConstructora`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `constructora` */
 
-insert  into `constructora`(`consIdConstructora`,`consEmail`,`consEstado`,`consFechaCreacion`,`consFechaModificacion`,`consNombreFantasia`,`consRazonSocial`,`consRut`,`consTelefono`,`consTelefono2`,`consTelefono3`,`consUsuarioCreacion`,`consUsuarioModificacion`,`dirIdDireccion`,`rplIdRepLegal`,`activo`) values (1,'la@lala.com','Habilitada','2014-10-15',NULL,'Empresa 1','Empresa 1','123456789','22226676','44444',NULL,NULL,NULL,NULL,1,'S'),(2,'lala@la.cl',NULL,NULL,NULL,'Empresa 2','Empresa 2','1212121','222333','333333','444',NULL,NULL,NULL,NULL,'S'),(4,'la@lala.com',NULL,NULL,NULL,'Empresa 3','Empresa 3','2222222','22222','44444','55555',NULL,NULL,NULL,NULL,'S'),(5,'carolinaveliz@salesland.net',NULL,NULL,NULL,'salesland','salesland chile spa','76192463-k',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'S');
+insert  into `constructora`(`consIdConstructora`,`consEmail`,`consEstado`,`consFechaCreacion`,`consFechaModificacion`,`consNombreFantasia`,`consRazonSocial`,`consRut`,`consTelefono`,`consTelefono2`,`consTelefono3`,`consUsuarioCreacion`,`consUsuarioModificacion`,`dirIdDireccion`,`rplIdRepLegal`,`activo`) values (6,'mail@email.com',NULL,NULL,NULL,'Empresa 1','Empresa 1','78234567-2','222333','222222','333333',NULL,NULL,NULL,NULL,'S');
 
 /*Table structure for table `contratista` */
 
@@ -156,11 +156,11 @@ CREATE TABLE `contratista` (
   `ctrDireccion` varchar(100) DEFAULT NULL,
   `activo` varchar(1) DEFAULT NULL,
   KEY `ctrIdContratista` (`ctrIdContratista`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `contratista` */
 
-insert  into `contratista`(`ctrIdContratista`,`ccatIdAfiliado`,`ctrEmail`,`ctrEmailExpertoMutualidad`,`ctrEstado`,`ctrFechaCreacion`,`ctrFechaModificacion`,`ctrFonoExpertoMutualidad`,`ctrIdAfiliadoMutualidad`,`ctrIdServicioContratado`,`ctrIngresoFaena`,`ctrNombreExpertoMutualidad`,`ctrNombreFantasia`,`ctrNroActividadCab`,`ctrNroActividadDet`,`ctrRazonSocial`,`ctrRut`,`ctrTasaCotizacionActual`,`ctrTasaCotizacionTotal`,`ctrTasaGenerica`,`ctrTelefono`,`ctrTelefono2`,`ctrTelefono3`,`ctrUsuarioCreacion`,`ctrUsuarioModificacion`,`dirIdDirecion`,`mutIdMutualidad`,`rplIdRepLegal`,`tjor_idTipoJornada`,`consIdConstructora`,`ctrDireccion`,`activo`) values (1,NULL,'correo.agencia1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 1','Agencia 1',NULL,NULL,'Agencia 1','22222',NULL,NULL,NULL,'5465464645',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,'S'),(4,NULL,'correo.agencia2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 2','Agencia 2',NULL,NULL,'Agencia 2','22821447',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,'S'),(5,NULL,'correo.agencia3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 3','Agencia 3',NULL,NULL,'Agencia 3','23456789-0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,'S'),(6,NULL,'correo.agencia',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 4','Agencia 4',NULL,NULL,'Agencia 4','444444444',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,'S'),(7,NULL,'correo.agencia',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,'La Agencia Prueba 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,'Direccion 1','S'),(8,NULL,'carolinaveliz@salesland.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'carolina veliz','irarrazaval',NULL,NULL,'irarrazaval',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,5,'irarrazaval 4856','S');
+insert  into `contratista`(`ctrIdContratista`,`ccatIdAfiliado`,`ctrEmail`,`ctrEmailExpertoMutualidad`,`ctrEstado`,`ctrFechaCreacion`,`ctrFechaModificacion`,`ctrFonoExpertoMutualidad`,`ctrIdAfiliadoMutualidad`,`ctrIdServicioContratado`,`ctrIngresoFaena`,`ctrNombreExpertoMutualidad`,`ctrNombreFantasia`,`ctrNroActividadCab`,`ctrNroActividadDet`,`ctrRazonSocial`,`ctrRut`,`ctrTasaCotizacionActual`,`ctrTasaCotizacionTotal`,`ctrTasaGenerica`,`ctrTelefono`,`ctrTelefono2`,`ctrTelefono3`,`ctrUsuarioCreacion`,`ctrUsuarioModificacion`,`dirIdDirecion`,`mutIdMutualidad`,`rplIdRepLegal`,`tjor_idTipoJornada`,`consIdConstructora`,`ctrDireccion`,`activo`) values (9,NULL,'email1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 1',NULL,NULL,NULL,'Agencia 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 1','S'),(10,NULL,'email2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 2',NULL,NULL,NULL,'Agencia 2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 2','S');
 
 /*Table structure for table `direccion` */
 
@@ -209,8 +209,6 @@ CREATE TABLE `documentos` (
 
 /*Data for the table `documentos` */
 
-insert  into `documentos`(`id`,`doctFechaSubida`,`doctFechaPertenece`,`doctNombreArchivo`,`doctNombreEncrip`,`NombreOriginal`,`id_documentotrabajador`,`id_estado_documento`,`nota`) values (43,'2014-11-26','2014-11-26','liquidacion_enero','46f5b113b7709faf5c4d2382e97fd57c_20141126104549.pdf','228214302.pdf',43,2,''),(44,'2014-11-26','2014-11-26','liquidacion_febrero','46f5b113b7709faf5c4d2382e97fd57c_20141126105233.pdf','228214302.pdf',43,2,''),(45,'2014-11-26','2014-11-26','liquidacion_febrero','46f5b113b7709faf5c4d2382e97fd57c_20141126105648.pdf','228214302.pdf',43,2,''),(46,'2014-11-26','2014-11-26','afp_enero','46f5b113b7709faf5c4d2382e97fd57c_20141126110725.pdf','228214302.pdf',46,2,''),(51,'2014-11-28','2014-11-28','contrato','46f5b113b7709faf5c4d2382e97fd57c_20141128115236.pdf','228214302.pdf',47,2,''),(88,'2014-12-12','2014-12-12','pago 2','46f5b113b7709faf5c4d2382e97fd57c_20141212103752.pdf','228214302.pdf',82,2,''),(89,'2014-12-12','2014-12-12','pago 2','46f5b113b7709faf5c4d2382e97fd57c_20141212150902.pdf','228214302.pdf',82,2,''),(90,'2014-12-15','2014-12-15','','46f5b113b7709faf5c4d2382e97fd57c_20141215155230.pdf','228214302.pdf',89,2,''),(91,'2014-12-15','2014-12-15','','46f5b113b7709faf5c4d2382e97fd57c_20141215170142.pdf','228214302.pdf',100,2,''),(92,'2014-12-27','2014-12-27','','46f5b113b7709faf5c4d2382e97fd57c_20141227215954.pdf','228214302.pdf',101,4,' sin mas que decir sss'),(93,'2015-01-02','2015-01-02','','46f5b113b7709faf5c4d2382e97fd57c_20150102105158.pdf','228214302.pdf',102,2,' nono'),(94,'2015-01-02','2015-01-02','','46f5b113b7709faf5c4d2382e97fd57c_20150102150143.pdf','228214302.pdf',103,2,''),(95,'2015-01-02','2015-01-02','','46f5b113b7709faf5c4d2382e97fd57c_20150102155411.pdf','228214302.pdf',104,2,''),(96,'2015-01-02','2015-01-02','Marzo','46f5b113b7709faf5c4d2382e97fd57c_20150102232319.pdf','228214302.pdf',102,2,' esa'),(97,'2015-01-02','2015-01-02','registro_conocimiento','46f5b113b7709faf5c4d2382e97fd57c_20150102232359.pdf','228214302.pdf',106,2,'');
-
 /*Table structure for table `documentotrabajador` */
 
 DROP TABLE IF EXISTS `documentotrabajador`;
@@ -224,11 +222,11 @@ CREATE TABLE `documentotrabajador` (
   `tpdIdTipoDocumento` int(11) DEFAULT NULL,
   `id_sub_tipodocumento` int(11) NOT NULL,
   PRIMARY KEY (`doctIdDocumento`)
-) ENGINE=MyISAM AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
 
 /*Data for the table `documentotrabajador` */
 
-insert  into `documentotrabajador`(`doctIdDocumento`,`id_estado_documento`,`doctIdTrabajador`,`id_contratista`,`id_faena`,`tpdIdTipoDocumento`,`id_sub_tipodocumento`) values (103,2,24,1,1,1,20),(102,2,24,1,1,3,28),(101,2,24,1,1,1,19),(100,2,24,1,1,3,35),(73,1,24,1,1,1,19),(74,1,24,1,1,1,20),(75,1,24,1,1,1,21),(76,1,24,1,1,1,22),(77,1,24,1,1,1,23),(106,2,24,1,1,1,24),(79,1,24,1,1,2,25),(80,1,24,1,1,2,26),(81,1,24,1,1,2,27),(105,2,24,1,1,3,28),(83,1,24,1,1,3,29),(84,1,24,1,1,3,30),(85,1,24,1,1,3,31),(86,1,24,1,1,3,32),(87,1,24,1,1,3,33),(88,1,24,1,1,3,34),(89,4,24,1,1,3,35),(90,1,24,1,1,4,36),(91,1,24,1,1,4,37),(92,1,24,1,1,4,38),(93,1,24,1,1,4,39),(94,1,24,1,1,5,40),(104,2,24,1,1,5,41),(96,1,24,1,1,5,42),(97,1,24,1,1,5,43),(98,1,24,1,1,2,28),(99,1,24,1,1,2,28),(107,1,NULL,8,NULL,1,19),(108,1,32,8,NULL,1,19),(109,1,32,8,NULL,1,20),(110,1,32,8,NULL,1,21),(111,1,32,8,NULL,3,28),(112,1,32,8,NULL,3,29),(113,1,32,8,NULL,3,32);
+insert  into `documentotrabajador`(`doctIdDocumento`,`id_estado_documento`,`doctIdTrabajador`,`id_contratista`,`id_faena`,`tpdIdTipoDocumento`,`id_sub_tipodocumento`) values (114,1,33,9,NULL,1,19),(115,1,33,9,NULL,1,20),(116,1,33,9,NULL,1,21),(117,1,33,9,NULL,3,28),(118,1,33,9,NULL,3,29),(119,1,33,9,NULL,3,32),(120,1,33,9,NULL,5,40),(121,1,33,9,NULL,5,41),(122,1,33,9,NULL,5,42),(123,1,33,9,NULL,5,43);
 
 /*Table structure for table `estado_documento` */
 
@@ -280,8 +278,6 @@ CREATE TABLE `faena` (
 
 /*Data for the table `faena` */
 
-insert  into `faena`(`faeIdFaenas`,`consIdConstructora`,`dirIdDireccion`,`faeEstado`,`faeFechaCreacion`,`faeFechaInicio`,`faeFechaTermino`,`faeIdFaenaPadre`,`faeNombre`,`faeResponsable`,`faeTelefono`,`activo`) values (1,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'faena 1','responsable','22222','S'),(2,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'faena 2','qqweqw','2323','S'),(3,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'faena 3','res','22','S');
-
 /*Table structure for table `faenasxcontratista` */
 
 DROP TABLE IF EXISTS `faenasxcontratista`;
@@ -296,8 +292,6 @@ CREATE TABLE `faenasxcontratista` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `faenasxcontratista` */
-
-insert  into `faenasxcontratista`(`id`,`fxcIdContratistaPadre`,`id_faena`,`fxcEstado`,`bloqueada`) values (1,1,1,NULL,0),(2,1,2,NULL,0),(3,4,2,NULL,0),(4,5,1,NULL,0);
 
 /*Table structure for table `isapre` */
 
@@ -492,6 +486,7 @@ CREATE TABLE `trabajador` (
   `dirIdDireccion` int(11) DEFAULT NULL,
   `trbPactoIsapre` varchar(100) DEFAULT NULL,
   `isaIdIsapre` int(11) DEFAULT NULL,
+  `nacionalidad` varchar(100) DEFAULT NULL,
   `nacIdNacionalidad` int(11) DEFAULT NULL,
   `tgrlIdCargoContractual` int(11) DEFAULT NULL,
   `tgrlIdOficioCab` int(11) DEFAULT NULL,
@@ -530,11 +525,11 @@ CREATE TABLE `trabajador` (
   `idSupervisor` int(11) DEFAULT NULL,
   `activo` char(1) DEFAULT NULL,
   KEY `trbIdTrabajador` (`trbIdTrabajador`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 /*Data for the table `trabajador` */
 
-insert  into `trabajador`(`trbIdTrabajador`,`afpIdAfp`,`comIdComuna`,`ctrIdContratista`,`dirIdDireccion`,`trbPactoIsapre`,`isaIdIsapre`,`nacIdNacionalidad`,`tgrlIdCargoContractual`,`tgrlIdOficioCab`,`tgrlIdOficioDet`,`tgrlIdTipoContrato`,`tjorIdTipoJornada`,`trbAfectoArt22`,`trbAntiguedadMeses`,`trbApMaterno`,`trbApPaterno`,`trbCeco`,`trbDireccion`,`idRegion`,`idCiudad`,`idComuna`,`trbEstado`,`trbFechaDesvinculado`,`trbFechaContrato`,`trbFechaCreacion`,`trbFechaModificacion`,`trbFechaNac`,`trbHorasSemanales`,`trbIngresoObraFecha`,`trbNombre`,`trbPensionado`,`trbPerteneceSindicato`,`trbRut`,`trbRutJefe`,`trbSeguroCesantia`,`trbSexo`,`trbTelefono`,`trbTitulo`,`trbUsuarioCreacion`,`trbUsuarioModificacion`,`trbVisa`,`idSupervisor`,`activo`) values (24,1,0,1,0,'UF',1,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'trabajador 2','trabajador 2',NULL,'Calle de prueba 1',4,1,1,NULL,NULL,'2014-06-25',NULL,NULL,'0000-00-00',NULL,NULL,'trabajador 2',NULL,NULL,'228214302',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'S'),(25,1,1,1,NULL,NULL,2,0,0,NULL,NULL,NULL,NULL,'si',NULL,'veliz','lopez',NULL,'filipo',4,1,1,NULL,NULL,'0000-00-00',NULL,NULL,'0000-00-00',NULL,NULL,'carolina','no',NULL,'17029678-8',NULL,'si','femino','61217976',NULL,NULL,NULL,NULL,NULL,'S'),(26,NULL,NULL,8,NULL,NULL,1,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,'ortiz','charles',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,NULL,NULL,NULL,'lucas',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'S'),(27,NULL,NULL,8,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'lucas','lucas',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'lucas',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'S'),(28,NULL,NULL,8,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'otro','otro',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'otro',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'S'),(29,NULL,NULL,8,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'uno','uno',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'uno',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'S'),(30,NULL,NULL,8,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'xx','x',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'xx',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'S'),(31,NULL,NULL,8,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Z','Z',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'zzzZz',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'S'),(32,NULL,NULL,8,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pedro','pedro',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'pedro',NULL,NULL,'12345678',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'S');
+insert  into `trabajador`(`trbIdTrabajador`,`afpIdAfp`,`comIdComuna`,`ctrIdContratista`,`dirIdDireccion`,`trbPactoIsapre`,`isaIdIsapre`,`nacionalidad`,`nacIdNacionalidad`,`tgrlIdCargoContractual`,`tgrlIdOficioCab`,`tgrlIdOficioDet`,`tgrlIdTipoContrato`,`tjorIdTipoJornada`,`trbAfectoArt22`,`trbAntiguedadMeses`,`trbApMaterno`,`trbApPaterno`,`trbCeco`,`trbDireccion`,`idRegion`,`idCiudad`,`idComuna`,`trbEstado`,`trbFechaDesvinculado`,`trbFechaContrato`,`trbFechaCreacion`,`trbFechaModificacion`,`trbFechaNac`,`trbHorasSemanales`,`trbIngresoObraFecha`,`trbNombre`,`trbPensionado`,`trbPerteneceSindicato`,`trbRut`,`trbRutJefe`,`trbSeguroCesantia`,`trbSexo`,`trbTelefono`,`trbTitulo`,`trbUsuarioCreacion`,`trbUsuarioModificacion`,`trbVisa`,`idSupervisor`,`activo`) values (33,1,NULL,9,NULL,'2',2,'argentina',NULL,1,NULL,NULL,NULL,NULL,'1',NULL,'materno 1','paterno 1',NULL,'direccion 1',NULL,NULL,NULL,NULL,NULL,'2010-01-23',NULL,NULL,'0000-00-00',NULL,NULL,'nombre 1','1',NULL,'228214302',NULL,'1','1','22222',NULL,NULL,NULL,NULL,1,'S');
 
 /*Table structure for table `trabajadorxfaena` */
 
@@ -549,8 +544,6 @@ CREATE TABLE `trabajadorxfaena` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `trabajadorxfaena` */
-
-insert  into `trabajadorxfaena`(`id`,`txf_id_trabajador`,`txf_id_faena`,`txfEstado`) values (1,24,1,NULL);
 
 /*Table structure for table `usuario` */
 

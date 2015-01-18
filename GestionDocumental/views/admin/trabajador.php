@@ -44,7 +44,7 @@
 								$selected = "";
 								if($_SESSION["f_ctrIdContratista"] == $rs["ctrIdContratista"])$selected = "selected='selected'";
 						    ?>
-							   <option value="<?=$rs["ctrIdContratista"]?>" > <? echo($rs["ctrNombreFantasia"]); ?> </option>
+							   <option value="<?=$rs["ctrIdContratista"]?>" > <? echo($rs["ctrRazonSocial"]); ?> </option>
 							<?
 							  }
 				    		?>
