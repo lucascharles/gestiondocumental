@@ -30,9 +30,9 @@ include("views/cabecera_listado.php");
         <td align="left" width="10%"><?=($rs["fec_alta"]=="0000-00-00") ? "" : formatoFecha($rs["fec_alta"],"yyyy-mm-dd","dd/mm/yyyy"); ?></td> 
 		<td align="left" width="10%"><?php echo (utf8_decode($rs["contratista"])) ?></td>    
 		<td align="left" width="15%">
-      	<img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
-        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["trbIdTrabajador"]) ?>)" />
-        <img src="images/permisos.png" title="Documentos" class="oplistado" onclick="window.parent.documentosTrabajador('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>,<?echo($id_f)?>,<?echo($id_c)?>)" />
+      	<img src="images/editar.gif" title="Editar" class="oplistado" onclick="editarRegistro('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="abrirVentanaConfirmacion(<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        <img src="images/permisos.png" title="Documentos" class="oplistado" onclick="documentosTrabajador('<?=$controller?>',<?=$rs["trbIdTrabajador"]?>,<?=$id_c?>)" />
         </td>
 	</tr>
     <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($rs["id"]) ?>">
