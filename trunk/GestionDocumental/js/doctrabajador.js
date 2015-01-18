@@ -38,3 +38,7 @@ function mostrar()
 	$("#frmitemsadmin").load(url);
 }
 
+function volverDocContratista(op,id)
+{
+	window.location = "index.php?controlador="+op+"&accion=admin&id="+id;
+}
