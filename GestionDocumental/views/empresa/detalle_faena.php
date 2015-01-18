@@ -2,7 +2,7 @@
 include("views/cabecera_front.php");
 include("views/menu_front.php");
 
-$titulo_form = "Detalle Faena";
+$titulo_form = "Documentos de los trabajadores";
 $id= $ctrIdContratista;
 while($rs=mysql_fetch_array($idsql_tip_doc_aux))
 {
@@ -27,7 +27,7 @@ while($rs=mysql_fetch_array($idsql_tip_doc_aux))
 		<th align="left" colspan="3" height="15"> </th>
     </tr>
     <tr>
-    	<td align="left" class="etiqueta_form" colspan="2">Faena:&nbsp;<?=$datoFaena["faeNombre"]?></td>
+    	<!-- <td align="left" class="etiqueta_form" colspan="2">Faena:&nbsp;<?=$datoFaena["faeNombre"]?></td>  -->
         <td align="right" class="etiqueta_form" colspan="1">
 		<table>
          	<tr>

@@ -13,7 +13,7 @@ include("views/cabecera_listado.php");
 <!-- 	    <th align="left" width="">Antecedentes Laborales</th> -->
 		<th align="left" width="">Remuneraciones</th>
 <!-- 		<th align="left" width="">Certificacion de la Agencia</th> -->
-<!-- 		<th align="left" width="">Pagos Previsionales</th> -->
+ 		<th align="left" width="">Planilla de Pagos</th>
         <th align="left" width=""></th>
     </tr>
 	<?php
@@ -66,6 +66,7 @@ include("views/cabecera_listado.php");
 		        ?>
         		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>
+-->        
          <td align="left" width="10%">
 		        <? 
 		        	if($rs["tipo5"] == 1) $icono = "images/alerta.png";
@@ -75,7 +76,7 @@ include("views/cabecera_listado.php");
 		        ?>
        		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>
--->   
+   
 	</tr>
    <tr bgcolor="#FFFFFF" id="fila_sep_<?=$rs["ctrIdContratista"]?>">
     	<td colspan="10" style="border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC; "></td>

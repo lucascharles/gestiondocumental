@@ -21,6 +21,8 @@ class TrabajadorController extends ControllerBase
 		{
 			$destino = "empresa/";
 			$param["id_empresa"] = $_SESSION["idempresa"];
+// 			$data['result'] = $faenas->getListaFaenas($param);
+			$data['result'] = $dato->getListaContratistas($param);	
 			//$data['result'] = $faenas->getListaFaenas($param);	
 		}
 		else
@@ -86,6 +88,7 @@ class TrabajadorController extends ControllerBase
 		require 'models/ComunasModel.php';
 		require 'models/IsapresModel.php';
 		require 'models/AfpModel.php';
+		require 'models/SupervisoresModel.php';
 		require 'models/TrabajadorModel.php';
 		
 		$datocons = new ConstructoraModel();
@@ -98,6 +101,7 @@ class TrabajadorController extends ControllerBase
 		$comunas = new ComunasModel();
 		$afps = new AfpModel();
 		$isapres = new IsapresModel();
+		$supervisores = new SupervisoresModel();
 		
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
@@ -118,6 +122,7 @@ class TrabajadorController extends ControllerBase
 		$rs = mysql_fetch_array($idsql);
 		$data['contratistas'] = $datoc->getListaContratistas(array("consIdConstructora"=>$rs["consIdConstructora"]));
 		$data['idsql_cargo'] = $trabajador->getListaCargos();
+		$data['supervisores'] = $supervisores->getListaSupervisores($array);
 		
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
@@ -135,6 +140,7 @@ class TrabajadorController extends ControllerBase
 		require 'models/IsapresModel.php';
 		require 'models/AfpModel.php';
 		require 'models/TrabajadorModel.php';
+		require 'models/SupervisoresModel.php';
 		
 		$datoc = new ContratistaModel();
 		$datocons = new ConstructoraModel();
@@ -145,6 +151,7 @@ class TrabajadorController extends ControllerBase
 		$afps = new AfpModel();
 		$isapres = new IsapresModel();
 		$trabajador = new TrabajadorModel();
+		$supervisores = new SupervisoresModel();
 						
 		$data['contratistas'] = $datoc->getListaContratistas($param);
 		$data['faenas'] = $datof->getListaFaenas($param);
@@ -165,6 +172,7 @@ class TrabajadorController extends ControllerBase
 		$data['contratistas'] = $datoc->getListaContratistas(array("consIdConstructora"=>$rs_cont["consIdConstructora"]));
 		$data['idsql_empresa'] = $datocons->getListaConstructora();
 		$data['idsql_cargo'] = $trabajador->getListaCargos();
+		$data['supervisores'] = $supervisores->getListaSupervisores($array);
 		
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];

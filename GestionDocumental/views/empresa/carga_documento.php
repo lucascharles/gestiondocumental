@@ -72,7 +72,7 @@ if(isset($_SESSION["bloqueo"]))
 			?>
             
             <? 
-			if($rs_sub_doc["orden"]==9||$rs_sub_doc["orden"]==10||$rs_sub_doc["orden"]==11) 
+			<? if($rs_sub_doc["id"]==28||$rs_sub_doc["id"]==9||$rs_sub_doc["id"]==10||$rs_sub_doc["id"]==11) {?> 
 			{
 			?>
 	        <tr>
@@ -109,6 +109,16 @@ if(isset($_SESSION["bloqueo"]))
         		<tr>
             	<th colspan="5">Documentos</th>
             	</tr>
+                <tr bgcolor="#A9A9A9">
+                	<td></td>
+                    <td>Nombre</td>
+                    <td>Estado</td>
+                    <td>Observaciones</td>
+                    <td align="right>Archivo</td>
+                    <td align="center"></td>
+                    
+                </tr>
+            	
             	<?
 				if($idsql_doc > '')
 				{
@@ -119,6 +129,7 @@ if(isset($_SESSION["bloqueo"]))
                 	<td></td>
                     <td><?=$rs["doctNombreArchivo"]?></td>
                     <td><?=$rs["estado_documento"]?></td>
+                    <td><?=$rs["nota"]?></td>
                     <td align="right"><a href="docvarios/<?=$id_c."_docs_".$id_f."/".$rs["doctNombreEncrip"]?>" target="_blank"><?=$rs["NombreOriginal"]?></a></td>
                     <td align="center">
                     </td>

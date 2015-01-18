@@ -42,7 +42,11 @@ class DashboardModel extends ModelBase
 		$sql .= " COALESCE(tipo3.estado, 1) AS tipo3, ";
 		$sql .= " COALESCE(tipo4.estado, 1) AS tipo4, ";
 	    $sql .= " COALESCE(tipo5.estado, 1) AS tipo5 ";
-		$sql .= " FROM (SELECT cont.ctrIdContratista,cont.ctrRazonSocial , cont.ctrRut , cont.ctrNombreFantasia, cons.consNombreFantasia FROM contratista cont,constructora cons WHERE cont.consIdConstructora = cons.consIdConstructora) AS pivot ";
+		$sql .= " FROM (SELECT cont.ctrIdContratista,cont.ctrRazonSocial , cont.ctrRut , cont.ctrNombreFantasia, cons.consNombreFantasia FROM contratista cont,constructora cons WHERE cont.consIdConstructora = cons.consIdConstructora ";
+		if($array["id_empresa"] != ""){
+			$sql .= " AND cons.consIdConstructora = ".$array["id_empresa"];
+		}
+		$sql .= " ) AS pivot ";
 		$sql .= " LEFT JOIN ";
 		$sql .= " ( ";
 		$sql .= " 	SELECT c.ctrIdContratista ,c.ctrRazonSocial , c.ctrRut ";

@@ -25,19 +25,19 @@
     	<td colspan="3" align="left">
         	<table width="100%" border="0" cellpadding="0" cellspacing="3" align="left" id="buscador">
 		        <tr>
-					<td colspan="1" align="right" width="50"  class="etiqueta_form">Faena&nbsp;</td>
+					<td colspan="1" align="right" width="50"  class="etiqueta_form">Agencia&nbsp;</td>
                     <td colspan="2" align="left" class="etiqueta_form">
                     
-                    	<select name="id_faena" id="id_faena" filtro="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="mostrar(); refrescarAdmin('<?=$controller?>');" tabindex="0">
+                    	<select name="crtIdContratista" id="crtIdContratista" filtro="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="mostrar(); tabindex="0">
                         	<option></option>
 				   			<?
 				   			while($rs=mysql_fetch_array($result))
 							{
-								if(!$_SESSION["f_id_faena"]>0) $_SESSION["f_id_faena"] = $rs["id"];
+								if(!$_SESSION["ctrIdContratista"]>0) $_SESSION["ctrIdContratista"] = $rs["ctrIdContratista"];
 								$selected = "";
-								if($_SESSION["f_id_faena"] == $rs["id"])$selected = "selected='selected'";
+								if($_SESSION["ctrIdContratista"] == $rs["ctrIdContratista"])$selected = "selected='selected'";
 						    ?>
-							   <option value="<?=$rs["id"]?>" <?=$selected?>> <? echo($rs["faeNombre"]); ?> </option>
+							   <option value="<?=$rs["ctrIdContratista"]?>" <?=$selected?>> <? echo($rs["ctrNombreFantasia"]); ?> </option>
 							<?
 							  }
 				    		?>

@@ -100,6 +100,31 @@
                               </li>
 						<?php } ?>	
 							<? if($_SESSION["tip_usuario"] <> "E"){ ?>
+ 
+								<li>
+								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
+									<tr>
+									<td align="center" valign="middle" width="10" height="25" class="">
+									  </td>
+									 <td align="center" valign="middle"  height="25" class="">
+								
+									  <div class="principal" onClick="cargarOpcion('Imprimir')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
+									  <table>
+												<tr><td align="center">
+									  <img src="images/impresora.png" class="btn_menu" />
+									  </td></tr>
+												  <tr><td align="center">
+												Impresion de Documentos
+												</td></tr>
+											  </table>
+									  </div>
+										</td>
+								  </tr>
+								  </table>
+								  </li>
+							<?php }?>
+							<? if($_SESSION["tip_usuario"] <> "E"){ ?>
+<!--  
 								<li>
 								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 									<tr>
@@ -121,8 +146,10 @@
 								  </tr>
 								  </table>
 								  </li>
+-->
 							<?php }?>
-
+							
+							
 							<li>
 								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
 									<tr>

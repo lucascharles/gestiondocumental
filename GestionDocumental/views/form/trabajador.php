@@ -239,8 +239,25 @@
 	   </td>
 	   <td align="left" class="etiqueta_form" > </td>
 	   </tr>
-
-	   <tr>
+    <tr> 	
+	    <td align="right" class="etiqueta_form">Supervisor:</td>
+		   <td align="left" class="etiqueta_form" colspan="1">
+		   <select name="idSupervisor" id="idSupervisor" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+				<option value="">Seleccion</option>
+		   			<?
+		   			while($rs=mysql_fetch_array($supervisores))
+					{
+				    ?>
+				<option value="<?=$rs["idSupervisor"]?>" > <? echo($rs["supNombre"]); ?> </option>
+					<?
+					  }
+		    		?>
+		   </select>
+		   </td>
+		<td align="left" class="etiqueta_form" > </td>
+	</tr>
+	   
+	<tr>
     <tr> 	
     <td align="right" class="etiqueta_form">Agencia:</td>
 	   <td align="left" class="etiqueta_form" colspan="1">
