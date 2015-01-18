@@ -94,5 +94,17 @@ class DocumentoController extends ControllerBase
 		
 		$this->view->show("person/carga_doc_empresa.php", $data);
 	}
+	
+	public function get_combo_subtipo_documento($param)
+	{
+		require 'models/DocumentoModel.php';
+		$doc = new DocumentoModel();
+		
+		$result = $doc->get_combo_subtipo_documento($param);
+		
+		echo($result);
+	
+	}
+	
 }
 ?>
