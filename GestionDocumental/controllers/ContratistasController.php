@@ -45,7 +45,7 @@ class ContratistasController extends ControllerBase
 		$data['tipop'] = "A";
 		
 		$dato = new ConstructoraModel();
-		$data['constructoras'] = $dato->getListaConstructora("");
+		$data['constructoras'] = $dato->getListaConstructora();
 		
 		$data['arrayscriptJs'] = array("usuario_form.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
@@ -91,6 +91,14 @@ class ContratistasController extends ControllerBase
 		redir("index.php?controlador=".$array["controlador"]."&accion=admin");
 	}
 	
-
+	public function get_combo($param)
+	{
+		require 'models/ContratistaModel.php';
+		$dato = new ContratistaModel();
+		
+		$result = $dato->get_combo_contratistas($param);
+		
+		echo($result);
+	}
 }
 ?>
