@@ -187,3 +187,56 @@ $(document).ready(function()
 		}
 	});
 });
+
+function llenarFiltro(obj, obj_to, op)
+{
+	if($.trim($(obj).val()) == "")
+	{
+		return false;
+	}
+	
+	
+	var datos = "";
+	if(op=="EMPRESA_AGENCIA")
+	{
+		datos += "controlador=Contratistas&accion=get_combo";
+		datos += "&consIdConstructora="+$.trim($(obj).val());
+	}
+	
+	if(op=="REGION_CIUDAD")
+	{
+		datos += "controlador=Direccion&accion=get_combo_ciudad";
+		datos += "&idRegion="+$.trim($(obj).val());
+	}
+	
+	
+	if(op=="CIUDAD_COMUNA")
+	{
+		datos += "controlador=Direccion&accion=get_combo_comuna";
+		datos += "&idCiudad="+$.trim($(obj).val());
+	}
+	
+		
+	$.ajax({
+		url: "index.php",
+		data: datos,
+		cache: false,
+		success: function(res)
+		{
+			
+			$(obj_to).find('option').remove();
+			$(obj_to).html(res);
+			obj_to.selectedIndex = 0;
+			
+			if($(obj).attr("filtro")=="S") mostrar();
+		},
+		error: function(){
+				alert("Ha ocurrido un error (Recuperar Servicios).");
+		}
+	});
+}
+
+function limpiarDendencia(obj)
+{
+	$(obj).find('option').remove();
+}
