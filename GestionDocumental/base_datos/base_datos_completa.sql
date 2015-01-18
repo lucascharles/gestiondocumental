@@ -2,8 +2,7 @@
 SQLyog Ultimate v9.63 
 MySQL - 5.5.40-0ubuntu0.12.04.1 : Database - gestion_documental
 *********************************************************************
-*/
-
+*/ 
 /*!40101 SET NAMES utf8 */;
 
 /*!40101 SET SQL_MODE=''*/;
@@ -13,6 +12,126 @@ MySQL - 5.5.40-0ubuntu0.12.04.1 : Database - gestion_documental
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 /*Table structure for table `afp` */
+
+-- 
+-- Estructura de tabla para la tabla `cargo_contractual`
+-- 
+
+DROP TABLE IF EXISTS `cargo_contractual`;
+CREATE TABLE `cargo_contractual` (
+  `id` int(11) NOT NULL auto_increment,
+  `descripcion` varchar(200) character set latin1 collate latin1_spanish_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- 
+-- Volcar la base de datos para la tabla `cargo_contractual`
+-- 
+
+INSERT INTO `cargo_contractual` VALUES (1, 'JEFE ELECTRICIDAD');
+INSERT INTO `cargo_contractual` VALUES (2, 'JEFE PLOMERIA');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `comunas`
+-- 
+
+DROP TABLE IF EXISTS `comunas`;
+CREATE TABLE `comunas` (
+  `idComuna` int(11) NOT NULL auto_increment,
+  `comuna` varchar(100) default NULL,
+  `idCiudad` int(11) default NULL,
+  `activo` varchar(1) default NULL,
+  PRIMARY KEY  (`idComuna`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- 
+-- Volcar la base de datos para la tabla `comunas`
+-- 
+
+INSERT INTO `comunas` VALUES (1, 'Santiago', 1, 'S');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `isapre_pacto`
+-- 
+
+DROP TABLE IF EXISTS `isapre_pacto`;
+CREATE TABLE `isapre_pacto` (
+  `id` int(11) NOT NULL auto_increment,
+  `descripcion` varchar(300) character set latin1 collate latin1_spanish_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- Volcar la base de datos para la tabla `isapre_pacto`
+-- 
+
+INSERT INTO `isapre_pacto` VALUES (1, 'UF');
+INSERT INTO `isapre_pacto` VALUES (2, 'PESOS');
+INSERT INTO `isapre_pacto` VALUES (3, 'USD');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `trabajador`
+-- 
+
+DROP TABLE IF EXISTS `trabajador`;
+CREATE TABLE `trabajador` (
+  `trbIdTrabajador` int(11) NOT NULL auto_increment,
+  `afpIdAfp` int(11) default NULL,
+  `comIdComuna` int(11) default NULL,
+  `ctrIdContratista` int(11) default NULL,
+  `dirIdDireccion` int(11) default NULL,
+  `trbPactoIsapre` int(11) default NULL,
+  `isaIdIsapre` int(11) default NULL,
+  `nacionalidad` varchar(200) character set latin1 collate latin1_spanish_ci default NULL,
+  `tgrlIdCargoContractual` int(11) default NULL,
+  `tgrlIdOficioCab` int(11) default NULL,
+  `tgrlIdOficioDet` int(11) default NULL,
+  `tgrlIdTipoContrato` int(11) default NULL,
+  `tjorIdTipoJornada` int(11) default NULL,
+  `trbAfectoArt22` varchar(100) default NULL,
+  `trbAntiguedadMeses` int(11) default NULL,
+  `trbApMaterno` varchar(100) default NULL,
+  `trbApPaterno` varchar(100) default NULL,
+  `trbCeco` varchar(100) default NULL,
+  `trbDireccion` varchar(100) default NULL,
+  `idRegion` int(11) default NULL,
+  `idCiudad` int(11) default NULL,
+  `idComuna` int(11) default NULL,
+  `trbEstado` varchar(100) default NULL,
+  `trbFechaDesvinculado` date default NULL,
+  `trbFechaContrato` date default NULL,
+  `trbFechaCreacion` date default NULL,
+  `trbFechaModificacion` date default NULL,
+  `trbFechaNac` date default NULL,
+  `trbHorasSemanales` int(11) default NULL,
+  `trbIngresoObraFecha` date default NULL,
+  `trbNombre` varchar(100) default NULL,
+  `trbPensionado` varchar(100) default NULL,
+  `trbPerteneceSindicato` varchar(100) default NULL,
+  `trbRut` varchar(100) default NULL,
+  `trbRutJefe` varchar(100) default NULL,
+  `trbSeguroCesantia` varchar(100) default NULL,
+  `trbSexo` int(11) default NULL,
+  `trbTelefono` varchar(100) default NULL,
+  `trbTitulo` varchar(100) default NULL,
+  `trbUsuarioCreacion` varchar(100) default NULL,
+  `trbUsuarioModificacion` varchar(100) default NULL,
+  `trbVisa` varchar(100) default NULL,
+  `activo` char(1) default NULL,
+  KEY `trbIdTrabajador` (`trbIdTrabajador`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+
+-- 
+-- Volcar la base de datos para la tabla `trabajador`
+-- 
+
+INSERT INTO `trabajador` VALUES (24, 2, 0, 1, 0, 1, 1, 'CHILENO', 2, NULL, NULL, NULL, NULL, '2', NULL, 'trabajador 2', 'trabajador 2', NULL, 'Calle de prueba 155', 4, 1, 1, NULL, '2015-01-20', '2015-01-23', NULL, NULL, '2015-01-13', NULL, NULL, 'trabajador 2', '1', NULL, '46545554', NULL, '2', 2, '54654522222', NULL, NULL, NULL, NULL, 'S');
 
 DROP TABLE IF EXISTS `afp`;
 
@@ -54,7 +173,7 @@ CREATE TABLE `ciudades` (
   `idRegion` int(11) DEFAULT NULL,
   `activo` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idCiudad`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ciudades` */
 
@@ -70,7 +189,7 @@ CREATE TABLE `comunas` (
   `idRegion` int(11) DEFAULT NULL,
   `activo` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idComuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `comunas` */
 
@@ -238,7 +357,7 @@ CREATE TABLE `estadodocumentos` (
   `idEstadoDocumento` int(11) NOT NULL AUTO_INCREMENT,
   `estadoDocumento` varchar(50) DEFAULT NULL,
   KEY `idEstadoDocumento` (`idEstadoDocumento`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `estadodocumentos` */
 
@@ -355,7 +474,7 @@ CREATE TABLE `regiones` (
   `region` varchar(100) NOT NULL,
   `activo` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`idRegion`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `regiones` */
 
