@@ -183,7 +183,7 @@ class DocumentoModel extends ModelBase
 		$sql .= "   AND dt.id_contratista = ".$param["id_contratista"];
 		$sql .= "   GROUP BY dt.id_sub_tipodocumento";
 		
-//  		echo($sql);
+ 		echo($sql);
 		//exit();
 		$idsql = consulta($sql);
 		

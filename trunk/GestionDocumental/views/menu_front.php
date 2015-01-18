@@ -10,7 +10,7 @@
     	<td>
         	<ul id="nav">
             	<li>
-			<div class="principal" onClick="cargarOpcion('TrabajadoresControl')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">Trabajadores</div>
+			<div class="principal" onClick="cargarOpcion('Trabajador')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">Trabajadores</div>
             </li>
             </ul>
 		</td>

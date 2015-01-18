@@ -113,7 +113,7 @@ class TrabajadorController extends ControllerBase
 		$data['faenas'] = $datof->getListaFaenas($param);
 		$data['regiones'] = $regiones->getListaRegiones($param);
 		$data['ciudades'] = $ciudades->getListaCiudades($param);
-		$data['comunas'] = $comunas->getListaComunas($$array);
+		$data['comunas'] = $comunas->getListaComunas($param);
 		$data['isapres'] = $isapres->getListaIsapres($param);
 		$data['idsql_pactoisapres'] = $isapres->getListaPactoIsapres($param);
 		$data['afps'] = $afps->getListaAfp($param);
@@ -122,7 +122,7 @@ class TrabajadorController extends ControllerBase
 		$rs = mysql_fetch_array($idsql);
 		$data['contratistas'] = $datoc->getListaContratistas(array("consIdConstructora"=>$rs["consIdConstructora"]));
 		$data['idsql_cargo'] = $trabajador->getListaCargos();
-		$data['supervisores'] = $supervisores->getListaSupervisores($array);
+		$data['supervisores'] = $supervisores->getListaSupervisores($param);
 		
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";

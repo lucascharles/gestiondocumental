@@ -57,8 +57,8 @@ class TrabajadorModel extends ModelBase
 		
 		$sql .= ", activo = 'S'";
 		$sql .= $sql_where;
-		//echo("<br>SQL: ".$sql);
-		//exit();
+// 		echo("<br>SQL: ".$sql);
+// 		exit();
 		consulta($sql);
 		
 		if($param["tipop"] == "A")
@@ -92,13 +92,12 @@ class TrabajadorModel extends ModelBase
 	{
 		$sql = " SELECT t.*,r.idRegion, r.region, c.idCiudad, c.ciudad, co.idComuna, co.comuna ";
 		$sql .= " ,a.afpIdAfp, a.afpNombre, i.isaIdIsapre, i.isaIsapre ";
-		$sql .= " FROM trabajador t LEFT JOIN regiones r ON t.idRegion = r.idRegion ";
-		$sql .= " 		LEFT JOIN ciudades c ON t.idCiudad = c.idCiudad ";
-		$sql .= " 		LEFT JOIN comunas co ON t.idComuna = co.idComuna ";
-		$sql .= " 		LEFT JOIN afp a ON t.afpIdAfp = a.afpIdAfp ";
-		$sql .= " 		LEFT JOIN isapre i ON t.isaIdIsapre = i.isaIdIsapre ";
+		$sql .= " FROM trabajador t LEFT JOIN regiones r ON t.idRegion = r.idRegion AND r.activo = 'S'";
+		$sql .= " 		LEFT JOIN ciudades c ON t.idCiudad = c.idCiudad AND c.activo = 'S'";
+		$sql .= " 		LEFT JOIN comunas co ON t.idComuna = co.idComuna AND co.activo = 'S' ";
+		$sql .= " 		LEFT JOIN afp a ON t.afpIdAfp = a.afpIdAfp AND a.activo = 'S' ";
+		$sql .= " 		LEFT JOIN isapre i ON t.isaIdIsapre = i.isaIdIsapre AND i.activo = 'S' ";
 		$sql .= " WHERE t.activo = 'S' ";
-		$sql .= " AND r.activo = 'S' AND c.activo = 'S' AND co.activo = 'S' AND a.activo ='S' AND i.activo = 'S' ";
 		$sql .= " AND t.trbIdTrabajador = ".$array["id"];
 
 // 		echo($sql);
@@ -112,9 +111,9 @@ class TrabajadorModel extends ModelBase
 	{
 		include("config.php");
 		
-		$sql = " SELECT trbIdTrabajador, trbNombre, trbApPaterno, trbRut ";
-		$sql .= " FROM trabajador t ";
-		$sql .= " WHERE t.activo = 'S' ";
+			$sql = " SELECT a.afpNombre afp, c.ctrRazonSocial contratista, t.* ";
+			$sql .= " FROM contratista c, trabajador t LEFT JOIN afp a ON t.afpIdAfp = a.afpIdAfp ";
+			$sql .= " WHERE c.ctrIdContratista = t.ctrIdContratista AND t.activo = 'S' ";
 		
 		if(trim($array["trbNombre"]) <> "")
 		{
@@ -129,6 +128,10 @@ class TrabajadorModel extends ModelBase
 		if(trim($array["ctrIdContratista"]) <> "")
 		{
 			$sql .= " and t.ctrIdContratista = ".trim($array["ctrIdContratista"]);
+		}
+		else
+		{
+			$sql .= " and t.ctrIdContratista = 0 ";
 		}
 		
 		

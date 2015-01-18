@@ -28,7 +28,7 @@
 					<td colspan="1" align="right" width="50"  class="etiqueta_form">Agencia&nbsp;</td>
                     <td colspan="2" align="left" class="etiqueta_form">
                     
-                    	<select name="crtIdContratista" id="crtIdContratista" filtro="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="mostrar(); tabindex="0">
+                    	<select name="ctrIdContratista" id="ctrIdContratista" filtro="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="mostrar();" tabindex="0">
                         	<option></option>
 				   			<?
 				   			while($rs=mysql_fetch_array($result))
