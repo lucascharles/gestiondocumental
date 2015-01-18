@@ -29,11 +29,45 @@ class ComunasModel extends ModelBase
 		$sql .= " WHERE c.activo = 'S' ";
 		$sql .= " ORDER BY c.comuna ";
 
+		if($param["idCiudad"] > 0)
+		{
+			$sql .= " AND c.idCiudad = ".$param["idCiudad"];
+		}
+
 		$result = consulta($sql);
 		
     	return $result;	
 	}
 	
+	public function get_combo_comuna($param)
+	{
+		include("config.php");
+		
+		$sql = " SELECT c.idComuna 	, c.comuna ";
+		$sql .= " FROM comunas c ";
+		$sql .= " WHERE c.activo = 'S' ";
+		
+	
+		if(trim($param["idCiudad"]) <> "")
+		{
+			$sql .= " and c.idCiudad = ".$param["idCiudad"];
+		}
+		
+		$sql .= " ORDER BY c.comuna ";
+		
+// 		echo($sql);
+// 		exit;
+		
+		$idsql = consulta($sql);
+		$html_combo = "";
+		$html_combo .= "<option value=''></option> ";
+		while($rs=mysql_fetch_array($idsql))
+		{
+			$html_combo .= "<option value='".$rs["idComuna"]."'>".utf8_encode($rs["comuna"])." </option> ";
+		}
+				
+    	return $html_combo;	
+	}
 
 }
 ?>
