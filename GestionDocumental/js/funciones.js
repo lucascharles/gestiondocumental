@@ -195,7 +195,6 @@ function llenarFiltro(obj, obj_to, op)
 		return false;
 	}
 	
-	
 	var datos = "";
 	if(op=="EMPRESA_AGENCIA")
 	{
@@ -209,13 +208,17 @@ function llenarFiltro(obj, obj_to, op)
 		datos += "&idRegion="+$.trim($(obj).val());
 	}
 	
-	
 	if(op=="CIUDAD_COMUNA")
 	{
 		datos += "controlador=Direccion&accion=get_combo_comuna";
 		datos += "&idCiudad="+$.trim($(obj).val());
 	}
 	
+	if(op=="TIPODOC_SUTIPODOC")
+	{
+		datos += "controlador=Documento&accion=get_combo_subtipo_documento";
+		datos += "&idCiudad="+$.trim($(obj).val());
+	}
 		
 	$.ajax({
 		url: "index.php",
