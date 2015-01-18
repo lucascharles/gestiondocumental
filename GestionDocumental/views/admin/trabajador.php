@@ -1,18 +1,12 @@
 <? 	include("views/cabecera.php"); 
  	include("views/menu.php"); 
- 
  	$label = "Trabajador";
-
 	$titulo_form = "Administrar Trabajadores";
-
 	include("views/popup_confirmacion.php"); 
-		
- ?>
-<form name="frmusuario">
+?>
+<form name="frm<?=$controller?>">
 <input type="hidden" name="controller" id="controller" value="<?=$controller?>" />
 <input type="hidden" name="id_reg" id="id_reg" value="" />
-<input type="hidden" name="inicio" id="inicio" value="<? echo($ini) ?>" filtro="S" />
-<input type="hidden" name="inicio_pag" id="inicio_pag" value="<? echo($ini_pag) ?>" filtro="S" />
 <table  align="center" width="100%" border="0" cellpadding="0" cellspacing="0" id="formulario">
 	<tr>
 		<th align="left" colspan="3"><? echo($titulo_form) ?></th>
@@ -20,19 +14,35 @@
     <tr>
 		<td align="left" height="2" colspan="3"></td>
     </tr>
-    
     <tr>
     	<td colspan="3" align="left">
         	<table width="100%" border="0" cellpadding="0" cellspacing="3" align="left" id="buscador">
-		        <tr>
-					<td colspan="1" align="right" width="50"  class="etiqueta_form">**Agencia&nbsp;</td>
+            <tr>
+					<td colspan="1" align="right" width="50"  class="etiqueta_form">Empresa</td>
                     <td colspan="2" align="left" class="etiqueta_form">
-                    <!-- <input type="text" name="contratista" id="contratista"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/> -->
-                    	<select name="ctrIdContratista" id="ctrIdContratista" filtro ="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="mostrar()">
-								<option value="">Seleccion</option>
+                     <select name="consIdConstructora" id="consIdConstructora" filtro ="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="llenarFiltro(this,document.getElementById('ctrIdContratista'),'EMPRESA_AGENCIA');" >
+				   			<?
+				   			while($rs=mysql_fetch_array($idsql_empresa))
+							{
+								$selected = "";
+								if($_SESSION["f_consIdConstructora"] == $rs["consIdConstructora"])$selected = "selected='selected'";
+						    ?>
+							   <option value="<?=$rs["consIdConstructora"]?>" <?=$selected?> > <?=$rs["consRazonSocial"]?> </option>
+							<?
+							  }
+				    		?>
+            			</select>
+                    </td>
+			    </tr>
+		        <tr>
+					<td colspan="1" align="right" width="50"  class="etiqueta_form">Agencia&nbsp;</td>
+                    <td colspan="2" align="left" class="etiqueta_form">
+                                   	<select name="ctrIdContratista" id="ctrIdContratista" filtro ="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="mostrar()">
 				   			<?
 				   			while($rs=mysql_fetch_array($result))
 							{
+								$selected = "";
+								if($_SESSION["f_ctrIdContratista"] == $rs["ctrIdContratista"])$selected = "selected='selected'";
 						    ?>
 							   <option value="<?=$rs["ctrIdContratista"]?>" > <? echo($rs["ctrNombreFantasia"]); ?> </option>
 							<?
@@ -42,25 +52,6 @@
                     	
                     </td>
 			    </tr>
-<!-- 
-			    <tr>
-					<td colspan="1" align="right" width="50"  class="etiqueta_form">Faena&nbsp;</td>
-                    <td colspan="2" align="left" class="etiqueta_form">
-                    	<select name="faeIdFaenas" id="faeIdFaenas" filtro ="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
-								<option value="">Seleccion</option>
-				   			<?
-				   			while($rs=mysql_fetch_array($list_faenas))
-							{
-						    ?>
-							   <option value="<?=$rs["id"]?>" > <? echo($rs["faeNombre"]); ?> </option>
-							<?
-							  }
-				    		?>
-            			</select>
-                    	
-                    </td>
-			    </tr>
- -->			    
 			    <tr>
                 	<td colspan="1" align="right" width="50"  class="etiqueta_form">Apellido&nbsp;</td>
 					<td colspan="2" align="left" class="etiqueta_form"><input type="text" name="trbApPaterno" id="trbApPaterno"  filtro="S" value="<? echo($_SESSION["f_apellido"]) ?>"  class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onkeyup='mostrar()' tabindex="0"/>
