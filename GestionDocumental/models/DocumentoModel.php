@@ -62,7 +62,7 @@ class DocumentoModel extends ModelBase
 		return $idsql;
 	}
 	
-	public function getListaSubTipoDocumento($param)
+	public function getListaSubTipoDocumento($param=array())
 	{
 		$sql = " SELECT id, descripcion, id_tipodocumento ";
 		$sql .= " FROM sub_tipodocumento";
@@ -273,6 +273,31 @@ class DocumentoModel extends ModelBase
 		//exit();
 	}
 	
-	
+	public function get_combo_subtipo_documento($param)
+	{
+		include("config.php");
+		
+		$sql = " SELECT s.id, s.descripcion ";
+		$sql .= " FROM sub_tipodocumento s ";
+		$sql .= " WHERE 1 ";
+		
+		if($param["id_tipo_documento"] > 0)
+		$sql .= " AND s.id_tipodocumento = ".$param["id_tipo_documento"];
+		
+		$sql .= " ORDER BY s.descripcion ";
+		
+ 		//echo($sql);
+ 		///exit;
+		
+		$idsql = consulta($sql);
+		$html_combo = "";
+		$html_combo .= "<option value=''></option> ";
+		while($rs=mysql_fetch_array($idsql))
+		{
+			$html_combo .= "<option value='".$rs["id"]."'>".utf8_encode($rs["descripcion"])." </option> ";
+		}
+				
+    	return $html_combo;	
+	}
 }
 ?>
