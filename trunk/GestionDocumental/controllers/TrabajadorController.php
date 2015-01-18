@@ -5,26 +5,33 @@ class TrabajadorController extends ControllerBase
 	public function admin($param)
 	{
 		require 'models/ContratistaModel.php';
+		require 'models/ConstructoraModel.php';
 		require 'models/FaenasModel.php';
 		$dato = new ContratistaModel();
 		$faenas = new FaenasModel();
+		$cons = new ConstructoraModel();
 		
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 						
-		$data['arrayscriptJs'] = array("funcionesadmin.js");
+		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_trabajador.js");
 		
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E")
 		{
 			$destino = "empresa/";
 			$param["id_empresa"] = $_SESSION["idempresa"];
-			$data['result'] = $faenas->getListaFaenas($param);	
+			//$data['result'] = $faenas->getListaFaenas($param);	
 		}
 		else
 		{
+			$idsql = $cons->getListaConstructora($param);
+			$rs = mysql_fetch_array($idsql);
+			$param["consIdConstructora"] = ($_SESSION["f_consIdConstructora"]>0)?$_SESSION["f_consIdConstructora"]:$rs["consIdConstructora"];
+			$data['idsql_empresa'] = $cons->getListaConstructora($param);
 			$data['result'] = $dato->getListaContratistas($param);	
-			$data['list_faenas'] = $faenas->getListaFaenas($param);
+			//$data['list_faenas'] = $faenas->getListaFaenas($param);
+			
 		}
 	
 		$this->view->show($destino."admin/trabajador.php", $data);
@@ -45,19 +52,13 @@ class TrabajadorController extends ControllerBase
 		require 'models/TrabajadorModel.php';
 		$dato = new TrabajadorModel();		
 		$_SESSION["f_nombre"] = $param["trbNombre"];
-		$_SESSION["f_apellido"] = $param["trbApPaterno"];
+		$_SESSION["f_apellido"] = $param["trbApPaterno"];		
+		$_SESSION["f_consIdConstructora"] = $param["consIdConstructora"];
 		$_SESSION["f_ctrIdContratista"] = $param["ctrIdContratista"];
-		$_SESSION["f_id_faena"] = $param["id_faena"];
 		
 		$data['controller'] = $param["controlador"];
 		$data['result'] = $dato->getListaTrabajador($param);
 		$data['id_c'] = $param["ctrIdContratista"];
-		if($param["faeIdFaenas"] == ""){
-			$data['id_f'] = "0";
-		}else{
-			$data['id_f'] = $param["faeIdFaenas"];
-		}
-		
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
 		$this->view->show($destino."admin/lista_trabajadores.php", $data);
@@ -75,18 +76,22 @@ class TrabajadorController extends ControllerBase
 		
 	}
 		
-	public function alta($array)
+	public function alta($param)
 	{
 		require 'models/ContratistaModel.php';
+		require 'models/ConstructoraModel.php';
 		require 'models/FaenasModel.php';
 		require 'models/CiudadesModel.php';
 		require 'models/RegionesModel.php';
 		require 'models/ComunasModel.php';
 		require 'models/IsapresModel.php';
 		require 'models/AfpModel.php';
+		require 'models/TrabajadorModel.php';
 		
+		$datocons = new ConstructoraModel();
 		$datoc = new ContratistaModel();
 		$datof = new FaenasModel();
+		$trabajador = new TrabajadorModel();
 		
 		$regiones = new RegionesModel();
 		$ciudades = new CiudadesModel();
@@ -94,20 +99,25 @@ class TrabajadorController extends ControllerBase
 		$afps = new AfpModel();
 		$isapres = new IsapresModel();
 		
-		$data['nom_sistema'] = $array["nombre_sistema"];
-		$data['controller'] = $array["controlador"];
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		$data['controller'] = $param["controlador"];
 		$data['tipop'] = "A";
 
-		$data['arrayscriptJs'] = array("funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
+		$data['arrayscriptJs'] = array("form_trabajador.js","funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
-		$data['contratistas'] = $datoc->getListaContratistas($array);
-		$data['faenas'] = $datof->getListaFaenas($array);
-		$data['regiones'] = $regiones->getListaRegiones($array);
-		$data['ciudades'] = $ciudades->getListaCiudades($array);
+		$data['faenas'] = $datof->getListaFaenas($param);
+		$data['regiones'] = $regiones->getListaRegiones($param);
+		$data['ciudades'] = $ciudades->getListaCiudades($param);
 		$data['comunas'] = $comunas->getListaComunas($$array);
-		$data['isapres'] = $isapres->getListaIsapres($array);
-		$data['afps'] = $afps->getListaAfp($array);
+		$data['isapres'] = $isapres->getListaIsapres($param);
+		$data['idsql_pactoisapres'] = $isapres->getListaPactoIsapres($param);
+		$data['afps'] = $afps->getListaAfp($param);
+		$data['idsql_empresa'] = $datocons->getListaConstructora();
+		$idsql = $datocons->getListaConstructora();
+		$rs = mysql_fetch_array($idsql);
+		$data['contratistas'] = $datoc->getListaContratistas(array("consIdConstructora"=>$rs["consIdConstructora"]));
+		$data['idsql_cargo'] = $trabajador->getListaCargos();
 		
 		$destino = "";	
 		if($_SESSION["tip_usuario"] == "E") $destino = "empresa/";
@@ -117,6 +127,7 @@ class TrabajadorController extends ControllerBase
 	public function editar($param)
 	{
 		require 'models/ContratistaModel.php';
+		require 'models/ConstructoraModel.php';
 		require 'models/FaenasModel.php';
 		require 'models/CiudadesModel.php';
 		require 'models/RegionesModel.php';
@@ -126,6 +137,7 @@ class TrabajadorController extends ControllerBase
 		require 'models/TrabajadorModel.php';
 		
 		$datoc = new ContratistaModel();
+		$datocons = new ConstructoraModel();
 		$datof = new FaenasModel();
 		$regiones = new RegionesModel();
 		$ciudades = new CiudadesModel();
@@ -136,20 +148,28 @@ class TrabajadorController extends ControllerBase
 						
 		$data['contratistas'] = $datoc->getListaContratistas($param);
 		$data['faenas'] = $datof->getListaFaenas($param);
-		$data['rs'] = $trabajador->getTrabajador($param);
-		
-		$data['contratistas'] = $datoc->getListaContratistas($param);
+		$rs = $trabajador->getTrabajador($param);
+		$data['rs'] = $rs;
+		$param["idRegion"] = $rs["idRegion"];
+		$param["idCiudad"] = $rs["idCiudad"];
 		$data['faenas'] = $datof->getListaFaenas($param);
-		$data['regiones'] = $regiones->getListaRegiones($array);
-		$data['ciudades'] = $ciudades->getListaCiudades($array);
-		$data['comunas'] = $comunas->getListaComunas($$array);
-		$data['isapres'] = $isapres->getListaIsapres($array);
-		$data['afps'] = $afps->getListaAfp($array);
+		$data['regiones'] = $regiones->getListaRegiones($param);
+		$data['ciudades'] = $ciudades->getListaCiudades($param);
+		$data['comunas'] = $comunas->getListaComunas($param);
+		$data['isapres'] = $isapres->getListaIsapres($param);
+		$data['afps'] = $afps->getListaAfp($param);
+		$data['idsql_pactoisapres'] = $isapres->getListaPactoIsapres($param);
+		
+		$rs_cont = $datoc->getContratista(array("id"=>$rs["ctrIdContratista"]));
+		$data["consIdConstructora"] = $rs_cont["consIdConstructora"];
+		$data['contratistas'] = $datoc->getListaContratistas(array("consIdConstructora"=>$rs_cont["consIdConstructora"]));
+		$data['idsql_empresa'] = $datocons->getListaConstructora();
+		$data['idsql_cargo'] = $trabajador->getListaCargos();
 		
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 		$data['tipop'] = "M";
-		$data['arrayscriptJs'] = array("funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
+		$data['arrayscriptJs'] = array("form_trabajador.js","funciones.js","validacampos.js","jquery-ui-1.8.16.custom.min.js","jquery-ui-timepicker-addon.js","i18n/jquery.ui.datepicker-es.js","jquery-ui-sliderAccess.js");
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");
 		
 		$destino = "";	
