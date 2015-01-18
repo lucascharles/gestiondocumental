@@ -23,13 +23,6 @@ class IsapresModel extends ModelBase
 		
 		$idsql = consulta($sql);
 		
-// 		if(mysql_num_rows ($idsql) == 0)
-// 		{
-// 			$sql = " INSERT INTO isapre (afpNombre, activo) VALUES ('".$array["afpNombre"]."','S')  ";
-// 		}else{
-// 			$sql = " UPDATE isapre SET afpNombre = '".$array["afpNombre"]."' WHERE afpIdAfp = ".$array["afpIdAfp"];
-			
-// 		}
 		consulta($sql);
 		
 	}
@@ -65,9 +58,23 @@ class IsapresModel extends ModelBase
 		
     	return $result;	
 	}
-
 	
 	
+	
+	public function getListaPactoIsapres($array)
+	{
+		include("config.php");
+		
+		$sql = "  SELECT id, descripcion ";
+		$sql .= " FROM isapre_pacto a ";	
+		$sql .= " ORDER BY a.descripcion ";
+		
+		//echo($sql);
+		
+		$result = consulta($sql);
+		
+    	return $result;	
+	}
 
 }
 ?>
