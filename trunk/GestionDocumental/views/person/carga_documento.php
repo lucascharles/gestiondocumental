@@ -97,6 +97,16 @@ include("views/menu.php");
         		<tr>
             	<th colspan="5">Documentos</th>
             	</tr>
+            	<tr bgcolor="#A9A9A9">
+                	<td></td>
+                    <td>Nombre</td>
+                    <td>Estado</td>
+                    <td>Observaciones</td>
+                    <td>Archivo</td>
+                    <td align="center">Opciones</td>
+                    
+                </tr>
+            	
             	<?
 				if($idsql_doc > '')
 				{
@@ -107,6 +117,7 @@ include("views/menu.php");
                 	<td></td>
                     <td><?=$rs["doctNombreArchivo"]?></td>
                     <td><?=$rs["estado_documento"]?></td>
+                    <td><?=$rs["nota"]?></td>
                     <td align="right"><a href="docvarios/<?=$id_c."_docs_".$id_f."/".$rs["doctNombreEncrip"]?>" target="_blank"><?=$rs["NombreOriginal"]?></a></td>
                     <td align="center">
                     <img id="<?=$rs["id_documento"]?>" src="images/editar_estado.png" style="cursor:pointer;" title="Cambiar Estado" onclick='editarEstado(this)' />&nbsp;&nbsp;&nbsp;&nbsp;

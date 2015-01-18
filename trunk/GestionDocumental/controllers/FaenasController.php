@@ -33,6 +33,17 @@ class FaenasController extends ControllerBase
 		$this->view->show("admin/faenas.php", $data);
 	}
 
+// 	public function faenasempresa($array)
+// 	{
+// 		$data['nom_sistema'] = $array["nombre_sistema"];
+// 		$data['controller'] = $array["controlador"];
+	
+// 		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
+	
+// 		$this->view->show("empresa/faenas.php", $data);
+		
+// 	}
+	
 	public function faenasempresa($array)
 	{
 		$data['nom_sistema'] = $array["nombre_sistema"];
@@ -40,9 +51,9 @@ class FaenasController extends ControllerBase
 	
 		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
 	
-		$this->view->show("empresa/faenas.php", $data);
-	}
+		$this->view->show("empresa/agencias.php", $data);
 	
+	}
 	
 	public function baja($array)
 	{
@@ -52,31 +63,52 @@ class FaenasController extends ControllerBase
 		$dato->bajaRegistro($array);
 	}
 	
-	
 	public function listaritemsadmin($param)
 	{
-
-		require 'models/FaenasModel.php';
-		$dato = new FaenasModel();		
+		require 'models/DashboardModel.php';
 		
-		$_SESSION["f_faeNombre"] = $param["faeNombre"];
-		$_SESSION["f_faeResponsable"] = $param["faeResponsable"];
-				
-		$data['controller'] = $param["controlador"];
-				
-		$destino = "admin";	
+		$dash = new DashboardModel();
+
+		$destino = "admin";
 		if($_SESSION["tip_usuario"] == "E")
 		{
 			$destino = "empresa";
 			$param["id_empresa"] = $_SESSION["idempresa"];
 		}
 		
-// 		$data['result'] = $dato->getListaFaenas($param);
-		$data['result'] = $dato->getEstadoDocFaena($param);
-		$this->view->show($destino."/lista_faenas.php", $data);
+		$data['controller'] = $param["controlador"];
+		$data['result'] = $dash->getListaEstadoContratistas($param);
+		
+		$this->view->show("admin/lista_dashboard.php", $data);	
+	
+	}
+	
+	
+// 	public function listaritemsadmin($param)
+// 	{
+// //original faenas
+// 		require 'models/FaenasModel.php';
+// 		$dato = new FaenasModel();		
+		
+// 		$_SESSION["f_faeNombre"] = $param["faeNombre"];
+// 		$_SESSION["f_faeResponsable"] = $param["faeResponsable"];
+				
+// 		$data['controller'] = $param["controlador"];
+				
+// 		$destino = "admin";	
+// 		if($_SESSION["tip_usuario"] == "E")
+// 		{
+// 			$destino = "empresa";
+// 			$param["id_empresa"] = $_SESSION["idempresa"];
+// 		}
+		
+// // 		$data['result'] = $dato->getListaFaenas($param);
+// 		$data['result'] = $dato->getEstadoDocFaena($param);
+// 		$this->view->show($destino."/lista_faenas.php", $data);
 
 		
-	}
+// 	}
+	
 	
 	public function alta($array)
 	{
@@ -136,7 +168,8 @@ class FaenasController extends ControllerBase
 		$data['datoFaena'] = $faena->getFaena($param);
 		$data['idsql_tip_doc'] = $doc->getListaTipoDocumento();
 		$data['idsql_tip_doc_aux'] = $doc->getListaTipoDocumento();
-		$data['ctrIdContratista'] = $_SESSION["idempresa"];
+// 		$data['ctrIdContratista'] = $_SESSION["idempresa"];
+		$data['ctrIdContratista'] = $param["id"];
 		$data['nom_sistema'] = $param["nombre_sistema"];
 		$data['controller'] = $param["controlador"];
 		$data['arrayscriptCss'] = array("smoothness/jquery-ui-1.8.17.custom.css");

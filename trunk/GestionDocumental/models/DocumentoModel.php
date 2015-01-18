@@ -103,7 +103,7 @@ class DocumentoModel extends ModelBase
 	public function getDocumentos($param)
 	{
 		$sql = " SELECT doc.id id_documento, d.doctIdDocumento, doc.id_estado_documento, doc.doctFechaSubida, doc.doctFechaPertenece, d.doctIdTrabajador, d.id_contratista, doc.doctNombreArchivo, ";
-		$sql .= " doc.doctNombreEncrip, doc.NombreOriginal, d.tpdIdTipoDocumento, t.descripcion, e.descripcion estado_documento ";
+		$sql .= " doc.doctNombreEncrip, doc.NombreOriginal, d.tpdIdTipoDocumento, t.descripcion, e.descripcion estado_documento, doc.nota ";
 		$sql .= " FROM documentotrabajador d LEFT JOIN  tipodocumento t ON (d.tpdIdTipoDocumento = t.id), documentos doc LEFT JOIN  estado_documento e ON (doc.id_estado_documento = e.id) ";
 		$sql .= " WHERE d.doctIdDocumento = doc.id_documentotrabajador ";
 		$sql .= " AND t.activo = 'S' ";
@@ -123,7 +123,7 @@ class DocumentoModel extends ModelBase
 	public function getDocumentosxTipo($param)
 	{
 		$sql = " SELECT doc.id id_documento, d.doctIdDocumento, doc.id_estado_documento, doc.doctFechaSubida, doc.doctFechaPertenece, d.doctIdTrabajador, d.id_contratista, doc.doctNombreArchivo, ";
-		$sql .= " doc.doctNombreEncrip, doc.NombreOriginal, d.tpdIdTipoDocumento, t.descripcion, e.descripcion estado_documento ";
+		$sql .= " doc.doctNombreEncrip, doc.NombreOriginal, d.tpdIdTipoDocumento, t.descripcion, e.descripcion estado_documento, doc.nota ";
 		$sql .= " FROM documentotrabajador d LEFT JOIN  tipodocumento t ON (d.tpdIdTipoDocumento = t.id), documentos doc LEFT JOIN  estado_documento e ON (doc.id_estado_documento = e.id) ";
 		$sql .= " WHERE d.doctIdDocumento = doc.id_documentotrabajador ";
 		$sql .= " AND t.activo = 'S' ";
@@ -183,7 +183,7 @@ class DocumentoModel extends ModelBase
 		$sql .= "   AND dt.id_contratista = ".$param["id_contratista"];
 		$sql .= "   GROUP BY dt.id_sub_tipodocumento";
 		
- 		//echo($sql);
+//  		echo($sql);
 		//exit();
 		$idsql = consulta($sql);
 		
