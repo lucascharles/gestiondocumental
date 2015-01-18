@@ -25,14 +25,14 @@
 </head>
 <body>
 	<div id="encabezado">
-    	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" >
+    	<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" class="secc_opcabecera"  >
         	<!--
         	<tr>
 			<td  class="secc_opcabecera_2" valign="top"  height="4" colspan="1"></td>
                  <td  class="secc_opcabecera_1" valign="top"  height="4" colspan="2"></td>
             </tr>
 			-->
-        	<tr class="secc_opcabecera">
+        	<tr class="">
             	<td valign="top" align="left">
                 	<table border="0">
                     <tr>
