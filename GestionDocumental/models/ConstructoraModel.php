@@ -89,7 +89,7 @@ class ConstructoraModel extends ModelBase
 	return mysql_fetch_array($idsql);
 	}
 	
-	public function getListaConstructora($param)
+	public function getListaConstructora($param=array())
 	{
 		include("config.php");
 		
