@@ -2,7 +2,7 @@
          		<tr>
             		<td align="right"><img src="images/alerta.png"  /></td><td align="left"> <font style="color:#0000CC; font-weight:600; font-size:11px;">SIN SUBIR</font></td><td width="7"></td>
                 	<td align="right"><img src="images/advertencia.png"  /></td><td align="left"><font style="color:#0000CC; font-weight:600; font-size:11px;">SIN REVISAR</font></td><td width="7"></td>
-                	<td align="right"><img src="images/cancelar.gif"  /></td><td align="left"><font style="color:#0000CC; font-weight:600; font-size:11px;">SIN REVISAR</font></td><td width="7"></td>
-                	<td align="right"><img src="images/activar.gif"  /></td><td align="left"><font style="color:#0000CC; font-weight:600; font-size:11px;">SIN REVISAR</font></td><td width="5"></td>
+                	<td align="right"><img src="images/cancelar.gif"  /></td><td align="left"><font style="color:#0000CC; font-weight:600; font-size:11px;">RECHAZADO</font></td><td width="7"></td>
+                	<td align="right"><img src="images/activar.gif"  /></td><td align="left"><font style="color:#0000CC; font-weight:600; font-size:11px;">APROBADO</font></td><td width="5"></td>
             	</tr>
         	</table>
