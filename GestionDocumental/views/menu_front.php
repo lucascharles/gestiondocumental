@@ -3,39 +3,37 @@
    		<td>
         	<ul id="nav">
             	<li>
-			<div class="principal" onClick="cargarOpcion('Faenas@faenasempresa')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">Panel de Control</div>
+			<div class="principal" onClick="cargarOpcion('Faenas@faenasempresa')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">PANEL DE CONTROL</div>
             	</li>
             </ul>
 		</td>
     	<td>
         	<ul id="nav">
             	<li>
-			<div class="principal" onClick="cargarOpcion('Trabajador')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">Trabajadores</div>
+			<div class="principal" onClick="cargarOpcion('Trabajador')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">TRABAJADORES</div>
             </li>
             </ul>
 		</td>
 		<td>
         	<ul id="nav">
             	<li>
-			<div class="principal"  onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">Impresion de Documentos</div>
-            </li>
+					<div class="principal"  onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">IMPRESI&Oacute;N DE DOCUMENTOS</div>
+          		  </li>
             </ul>
 		</td>
 		
     	<td>
         	<ul id="nav">
             	<li>
-			<div class="principal"  onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">Prevencion de Riesgos</div>
-			<div class="principal" onClick="cargarOpcion('Trabajador')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">TRABAJADORES</div>
-            </li>
+					<div class="principal"  onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">PREVENCI&Oacute;N DE RIESGOS</div>
+			   </li>
             </ul>
 		</td>
-		
-		<td width="80%">
+		<td width="25%">
         </td>
 	</tr>
     <tr>
-	<td colspan="3">
+	<td colspan="5">
     	<hr class="separa_menu" />
     </td>
 </tr>
