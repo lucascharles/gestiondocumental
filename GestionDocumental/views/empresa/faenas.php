@@ -48,17 +48,25 @@
          <td>
     </tr>
 
+<!--     <tr> -->
+<!--     	<td colspan="4"> -->
+<!--     		<table width="100%" border="0" cellpadding="0" cellspacing="3" align="right" id="leyendas"> -->
+<!--          		<tr> -->
+<!--             		<td colspan="2" align="right" width="80" class="etiqueta_form"></td> -->
+<!--             		<td align="right" width="5" class="etiqueta_form">Sin Subir:<img src="images/alerta.png"  /> </td> -->
+<!--                 	<td align="right" width="5" class="etiqueta_form">Sin Revisar:<img src="images/advertencia.png"  /></td> -->
+<!--                 	<td align="right" width="5" class="etiqueta_form">Rechazado:<img src="images/cancelar.gif"  /></td> -->
+<!--                 	<td align="right" width="5" class="etiqueta_form">Aprobado:<img src="images/activar.gif"  /></td> -->
+<!--             	</tr> -->
+<!--         	</table> -->
+<!--     	</td> -->
+<!--     </tr> -->
+
+    
     <tr>
     	<td colspan="4">
-    		<table width="100%" border="0" cellpadding="0" cellspacing="3" align="right" id="leyendas">
-         		<tr>
-            		<td colspan="2" align="right" width="80" class="etiqueta_form"></td>
-            		<td align="right" width="5" class="etiqueta_form">Sin Subir:<img src="images/alerta.png"  /> </td>
-                	<td align="right" width="5" class="etiqueta_form">Sin Revisar:<img src="images/advertencia.png"  /></td>
-                	<td align="right" width="5" class="etiqueta_form">Rechazado:<img src="images/cancelar.gif"  /></td>
-                	<td align="right" width="5" class="etiqueta_form">Aprobado:<img src="images/activar.gif"  /></td>
-            	</tr>
-        	</table>
+        	<? include("views/help.php") ?>
+            
     	</td>
     </tr>
     

@@ -217,7 +217,7 @@ function llenarFiltro(obj, obj_to, op)
 	if(op=="TIPODOC_SUTIPODOC")
 	{
 		datos += "controlador=Documento&accion=get_combo_subtipo_documento";
-		datos += "&idCiudad="+$.trim($(obj).val());
+		datos += "&id_tipo_documento="+$.trim($(obj).val());
 	}
 		
 	$.ajax({

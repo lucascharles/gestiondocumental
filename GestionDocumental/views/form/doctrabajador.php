@@ -84,7 +84,7 @@ $trbRut= $rs["trbRut"];
 	        
 	        <tr>
             	<td colspan="<?=$cont?>">
-        	Grupo documentoaaaa:
+        	Grupo documento:
 			<select name="id_tipo_documento" id="id_tipo_documento" valida="" filtro="S" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)" onchange="llenarFiltro(this,document.getElementById('id_sub_tipodocumento'),'TIPODOC_SUTIPODOC')">
 		   	<?
 		   			while($rs=mysql_fetch_array($grupo_doc))
@@ -119,11 +119,6 @@ $trbRut= $rs["trbRut"];
                 </td>
             </tr>
 	        
-	        <tr>
-            	<td colspan="<?=$cont?>">
-                Nombre: <input type="text" name="doctNombreArchivo" id="doctNombreArchivo" class="input_form" onFocus="resaltar(this)" onBlur="noresaltar(this)" />
-                </td>
-            </tr>
             
             <? if($tipoDoc==28||$tipoDoc==29||$tipoDoc==11) {?>
 	        <tr>
@@ -148,7 +143,16 @@ $trbRut= $rs["trbRut"];
                 
                 </td>
             </tr>
-            <? }?>
+            <? } else { ?>
+            
+            <tr>
+            	<td colspan="<?=$cont?>">
+                Nombre: <input type="text" name="doctNombreArchivo" id="doctNombreArchivo" class="input_form" onFocus="resaltar(this)" onBlur="noresaltar(this)" />
+                </td>
+            </tr>
+            
+            
+            <? } ?>
             <tr>
             	<td colspan="<?=$cont?>">
                 Archivo: <input type='file' id='archivo' name='archivo' />&nbsp;<input  type="button" name="btngrabar" id="btngrabar" onclick="grabarFormUploadArch(<?=$_SESSION["f_id_tipo_documento"]?>)"  value="Adjuntar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/>

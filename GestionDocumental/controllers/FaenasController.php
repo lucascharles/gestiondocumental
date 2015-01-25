@@ -216,7 +216,7 @@ class FaenasController extends ControllerBase
 		$trabajador = new TrabajadorModel();
 		
 		$data["dato"]= $dato->getContratista(array("id"=>$param["id_c"]));
-		$data["rs_faena"]= $faena->getFaena(array("id"=>$param["id_f"]));
+// 		$data["rs_faena"]= $faena->getFaena(array("id"=>$param["id_f"]));
 		$data["rs_trabajador"]= $trabajador->getTrabajador(array("id"=>$param["id_t"]));
 		$data["rs_sub_doc"]= $doc->getSubTipoDocumento(array("id"=>$param["id_d"]));
 		$data['controller'] = $param["controlador"];

@@ -23,7 +23,18 @@ class DocumentoModel extends ModelBase
 		if($param["id_estado"] > 0)	$sql .= " SET id_estado_documento = ".$param["id_estado"];
 		if(trim($param["nota"]) <> "")	$sql .= " SET nota = '".$param["nota"]."'";
 		$sql .= " WHERE id = ".$param["id"];
-		//echo($sql);
+// 		echo($sql);
+		consulta($sql);
+
+		$sql = " SELECT id_documentotrabajador FROM documentos ";
+		$sql .= " WHERE id = ".$param["id"];
+		$idsql = consulta($sql);
+		$rs = mysql_fetch_array($idsql);
+		
+		$sql = " UPDATE documentotrabajador ";
+		if($param["id_estado"] > 0)	$sql .= " SET id_estado_documento = ".$param["id_estado"];
+		$sql .= " WHERE doctIdDocumento = ".$rs["id_documentotrabajador"];
+// 		echo($sql);
 		consulta($sql);
 	}
 	
@@ -61,16 +72,30 @@ class DocumentoModel extends ModelBase
 		
 		return $idsql;
 	}
+
+	public function getListaTipoDocumentoPrevencion()
+	{
+		$sql = " SELECT id, descripcion ";
+		$sql .= " FROM tipodocumento";
+		$sql .= " WHERE activo = 'S'";
+		$sql .= " AND prevencion = 'S'";
+		$sql .= " ORDER BY id ASC ";
+	
+		$idsql = consulta($sql);
+	
+		return $idsql;
+	}
+	
 	
 	public function getListaSubTipoDocumento($param=array())
 	{
 		$sql = " SELECT id, descripcion, id_tipodocumento ";
 		$sql .= " FROM sub_tipodocumento";
 		$sql .= " WHERE activo = 'S' ";
-		if($param["id_tipodocumento"] <>""){
-			$sql .= " AND id_tipodocumento = ".$param["id_tipodocumento"];
+		if($param["id_tipo_documento"] <>""){
+			$sql .= " AND id_tipodocumento = ".$param["id_tipo_documento"];
 		}
-		//echo($sql);
+// 		echo($sql);
 		$idsql = consulta($sql);
 		
 		return $idsql;
@@ -113,7 +138,7 @@ class DocumentoModel extends ModelBase
 		if($param["id_sub_tipodocumento"] > 0) $sql .= " AND d.id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
 		if($param["id_trabajador"] > 0) $sql .= " AND d.doctIdTrabajador = ".$param["id_trabajador"];
 		if($param["id_tipo_documento"] > 0) $sql .= " AND d.tpdIdTipoDocumento = ".$param["id_tipo_documento"];
-// 		echo($sql);
+// 		echo($sql);	
 // 		exit;	
 		$idsql = consulta($sql);
 		
@@ -144,46 +169,28 @@ class DocumentoModel extends ModelBase
 	public function getListaDocumentos($param)
 	{
 		
-		$sql .= " SELECT   t.trbRut, t.trbFechaContrato, t.trbFechaDesvinculado, t.trbIdTrabajador,  CONCAT(t.trbIdTrabajador, '@',t.trbRut,'@',DATE_FORMAT(t.trbFechaContrato,'%d/%m/%Y'), '@',if(t.trbFechaDesvinculado<>'0000-00-00',DATE_FORMAT(t.trbFechaDesvinculado,'%d/%m/%Y'),''),'@',t.trbNombre) AS trabajador, ";
+		
+		$sql .= " SELECT t.trbIdTrabajador,t.trbRut, t.trbFechaContrato, t.trbFechaDesvinculado, t.trbIdTrabajador, ";
 		$sql .= " dt.id_sub_tipodocumento doc, ";
-		$sql .= " COUNT(dt.doctIdDocumento) cantidad_doc, ";
-		$sql .= " ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30) meses , ";
-		//$sql .= " determina_estado(dt.tpdIdTipoDocumento, dt.id_sub_tipodocumento,dt.id_faena,dt.id_contratista, t.trbIdTrabajador) estado";
-	
-		$sql .= " (SELECT IFNULL(MIN(d.id_estado_documento),1) ";
-		$sql .= " FROM documentotrabajador d ";
-		$sql .= " WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
-		$sql .= " AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
-		if($param["id_faena"] != "") $sql .= " AND d.id_faena = ".$param["id_faena"];
-		$sql .= " AND d.id_contratista = ".$param["id_contratista"];
-		$sql .= " AND d.doctIdTrabajador = t.trbIdTrabajador ";
-		$sql .= " AND d.id_estado_documento <> 1 ";
-		$sql .= " )AS estado1, ";
-		$sql .= " IF((COUNT(dt.doctIdDocumento)) < (ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30)), ";
-		$sql .= " 		(IF((SELECT IFNULL(MIN(d.id_estado_documento),1) ";
-		$sql .= " 				FROM documentotrabajador d 	WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
-		$sql .= " 				AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
-		if($param["id_faena"] != "") $sql .= " AND d.id_faena = ".$param["id_faena"];
-		$sql .= " 				AND d.id_contratista = ".$param["id_contratista"];
-		$sql .= " 				AND d.doctIdTrabajador = t.trbIdTrabajador ";
-		$sql .= " 				AND d.id_estado_documento <> 1)=1,(SELECT IFNULL(MIN(d.id_estado_documento),1) ";
-		$sql .= " 						FROM documentotrabajador d 	WHERE d.tpdIdTipoDocumento = dt.tpdIdTipoDocumento ";
-		$sql .= " 						AND d.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
-		if($param["id_faena"] != "") $sql .= " AND d.id_faena = ".$param["id_faena"];
-		$sql .= " 						AND d.id_contratista = ".$param["id_contratista"];
-		$sql .= " 						AND d.doctIdTrabajador = t.trbIdTrabajador ";
-		$sql .= " 						AND d.id_estado_documento <> 1),2)),1) estado ";
+		$sql .= " CONCAT(t.trbIdTrabajador,'@',t.trbRut,'@',DATE_FORMAT(t.trbFechaContrato, '%d/%m/%Y'),'@', ";
+		$sql .= " 		IF(t.trbFechaDesvinculado <> '0000-00-00', DATE_FORMAT(t.trbFechaDesvinculado,'%d/%m/%Y'), ";
+		$sql .= " 				''),'@', t.trbNombre) AS trabajador, ";		
+		$sql .= " (SELECT IFNULL(MIN(x1.id_estado_documento), 1) ";
+		$sql .= " FROM documentotrabajador x1 ";
+		$sql .= " WHERE x1.tpdIdTipoDocumento = ".$param["id_tipodocumento"];
+		$sql .= " AND x1.id_contratista = ".$param["id_contratista"];
+		$sql .= " AND x1.doctIdTrabajador = t.trbIdTrabajador ";
+		$sql .= " AND x1.id_sub_tipodocumento = dt.id_sub_tipodocumento ";
+		$sql .= " GROUP BY x1.doctIdTrabajador, x1.id_sub_tipodocumento, x1.tpdIdTipoDocumento) estado ";
+		$sql .= " FROM ";
+		$sql .= " documentotrabajador dt LEFT JOIN trabajador t ON dt.doctIdTrabajador = t.trbIdTrabajador ";
+		$sql .= " , sub_tipodocumento st ";
+		$sql .= " WHERE	dt.id_sub_tipodocumento = st.id ";
+		$sql .= " AND st.activo = 'S' ";
+		$sql .= " AND dt.tpdIdTipoDocumento = ".$param["id_tipodocumento"];
+		$sql .= " AND dt.id_contratista = ".$param["id_contratista"];
 		
-		$sql .= " FROM documentotrabajador dt, trabajador t, sub_tipodocumento st ";
-		$sql .= " WHERE dt.doctIdTrabajador = t.trbIdTrabajador ";
-		$sql .= " AND dt.id_sub_tipodocumento = st.id ";
-		$sql .= " AND st.activo = 'S' ";		
-		$sql .= "   AND dt.tpdIdTipoDocumento = ".$param["id_tipodocumento"];
-		if($param["id_faena"] != "") $sql .= "   AND dt.id_faena =  ".$param["id_faena"];
-		$sql .= "   AND dt.id_contratista = ".$param["id_contratista"];
-		$sql .= "   GROUP BY dt.id_sub_tipodocumento";
-		
- 		echo($sql);
+//  		echo($sql);
 		//exit();
 		$idsql = consulta($sql);
 		
@@ -225,7 +232,7 @@ class DocumentoModel extends ModelBase
 				$sql .= " AND tpdIdTipoDocumento = ".$param["id_tipo_documento"];
 				$sql .= " AND id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
 				$sql .= " AND id_contratista = ".$param["id_contratista"];
-				$sql .= " AND id_faena = ".$param["id_faena"];
+// 				$sql .= " AND id_faena = ".$param["id_faena"];
 				
 				//echo($sql);
 				consulta($sql);
@@ -238,7 +245,7 @@ class DocumentoModel extends ModelBase
 				$sql .= " ,tpdIdTipoDocumento = ".$param["id_tipo_documento"];
 				$sql .= " ,id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
 				$sql .= " ,id_contratista = ".$param["id_contratista"];
-				$sql .= " ,id_faena = ".$param["id_faena"];
+// 				$sql .= " ,id_faena = ".$param["id_faena"];
 				
 // 				echo($sql);
 				consulta($sql);
@@ -248,7 +255,7 @@ class DocumentoModel extends ModelBase
 				$sql .= " doctIdTrabajador = ".$param["id_trabajador"];
 				$sql .= " AND id_sub_tipodocumento = ".$param["id_sub_tipodocumento"];
 				$sql .= " AND id_contratista = ".$param["id_contratista"];
-				$sql .= " AND id_faena = ".$param["id_faena"];
+// 				$sql .= " AND id_faena = ".$param["id_faena"];
 
 // 				echo($sql);
 				$idsql = consulta($sql);
@@ -286,7 +293,8 @@ class DocumentoModel extends ModelBase
 		
 		$sql .= " ORDER BY s.descripcion ";
 		
- 		//echo($sql);
+//  		echo($sql);
+//  		var_dump($param);
  		///exit;
 		
 		$idsql = consulta($sql);

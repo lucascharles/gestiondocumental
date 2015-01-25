@@ -89,8 +89,12 @@ function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot
 						$valor = "<img src='images/cancelar.png' style='cursor:pointer' ".$funct .">";
 					break;
 					case 4:	// Aprobado
-						$valor = "<img src='images/activar.png' style='cursor:pointer' ".$funct .">";
+						$valor = "<img src='images/activar.gif' style='cursor:pointer' ".$funct .">";
 					break;
+					case 5:	// Opcional
+						$valor = "<img src='images/opcional.gif' style='cursor:pointer' ".$funct .">";
+					break;
+							
 				}
 			}
 			else
