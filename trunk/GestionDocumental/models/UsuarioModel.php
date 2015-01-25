@@ -164,7 +164,7 @@ class UsuarioModel extends ModelBase
 	{
 		$resp = false; 
 		
-		$sql = " SELECT id, tipo_usuario, id_empresa ";
+		$sql = " SELECT id, tipo_usuario, id_empresa,id_agencia ";
 		$sql .= " FROM usuarios ";
 		$sql .= " WHERE id_usuario = '".$param["usrLogin"]."'";
 		$sql .= " AND clave = '".$param["passLogin"]."'";

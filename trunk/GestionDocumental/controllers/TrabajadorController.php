@@ -212,7 +212,6 @@ class TrabajadorController extends ControllerBase
 		$trabajador = $dato->getTrabajador($array);
 		$data['rs'] = $trabajador;
 		
-		
 		$doc = new DocumentoModel();
 		$data['idsql_tip_doc'] = $doc->getListaTipoDocumento();
 		$data['grupo_doc'] = $doc->getListaTipoDocumento();

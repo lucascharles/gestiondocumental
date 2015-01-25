@@ -111,12 +111,13 @@ CREATE TABLE `constructora` (
   `dirIdDireccion` int(11) DEFAULT NULL,
   `rplIdRepLegal` int(11) DEFAULT NULL,
   `activo` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`consIdConstructora`),
   KEY `consIdConstructora` (`consIdConstructora`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `constructora` */
 
-insert  into `constructora`(`consIdConstructora`,`consEmail`,`consEstado`,`consFechaCreacion`,`consFechaModificacion`,`consNombreFantasia`,`consRazonSocial`,`consRut`,`consTelefono`,`consTelefono2`,`consTelefono3`,`consUsuarioCreacion`,`consUsuarioModificacion`,`dirIdDireccion`,`rplIdRepLegal`,`activo`) values (6,'mail@email.com',NULL,NULL,NULL,'Empresa 1','Empresa 1','78234567-2','222333','222222','333333',NULL,NULL,NULL,NULL,'S');
+insert  into `constructora`(`consIdConstructora`,`consEmail`,`consEstado`,`consFechaCreacion`,`consFechaModificacion`,`consNombreFantasia`,`consRazonSocial`,`consRut`,`consTelefono`,`consTelefono2`,`consTelefono3`,`consUsuarioCreacion`,`consUsuarioModificacion`,`dirIdDireccion`,`rplIdRepLegal`,`activo`) values (6,'carolinaveliz@salesland.net',NULL,NULL,NULL,'Salesland S.A','SALESLAND CHILE SPA','78234567-2','222333','222222','333333',NULL,NULL,NULL,NULL,'S'),(7,'aaaaaaaaasss',NULL,NULL,NULL,'aaaaaaaaaaaaa','wwwwwwwwww','22222222','22222',NULL,'9999',NULL,NULL,NULL,NULL,'S');
 
 /*Table structure for table `contratista` */
 
@@ -155,12 +156,13 @@ CREATE TABLE `contratista` (
   `consIdConstructora` int(11) DEFAULT NULL,
   `ctrDireccion` varchar(100) DEFAULT NULL,
   `activo` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`ctrIdContratista`),
   KEY `ctrIdContratista` (`ctrIdContratista`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `contratista` */
 
-insert  into `contratista`(`ctrIdContratista`,`ccatIdAfiliado`,`ctrEmail`,`ctrEmailExpertoMutualidad`,`ctrEstado`,`ctrFechaCreacion`,`ctrFechaModificacion`,`ctrFonoExpertoMutualidad`,`ctrIdAfiliadoMutualidad`,`ctrIdServicioContratado`,`ctrIngresoFaena`,`ctrNombreExpertoMutualidad`,`ctrNombreFantasia`,`ctrNroActividadCab`,`ctrNroActividadDet`,`ctrRazonSocial`,`ctrRut`,`ctrTasaCotizacionActual`,`ctrTasaCotizacionTotal`,`ctrTasaGenerica`,`ctrTelefono`,`ctrTelefono2`,`ctrTelefono3`,`ctrUsuarioCreacion`,`ctrUsuarioModificacion`,`dirIdDirecion`,`mutIdMutualidad`,`rplIdRepLegal`,`tjor_idTipoJornada`,`consIdConstructora`,`ctrDireccion`,`activo`) values (9,NULL,'email1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 1',NULL,NULL,NULL,'Agencia 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 1','S'),(10,NULL,'email2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 2',NULL,NULL,NULL,'Agencia 2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 2','S');
+insert  into `contratista`(`ctrIdContratista`,`ccatIdAfiliado`,`ctrEmail`,`ctrEmailExpertoMutualidad`,`ctrEstado`,`ctrFechaCreacion`,`ctrFechaModificacion`,`ctrFonoExpertoMutualidad`,`ctrIdAfiliadoMutualidad`,`ctrIdServicioContratado`,`ctrIngresoFaena`,`ctrNombreExpertoMutualidad`,`ctrNombreFantasia`,`ctrNroActividadCab`,`ctrNroActividadDet`,`ctrRazonSocial`,`ctrRut`,`ctrTasaCotizacionActual`,`ctrTasaCotizacionTotal`,`ctrTasaGenerica`,`ctrTelefono`,`ctrTelefono2`,`ctrTelefono3`,`ctrUsuarioCreacion`,`ctrUsuarioModificacion`,`dirIdDirecion`,`mutIdMutualidad`,`rplIdRepLegal`,`tjor_idTipoJornada`,`consIdConstructora`,`ctrDireccion`,`activo`) values (9,NULL,'email1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 1','Irarrazaval',NULL,NULL,'Irarrazaval',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 1','S'),(10,NULL,'email2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 2','Irarrazaval 2',NULL,NULL,'Irarrazaval 2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 2','S'),(11,NULL,'correo de la agencia prueba 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'encargado de la agencia prueba 1',NULL,NULL,NULL,'Agencia prueba 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion de la agencia prueba 1','N'),(12,NULL,'zzzzz',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'zzzzz',NULL,NULL,NULL,'zzzzz',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,7,'zzzzz','S');
 
 /*Table structure for table `direccion` */
 
@@ -205,9 +207,11 @@ CREATE TABLE `documentos` (
   `id_estado_documento` int(11) NOT NULL,
   `nota` text CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
 
 /*Data for the table `documentos` */
+
+insert  into `documentos`(`id`,`doctFechaSubida`,`doctFechaPertenece`,`doctNombreArchivo`,`doctNombreEncrip`,`NombreOriginal`,`id_documentotrabajador`,`id_estado_documento`,`nota`) values (98,'2015-01-18','2015-01-18','enero','c4d3d0a16744783b8f6769d1ce1c405e_20150118214050.png','20141004.png',0,2,''),(99,'2015-01-18','2015-01-18','enero','9fa92848c1867c63b602768c361a688f_20150118214212.gif','l1.gif',0,2,''),(100,'2015-01-18','2015-01-18','enero','9fa92848c1867c63b602768c361a688f_20150118214308.gif','l1.gif',124,4,' revisar '),(101,'2015-01-18','2015-01-18','febrero','9fa92848c1867c63b602768c361a688f_20150118214400.gif','l1.gif',124,4,' mas notas del documento'),(102,'2015-01-19','2015-01-19','Contrato','2146199dca3a31db7177722420122d85_20150119151314.pdf','CONT FLORES.pdf',186,4,''),(103,'2015-01-19','2015-01-19','Diciembre','db30a9df35eff95b0a84a8363ee2691a_20150119151610.pdf','LIQ FLORES.pdf',187,4,''),(104,'2015-01-19','2015-01-19','enero','9fa92848c1867c63b602768c361a688f_20150119203707.gif','l1.gif',188,2,''),(105,'2015-01-20','2015-01-20','prueba','9fa92848c1867c63b602768c361a688f_20150120135905.gif','l1.gif',189,2,'');
 
 /*Table structure for table `documentotrabajador` */
 
@@ -222,11 +226,11 @@ CREATE TABLE `documentotrabajador` (
   `tpdIdTipoDocumento` int(11) DEFAULT NULL,
   `id_sub_tipodocumento` int(11) NOT NULL,
   PRIMARY KEY (`doctIdDocumento`)
-) ENGINE=MyISAM AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=190 DEFAULT CHARSET=utf8;
 
 /*Data for the table `documentotrabajador` */
 
-insert  into `documentotrabajador`(`doctIdDocumento`,`id_estado_documento`,`doctIdTrabajador`,`id_contratista`,`id_faena`,`tpdIdTipoDocumento`,`id_sub_tipodocumento`) values (114,1,33,9,NULL,1,19),(115,1,33,9,NULL,1,20),(116,1,33,9,NULL,1,21),(117,1,33,9,NULL,3,28),(118,1,33,9,NULL,3,29),(119,1,33,9,NULL,3,32),(120,1,33,9,NULL,5,40),(121,1,33,9,NULL,5,41),(122,1,33,9,NULL,5,42),(123,1,33,9,NULL,5,43);
+insert  into `documentotrabajador`(`doctIdDocumento`,`id_estado_documento`,`doctIdTrabajador`,`id_contratista`,`id_faena`,`tpdIdTipoDocumento`,`id_sub_tipodocumento`) values (189,2,33,9,NULL,1,19),(115,1,33,9,NULL,1,20),(116,1,33,9,NULL,1,21),(124,4,33,9,NULL,3,28),(118,1,33,9,NULL,3,29),(119,1,33,9,NULL,3,32),(120,1,33,9,NULL,5,40),(121,1,33,9,NULL,5,41),(122,1,33,9,NULL,5,42),(123,1,33,9,NULL,5,43),(125,2,33,9,NULL,3,28),(126,1,34,9,NULL,1,19),(127,1,34,9,NULL,1,20),(128,1,34,9,NULL,1,21),(129,1,34,9,NULL,3,28),(130,1,34,9,NULL,3,29),(131,1,34,9,NULL,3,32),(132,1,34,9,NULL,5,40),(133,1,34,9,NULL,5,41),(134,1,34,9,NULL,5,42),(135,1,34,9,NULL,5,43),(136,1,35,9,NULL,1,19),(137,1,35,9,NULL,1,20),(138,1,35,9,NULL,1,21),(139,1,35,9,NULL,3,28),(140,1,35,9,NULL,3,29),(141,1,35,9,NULL,3,32),(142,1,35,9,NULL,5,40),(143,1,35,9,NULL,5,41),(144,1,35,9,NULL,5,42),(145,1,35,9,NULL,5,43),(146,1,36,9,NULL,1,19),(147,1,36,9,NULL,1,20),(148,1,36,9,NULL,1,21),(149,1,36,9,NULL,3,28),(150,1,36,9,NULL,3,29),(151,1,36,9,NULL,3,32),(152,1,36,9,NULL,5,40),(153,1,36,9,NULL,5,41),(154,1,36,9,NULL,5,42),(155,1,36,9,NULL,5,43),(186,4,37,10,NULL,1,19),(157,1,37,10,NULL,1,20),(158,1,37,10,NULL,1,21),(187,4,37,10,NULL,3,28),(160,1,37,10,NULL,3,29),(161,1,37,10,NULL,3,32),(162,1,37,10,NULL,5,40),(163,1,37,10,NULL,5,41),(164,1,37,10,NULL,5,42),(165,1,37,10,NULL,5,43),(166,1,38,9,NULL,1,19),(167,1,38,9,NULL,1,20),(168,1,38,9,NULL,1,21),(169,1,38,9,NULL,3,28),(170,1,38,9,NULL,3,29),(171,1,38,9,NULL,3,32),(172,1,38,9,NULL,5,40),(173,1,38,9,NULL,5,41),(174,1,38,9,NULL,5,42),(175,1,38,9,NULL,5,43),(176,1,39,9,NULL,1,19),(177,1,39,9,NULL,1,20),(178,1,39,9,NULL,1,21),(179,1,39,9,NULL,3,28),(180,1,39,9,NULL,3,29),(181,1,39,9,NULL,3,32),(182,1,39,9,NULL,5,40),(183,1,39,9,NULL,5,41),(184,1,39,9,NULL,5,42),(185,1,39,9,NULL,5,43),(188,2,39,10,NULL,3,28);
 
 /*Table structure for table `estado_documento` */
 
@@ -236,11 +240,11 @@ CREATE TABLE `estado_documento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(300) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `estado_documento` */
 
-insert  into `estado_documento`(`id`,`descripcion`) values (1,'Sin subir'),(2,'Subido sin revisar'),(3,'Rechazado'),(4,'Aprobado');
+insert  into `estado_documento`(`id`,`descripcion`) values (1,'Sin subir'),(2,'Subido sin revisar'),(3,'Rechazado'),(4,'Aprobado'),(5,'Opcional');
 
 /*Table structure for table `estadodocumentos` */
 
@@ -250,11 +254,11 @@ CREATE TABLE `estadodocumentos` (
   `idEstadoDocumento` int(11) NOT NULL AUTO_INCREMENT,
   `estadoDocumento` varchar(50) DEFAULT NULL,
   KEY `idEstadoDocumento` (`idEstadoDocumento`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `estadodocumentos` */
 
-insert  into `estadodocumentos`(`idEstadoDocumento`,`estadoDocumento`) values (1,'Sin Subir'),(2,'Subido Sin Revisar'),(3,'Rechazado'),(4,'Aprobado');
+insert  into `estadodocumentos`(`idEstadoDocumento`,`estadoDocumento`) values (1,'Sin Subir'),(2,'Subido Sin Revisar'),(3,'Rechazado'),(4,'Aprobado'),(5,'Opcional');
 
 /*Table structure for table `faena` */
 
@@ -429,16 +433,14 @@ CREATE TABLE `sub_tipodocumento` (
   `orden` int(11) DEFAULT NULL,
   `id_tipodocumento` int(11) NOT NULL,
   `descripcion` varchar(300) NOT NULL,
-  `mensual` varchar(1) DEFAULT NULL,
-  `anual` varchar(1) DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
+  `opcional` varchar(1) DEFAULT NULL,
   `activo` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 /*Data for the table `sub_tipodocumento` */
 
-insert  into `sub_tipodocumento`(`id`,`orden`,`id_tipodocumento`,`descripcion`,`mensual`,`anual`,`cantidad`,`activo`) values (19,1,1,'Contrato y Anexo de renovacion','','S',NULL,'S'),(20,2,1,'Carta de Aviso','','S',NULL,'S'),(21,3,1,'Finiquito','','S',NULL,'S'),(22,4,1,'Plan de emergencia','','S',NULL,NULL),(23,5,1,'Comite Paritario Higiene y Seguridad',NULL,'S',NULL,NULL),(24,6,1,'Registro de Conocimiento de Trabajadores',NULL,NULL,NULL,NULL),(25,7,2,'Ingreso de informacion de trabajadores',NULL,NULL,NULL,NULL),(26,8,2,'Contrataciones',NULL,NULL,NULL,NULL),(27,9,2,'Desvinculaciones',NULL,NULL,NULL,NULL),(28,10,3,'Ingreso de Liquidacion',NULL,NULL,NULL,'S'),(29,11,3,'Copia Libro de Remuneraciones',NULL,NULL,NULL,'S'),(30,12,3,'Libro Asistencias',NULL,NULL,NULL,NULL),(31,13,3,'Pacto Horas Extraordinarias',NULL,NULL,NULL,NULL),(32,14,3,'Licencia',NULL,NULL,NULL,'S'),(33,15,3,'Descuentos realizados',NULL,NULL,NULL,NULL),(34,16,3,'Autorizacion Firmada',NULL,NULL,NULL,NULL),(35,17,3,'Acreditacion de pago',NULL,NULL,NULL,NULL),(36,18,4,'Formulario F30',NULL,NULL,NULL,NULL),(37,19,4,'Formulario F30-1',NULL,NULL,NULL,NULL),(38,20,4,'Notificacion de Contratista',NULL,NULL,NULL,NULL),(39,21,4,'Formulario F43',NULL,NULL,NULL,NULL),(40,22,5,'AFP',NULL,NULL,NULL,'S'),(41,23,5,'Isapre / Fonasa',NULL,NULL,NULL,'S'),(42,24,5,'CCAF',NULL,NULL,NULL,'S'),(43,25,5,'Mutual',NULL,NULL,NULL,'S');
+insert  into `sub_tipodocumento`(`id`,`orden`,`id_tipodocumento`,`descripcion`,`opcional`,`activo`) values (19,1,1,'Contrato y Anexo de renovacion','','S'),(20,2,1,'Carta de Aviso','S','S'),(21,3,1,'Finiquito','S','S'),(22,4,1,'Plan de emergencia','',NULL),(23,5,1,'Comite Paritario Higiene y Seguridad',NULL,NULL),(24,6,1,'Registro de Conocimiento de Trabajadores',NULL,NULL),(25,7,2,'Ingreso de informacion de trabajadores',NULL,NULL),(26,8,2,'Contrataciones',NULL,NULL),(27,9,2,'Desvinculaciones',NULL,NULL),(28,10,3,'Ingreso de Liquidacion',NULL,'S'),(29,11,3,'Copia Libro de Remuneraciones',NULL,'S'),(30,12,3,'Libro Asistencias',NULL,NULL),(31,13,3,'Pacto Horas Extraordinarias',NULL,NULL),(32,14,3,'Licencia',NULL,'S'),(33,15,3,'Descuentos realizados',NULL,NULL),(34,16,3,'Autorizacion Firmada',NULL,NULL),(35,17,3,'Acreditacion de pago',NULL,NULL),(36,18,4,'Formulario F30',NULL,NULL),(37,19,4,'Formulario F30-1',NULL,NULL),(38,20,4,'Notificacion de Contratista',NULL,NULL),(39,21,4,'Formulario F43',NULL,NULL),(40,22,5,'AFP',NULL,'S'),(41,23,5,'Isapre / Fonasa',NULL,'S'),(42,24,5,'CCAF',NULL,'S'),(43,25,5,'Mutual',NULL,'S'),(44,26,6,'ODI 1',NULL,'S'),(45,27,6,'ODI 2',NULL,'S'),(46,28,7,'RIOHS 1',NULL,'S'),(47,29,7,'RIOHS 2',NULL,'S');
 
 /*Table structure for table `supervisores` */
 
@@ -466,13 +468,14 @@ CREATE TABLE `tipodocumento` (
   `tpdEstado` varchar(10) DEFAULT NULL,
   `tpdModuloPertenece` varchar(100) DEFAULT NULL,
   `tpd_nombreTipoDoc` varchar(100) DEFAULT NULL,
+  `prevencion` varchar(1) DEFAULT NULL,
   `activo` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tipodocumento` */
 
-insert  into `tipodocumento`(`id`,`descripcion`,`tpdEstado`,`tpdModuloPertenece`,`tpd_nombreTipoDoc`,`activo`) values (1,'Inf. & Coord. Emp.',NULL,NULL,NULL,'S'),(2,'Antecedentes Laborales',NULL,NULL,NULL,NULL),(3,'Remuneraciones',NULL,NULL,NULL,'S'),(4,'Certif. Contratista',NULL,NULL,NULL,NULL),(5,'Planilla de Pagos',NULL,NULL,NULL,'S');
+insert  into `tipodocumento`(`id`,`descripcion`,`tpdEstado`,`tpdModuloPertenece`,`tpd_nombreTipoDoc`,`prevencion`,`activo`) values (1,'Inf. & Coord. Emp.',NULL,NULL,NULL,NULL,'S'),(2,'Antecedentes Laborales',NULL,NULL,NULL,NULL,NULL),(3,'Remuneraciones',NULL,NULL,NULL,NULL,'S'),(4,'Certif. Contratista',NULL,NULL,NULL,NULL,NULL),(5,'Planilla de Pagos',NULL,NULL,NULL,NULL,'S'),(6,'ODI',NULL,NULL,NULL,'S','S'),(7,'RIOHS',NULL,NULL,NULL,'S','S');
 
 /*Table structure for table `trabajador` */
 
@@ -525,11 +528,11 @@ CREATE TABLE `trabajador` (
   `idSupervisor` int(11) DEFAULT NULL,
   `activo` char(1) DEFAULT NULL,
   KEY `trbIdTrabajador` (`trbIdTrabajador`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 /*Data for the table `trabajador` */
 
-insert  into `trabajador`(`trbIdTrabajador`,`afpIdAfp`,`comIdComuna`,`ctrIdContratista`,`dirIdDireccion`,`trbPactoIsapre`,`isaIdIsapre`,`nacionalidad`,`nacIdNacionalidad`,`tgrlIdCargoContractual`,`tgrlIdOficioCab`,`tgrlIdOficioDet`,`tgrlIdTipoContrato`,`tjorIdTipoJornada`,`trbAfectoArt22`,`trbAntiguedadMeses`,`trbApMaterno`,`trbApPaterno`,`trbCeco`,`trbDireccion`,`idRegion`,`idCiudad`,`idComuna`,`trbEstado`,`trbFechaDesvinculado`,`trbFechaContrato`,`trbFechaCreacion`,`trbFechaModificacion`,`trbFechaNac`,`trbHorasSemanales`,`trbIngresoObraFecha`,`trbNombre`,`trbPensionado`,`trbPerteneceSindicato`,`trbRut`,`trbRutJefe`,`trbSeguroCesantia`,`trbSexo`,`trbTelefono`,`trbTitulo`,`trbUsuarioCreacion`,`trbUsuarioModificacion`,`trbVisa`,`idSupervisor`,`activo`) values (33,1,NULL,9,NULL,'2',2,'argentina',NULL,1,NULL,NULL,NULL,NULL,'1',NULL,'materno 1','paterno 1',NULL,'direccion 1',NULL,NULL,NULL,NULL,NULL,'2010-01-23',NULL,NULL,'0000-00-00',NULL,NULL,'nombre 1','1',NULL,'228214302',NULL,'1','1','22222',NULL,NULL,NULL,NULL,1,'S');
+insert  into `trabajador`(`trbIdTrabajador`,`afpIdAfp`,`comIdComuna`,`ctrIdContratista`,`dirIdDireccion`,`trbPactoIsapre`,`isaIdIsapre`,`nacionalidad`,`nacIdNacionalidad`,`tgrlIdCargoContractual`,`tgrlIdOficioCab`,`tgrlIdOficioDet`,`tgrlIdTipoContrato`,`tjorIdTipoJornada`,`trbAfectoArt22`,`trbAntiguedadMeses`,`trbApMaterno`,`trbApPaterno`,`trbCeco`,`trbDireccion`,`idRegion`,`idCiudad`,`idComuna`,`trbEstado`,`trbFechaDesvinculado`,`trbFechaContrato`,`trbFechaCreacion`,`trbFechaModificacion`,`trbFechaNac`,`trbHorasSemanales`,`trbIngresoObraFecha`,`trbNombre`,`trbPensionado`,`trbPerteneceSindicato`,`trbRut`,`trbRutJefe`,`trbSeguroCesantia`,`trbSexo`,`trbTelefono`,`trbTitulo`,`trbUsuarioCreacion`,`trbUsuarioModificacion`,`trbVisa`,`idSupervisor`,`activo`) values (33,1,NULL,9,NULL,'2',2,'argentina',NULL,1,NULL,NULL,NULL,NULL,'1',NULL,'materno 1','paterno 1',NULL,'direccion 1',NULL,NULL,NULL,NULL,NULL,'2010-01-23',NULL,NULL,'0000-00-00',NULL,NULL,'nombre 1','1',NULL,'228214302',NULL,'1','1','22222',NULL,NULL,NULL,NULL,1,'S'),(34,2,NULL,10,NULL,'1',2,'chilena',NULL,1,NULL,NULL,NULL,NULL,'2',NULL,'VELIZ','LOPEZ',NULL,'filipo 4411',NULL,NULL,NULL,NULL,NULL,'1989-03-06',NULL,NULL,'0000-00-00',NULL,NULL,'CAROLINA','Habitat',NULL,'17029678-8',NULL,'Habitat','2','61217976',NULL,NULL,NULL,NULL,1,'S'),(35,2,NULL,10,NULL,'1',2,'CHILENO',NULL,1,NULL,NULL,NULL,NULL,'1',NULL,'CARREÑO ','GONZALEZ',NULL,'leonora la torre #1201',NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'0000-00-00',NULL,NULL,'ALEX ROBERTO ','Habitat',NULL,'7680734-5',NULL,'Habitat','1','91730371',NULL,NULL,NULL,NULL,2,'S'),(36,2,NULL,10,NULL,'2',2,'CHILENO',NULL,1,NULL,NULL,NULL,NULL,'1',NULL,'ABELLO','JARA',NULL,'LAS ALMERIAS #1142 VILLA MONSEÑOR LARRAIN',NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'0000-00-00',NULL,NULL,'DAMILTON WALDEMAR ','Habitat',NULL,'8842759-9',NULL,'Habitat','1','94511503',NULL,NULL,NULL,NULL,2,'S'),(37,2,NULL,10,NULL,'1',2,'CHILENO',NULL,1,NULL,NULL,NULL,NULL,'1',NULL,'FLORES','RUIZ',NULL,'PUERTO VARAS 158',NULL,NULL,NULL,NULL,NULL,'2014-09-01',NULL,NULL,'0000-00-00',NULL,NULL,'MIGUEL DANILO','Habitat',NULL,'14792452-6',NULL,'Habitat','1','87342295',NULL,NULL,NULL,NULL,2,'S'),(38,1,NULL,10,NULL,'1',2,'CHILENA',NULL,1,NULL,NULL,NULL,NULL,'1',NULL,'BAQUEDANO','VILLA',NULL,'PARROCO ALFONSO ALVARADO #2831',NULL,NULL,NULL,NULL,NULL,'2013-07-01',NULL,NULL,'0000-00-00',NULL,NULL,'SOLANGE DEL CARMEN ','CUPRUM',NULL,'18241529-4',NULL,'CUPRUM','2',NULL,NULL,NULL,NULL,NULL,2,'S'),(39,2,NULL,10,NULL,'1',2,'CHILENO',NULL,1,NULL,NULL,NULL,NULL,'1',NULL,'CAMPOS','CUEVAS',NULL,'PEDRO TORRES #460 DEPTO 204-B',NULL,NULL,NULL,NULL,NULL,'2013-07-01',NULL,NULL,'0000-00-00',NULL,NULL,'VICTOR MANUEL ','1',NULL,'11.794.449-2',NULL,'1','1','96340729',NULL,NULL,NULL,NULL,NULL,'S');
 
 /*Table structure for table `trabajadorxfaena` */
 
@@ -591,12 +594,64 @@ CREATE TABLE `usuarios` (
   `fec_alta` datetime DEFAULT NULL,
   `tipo_usuario` char(1) NOT NULL,
   `id_empresa` int(11) NOT NULL,
+  `id_agencia` int(11) DEFAULT NULL,
   KEY `ix_Usuarios_autoinc` (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `usuarios` */
 
-insert  into `usuarios`(`id`,`id_usuario`,`clave`,`nom_usuario`,`ape_usuario`,`activo`,`fec_alta`,`tipo_usuario`,`id_empresa`) values (1,'admin','admin','nombre administrador','apellido administrador','S','2012-11-27 00:00:00','',0),(3,'nuevo','nuevo','nombre nuevo','apellido nuevo','S','2014-02-16 00:00:00','E',5);
+insert  into `usuarios`(`id`,`id_usuario`,`clave`,`nom_usuario`,`ape_usuario`,`activo`,`fec_alta`,`tipo_usuario`,`id_empresa`,`id_agencia`) values (1,'admin','admin','nombre administrador','apellido administrador','S','2012-11-27 00:00:00','',0,NULL),(3,'nuevo','nuevo','nombre nuevo','apellido nuevo','S','2014-02-16 00:00:00','E',6,9);
+
+/* Function  structure for function  `determina_estado` */
+
+/*!50003 DROP FUNCTION IF EXISTS `determina_estado` */;
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `determina_estado`(p_TipoDoc int, p_SubTipodoc int,p_Faena int,p_Contratista int, p_IdTrabajador int) RETURNS int(11)
+BEGIN
+	DECLARE estado int;
+	DECLARE	x1 int;
+	declare cant_doc int;
+	declare meses int;
+	
+	SELECT MIN(d.id_estado_documento) 
+	into estado
+	FROM documentotrabajador d 
+	WHERE d.tpdIdTipoDocumento = p_TipoDoc
+        AND d.id_sub_tipodocumento = p_SubTipodoc
+        AND d.id_faena = p_Faena 
+        AND d.id_contratista = p_Contratista 
+        AND d.doctIdTrabajador = p_IdTrabajador 
+        AND d.id_estado_documento <> 1;
+        
+        if(estado is null) then
+		set x1 = 1;
+	else		
+		SELECT count(d.doctIdDocumento) 
+		INTO cant_doc
+		FROM documentotrabajador d 
+		WHERE d.tpdIdTipoDocumento = p_TipoDoc
+		AND d.id_sub_tipodocumento = p_SubTipodoc
+		AND d.id_faena = p_Faena 
+		AND d.id_contratista = p_Contratista 
+		AND d.doctIdTrabajador = p_IdTrabajador 
+		AND d.id_estado_documento <> 1;
+	
+		select ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30)
+		into meses
+		from trabajador t
+		where t.trbIdTrabajador = p_IdTrabajador;
+		
+		if(cant_doc < meses) then 
+			SET x1 = 2;	
+		else
+			set x1 = estado;
+		end if;
+	end if;
+       
+	RETURN x1;
+    END */$$
+DELIMITER ;
 
 /*Table structure for table `estado_documentos_t1` */
 

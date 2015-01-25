@@ -25,28 +25,50 @@ include("views/cabecera_listado.php");
 		        <? 
 		        	if($rs["tipo1"] == 1) $icono = "images/alerta.png";
 		        	if($rs["tipo1"] == 2) $icono = "images/advertencia.png";
-		        	if($rs["tipo1"] == 3) $icono = "images/cancelar.png";
-		        	if($rs["tipo1"] == 4) $icono = "images/activar.png";
+		        	if($rs["tipo1"] == 3) $icono = "images/rechazar.jpg";
+		        	if($rs["tipo1"] == 4) $icono = "images/activar.gif";
 		        ?>
         		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>
+<!-- 
+        <td align="left" width="10%">
+		        <? 
+		        	if($rs["tipo2"] == 1) $icono = "images/alerta.png";
+		        	if($rs["tipo2"] == 2) $icono = "images/advertencia.png";
+		        	if($rs["tipo2"] == 3) $icono = "images/rechazar.jpg";
+		        	if($rs["tipo2"] == 4) $icono = "images/activar.gif";
+		        ?>
+        		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+		</td>
+ -->
 
 		<td align="left" width="10%">
 		        <? 
 		        	if($rs["tipo3"] == 1) $icono = "images/alerta.png";
 		        	if($rs["tipo3"] == 2) $icono = "images/advertencia.png";
-		        	if($rs["tipo3"] == 3) $icono = "images/cancelar.png";
-		        	if($rs["tipo3"] == 4) $icono = "images/activar.png";
+		        	if($rs["tipo3"] == 3) $icono = "images/rechazar.jpg";
+		        	if($rs["tipo3"] == 4) $icono = "images/activar.gif";
 		        ?>
         		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>
+<!--
+        <td align="left" width="10%">
+		        <? 
+		        	if($rs["tipo4"] == 1) $icono = "images/alerta.png";
+		        	if($rs["tipo4"] == 2) $icono = "images/advertencia.png";
+		        	if($rs["tipo4"] == 3) $icono = "images/rechazar.jpg";
+		        	if($rs["tipo4"] == 4) $icono = "images/activar.gif";
+		        ?>
+        		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
+        </td>
+-->        
       
          <td align="left" width="10%">
 		        <? 
 		        	if($rs["tipo5"] == 1) $icono = "images/alerta.png";
 		        	if($rs["tipo5"] == 2) $icono = "images/advertencia.png";
-		        	if($rs["tipo5"] == 3) $icono = "images/cancelar.png";
-		        	if($rs["tipo5"] == 4) $icono = "images/activar.png";
+		        	if($rs["tipo5"] == 3) $icono = "images/rechazar.jpg";
+		        	if($rs["tipo5"] == 4) $icono = "images/activar.gif";
 		        ?>
        		<img src="<? echo($icono) ?>" title="Ok" class="oplistado" onclick="window.parent.verDetalle('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>

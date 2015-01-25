@@ -77,6 +77,7 @@ class IndexController extends ControllerBase
 			
 			if($_SESSION["tip_usuario"] == "E")
 			{
+				$_SESSION["idagencia"] = $resp[1]["id_agencia"];
 				$_SESSION["idempresa"] = $resp[1]["id_empresa"];
 				$_SESSION["bloqueo"] = $resp[2];
 				

@@ -78,7 +78,11 @@ class TrabajadorModel extends ModelBase
 				$sql = " INSERT INTO documentotrabajador ";
 				$sql .= " (id_estado_documento, doctIdTrabajador, id_contratista, id_faena, id_sub_tipodocumento,tpdIdTipoDocumento) ";
 				$sql .= " VALUES ";
+				if($rs["opcional"] == "S" ){
+				$sql .= " (5, ".$id_new.", ".$param["ctrIdContratista"].", ".$varIdFaena.",".$rs["id"].",".$rs["tipodoc"].") ";
+				} else {
 				$sql .= " (1, ".$id_new.", ".$param["ctrIdContratista"].", ".$varIdFaena.",".$rs["id"].",".$rs["tipodoc"].") ";
+				}
 // 				echo($sql);
 				$idsql_ins = consulta($sql);
 			}

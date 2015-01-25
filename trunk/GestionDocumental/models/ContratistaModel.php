@@ -30,12 +30,10 @@ class ContratistaModel extends ModelBase
 	
 	public function bajaRegistro($array)
 	{
-		$dato = new Contratista();
-		$dato->add_filter("ctrIdContratista","=",$array["id"]);
-		$dato->load();
-		$dato->set_data("activo","N");
-		$dato->save();
+		$sql = " UPDATE contratista SET activo = 'N' WHERE ctrIdContratista = ".$array["id"];
+		consulta($sql);
 	}
+	
 	
 	public function grabar_datosForm($array)
 	{

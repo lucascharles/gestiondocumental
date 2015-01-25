@@ -28,7 +28,7 @@ include("views/cabecera_listado.php");
         <td align="left" width="10%"><?php echo ($rs["ctrDireccion"]) ?></td>
         <td align="left" width="10%">
         <img src="images/editar.gif" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["ctrIdContratista"]) ?>)" />
-        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["id"]) ?>)" />
+        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["ctrIdContratista"]) ?>)" />
         </td>
 	</tr>
     <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($rs["ctrIdContratista"]) ?>">

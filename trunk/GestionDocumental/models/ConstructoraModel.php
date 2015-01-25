@@ -65,7 +65,7 @@ class ConstructoraModel extends ModelBase
 	
 	public function getConstructora($param)
 	{
-		$sql = " SELECT c.consIdConstructora, c.consNombreFantasia , c.consRazonSocial, c.consRut "; 
+		$sql = " SELECT * "; 
 		$sql .= " FROM constructora c ";
 		$sql .= " WHERE c.activo = 'S' ";
 		$sql .= " AND c.consIdConstructora = ".$param["id"];
@@ -78,7 +78,7 @@ class ConstructoraModel extends ModelBase
 	
 	public function getConstructoraxContratista($param)
 	{	
-		$sql = " SELECT e.consIdConstructora,e.consNombreFantasia,e.consRazonSocial,e.consRut ";
+		$sql = " SELECT e.*, a.* ";
 		$sql .= " FROM constructora e, contratista a ";
 		$sql .= " WHERE e.consIdConstructora = a.consIdConstructora ";
 		$sql .= " AND e.activo = 'S' ";
@@ -93,7 +93,7 @@ class ConstructoraModel extends ModelBase
 	{
 		include("config.php");
 		
-		$sql = " SELECT c.consIdConstructora consIdConstructora, c.consNombreFantasia consNombreFantasia, c.consRazonSocial consRazonSocial, c.consRut consRut ";
+		$sql = " SELECT c.* ";
 		$sql .= " FROM constructora c ";
 		$sql .= " WHERE c.activo = 'S' ";
 		

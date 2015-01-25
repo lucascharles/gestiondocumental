@@ -39,7 +39,7 @@
     <tr>
     	<td align="right" class="etiqueta_form">Rut:</td>
         <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="consRut" id="consRut" value="<? echo(utf8_decode($consRut)); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" tabindex="0"/>
+        <input type="text" name="consRut" id="consRut" value="<? echo(utf8_decode($consRut)); ?>" valida="requerido" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" tabindex="0"/>
         </td>
         <td align="left" class="etiqueta_form" >
        
@@ -55,18 +55,19 @@
         </td>
     </tr>
     <tr>
-    	<td align="right" class="etiqueta_form">Email:</td>
+    	<td align="right" class="etiqueta_form">Nombre Fantasia:</td>
         <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="consEmail" id="consEmail" value="<? echo($consEmail); ?>" valida="requerido" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+        <input type="text" name="consNombreFantasia" id="consNombreFantasia" value="<? echo($consNombreFantasia); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
         </td>
         <td align="left" class="etiqueta_form" >
        
         </td>
     </tr>
+    
     <tr>
-    	<td align="right" class="etiqueta_form">Nombre Fantasia:</td>
+    	<td align="right" class="etiqueta_form">Email:</td>
         <td align="left" class="etiqueta_form" colspan="1">
-        <input type="text" name="consNombreFantasia" id="consNombreFantasia" value="<? echo($consNombreFantasia); ?>" valida="requerido" tipovalida="texto" class="input_form_medio" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
+        <input type="text" name="consEmail" id="consEmail" value="<? echo($consEmail); ?>" valida="requerido" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this);" />
         </td>
         <td align="left" class="etiqueta_form" >
        

@@ -25,7 +25,7 @@
     	<td>
         	<ul id="nav">
             	<li>
-					<div class="principal"  onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">PREVENCI&Oacute;N DE RIESGOS</div>
+					<div class="principal" onClick="cargarOpcion('PrevencionRiesgos')"  onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">PREVENCI&Oacute;N DE RIESGOS</div>
 			   </li>
             </ul>
 		</td>
