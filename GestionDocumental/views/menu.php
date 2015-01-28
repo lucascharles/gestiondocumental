@@ -123,54 +123,7 @@
 								  </table>
 								  </li>
 							<?php }?>
-							<? if($_SESSION["tip_usuario"] <> "E"){ ?>
-<!--  
-								<li>
-								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
-									<tr>
-									<td align="center" valign="middle" width="10" height="25" class="">
-									  </td>
-									 <td align="center" valign="middle"  height="25" class="">
-								
-									  <div class="principal" onClick="cargarOpcion('Afp')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
-									  <table>
-												<tr><td align="center">
-									  <img src="images/my_documents.png" class="btn_menu" />
-									  </td></tr>
-												  <tr><td align="center">
-												AFPs
-												</td></tr>
-											  </table>
-									  </div>
-										</td>
-								  </tr>
-								  </table>
-								  </li>
--->
-							<?php }?>
 							
-							
-							<li>
-								   <table border="0" cellpadding="0" cellspacing="0" width="160" align="center">
-									<tr>
-									<td align="center" valign="middle" width="10" height="25" class="">
-									  </td>
-									 <td align="center" valign="middle"  height="25" class="">
-								
-									  <div class="principal" onClick="cargarOpcion('PrevencionRiesgos')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
-									  <table>
-												<tr><td align="center">
-									  <img src="images/usuarios.png" class="btn_menu" />
-									  </td></tr>
-												  <tr><td align="center">
-												Prevencion de Riesgos
-												</td></tr>
-											  </table>
-									  </div>
-										</td>
-								  </tr>
-								  </table>
-								  </li>
 							    <? /*if(checkPermisos(3,"vista")) { */?>                 
  
 							    <li> 
@@ -184,7 +137,7 @@
                                         <img src="images/configuracion.png" class="btn_menu" />
                                         </td></tr>
                                                 <tr><td align="center">
-                                            	Configuraci&oacute;n
+                                            	Usuarios
                                             	</td></tr>
                                             </table>
                                         </div>

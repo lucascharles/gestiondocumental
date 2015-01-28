@@ -26,8 +26,8 @@ if(isset($_SESSION["bloqueo"]))
 		<td align="left" height="10" colspan="3"></td>
     </tr>
    <tr>
-		<td align="left" class="etiqueta_form" colspan="2">Contratista:&nbsp;<?=$dato["ctrRazonSocial"]?></td>
-        <td align="right"><input  type="button" name="btnsalir" id="btnsalir" onclick="volverDocContratista('<?=$controller?>',<?=$id_f?>)"  value="Volver" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/></td>
+		<td align="left" class="etiqueta_form" colspan="2">Agencia:&nbsp;<?=$dato["ctrRazonSocial"]?></td>
+        <td align="right"><input  type="button" name="btnsalir" id="btnsalir" onclick="volverDocContratista('<?=$controller?>',<?=$id_c?>)"  value="Volver" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/></td>
     </tr>
     <tr>
 		<td align="left" class="etiqueta_form">Trabajador:&nbsp;<?=$rs_trabajador["trbNombre"]?></td>
@@ -55,7 +55,7 @@ if(isset($_SESSION["bloqueo"]))
         <td colspan="3" height="5" valign="top">
         	<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#55A79A">
 	        	<? 
-				if($rs_sub_doc["orden"] !=9 ||$rs_sub_doc["orden"] !=10||$rs_sub_doc["orden"] !=11)	{
+				if($rs_sub_doc["orden"] !=28 and $rs_sub_doc["orden"] !=9 and $rs_sub_doc["orden"] !=11 and $rs_sub_doc["orden"] !=10)	{
 				?>
 	        	<tr>
             		<td colspan="<?=$cont?>">

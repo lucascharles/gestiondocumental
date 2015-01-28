@@ -17,7 +17,7 @@ class ContratistasController extends ControllerBase
 	{
 		require 'models/ContratistaModel.php';
 		
-		$dato = new UsuarioModel();
+		$dato = new ContratistaModel();
 		$dato->bajaRegistro($array);
 	}
 	

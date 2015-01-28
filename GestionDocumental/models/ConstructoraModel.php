@@ -4,11 +4,8 @@ class ConstructoraModel extends ModelBase
 	
 	public function bajaRegistro($array)
 	{
-		$dato = new Constructora();
-		$dato->add_filter("consIdConstructora","=",$array["id"]);
-		$dato->load();
-		$dato->set_data("activo","N");
-		$dato->save();
+		$sql = " UPDATE constructora SET activo = 'N' WHERE consIdConstructora = ".$array["id"];
+		consulta($sql);
 	}
 	
 	public function grabar_datosForm($array)
