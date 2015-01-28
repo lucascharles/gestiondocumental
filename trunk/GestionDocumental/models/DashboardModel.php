@@ -41,11 +41,17 @@ class DashboardModel extends ModelBase
 		$sql .= " COALESCE(tipo2.estado, 1) AS tipo2, ";
 		$sql .= " COALESCE(tipo3.estado, 1) AS tipo3, ";
 		$sql .= " COALESCE(tipo4.estado, 1) AS tipo4, ";
-	    $sql .= " COALESCE(tipo5.estado, 1) AS tipo5 ";
-		$sql .= " FROM (SELECT cont.ctrIdContratista,cont.ctrRazonSocial , cont.ctrRut , cont.ctrNombreFantasia, cons.consNombreFantasia FROM contratista cont,constructora cons WHERE cont.consIdConstructora = cons.consIdConstructora ";
+	    $sql .= " COALESCE(tipo5.estado, 1) AS tipo5, ";
+	    $sql .= " COALESCE(tipo6.estado, 1) AS tipo6, ";
+	    $sql .= " COALESCE(tipo7.estado, 1) AS tipo7 ";
+		$sql .= " FROM (SELECT cont.ctrIdContratista,cont.ctrRazonSocial , cont.ctrRut , cont.ctrNombreFantasia, cons.consNombreFantasia FROM contratista cont,constructora cons WHERE cons.activo ='S' and cont.activo ='S' and cont.consIdConstructora = cons.consIdConstructora ";
 		if($array["id_empresa"] != ""){
 			$sql .= " AND cons.consIdConstructora = ".$array["id_empresa"];
 		}
+		if($array["consIdConstructora"] != ""){
+			$sql .= " AND cons.consIdConstructora = ".$array["consIdConstructora"];
+		}
+		
 		$sql .= " ) AS pivot ";
 		$sql .= " LEFT JOIN ";
 		$sql .= " ( ";
@@ -99,6 +105,26 @@ class DashboardModel extends ModelBase
 		$sql .= " 		AND c.activo = 'S' ";
 		$sql .= " 		GROUP BY c.ctrIdContratista, c.ctrRazonSocial, c.ctrRut, c.ctrNombreFantasia ";
 		$sql .= " ) AS tipo5 ON (tipo5.ctrIdContratista = pivot.ctrIdContratista) ";
+		$sql .= " LEFT JOIN ( ";
+		$sql .= " 		SELECT c.ctrIdContratista ,c.ctrRazonSocial , c.ctrRut ";
+		$sql .= " 		, c.ctrNombreFantasia , MIN(dt.id_estado_documento) estado ";
+		$sql .= " 		FROM contratista c LEFT JOIN documentotrabajador dt ON c.ctrIdContratista = dt.id_contratista, documentos d ";
+		$sql .= " 		WHERE dt.doctIdDocumento = d.id_documentotrabajador ";
+		$sql .= " 		AND EXTRACT(YEAR FROM d.doctFechaPertenece) = ".$array["periodo"];
+		$sql .= " 		AND dt.tpdIdTipoDocumento = 6 ";
+		$sql .= " 		AND c.activo = 'S' ";
+		$sql .= " 		GROUP BY c.ctrIdContratista, c.ctrRazonSocial, c.ctrRut, c.ctrNombreFantasia ";
+		$sql .= " ) AS tipo6 ON (tipo5.ctrIdContratista = pivot.ctrIdContratista) ";
+		$sql .= " LEFT JOIN ( ";
+		$sql .= " 		SELECT c.ctrIdContratista ,c.ctrRazonSocial , c.ctrRut ";
+		$sql .= " 		, c.ctrNombreFantasia , MIN(dt.id_estado_documento) estado ";
+		$sql .= " 		FROM contratista c LEFT JOIN documentotrabajador dt ON c.ctrIdContratista = dt.id_contratista, documentos d ";
+		$sql .= " 		WHERE dt.doctIdDocumento = d.id_documentotrabajador ";
+		$sql .= " 		AND EXTRACT(YEAR FROM d.doctFechaPertenece) = ".$array["periodo"];
+		$sql .= " 		AND dt.tpdIdTipoDocumento = 7 ";
+		$sql .= " 		AND c.activo = 'S' ";
+		$sql .= " 		GROUP BY c.ctrIdContratista, c.ctrRazonSocial, c.ctrRut, c.ctrNombreFantasia ";
+		$sql .= " ) AS tipo7 ON (tipo5.ctrIdContratista = pivot.ctrIdContratista) ";
 		
 		$sql .= " GROUP BY pivot.ctrIdContratista ";
 		

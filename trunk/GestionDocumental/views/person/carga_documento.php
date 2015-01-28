@@ -54,7 +54,7 @@ include("views/menu.php");
         <td colspan="3" height="5" valign="top">
         <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#55A79A">
 	        
-	        <? if($rs_sub_doc["id"]==1) {?>
+	        <? if($rs_sub_doc["id"]!=28 and $rs_sub_doc["id"]!=9 and $rs_sub_doc["id"]!=10 and $rs_sub_doc["id"]!=11) {?>
 	        <tr>
             	<td colspan="<?=$cont?>">
                 Nombre: <input type="text" name="doctNombreArchivo" id="doctNombreArchivo" class="input_form" onFocus="resaltar(this)" onBlur="noresaltar(this)" />

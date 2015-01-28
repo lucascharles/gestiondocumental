@@ -32,7 +32,7 @@
 				<tr>
 					<td align="left" class="etiqueta_form">Empresa:&nbsp;
 <!-- 				   		<td align="left" class="etiqueta_form" colspan="1"> -->
-			 	   			<select name="consIdConstructora" id="consIdConstructora" filtro="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="">
+			 	   			<select name="consIdConstructora" id="consIdConstructora" filtro="S" valida="" tipovalida="texto" class="input_form_largo" onFocus="resaltar(this)" onBlur="noresaltar(this)"  onchange="mostrar()">
 								<option value="<? echo($consIdConstructora); ?>"><?echo($rs["consNombreFantasia"])?></option>
 				   					<?
 							   			while($rs=mysql_fetch_array($constructoras))
