@@ -101,7 +101,7 @@ if(isset($_SESSION["bloqueo"]))
 	            	<td colspan="<?=$cont?>">
 	            		<table width="100%" cellpadding="0" cellspacing="1" align="center" border="0" bgcolor="#ffffff" id="listado_home">
 	        				<tr>
-	            				<th colspan="5">Documentos</th>
+	            				<th colspan="6">Documentos</th>
 	            			</tr>
 				            
 				            <tr bgcolor="#A9A9A9">
@@ -109,8 +109,8 @@ if(isset($_SESSION["bloqueo"]))
 			                    <td>Nombre</td>
 			                    <td>Estado</td>
 			                    <td>Observaciones</td>
-			                    <td align="right>Archivo</td>
-			                    <td align="center"></td>
+			                    <td align="right">Archivo</td>
+			                    <td align="center">Acciones</td>
 			                </tr>
 			            	<?
 							if($idsql_doc > '')
@@ -125,6 +125,8 @@ if(isset($_SESSION["bloqueo"]))
 					                    <td><?=$rs["nota"]?></td>
 					                    <td align="right">
 					                    	<a href="docvarios/<?=$id_c."_docs_".$id_f."/".$rs["doctNombreEncrip"]?>" target="_blank"><?=$rs["NombreOriginal"]?></a>
+										</td>
+										<td align="right">
 					                    	<img id="<?=$rs["id_documento"]?>" src="images/editar_estado.png" style="cursor:pointer;" title="Cambiar Estado" onclick='editarEstado(this)' />&nbsp;&nbsp;&nbsp;&nbsp;
                     						<img id="<?=$rs["id_documento"]?>" src="images/notas.png" style="cursor:pointer;" title="Notas" onclick='editarNota(this)' />&nbsp;&nbsp;&nbsp;&nbsp;
                     						<img id="<?=$rs["id_documento"]?>" src="images/borrar.gif" style="cursor:pointer;" title="Borrar" onclick='borrarDocumento(this)' />
@@ -134,7 +136,7 @@ if(isset($_SESSION["bloqueo"]))
 					        </tr>
 	                
 	                		<tr bgcolor="#FFFFFF" >
-	    						<td colspan="5" style="border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC; height:5px; "></td>
+	    						<td colspan="8" style="border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC; height:5px; "></td>
 							</tr>
 	                		<?
 	                				}
