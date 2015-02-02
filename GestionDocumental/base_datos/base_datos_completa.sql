@@ -162,7 +162,7 @@ CREATE TABLE `contratista` (
 
 /*Data for the table `contratista` */
 
-insert  into `contratista`(`ctrIdContratista`,`ccatIdAfiliado`,`ctrEmail`,`ctrEmailExpertoMutualidad`,`ctrEstado`,`ctrFechaCreacion`,`ctrFechaModificacion`,`ctrFonoExpertoMutualidad`,`ctrIdAfiliadoMutualidad`,`ctrIdServicioContratado`,`ctrIngresoFaena`,`ctrNombreExpertoMutualidad`,`ctrNombreFantasia`,`ctrNroActividadCab`,`ctrNroActividadDet`,`ctrRazonSocial`,`ctrRut`,`ctrTasaCotizacionActual`,`ctrTasaCotizacionTotal`,`ctrTasaGenerica`,`ctrTelefono`,`ctrTelefono2`,`ctrTelefono3`,`ctrUsuarioCreacion`,`ctrUsuarioModificacion`,`dirIdDirecion`,`mutIdMutualidad`,`rplIdRepLegal`,`tjor_idTipoJornada`,`consIdConstructora`,`ctrDireccion`,`activo`) values (9,NULL,'email1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 1','Irarrazaval',NULL,NULL,'Irarrazaval',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 1','S'),(10,NULL,'email2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 2','Irarrazaval 2',NULL,NULL,'Irarrazaval 2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 2','S'),(11,NULL,'correo de la agencia prueba 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'encargado de la agencia prueba 1',NULL,NULL,NULL,'Agencia prueba 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion de la agencia prueba 1','N'),(12,NULL,'zzzzz',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'zzzzz',NULL,NULL,NULL,'zzzzz',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,7,'zzzzz','S');
+insert  into `contratista`(`ctrIdContratista`,`ccatIdAfiliado`,`ctrEmail`,`ctrEmailExpertoMutualidad`,`ctrEstado`,`ctrFechaCreacion`,`ctrFechaModificacion`,`ctrFonoExpertoMutualidad`,`ctrIdAfiliadoMutualidad`,`ctrIdServicioContratado`,`ctrIngresoFaena`,`ctrNombreExpertoMutualidad`,`ctrNombreFantasia`,`ctrNroActividadCab`,`ctrNroActividadDet`,`ctrRazonSocial`,`ctrRut`,`ctrTasaCotizacionActual`,`ctrTasaCotizacionTotal`,`ctrTasaGenerica`,`ctrTelefono`,`ctrTelefono2`,`ctrTelefono3`,`ctrUsuarioCreacion`,`ctrUsuarioModificacion`,`dirIdDirecion`,`mutIdMutualidad`,`rplIdRepLegal`,`tjor_idTipoJornada`,`consIdConstructora`,`ctrDireccion`,`activo`) values (9,NULL,'email1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 1','Irarrazaval',NULL,NULL,'Irarrazaval',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 1','S'),(10,NULL,'email2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Encargado 2','Irarrazaval 2',NULL,NULL,'Irarrazaval 2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion 2','S'),(11,NULL,'correo de la agencia prueba 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'encargado de la agencia prueba 1',NULL,NULL,NULL,'Agencia prueba 1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,'Direccion de la agencia prueba 1','N'),(12,NULL,'zzzzz',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'zzzzz',NULL,NULL,NULL,'zzzzz',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,7,'zzzzz','N');
 
 /*Table structure for table `direccion` */
 
@@ -230,7 +230,7 @@ CREATE TABLE `documentotrabajador` (
 
 /*Data for the table `documentotrabajador` */
 
-insert  into `documentotrabajador`(`doctIdDocumento`,`id_estado_documento`,`doctIdTrabajador`,`id_contratista`,`id_faena`,`tpdIdTipoDocumento`,`id_sub_tipodocumento`) values (189,2,33,9,NULL,1,19),(115,1,33,9,NULL,1,20),(116,1,33,9,NULL,1,21),(124,4,33,9,NULL,3,28),(118,1,33,9,NULL,3,29),(119,1,33,9,NULL,3,32),(120,1,33,9,NULL,5,40),(121,1,33,9,NULL,5,41),(122,1,33,9,NULL,5,42),(123,1,33,9,NULL,5,43),(125,2,33,9,NULL,3,28),(126,1,34,9,NULL,1,19),(127,1,34,9,NULL,1,20),(128,1,34,9,NULL,1,21),(129,1,34,9,NULL,3,28),(130,1,34,9,NULL,3,29),(131,1,34,9,NULL,3,32),(132,1,34,9,NULL,5,40),(133,1,34,9,NULL,5,41),(134,1,34,9,NULL,5,42),(135,1,34,9,NULL,5,43),(136,1,35,9,NULL,1,19),(137,1,35,9,NULL,1,20),(138,1,35,9,NULL,1,21),(139,1,35,9,NULL,3,28),(140,1,35,9,NULL,3,29),(141,1,35,9,NULL,3,32),(142,1,35,9,NULL,5,40),(143,1,35,9,NULL,5,41),(144,1,35,9,NULL,5,42),(145,1,35,9,NULL,5,43),(146,1,36,9,NULL,1,19),(147,1,36,9,NULL,1,20),(148,1,36,9,NULL,1,21),(149,1,36,9,NULL,3,28),(150,1,36,9,NULL,3,29),(151,1,36,9,NULL,3,32),(152,1,36,9,NULL,5,40),(153,1,36,9,NULL,5,41),(154,1,36,9,NULL,5,42),(155,1,36,9,NULL,5,43),(186,4,37,10,NULL,1,19),(157,1,37,10,NULL,1,20),(158,1,37,10,NULL,1,21),(187,4,37,10,NULL,3,28),(160,1,37,10,NULL,3,29),(161,1,37,10,NULL,3,32),(162,1,37,10,NULL,5,40),(163,1,37,10,NULL,5,41),(164,1,37,10,NULL,5,42),(165,1,37,10,NULL,5,43),(166,1,38,9,NULL,1,19),(167,1,38,9,NULL,1,20),(168,1,38,9,NULL,1,21),(169,1,38,9,NULL,3,28),(170,1,38,9,NULL,3,29),(171,1,38,9,NULL,3,32),(172,1,38,9,NULL,5,40),(173,1,38,9,NULL,5,41),(174,1,38,9,NULL,5,42),(175,1,38,9,NULL,5,43),(176,1,39,9,NULL,1,19),(177,1,39,9,NULL,1,20),(178,1,39,9,NULL,1,21),(179,1,39,9,NULL,3,28),(180,1,39,9,NULL,3,29),(181,1,39,9,NULL,3,32),(182,1,39,9,NULL,5,40),(183,1,39,9,NULL,5,41),(184,1,39,9,NULL,5,42),(185,1,39,9,NULL,5,43),(188,2,39,10,NULL,3,28);
+insert  into `documentotrabajador`(`doctIdDocumento`,`id_estado_documento`,`doctIdTrabajador`,`id_contratista`,`id_faena`,`tpdIdTipoDocumento`,`id_sub_tipodocumento`) values (189,2,33,10,NULL,1,19),(115,1,33,10,NULL,1,20),(116,1,33,10,NULL,1,21),(124,4,33,10,NULL,3,28),(118,1,33,10,NULL,3,29),(119,1,33,10,NULL,3,32),(120,1,33,10,NULL,5,40),(121,1,33,10,NULL,5,41),(122,1,33,10,NULL,5,42),(123,1,33,10,NULL,5,43),(125,2,33,10,NULL,3,28),(126,1,34,10,NULL,1,19),(127,1,34,10,NULL,1,20),(128,1,34,10,NULL,1,21),(129,1,34,10,NULL,3,28),(130,1,34,10,NULL,3,29),(131,1,34,10,NULL,3,32),(132,1,34,10,NULL,5,40),(133,1,34,10,NULL,5,41),(134,1,34,10,NULL,5,42),(135,1,34,10,NULL,5,43),(136,1,35,10,NULL,1,19),(137,1,35,10,NULL,1,20),(138,1,35,10,NULL,1,21),(139,1,35,10,NULL,3,28),(140,1,35,10,NULL,3,29),(141,1,35,10,NULL,3,32),(142,1,35,10,NULL,5,40),(143,1,35,10,NULL,5,41),(144,1,35,10,NULL,5,42),(145,1,35,10,NULL,5,43),(146,1,36,10,NULL,1,19),(147,1,36,10,NULL,1,20),(148,1,36,10,NULL,1,21),(149,1,36,10,NULL,3,28),(150,1,36,10,NULL,3,29),(151,1,36,10,NULL,3,32),(152,1,36,10,NULL,5,40),(153,1,36,10,NULL,5,41),(154,1,36,10,NULL,5,42),(155,1,36,10,NULL,5,43),(186,4,37,9,NULL,1,19),(157,1,37,9,NULL,1,20),(158,1,37,9,NULL,1,21),(187,4,37,9,NULL,3,28),(160,1,37,9,NULL,3,29),(161,1,37,9,NULL,3,32),(162,1,37,9,NULL,5,40),(163,1,37,9,NULL,5,41),(164,1,37,9,NULL,5,42),(165,1,37,9,NULL,5,43),(166,1,38,10,NULL,1,19),(167,1,38,10,NULL,1,20),(168,1,38,10,NULL,1,21),(169,1,38,10,NULL,3,28),(170,1,38,10,NULL,3,29),(171,1,38,10,NULL,3,32),(172,1,38,10,NULL,5,40),(173,1,38,10,NULL,5,41),(174,1,38,10,NULL,5,42),(175,1,38,10,NULL,5,43),(176,1,39,10,NULL,1,19),(177,1,39,10,NULL,1,20),(178,1,39,10,NULL,1,21),(179,1,39,10,NULL,3,28),(180,1,39,10,NULL,3,29),(181,1,39,10,NULL,3,32),(182,1,39,10,NULL,5,40),(183,1,39,10,NULL,5,41),(184,1,39,10,NULL,5,42),(185,1,39,10,NULL,5,43),(188,2,39,9,NULL,3,28);
 
 /*Table structure for table `estado_documento` */
 
@@ -600,58 +600,7 @@ CREATE TABLE `usuarios` (
 
 /*Data for the table `usuarios` */
 
-insert  into `usuarios`(`id`,`id_usuario`,`clave`,`nom_usuario`,`ape_usuario`,`activo`,`fec_alta`,`tipo_usuario`,`id_empresa`,`id_agencia`) values (1,'admin','admin','nombre administrador','apellido administrador','S','2012-11-27 00:00:00','',0,NULL),(3,'nuevo','nuevo','nombre nuevo','apellido nuevo','S','2014-02-16 00:00:00','E',6,9);
-
-/* Function  structure for function  `determina_estado` */
-
-/*!50003 DROP FUNCTION IF EXISTS `determina_estado` */;
-DELIMITER $$
-
-/*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `determina_estado`(p_TipoDoc int, p_SubTipodoc int,p_Faena int,p_Contratista int, p_IdTrabajador int) RETURNS int(11)
-BEGIN
-	DECLARE estado int;
-	DECLARE	x1 int;
-	declare cant_doc int;
-	declare meses int;
-	
-	SELECT MIN(d.id_estado_documento) 
-	into estado
-	FROM documentotrabajador d 
-	WHERE d.tpdIdTipoDocumento = p_TipoDoc
-        AND d.id_sub_tipodocumento = p_SubTipodoc
-        AND d.id_faena = p_Faena 
-        AND d.id_contratista = p_Contratista 
-        AND d.doctIdTrabajador = p_IdTrabajador 
-        AND d.id_estado_documento <> 1;
-        
-        if(estado is null) then
-		set x1 = 1;
-	else		
-		SELECT count(d.doctIdDocumento) 
-		INTO cant_doc
-		FROM documentotrabajador d 
-		WHERE d.tpdIdTipoDocumento = p_TipoDoc
-		AND d.id_sub_tipodocumento = p_SubTipodoc
-		AND d.id_faena = p_Faena 
-		AND d.id_contratista = p_Contratista 
-		AND d.doctIdTrabajador = p_IdTrabajador 
-		AND d.id_estado_documento <> 1;
-	
-		select ROUND(DATEDIFF(CURDATE(), t.trbFechaContrato) / 30)
-		into meses
-		from trabajador t
-		where t.trbIdTrabajador = p_IdTrabajador;
-		
-		if(cant_doc < meses) then 
-			SET x1 = 2;	
-		else
-			set x1 = estado;
-		end if;
-	end if;
-       
-	RETURN x1;
-    END */$$
-DELIMITER ;
+insert  into `usuarios`(`id`,`id_usuario`,`clave`,`nom_usuario`,`ape_usuario`,`activo`,`fec_alta`,`tipo_usuario`,`id_empresa`,`id_agencia`) values (1,'admin','admin','nombre administrador','apellido administrador','S','2012-11-27 00:00:00','',0,NULL),(3,'nuevo','nuevo','nombre nuevo','apellido nuevo','S','2014-02-16 00:00:00','E',6,10);
 
 /*Table structure for table `estado_documentos_t1` */
 
