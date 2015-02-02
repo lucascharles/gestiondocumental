@@ -51,6 +51,9 @@ class DashboardModel extends ModelBase
 		if($array["consIdConstructora"] != ""){
 			$sql .= " AND cons.consIdConstructora = ".$array["consIdConstructora"];
 		}
+		if($array["id_agencia"] != ""){
+			$sql .= " AND cont.ctrIdContratista = ".$array["id_agencia"];
+		}
 		
 		$sql .= " ) AS pivot ";
 		$sql .= " LEFT JOIN ";

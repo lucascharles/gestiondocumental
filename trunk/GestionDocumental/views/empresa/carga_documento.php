@@ -123,7 +123,12 @@ if(isset($_SESSION["bloqueo"]))
 					                    <td><?=$rs["doctNombreArchivo"]?></td>
 					                    <td><?=$rs["estado_documento"]?></td>
 					                    <td><?=$rs["nota"]?></td>
-					                    <td align="right"><a href="docvarios/<?=$id_c."_docs_".$id_f."/".$rs["doctNombreEncrip"]?>" target="_blank"><?=$rs["NombreOriginal"]?></a></td>
+					                    <td align="right">
+					                    	<a href="docvarios/<?=$id_c."_docs_".$id_f."/".$rs["doctNombreEncrip"]?>" target="_blank"><?=$rs["NombreOriginal"]?></a>
+					                    	<img id="<?=$rs["id_documento"]?>" src="images/editar_estado.png" style="cursor:pointer;" title="Cambiar Estado" onclick='editarEstado(this)' />&nbsp;&nbsp;&nbsp;&nbsp;
+                    						<img id="<?=$rs["id_documento"]?>" src="images/notas.png" style="cursor:pointer;" title="Notas" onclick='editarNota(this)' />&nbsp;&nbsp;&nbsp;&nbsp;
+                    						<img id="<?=$rs["id_documento"]?>" src="images/borrar.gif" style="cursor:pointer;" title="Borrar" onclick='borrarDocumento(this)' />
+					                    </td>
 					                    <td align="center">
 					                    </td>
 					        </tr>
