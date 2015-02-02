@@ -114,13 +114,14 @@ $trbRut= $rs["trbRut"];
 				<option value="<?=$rs["id"]?>" <?=$selected?> > <? echo($rs["descripcion"]); ?> </option>
 			<?
 					  }
+					  $tipoDoc = $rs["id"];
 		    ?>
 		   </select>
                 </td>
             </tr>
 	        
             
-            <? if($tipoDoc==28||$tipoDoc==29||$tipoDoc==11) {?>
+            <?if($tipoDoc==28||$tipoDoc==9||$tipoDoc==10||$tipoDoc==11) {?>
 	        <tr>
             	<td colspan="<?=$cont?>">
                 Nombre:

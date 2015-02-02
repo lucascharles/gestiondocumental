@@ -38,16 +38,6 @@ while($rs=mysql_fetch_array($idsql_tip_doc_aux))
         </table>
 
         
-<!--         <table class="opciones" onclick="volverFaenaEmp('<?=$controller?>',0)" title="Volver" > -->
-<!--                         <tr> -->
-<!--                             <td align="right" valign="middle">. -->
-<!--                             <img src="images/volver.gif" onmouseover="resaltarImagen(this)" onmouseout="noresaltarImagen(this)"/> -->
-<!--                             </td> -->
-<!--                             <td align="left" valign="middle" > -->
-<!--                             Volver -->
-<!--                             </td> -->
-<!--                         </tr> -->
-<!--         </table> -->
         </td>
     </tr>
 	<tr>
