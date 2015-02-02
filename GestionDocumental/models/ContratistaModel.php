@@ -154,6 +154,11 @@ class ContratistaModel extends ModelBase
 			$sql .= " and co.consIdConstructora = ".trim($param["id_empresa"]);
 		}
 		
+		if(trim($param["id_agencia"]) <> "")
+		{
+			$sql .= " and c.ctrIdContratista = ".trim($param["id_agencia"]);
+		}
+		
 		if(trim($param["ctrRazonSocial"]) <> "")
 		{
 			$sql .= " and c.ctrRazonSocial LIKE '".trim($param["ctrRazonSocial"])."%'";

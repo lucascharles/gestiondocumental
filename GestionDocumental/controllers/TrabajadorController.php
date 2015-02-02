@@ -21,6 +21,7 @@ class TrabajadorController extends ControllerBase
 		{
 			$destino = "empresa/";
 			$param["id_empresa"] = $_SESSION["idempresa"];
+			$param["id_agencia"] = $_SESSION["idagencia"];
 // 			$data['result'] = $faenas->getListaFaenas($param);
 			$data['result'] = $dato->getListaContratistas($param);	
 			//$data['result'] = $faenas->getListaFaenas($param);	

@@ -33,16 +33,6 @@ class FaenasController extends ControllerBase
 		$this->view->show("admin/faenas.php", $data);
 	}
 
-// 	public function faenasempresa($array)
-// 	{
-// 		$data['nom_sistema'] = $array["nombre_sistema"];
-// 		$data['controller'] = $array["controlador"];
-	
-// 		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
-	
-// 		$this->view->show("empresa/faenas.php", $data);
-		
-// 	}
 	
 	public function faenasempresa($array)
 	{
@@ -74,6 +64,7 @@ class FaenasController extends ControllerBase
 		{
 			$destino = "empresa";
 			$param["id_empresa"] = $_SESSION["idempresa"];
+			$param["id_agencia"] = $_SESSION["idagencia"];
 		}
 		
 		$data['controller'] = $param["controlador"];
@@ -83,32 +74,7 @@ class FaenasController extends ControllerBase
 	
 	}
 	
-	
-// 	public function listaritemsadmin($param)
-// 	{
-// //original faenas
-// 		require 'models/FaenasModel.php';
-// 		$dato = new FaenasModel();		
-		
-// 		$_SESSION["f_faeNombre"] = $param["faeNombre"];
-// 		$_SESSION["f_faeResponsable"] = $param["faeResponsable"];
-				
-// 		$data['controller'] = $param["controlador"];
-				
-// 		$destino = "admin";	
-// 		if($_SESSION["tip_usuario"] == "E")
-// 		{
-// 			$destino = "empresa";
-// 			$param["id_empresa"] = $_SESSION["idempresa"];
-// 		}
-		
-// // 		$data['result'] = $dato->getListaFaenas($param);
-// 		$data['result'] = $dato->getEstadoDocFaena($param);
-// 		$this->view->show($destino."/lista_faenas.php", $data);
 
-		
-// 	}
-	
 	
 	public function alta($array)
 	{
@@ -221,7 +187,7 @@ class FaenasController extends ControllerBase
 		$data["rs_sub_doc"]= $doc->getSubTipoDocumento(array("id"=>$param["id_d"]));
 		$data['controller'] = $param["controlador"];
 		$data['nom_sistema'] = $param["nombre_sistema"];
-		$data['arrayscriptJs'] = array("validacampos.js","documento_empresa.js","funciones.js");
+		$data['arrayscriptJs'] = array("validacampos.js","documento_empresa.js","documento.js","funciones.js");
 		$data["id_f"] = $param["id_f"];
 		$data["id_t"] = $param["id_t"];
 		$data["id_d"] = $param["id_d"];
