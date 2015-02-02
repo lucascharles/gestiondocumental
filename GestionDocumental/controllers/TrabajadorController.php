@@ -74,6 +74,7 @@ class TrabajadorController extends ControllerBase
 		$data['controller'] = $array["controlador"];
 		$data['result'] = $dato->getDocumentos($array);
 		
+		
 		$this->view->show("admin/lista_doctrabajadores.php", $data);
 		
 	}
@@ -215,7 +216,6 @@ class TrabajadorController extends ControllerBase
 		$doc = new DocumentoModel();
 		$data['idsql_tip_doc'] = $doc->getListaTipoDocumento();
 		$data['grupo_doc'] = $doc->getListaTipoDocumento();
-		$data['rs_tip_doc'] = $doc->getListaSubTipoDocumento();
 
 		$data["id_f"] = $array["id_f"];
 		$data["id_t"] = $array["id"];
