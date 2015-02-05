@@ -1,6 +1,7 @@
 <?php
 class TrabajadorModel extends ModelBase
 {
+	var $sql = "";
 	
 	public function bajaRegistro($array)
 	{
@@ -115,35 +116,35 @@ class TrabajadorModel extends ModelBase
 	{
 		include("config.php");
 		
-			$sql = " SELECT a.afpNombre afp, c.ctrRazonSocial contratista, t.* ";
-			$sql .= " FROM contratista c, trabajador t LEFT JOIN afp a ON t.afpIdAfp = a.afpIdAfp ";
-			$sql .= " WHERE c.ctrIdContratista = t.ctrIdContratista AND t.activo = 'S' ";
+		$this->sql = " SELECT t.trbIdTrabajador, t.trbNombre, t.trbApPaterno, t.trbRut, t.trbFechaContrato, t.trbApMaterno, a.afpNombre afp, c.ctrIdContratista, c.ctrRazonSocial contratista ";
+		$this->sql .= " FROM contratista c, trabajador t LEFT JOIN afp a ON t.afpIdAfp = a.afpIdAfp ";
+		$this->sql .= " WHERE c.ctrIdContratista = t.ctrIdContratista AND t.activo = 'S' ";
 		
 		if(trim($array["trbNombre"]) <> "")
 		{
-			$sql .= " and t.trbNombre LIKE '".trim($array["trbNombre"])."%'";
+			$this->sql .= " and t.trbNombre LIKE '".trim($array["trbNombre"])."%'";
 		}
 
 		if(trim($array["trbApPaterno"]) <> "")
 		{
-			$sql .= " and t.trbApPaterno LIKE '".trim($array["trbApPaterno"])."%'";
+			$this->sql .= " and t.trbApPaterno LIKE '".trim($array["trbApPaterno"])."%'";
 		}
 
 		if(trim($array["ctrIdContratista"]) <> "")
 		{
-			$sql .= " and t.ctrIdContratista = ".trim($array["ctrIdContratista"]);
+			$this->sql .= " and t.ctrIdContratista = ".trim($array["ctrIdContratista"]);
 		}
 		else
 		{
-			$sql .= " and t.ctrIdContratista = 0 ";
+			$this->sql .= " and t.ctrIdContratista = 0 ";
 		}
 		
 		
-		$sql .= " ORDER BY t.trbApPaterno ";
+		$this->sql .= " ORDER BY t.trbApPaterno ";
 		
 // 		echo($sql);
 		
-		$result = consulta($sql);
+		$result = consulta($this->sql);
 		
     	return $result;	
 	}
