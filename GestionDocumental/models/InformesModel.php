@@ -54,15 +54,17 @@ class InformesModel extends ModelBase
 	public function bajar_trabajdores_pdf($param)
 	{
 		$dir = "descaga/files".$_SESSION["userid"]."/"; 
-		$handle = opendir($dir); 
-		while ($file = readdir($hadle))  
-		{   
-			if (is_file($dir.$file)) 
-			{ 
-				unlink($dir.$file); 
-			}
-		} 
-				
+		if(is_dir($dir))
+		{
+			$handle = opendir($dir); 
+			while ($file = readdir($hadle))  
+			{   
+				if (is_file($dir.$file)) 
+				{ 
+					unlink($dir.$file); 
+				}
+			} 
+		}					
 		$sql = $param["sql_exp_excel"];
 		$idsql = consulta($sql);
 		if($param["lotes"] == 1)
