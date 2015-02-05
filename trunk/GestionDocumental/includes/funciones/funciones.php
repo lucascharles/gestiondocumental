@@ -135,7 +135,6 @@ function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot
 		$cadena .=  $cadena_fila;
     }
      $cadena.=  "</table>";
-	 //$cadena = "";
 	 return $cadena;
 }
 
@@ -293,9 +292,9 @@ function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot
 	function consulta($sql='',$debug="")
 	{
 		include("config.php");
-		$con_mysql=mysql_connect($config->get('dbhost'),$config->get('dbuser'),$config->get('dbpass')); 	
+		$con_mysql=mysql_connect($dbhost,$dbuser,$dbpass); 	
 		if (!$con_mysql) {echo 'No se ha podido encontrar el servidor de datos';exit;}
-		mysql_select_db($config->get('dbname'),$con_mysql);
+		mysql_select_db($dbname,$con_mysql);
 		if($debug == 1)
 		{
 			echo("<br>SQL: ".$sql);
@@ -323,4 +322,36 @@ function simpleHtmlTable($data, $FormatoCabecera=1, $enlace=array(), $labelpivot
 		return $resp;
 	}
 		  
+		  
+	function listar_directorios_ruta($ruta)
+{
+		if (is_dir($ruta)) 
+		{
+			echo("<table width='100%' align='center' cellpadding='5' cellspacing='5' bgcolor='#FFFFFF'>");
+			if ($dh = opendir($ruta)) 
+			{
+				while (($file = readdir($dh)) !== false) 
+				{
+					if (is_file($ruta . $file) && $file<>"." && $file<>"..")
+					{
+						
+						echo("<tr>");
+						echo("	<td height='25' align='left' style='border-bottom:solid; border-bottom-width:2px; border-bottom-color:#CCCCCC;'> ");
+						echo("<div > <a href='backup/".$file."' target='_blank'> ".$file."</a> </div>");	
+						echo("	</td>");
+						
+					
+						echo("</tr>");
+					}
+				}
+				
+				closedir($dh);
+			}
+			echo("</table>");
+		}
+		else
+		{
+			echo "<br>No es ruta valida";
+		}
+}
 ?>
