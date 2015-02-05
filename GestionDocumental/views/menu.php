@@ -1,4 +1,4 @@
-<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" id="menu_acceso_rapido">
    <tr>
  	<td align="left">
 		<table width="100%" align="left" border="0" cellpadding="5" cellspacing="5" >
@@ -108,7 +108,7 @@
 									  </td>
 									 <td align="center" valign="middle"  height="25" class="">
 								
-									  <div class="principal" onClick="cargarOpcion('Imprimir')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
+									  <div class="principal" onClick="cargarOpcion('Informes@listado_trabajador')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">
 									  <table>
 												<tr><td align="center">
 									  <img src="images/impresora.png" class="btn_menu" />
@@ -137,7 +137,7 @@
                                         <img src="images/configuracion.png" class="btn_menu" />
                                         </td></tr>
                                                 <tr><td align="center">
-                                            	Usuarios
+                                            	Configuraci&oacute;n
                                             	</td></tr>
                                             </table>
                                         </div>
