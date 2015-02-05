@@ -243,3 +243,8 @@ function limpiarDendencia(obj)
 {
 	$(obj).find('option').remove();
 }
+
+function cerrarVentana()
+{
+	window.close();
+}
