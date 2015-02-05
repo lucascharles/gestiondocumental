@@ -595,3 +595,48 @@
 	font-family: Verdana;
 	font-weight:bold;
 }
+
+.btn_impresion
+{
+	width:170px;
+	height:60px;
+	background-color:#FFFFFF;
+	border-radius:3px;
+	text-align:center;
+}
+
+.btn_impresion img {
+	cursor: pointer;
+	opacity:0.60;filter: alpha(opacity = 60);
+	float: left;
+	margin: 5px;
+	-webkit-transition: margin 0.5s ease-out;
+	-moz-transition: margin 0.5s ease-out;
+	-ms-transition: margin 0.5s ease-out;
+	transition: margin 0.5s ease-out;
+}	
+
+.btn_impresion img:hover {
+	margin-top: 2px;
+	opacity:1;filter: alpha(opacity = 100);
+	
+}
+
+@media print{
+   .btn_impresion{ 
+   
+      display:none; 
+   }
+   #encabezado
+   {
+   	display:none;
+   }
+   .boton_form
+   {
+   	display:none;
+   }
+   #menu_acceso_rapido
+   {
+   	display:none;
+   }
+}
