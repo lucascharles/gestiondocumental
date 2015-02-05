@@ -33,13 +33,12 @@ class FaenasController extends ControllerBase
 		$this->view->show("admin/faenas.php", $data);
 	}
 
-	
 	public function faenasempresa($array)
 	{
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 	
-		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
+		$data['arrayscriptJs'] = array("funcionesadmin.js");
 	
 		$this->view->show("empresa/agencias.php", $data);
 	
@@ -75,7 +74,6 @@ class FaenasController extends ControllerBase
 	}
 	
 
-	
 	public function alta($array)
 	{
 		require 'models/FaenasModel.php';
