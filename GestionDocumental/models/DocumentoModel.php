@@ -190,7 +190,7 @@ class DocumentoModel extends ModelBase
 		$sql .= " AND dt.tpdIdTipoDocumento = ".$param["id_tipodocumento"];
 		$sql .= " AND dt.id_contratista = ".$param["id_contratista"];
 		
-//  		echo($sql);
+  		//echo($sql);
 		//exit();
 		$idsql = consulta($sql);
 		
@@ -204,7 +204,8 @@ class DocumentoModel extends ModelBase
 	{
 		include("config.php");
 		
-		$carpeta = $_SESSION["config_obj"]->get('carpeta_archivos_general').$param["id_contratista"]."_docs_".$param["id_faena"]."/";
+		//$carpeta = $_SESSION["config_obj"]->get('carpeta_archivos_general').$param["id_contratista"]."_docs_".$param["id_faena"]."/";
+		$carpeta = $_SESSION["config_obj"]->get('carpeta_archivos_general').$param["id_contratista"]."_docs/";
 
 		$nombre = md5($param["arch_upload"]["archivo"]["name"])."_".date("YmdHis");
 
