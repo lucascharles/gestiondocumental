@@ -104,6 +104,11 @@ class ConstructoraModel extends ModelBase
 			$sql .= " and c.consRut LIKE '".trim($param["consRut"])."%'";
 		}
 		
+		if(trim($param["consIdConstructora"]) <> "")
+		{
+			$sql .= " and c.consIdConstructora = ".trim($param["consIdConstructora"]);
+		}
+		
 		$sql .= " ORDER BY c.consRazonSocial ";
 		
 // 		echo($sql);
