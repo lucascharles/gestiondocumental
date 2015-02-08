@@ -17,7 +17,7 @@
 		<td>
         	<ul id="nav">
             	<li>
-					<div class="principal"  onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">IMPRESI&Oacute;N DE DOCUMENTOS</div>
+					<div class="principal" onClick="cargarOpcion('Informes@listado_trabajador')" onMouseOver="resaltarOpMenu(this)" onMouseOut="noresaltarOpMenu(this)">IMPRESI&Oacute;N DE DOCUMENTOS</div>
           		  </li>
             </ul>
 		</td>

@@ -19,6 +19,9 @@ class InformesController extends ControllerBase
 		$doc = new DocumentoModel();
 		$contratista = new ContratistaModel();
 		$constructora = new ConstructoraModel();
+
+		$param["id_empresa"] = $_SESSION["idempresa"];
+		$param["id_agencia"] = $_SESSION["idagencia"];
 		
 		if($param["filtrar"] == 1)
 		{

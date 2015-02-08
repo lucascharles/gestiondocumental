@@ -169,7 +169,7 @@ class UsuarioModel extends ModelBase
 		$sql .= " WHERE id_usuario = '".$param["usrLogin"]."'";
 		$sql .= " AND clave = '".$param["passLogin"]."'";
 		$sql .= " AND activo = 'S' ";
-		//echo($sql);
+// 		echo($sql);
 		//exit();
 		$idsql = consulta($sql);
 		$rs=mysql_fetch_array($idsql);

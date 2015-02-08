@@ -1,7 +1,11 @@
 <? 	
+if($_SESSION["tip_usuario"] == "E"){
+	include("views/cabecera_front.php");
+	include("views/menu_front.php");	
+}else{
 	include("views/cabecera.php"); 
  	include("views/menu.php"); 
-	
+}	
 	$controller = "Informes";
 	$titulo_form = "LISTADO TRABAJADORES";
  ?>
