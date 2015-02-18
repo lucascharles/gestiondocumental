@@ -33,9 +33,9 @@
 				   			<?
 				   			while($rs=mysql_fetch_array($result))
 							{
-								if(!$_SESSION["ctrIdContratista"]>0) $_SESSION["ctrIdContratista"] = $rs["ctrIdContratista"];
+								if(!$_SESSION["f_ctrIdContratista"]>0) $_SESSION["f_ctrIdContratista"] = $rs["ctrIdContratista"];
 								$selected = "";
-								if($_SESSION["ctrIdContratista"] == $rs["ctrIdContratista"])$selected = "selected='selected'";
+								if($_SESSION["f_ctrIdContratista"] == $rs["ctrIdContratista"])$selected = "selected='selected'";
 						    ?>
 							   <option value="<?=$rs["ctrIdContratista"]?>" <?=$selected?>> <? echo($rs["ctrNombreFantasia"]); ?> </option>
 							<?
@@ -59,16 +59,16 @@
                     $hidden = "";
 					if(isset($_SESSION["bloqueo"]))
 					{
-						if(in_array($_SESSION["f_id_faena"],$_SESSION["bloqueo"])) $hidden = "style='display:none;'";
+						if(in_array($_SESSION["f_ctrIdContratista"],$_SESSION["bloqueo"])) $hidden = "style='display:none;'";
 					}
 					?>
-                    <table class="opciones" onclick="nuevoRegistro('<?=$controller?>')" title="Nuevo Trabajador">
+                    <table class="opciones" onclick="nuevoRegistro('<?=$controller?>')" title="Nuevo Trabajador" id="nuevo_trabajador_btn" <?=$hidden?>>
                         <tr>
                             <td align="right" valign="middle">
-                            <img src="images/nuevoregistro.png" onmouseover="resaltarImagen(this)" onmouseout="noresaltarImagen(this)" <?=$hidden?>/>
+                            <img src="images/nuevoregistro.png" onmouseover="resaltarImagen(this)" onmouseout="noresaltarImagen(this)" />
                             </td>
                             <td align="left" valign="middle" >
-                            <font <?=$hidden?>>Nuevo </font>
+                            <font >Nuevo </font>
                             </td>
                         </tr>
                     </table>
