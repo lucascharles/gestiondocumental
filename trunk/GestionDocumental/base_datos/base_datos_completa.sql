@@ -2,7 +2,8 @@
 SQLyog Ultimate v9.63 
 MySQL - 5.5.40-0ubuntu0.12.04.1 : Database - gestion_documental
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -124,39 +125,39 @@ insert  into `constructora`(`consIdConstructora`,`consEmail`,`consEstado`,`consF
 DROP TABLE IF EXISTS `contratista`;
 
 CREATE TABLE `contratista` (
-  `ctrIdContratista` int(11) NOT NULL AUTO_INCREMENT,
-  `ccatIdAfiliado` int(11) DEFAULT NULL,
-  `ctrEmail` varchar(100) DEFAULT NULL,
-  `ctrEmailExpertoMutualidad` varchar(100) DEFAULT NULL,
-  `ctrEstado` varchar(100) DEFAULT NULL,
-  `ctrFechaCreacion` date DEFAULT NULL,
-  `ctrFechaModificacion` date DEFAULT NULL,
-  `ctrFonoExpertoMutualidad` varchar(100) DEFAULT NULL,
-  `ctrIdAfiliadoMutualidad` int(11) DEFAULT NULL,
-  `ctrIdServicioContratado` int(11) DEFAULT NULL,
-  `ctrIngresoFaena` date DEFAULT NULL,
-  `ctrNombreExpertoMutualidad` varchar(100) DEFAULT NULL,
-  `ctrNombreFantasia` varchar(100) DEFAULT NULL,
-  `ctrNroActividadCab` varchar(100) DEFAULT NULL,
-  `ctrNroActividadDet` varchar(100) DEFAULT NULL,
-  `ctrRazonSocial` varchar(100) DEFAULT NULL,
-  `ctrRut` varchar(100) DEFAULT NULL,
-  `ctrTasaCotizacionActual` int(11) DEFAULT NULL,
-  `ctrTasaCotizacionTotal` int(11) DEFAULT NULL,
-  `ctrTasaGenerica` int(11) DEFAULT NULL,
-  `ctrTelefono` varchar(100) DEFAULT NULL,
-  `ctrTelefono2` varchar(100) DEFAULT NULL,
-  `ctrTelefono3` varchar(100) DEFAULT NULL,
-  `ctrUsuarioCreacion` varchar(100) DEFAULT NULL,
-  `ctrUsuarioModificacion` varchar(100) DEFAULT NULL,
-  `dirIdDirecion` int(11) DEFAULT NULL,
-  `mutIdMutualidad` int(11) DEFAULT NULL,
-  `rplIdRepLegal` int(11) DEFAULT NULL,
-  `tjor_idTipoJornada` int(11) DEFAULT NULL,
-  `consIdConstructora` int(11) DEFAULT NULL,
-  `ctrDireccion` varchar(100) DEFAULT NULL,
-  `activo` varchar(1) DEFAULT NULL,
-  PRIMARY KEY (`ctrIdContratista`),
+  `ctrIdContratista` int(11) NOT NULL auto_increment,
+  `ccatIdAfiliado` int(11) default NULL,
+  `ctrEmail` varchar(100) default NULL,
+  `ctrEmailExpertoMutualidad` varchar(100) default NULL,
+  `ctrEstado` varchar(100) default NULL,
+  `ctrFechaCreacion` date default NULL,
+  `ctrFechaModificacion` date default NULL,
+  `ctrFonoExpertoMutualidad` varchar(100) default NULL,
+  `ctrIdAfiliadoMutualidad` int(11) default NULL,
+  `ctrIdServicioContratado` int(11) default NULL,
+  `ctrIngresoFaena` date default NULL,
+  `ctrNombreExpertoMutualidad` varchar(100) default NULL,
+  `ctrNombreFantasia` varchar(100) default NULL,
+  `ctrNroActividadCab` varchar(100) default NULL,
+  `ctrNroActividadDet` varchar(100) default NULL,
+  `ctrRazonSocial` varchar(100) default NULL,
+  `ctrRut` varchar(100) default NULL,
+  `ctrTasaCotizacionActual` int(11) default NULL,
+  `ctrTasaCotizacionTotal` int(11) default NULL,
+  `ctrTasaGenerica` int(11) default NULL,
+  `ctrTelefono` varchar(100) default NULL,
+  `ctrTelefono2` varchar(100) default NULL,
+  `ctrTelefono3` varchar(100) default NULL,
+  `ctrUsuarioCreacion` varchar(100) default NULL,
+  `ctrUsuarioModificacion` varchar(100) default NULL,
+  `dirIdDirecion` int(11) default NULL,
+  `mutIdMutualidad` int(11) default NULL,
+  `rplIdRepLegal` int(11) default NULL,
+  `tjor_idTipoJornada` int(11) default NULL,
+  `consIdConstructora` int(11) default NULL,
+  `ctrDireccion` varchar(100) default NULL,
+  `activo` varchar(1) default NULL,
+  `bloqueada` int(11) NOT NULL,
   KEY `ctrIdContratista` (`ctrIdContratista`)
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
