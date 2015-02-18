@@ -1,6 +1,26 @@
 <?php
 class ContratistaModel extends ModelBase
 {
+	public function bloquear_contratista($param)
+	{
+		$sql = " SELECT bloqueada FROM contratista ";
+		$sql .= " WHERE ctrIdContratista = ".$param["id_contratista"];
+
+		//echo($sql);
+		$idsql = consulta($sql);
+		$rs = mysql_fetch_array($idsql);
+		
+		$bloquea = 1;
+		if($rs["bloqueada"] == 1) $bloquea = 0;
+		
+		$sql = " UPDATE contratista SET bloqueada = ".$bloquea;
+		$sql .= " WHERE ctrIdContratista = ".$param["id_contratista"];;
+		//echo("<br>".$sql);
+		consulta($sql);
+		
+		return $bloquea;
+	}
+	
 	public function getContratista($param)
 	{
 		$sql = " SELECT c.*, CONCAT(d.dirCalle,' ',d.dirNumero,' ',d.dirEstado) direccion ";
@@ -137,9 +157,6 @@ class ContratistaModel extends ModelBase
 		consulta($sql);
 	}
 
-	
-	
-		
 	public function getListaContratistas($param)
 	{
 		include("config.php");
