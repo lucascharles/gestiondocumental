@@ -176,15 +176,15 @@ class UsuarioModel extends ModelBase
 		$bloqueo = array();
 		if($rs["tipo_usuario"] == "E")
 		{
-			$sql = " SELECT id_faena FROM faenasxcontratista ";
-			$sql .= " WHERE bloqueada = 1 AND fxcIdContratistaPadre = ".$rs["id_empresa"];
+			$sql = " SELECT c.ctrIdContratista id FROM contratista c, constructora co ";
+			$sql .= " WHERE bloqueada = 1 AND c.consIdConstructora = co.consIdConstructora AND co.consIdConstructora = ".$rs["id_empresa"];
 			//echo($sql);
 			
 			$idsql_bloq = consulta($sql);
 			
 			while($rs_bloq=mysql_fetch_array($idsql_bloq))
 			{
-				$bloqueo[] = $rs_bloq["id_faena"];
+				$bloqueo[] = $rs_bloq["id"];
 			}
 		}
 		if(mysql_num_rows($idsql)>0)
