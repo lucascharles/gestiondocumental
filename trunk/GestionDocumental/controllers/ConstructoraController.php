@@ -1,13 +1,36 @@
 <?php
 class ConstructoraController extends ControllerBase
 {
+	public function bloquear_contratista($param)
+	{
+		require 'models/ContratistaModel.php';
+		$dato = new ContratistaModel();		
+		$res = $dato->bloquear_contratista($param);
+		
+		echo($res);
+	}
+	
+	public function bloquear($param)
+	{
+		require 'models/ContratistaModel.php';
+		$dato = new ContratistaModel();		
+		
+		$data['nom_sistema'] = $param["nombre_sistema"];
+		$data['controller'] = $param["controlador"];
+		$data['id_empresa'] = $param["id"];
+		$param['id_empresa'] = $param["id"];
+		$data["idsql_contratistas"] = $dato->getListaContratistas($param);
+		$data['arrayscriptJs'] = array("bloquear_contratista.js");
+	
+		$this->view->show("person/bloquear_contratista.php", $data);
+	}
 
 	public function admin($array)
 	{
 		$data['nom_sistema'] = $array["nombre_sistema"];
 		$data['controller'] = $array["controlador"];
 						
-		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_usuario.js");
+		$data['arrayscriptJs'] = array("funcionesadmin.js","admin_constructora.js");
 	
 		$this->view->show("admin/constructoras.php", $data);
 	}
