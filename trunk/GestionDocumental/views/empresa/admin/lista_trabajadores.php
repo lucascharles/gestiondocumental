@@ -12,15 +12,23 @@
     </tr>
 	<?php
 	$hidden = "";
+	$bloq = 0;
 	$img = "images/editar.gif";
 	if(isset($_SESSION["bloqueo"]))
 	{
-		if(in_array($_SESSION["f_id_faena"],$_SESSION["bloqueo"]))
+		if(in_array($_SESSION["f_ctrIdContratista"],$_SESSION["bloqueo"]))
 		{ 
 			$hidden = "style='display:none;'";
 			$img = "images/preview.png";
 		}
 	}
+	if($hidden <> "")
+	{
+		$bloq = 1;
+	}
+	?>
+    <script>bloquear("nuevo_trabajador_btn",<?=$bloq?>);</script>
+    <?
 	while($rs = mysql_fetch_array($result))
 	{	
 	?>
@@ -35,9 +43,8 @@
         <td align="left" width="10%"><?=($rs["fec_alta"]=="0000-00-00") ? "" : formatoFecha($rs["fec_alta"],"yyyy-mm-dd","dd/mm/yyyy"); ?></td> 
 		<td align="left" width="10%"><?php echo (utf8_decode($rs["contratista"])) ?></td>    
 		<td align="left" width="20%">
-      	<img src="<?=$img?>" title="Editar" class="oplistado" onclick="window.parent.editarRegistro('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
-        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="window.parent.abrirVentanaConfirmacion(<?php echo ($rs["trbIdTrabajador"]) ?>)" <?=$hidden?> />
-        
+      	<img src="<?=$img?>" title="Editar" class="oplistado" onclick="editarRegistro('<? echo($controller) ?>',<?php echo ($rs["trbIdTrabajador"]) ?>)" />
+        <img src="images/borrar.gif" title="Eliminar" class="oplistado" onclick="abrirVentanaConfirmacion(<?php echo ($rs["trbIdTrabajador"]) ?>)" <?=$hidden?> />
         </td>
 	</tr>
     <tr bgcolor="#FFFFFF" id="fila_sep_<?php echo ($rs["id"]) ?>">
