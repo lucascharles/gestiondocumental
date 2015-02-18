@@ -57,6 +57,12 @@
 	{
 		$titulo_form = "Edici&oacute;n Trabajador (Id: ".$id.")";
 	}
+	
+	$disabled = "";
+	if(isset($_SESSION["bloqueo"]))
+	{
+		if(in_array($_SESSION["f_ctrIdContratista"],$_SESSION["bloqueo"])) $disabled = "disabled='disabled'";
+	}
 ?>
 <form name="frm<?=$controller?>" action="" method='post'>
 <input type="hidden" name="id_reg" id="id_reg" value="<?=$id?>" />
@@ -373,7 +379,14 @@
     </tr>   
     <tr>
         <td colspan="3" align="center" height="50">
+        	<?
+        	if($disabled=="")
+			{
+			?>
         	<input  type="button" name="btngrabar" id="btngrabar" onclick="grabarForm('<?=$controller?>')"  value="Grabar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)'/>&nbsp;
+            <?
+            }
+			?>
             <input  type="button" name="btnsalir" id="btnsalir" onclick="salirForm('<?=$controller?>')"value="Cancelar" class="boton_form" onMouseOver='overClassBoton(this)' onMouseOut='outClassBoton(this)' />
          </td>
     </tr>
