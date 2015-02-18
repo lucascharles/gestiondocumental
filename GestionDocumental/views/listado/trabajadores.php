@@ -56,7 +56,7 @@ if($_SESSION["tip_usuario"] == "E"){
 								$selected = "";
 								if($_SESSION["f_ctrIdContratista"] == $rs["ctrIdContratista"])$selected = "selected='selected'";
 						    ?>
-							   <option value="<?=$rs["ctrIdContratista"]?>" > <? echo($rs["ctrRazonSocial"]); ?> </option>
+							   <option value="<?=$rs["ctrIdContratista"]?>" <?=$selected?> > <? echo($rs["ctrRazonSocial"]); ?> </option>
 							<?
 							  }
 				    		?>
