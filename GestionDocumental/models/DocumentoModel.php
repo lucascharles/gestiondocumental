@@ -211,6 +211,8 @@ class DocumentoModel extends ModelBase
 
 		$nombre_original = $param["arch_upload"]["archivo"]["name"];
 
+// 		echo($carpeta);
+		
 		if(!(is_dir($carpeta) || is_file(strtoupper($carpeta))))
 		{
 			mkdir($carpeta, 0777);
