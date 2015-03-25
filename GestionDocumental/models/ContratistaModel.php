@@ -186,10 +186,10 @@ class ContratistaModel extends ModelBase
 			$sql .= " and c.ctrRut LIKE '".trim($param["ctrRut"])."%'";
 		}
 		
-		if(trim($param["consIdConstructora"]) <> "")
-		{
-			$sql .= " and c.consIdConstructora = ".$param["consIdConstructora"];
-		}
+// 		if(trim($param["consIdConstructora"]) <> "")
+// 		{
+// 			$sql .= " and c.consIdConstructora = ".$param["consIdConstructora"];
+// 		}
 		
 		$sql .= " ORDER BY c.ctrRazonSocial ";
 		
